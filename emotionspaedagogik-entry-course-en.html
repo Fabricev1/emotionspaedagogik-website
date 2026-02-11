@@ -280,25 +280,48 @@ a { text-decoration: none; color: inherit; }
    ============================================================ */
 .hero {
   background: var(--color-cream);
-  padding: 132px 0 80px;
+  padding: 60px 0 80px;
   position: relative;
   overflow: hidden;
   min-height: 88vh;
   display: flex;
   align-items: center;
 }
+.hero-symbol {
+  position: absolute;
+  z-index: 1;
+}
+.hero-symbol-lg {
+  width: 420px;
+  height: 369px;
+  top: -40px;
+  right: -60px;
+  opacity: 0.07;
+}
+.hero-symbol-sm {
+  width: 180px;
+  height: 158px;
+  bottom: 20px;
+  left: -30px;
+  opacity: 0.05;
+}
+.hero .container {
+  position: relative;
+  z-index: 5;
+}
 .hero-inner {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 48px;
   align-items: center;
-  position: relative;
-  z-index: 5;
 }
-.hero-text .section-label { color: var(--color-pink); margin-bottom: 18px; }
+.hero-text .section-label {
+  color: var(--color-coral);
+  margin-bottom: 18px;
+}
 .hero-text h1 {
   font-family: var(--font-heading);
-  font-size: 3.35rem;
+  font-size: 3.2rem;
   font-weight: 400;
   color: var(--color-text);
   line-height: 1.15;
@@ -306,84 +329,87 @@ a { text-decoration: none; color: inherit; }
 }
 .hero-text .hero-intro {
   font-family: var(--font-body);
-  font-size: 0.91rem;
+  font-size: 0.92rem;
   color: var(--color-text-muted);
   line-height: 1.72;
   max-width: 480px;
   margin-bottom: 28px;
 }
 .hero-price {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.hero-price-amount {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 400;
   color: var(--color-text);
-  margin-bottom: 24px;
 }
-.hero-price span {
+.hero-price-note {
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   color: var(--color-text-muted);
   font-weight: 400;
-  margin-left: 4px;
 }
 .hero-ctas {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 .hero-trust {
   display: flex;
-  gap: 10px;
+  gap: 24px;
   flex-wrap: wrap;
   align-items: center;
 }
-.hero-trust-badge {
-  display: inline-flex;
+.hero-trust-item {
+  display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 5px 12px;
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
+  gap: 6px;
   font-family: var(--font-body);
-  font-size: 0.68rem;
-  font-weight: 600;
+  font-size: 0.76rem;
+  font-weight: 500;
   color: var(--color-text-muted);
-  letter-spacing: 0.02em;
 }
-.hero-trust-badge svg {
-  width: 13px;
-  height: 13px;
-  stroke: var(--color-text-muted);
-  stroke-width: 1.5;
+.hero-trust-item svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2;
   fill: none;
 }
+.hero-trust-item:nth-child(1) svg { stroke: var(--color-coral); }
+.hero-trust-item:nth-child(2) svg { stroke: var(--color-pink); }
+.hero-trust-item:nth-child(3) svg { stroke: var(--color-purple); }
+/* Photo area */
 .hero-image-area {
   position: relative;
-  min-height: 480px;
+  min-height: auto;
 }
 .hero-photo-placeholder {
+  width: 100%;
+  max-width: 380px;
+  height: 460px;
+  border-radius: 12px;
+  margin: 0 auto;
   position: relative;
   z-index: 3;
-  width: 100%;
-  max-width: 360px;
-  height: 440px;
-  margin: 0 auto;
-  border-radius: 200px 200px 20px 20px;
 }
 .hero-host-badge {
   position: absolute;
-  bottom: 24px;
+  bottom: -16px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.95);
   backdrop-filter: blur(8px);
-  padding: 8px 16px;
-  border-radius: 20px;
+  padding: 10px 20px;
+  border-radius: 24px;
   z-index: 8;
   white-space: nowrap;
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   color: var(--color-text-muted);
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
@@ -392,24 +418,12 @@ a { text-decoration: none; color: inherit; }
   font-weight: 600;
 }
 
-/* Hero blobs */
-.hero-blob {
-  position: absolute;
-  z-index: 1;
-}
-.hero-blob-1 { top: -100px; right: -120px; width: 480px; height: 480px; opacity: 0.92; z-index: 1; }
-.hero-blob-2 { top: 140px; right: 80px; width: 280px; height: 280px; opacity: 0.82; z-index: 4; }
-.hero-blob-3 { top: 30px; right: 20px; width: 210px; height: 210px; opacity: 0.7; z-index: 2; }
-.hero-blob-4 { bottom: -50px; left: -70px; width: 180px; height: 180px; opacity: 0.5; z-index: 1; }
-.hero-blob-5 { bottom: 60px; right: -60px; width: 160px; height: 160px; opacity: 0.55; z-index: 1; }
-.hero-blob-6 { top: -30px; left: 40px; width: 120px; height: 120px; opacity: 0.4; z-index: 1; }
-
 /* ============================================================
    WHAT WILL BE EASIER — OUTCOMES GRID
    ============================================================ */
 .section-outcomes {
   background: var(--color-cream);
-  padding: var(--section-padding) 0;
+  padding: 0;
 }
 .section-outcomes h2 {
   font-family: var(--font-heading);
@@ -433,77 +447,140 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ============================================================
-   IS THIS FOR YOU — COLOR BAND (WARM)
+   IS THIS FOR YOU — FIT CHECK
    ============================================================ */
 .section-audience {
-  background: var(--gradient-warm);
+  background: var(--color-cream);
   padding: var(--section-padding-large) 0;
   position: relative;
   overflow: hidden;
 }
-.section-audience .band-blob {
-  position: absolute;
-  opacity: 0.12;
-}
 .section-audience h2 {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 2.35rem;
   font-weight: 400;
-  color: #FFFFFF;
-  margin-bottom: 56px;
+  color: var(--color-text);
+  margin-bottom: 48px;
   line-height: 1.25;
+}
+.audience-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
   position: relative;
-  z-index: 2;
+  overflow: hidden;
+}
+.audience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-warm);
+  border-radius: 12px 12px 0 0;
 }
 .audience-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  position: relative;
-  z-index: 2;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0;
+}
+.audience-col {
+  padding: 44px 40px;
+}
+.audience-divider {
+  background: var(--color-border);
+  margin: 32px 0;
 }
 .audience-col h3 {
   font-family: var(--font-heading);
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 400;
-  color: #FFFFFF;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+}
+.audience-col-yes h3 {
+  color: var(--color-text);
+}
+.audience-col-no h3 {
+  color: var(--color-text-muted);
 }
 .audience-item {
   display: flex;
-  gap: 12px;
-  margin-bottom: 18px;
+  gap: 14px;
+  margin-bottom: 20px;
   font-family: var(--font-body);
   font-size: 0.88rem;
-  color: rgba(255,255,255,0.9);
   line-height: 1.65;
+  color: var(--color-text-muted);
+}
+.audience-item:last-child {
+  margin-bottom: 0;
 }
 .audience-item-icon {
   flex-shrink: 0;
-  width: 22px;
-  height: 22px;
-  margin-top: 2px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
 }
 .audience-item-icon svg {
-  width: 18px;
-  height: 18px;
-  stroke: #FFFFFF;
-  stroke-width: 2;
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.5;
   fill: none;
+}
+.audience-icon-yes {
+  background: rgba(255,138,101,0.1);
+}
+.audience-icon-yes svg {
+  stroke: var(--color-coral);
+}
+.audience-icon-no {
+  background: rgba(58,58,58,0.06);
+}
+.audience-icon-no svg {
+  stroke: var(--color-text-muted);
 }
 
 /* ============================================================
-   HOW IT WORKS
+   HOW IT WORKS — COLOR BAND
    ============================================================ */
 .section-howitworks {
-  background: var(--color-cream);
-  padding: var(--section-padding) 0;
+  background: linear-gradient(135deg, #FF8A65 0%, #E83E8C 100%);
+  padding: var(--section-padding-large) 0;
+  position: relative;
+  overflow: hidden;
+}
+.section-howitworks .band-symbol {
+  position: absolute;
+  opacity: 0.08;
+  z-index: 1;
+}
+.section-howitworks .band-symbol-1 {
+  width: 360px;
+  height: 316px;
+  top: -60px;
+  right: -80px;
+}
+.section-howitworks .band-symbol-2 {
+  width: 200px;
+  height: 176px;
+  bottom: -40px;
+  left: -40px;
+  transform: rotate(-20deg);
+}
+.section-howitworks .container {
+  position: relative;
+  z-index: 2;
 }
 .section-howitworks h2 {
   font-family: var(--font-heading);
   font-size: 2.35rem;
   font-weight: 400;
-  color: var(--color-text);
+  color: #FFFFFF;
   margin-bottom: 56px;
   line-height: 1.25;
 }
@@ -515,27 +592,41 @@ a { text-decoration: none; color: inherit; }
 .howitworks-item {
   text-align: left;
 }
-.howitworks-item .card-icon {
-  margin-bottom: 18px;
+.howitworks-item .hw-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.howitworks-item .hw-icon svg {
+  width: 21px;
+  height: 21px;
+  stroke: #FFFFFF;
+  stroke-width: 1.5;
+  fill: none;
 }
 .howitworks-item h4 {
   font-family: var(--font-heading);
   font-size: 1.15rem;
   font-weight: 400;
-  color: var(--color-text);
+  color: #FFFFFF;
   margin-bottom: 8px;
 }
 .howitworks-item p {
   font-family: var(--font-body);
   font-size: 0.86rem;
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.85);
   line-height: 1.65;
 }
 .howitworks-note {
   margin-top: 48px;
   font-family: var(--font-body);
   font-size: 0.84rem;
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.7);
   line-height: 1.65;
   font-style: italic;
 }
@@ -1272,14 +1363,25 @@ a { text-decoration: none; color: inherit; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-image-area { display: none; }
-  .hero { min-height: auto; padding: 140px 0 80px; }
   .recognition-inner { grid-template-columns: 1fr; }
   .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 900px) {
+  .hero { padding: 48px 0 64px; min-height: auto; }
+  .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  .hero-text h1 { font-size: 2.4rem; }
+  .hero-photo-placeholder { max-width: 280px; height: 340px; }
+  .hero-ctas { flex-direction: column; }
+  .hero-ctas .btn { width: 100%; justify-content: center; text-align: center; }
+  .hero-symbol-lg { width: 280px; height: 246px; }
+  .hero-symbol-sm { display: none; }
+  .section-howitworks h2 { font-size: 1.9rem; }
+  .howitworks-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .section-audience h2 { font-size: 1.9rem; }
+  .audience-grid { grid-template-columns: 1fr; }
+  .audience-divider { display: none; }
+  .audience-col:last-child { border-top: 1px solid var(--color-border); }
   .pricing-grid { grid-template-columns: 1fr; }
   .faq-grid { grid-template-columns: 1fr; gap: 32px; }
   .faq-left { position: static; }
@@ -1290,12 +1392,7 @@ a { text-decoration: none; color: inherit; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
   
-  .hero-text h1 { font-size: 2.4rem; }
-  .hero { padding: 120px 0 var(--section-padding-mobile); }
-  .hero-price { font-size: 1.5rem; }
-
   .section-outcomes,
-  .section-howitworks,
   .section-curriculum,
   .section-features,
   .section-testimonials,
@@ -1303,7 +1400,6 @@ a { text-decoration: none; color: inherit; }
   .section-faq {
     padding: var(--section-padding-mobile) 0;
   }
-  .section-audience,
   .section-recognition,
   .section-trainer {
     padding: 80px 0;
@@ -1312,12 +1408,10 @@ a { text-decoration: none; color: inherit; }
   .section-final-cta h2 { font-size: 2.2rem; }
 
   .section-outcomes h2,
-  .section-howitworks h2,
   .section-curriculum h2,
   .section-features h2,
   .section-testimonials h2,
   .section-pricing h2,
-  .section-audience h2,
   .recognition-text h2 {
     font-size: 1.85rem;
   }
@@ -1325,8 +1419,6 @@ a { text-decoration: none; color: inherit; }
   .outcomes-grid,
   .features-grid { grid-template-columns: 1fr; }
   .testimonials-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .howitworks-grid { grid-template-columns: 1fr 1fr; }
-  .audience-grid { grid-template-columns: 1fr; gap: 36px; }
 
   .trainer-inner { grid-template-columns: 1fr; text-align: center; }
   .trainer-photo { margin: 0 auto 16px; width: 160px; height: 160px; }
@@ -1336,22 +1428,17 @@ a { text-decoration: none; color: inherit; }
   .footer-brand { grid-column: 1 / -1; }
 
   .btn-primary-lg { padding: 14px 28px; font-size: 0.95rem; }
-  .hero-ctas { flex-direction: column; }
-  .hero-ctas .btn { width: 100%; justify-content: center; }
   .email-form { flex-direction: column; }
   .email-form-input-wrap { width: 100%; }
   .email-form .btn-cta { width: 100%; justify-content: center; }
-
-  /* Reduce blobs on mobile */
-  .hero-blob-1 { width: 280px; height: 280px; top: -60px; right: -80px; }
-  .hero-blob-2 { width: 160px; height: 160px; }
-  .hero-blob-3 { width: 120px; height: 120px; }
-  .hero-blob-4 { width: 110px; height: 110px; }
-  .hero-blob-5 { display: none; }
-  .hero-blob-6 { display: none; }
 }
 
 @media (max-width: 600px) {
+  .hero-text h1 { font-size: 2rem; }
+  .hero-price-amount { font-size: 1.6rem; }
+  .hero-trust { gap: 16px; }
+  .howitworks-grid { grid-template-columns: 1fr; gap: 28px; }
+  .audience-col { padding: 32px 24px; }
   .section-pricing h2 { font-size: 1.9rem; }
   .pricing-card { padding: 32px 24px; }
   .pricing-ctas { flex-direction: column; }
@@ -1359,13 +1446,41 @@ a { text-decoration: none; color: inherit; }
 }
 
 @media (max-width: 480px) {
-  .hero-text h1 { font-size: 2rem; }
-  .howitworks-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
+
+<!-- Hidden SVG symbol definitions -->
+<svg style="display:none">
+  <g id="symbol-white">
+    <path d="M76.4671 13.8598C101.377 16.1798 98.7071 41.7698 81.6871 56.1798C90.4571 35.0198 81.9371 20.0498 76.4671 13.8598Z" fill="white"/>
+    <path d="M63.8671 42.9398C62.4671 51.9998 58.3571 61.1898 51.0071 68.4898C43.3671 69.2298 35.9171 68.2798 30.0771 64.9498C41.6971 71.4398 60.3971 63.9698 63.8771 42.9398H63.8671Z" fill="white"/>
+    <path d="M76.4671 13.8598C81.9271 20.0498 90.4571 35.0198 81.6871 56.1798C74.1671 62.5198 62.3771 67.3798 51.0071 68.4798C58.3671 61.1798 62.4771 51.9898 63.8671 42.9298C67.1471 23.1398 53.0271 11.5398 44.2571 8.42978C44.0271 8.34978 43.8071 8.26978 43.5871 8.17978C54.3071 11.7098 69.1871 12.9198 76.4571 13.8498L76.4671 13.8598Z" fill="white"/>
+    <path d="M76.4671 13.8598C69.1971 12.9298 54.3171 11.7198 43.5971 8.18978C32.6271 4.06978 35.7371 -0.630222 47.1271 0.0697783C60.3271 0.879778 69.9971 5.97978 76.4671 13.8598Z" fill="white"/>
+    <path d="M25.0171 7.54977C42.6971 9.48977 56.6572 30.3298 45.0072 48.0798C49.8372 39.4198 49.4571 20.9698 31.4871 18.2598C31.3071 15.9898 29.7772 14.7198 27.4672 13.7898C20.3072 10.8898 21.8771 7.20977 25.0171 7.55977V7.54977Z" fill="white"/>
+    <path d="M5.31714 48.2098C7.90714 63.4898 15.9571 74.9698 31.1571 80.1798C8.64714 86.1798 -9.35286 68.4398 5.31714 48.2098Z" fill="white"/>
+    <path d="M35.3671 36.7998L35.3471 36.8298C34.5371 36.1698 33.3371 35.7798 31.5871 35.7998C27.1971 35.8498 23.2571 38.4998 21.2271 42.4698C17.2071 48.4898 13.0471 46.0198 11.8371 41.8198C19.0171 36.2998 29.3971 31.6798 35.3771 36.7998H35.3671Z" fill="white"/>
+    <path d="M35.3671 36.7998C29.3871 31.6798 19.0071 36.2998 11.8271 41.8198C10.8371 38.3898 11.8271 33.8198 16.4771 31.7898C23.1271 28.7398 32.4671 25.0198 31.4871 18.2498C49.4571 20.9598 49.8371 39.4198 45.0071 48.0698C44.4071 48.9798 43.7471 49.8898 43.0071 50.7798C40.6171 53.6698 32.8571 57.1698 35.3371 47.6398C36.0371 44.9498 38.2271 39.1798 35.3471 36.8198L35.3671 36.7898V36.7998Z" fill="white"/>
+    <path d="M31.4871 18.2498C32.4771 25.0198 23.1371 28.7398 16.4771 31.7898C11.8271 33.8198 10.8371 38.3898 11.8271 41.8198C9.00713 43.9898 6.67712 46.2898 5.30712 48.1998C2.69712 31.7898 14.6071 15.8898 31.4871 18.2398V18.2498Z" fill="white"/>
+    <path d="M30.0671 64.9398C35.9171 68.2698 43.3671 69.2198 50.9971 68.4798C45.9571 73.4798 39.3971 77.5898 31.1471 80.1698C15.9471 74.9698 7.89713 63.4798 5.30713 48.1998C6.67713 46.2898 9.00713 43.9798 11.8271 41.8198C13.0371 46.0198 17.1971 48.4898 21.2171 42.4698C18.5071 47.7998 19.2071 55.5098 26.8271 62.5798C27.6171 63.3198 28.4771 63.9698 29.3771 64.5298C29.3771 64.5298 29.3871 64.5298 29.3971 64.5398C29.6171 64.6798 29.8371 64.8098 30.0671 64.9398Z" fill="white"/>
+    <path d="M81.6772 56.1798C75.6872 69.0098 64.0772 78.9798 54.8172 81.5198C48.2872 83.3098 39.5672 83.3398 31.1472 80.1698C39.3972 77.5898 45.9571 73.4798 50.9971 68.4798C62.3671 67.3798 74.1572 62.5198 81.6772 56.1798Z" fill="white"/>
+  </g>
+  <g id="symbol-color">
+    <path d="M76.4671 13.8598C101.377 16.1798 98.7071 41.7698 81.6871 56.1798C90.4571 35.0198 81.9371 20.0498 76.4671 13.8598Z" fill="#9984B9"/>
+    <path d="M63.8671 42.9398C62.4671 51.9998 58.3571 61.1898 51.0071 68.4898C43.3671 69.2298 35.9171 68.2798 30.0771 64.9498C41.6971 71.4398 60.3971 63.9698 63.8771 42.9398H63.8671Z" fill="#4B3368"/>
+    <path d="M76.4671 13.8598C81.9271 20.0498 90.4571 35.0198 81.6871 56.1798C74.1671 62.5198 62.3771 67.3798 51.0071 68.4798C58.3671 61.1798 62.4771 51.9898 63.8671 42.9298C67.1471 23.1398 53.0271 11.5398 44.2571 8.42978C44.0271 8.34978 43.8071 8.26978 43.5871 8.17978C54.3071 11.7098 69.1871 12.9198 76.4571 13.8498L76.4671 13.8598Z" fill="#A25499"/>
+    <path d="M76.4671 13.8598C69.1971 12.9298 54.3171 11.7198 43.5971 8.18978C32.6271 4.06978 35.7371 -0.630222 47.1271 0.0697783C60.3271 0.879778 69.9971 5.97978 76.4671 13.8598Z" fill="#F59DB0"/>
+    <path d="M25.0171 7.54977C42.6971 9.48977 56.6572 30.3298 45.0072 48.0798C49.8372 39.4198 49.4571 20.9698 31.4871 18.2598C31.3071 15.9898 29.7772 14.7198 27.4672 13.7898C20.3072 10.8898 21.8771 7.20977 25.0171 7.55977V7.54977Z" fill="#FAB37F"/>
+    <path d="M5.31714 48.2098C7.90714 63.4898 15.9571 74.9698 31.1571 80.1798C8.64714 86.1798 -9.35286 68.4398 5.31714 48.2098Z" fill="#EF5395"/>
+    <path d="M35.3671 36.7998L35.3471 36.8298C34.5371 36.1698 33.3371 35.7798 31.5871 35.7998C27.1971 35.8498 23.2571 38.4998 21.2271 42.4698C17.2071 48.4898 13.0471 46.0198 11.8371 41.8198C19.0171 36.2998 29.3971 31.6798 35.3771 36.7998H35.3671Z" fill="#ED1765"/>
+    <path d="M35.3671 36.7998C29.3871 31.6798 19.0071 36.2998 11.8271 41.8198C10.8371 38.3898 11.8271 33.8198 16.4771 31.7898C23.1271 28.7398 32.4671 25.0198 31.4871 18.2498C49.4571 20.9598 49.8371 39.4198 45.0071 48.0698C44.4071 48.9798 43.7471 49.8898 43.0071 50.7798C40.6171 53.6698 32.8571 57.1698 35.3371 47.6398C36.0371 44.9498 38.2271 39.1798 35.3471 36.8198L35.3671 36.7898V36.7998Z" fill="#F3715A"/>
+    <path d="M31.4871 18.2498C32.4771 25.0198 23.1371 28.7398 16.4771 31.7898C11.8271 33.8198 10.8371 38.3898 11.8271 41.8198C9.00713 43.9898 6.67712 46.2898 5.30712 48.1998C2.69712 31.7898 14.6071 15.8898 31.4871 18.2398V18.2498Z" fill="#F59DB0"/>
+    <path d="M30.0671 64.9398C35.9171 68.2698 43.3671 69.2198 50.9971 68.4798C45.9571 73.4798 39.3971 77.5898 31.1471 80.1698C15.9471 74.9698 7.89713 63.4798 5.30713 48.1998C6.67713 46.2898 9.00713 43.9798 11.8271 41.8198C13.0371 46.0198 17.1971 48.4898 21.2171 42.4698C18.5071 47.7998 19.2071 55.5098 26.8271 62.5798C27.6171 63.3198 28.4771 63.9698 29.3771 64.5298C29.3771 64.5298 29.3871 64.5298 29.3971 64.5398C29.6171 64.6798 29.8371 64.8098 30.0671 64.9398Z" fill="#EE3B76"/>
+    <path d="M81.6772 56.1798C75.6872 69.0098 64.0772 78.9798 54.8172 81.5198C48.2872 83.3098 39.5672 83.3398 31.1472 80.1698C39.3972 77.5898 45.9571 73.4798 50.9971 68.4798C62.3671 67.3798 74.1572 62.5198 81.6772 56.1798Z" fill="#F59DB0"/>
+  </g>
+</svg>
 
 <!-- ============================================================
      NAVIGATION
@@ -1390,46 +1505,41 @@ a { text-decoration: none; color: inherit; }
      HERO SECTION
      ============================================================ -->
 <section class="hero">
-  <!-- Hero blobs -->
-  <svg class="hero-blob hero-blob-1" viewBox="0 0 500 500"><path d="M432,290Q410,370,330,410Q250,450,170,415Q90,380,55,300Q20,220,75,145Q130,70,215,45Q300,20,375,75Q450,130,460,215Q470,300,432,290Z" fill="#FF8A65"/></svg>
-  <svg class="hero-blob hero-blob-2" viewBox="0 0 500 500"><path d="M420,300Q380,390,280,420Q180,450,110,370Q40,290,70,200Q100,110,190,60Q280,10,370,70Q460,130,450,215Q440,300,420,300Z" fill="#E83E8C"/></svg>
-  <svg class="hero-blob hero-blob-3" viewBox="0 0 500 500"><path d="M430,310Q400,390,310,410Q220,430,150,380Q80,330,50,250Q20,170,90,110Q160,50,240,30Q320,10,390,70Q460,130,460,215Q460,300,430,310Z" fill="#A86BBE"/></svg>
-  <svg class="hero-blob hero-blob-4" viewBox="0 0 500 500"><path d="M420,300Q370,400,260,430Q150,460,80,370Q10,280,60,190Q110,100,210,60Q310,20,400,90Q490,160,450,230Q410,300,420,300Z" fill="#A86BBE"/></svg>
-  <svg class="hero-blob hero-blob-5" viewBox="0 0 500 500"><path d="M440,260Q410,350,320,400Q230,450,140,400Q50,350,40,260Q30,170,100,100Q170,30,260,40Q350,50,420,120Q490,190,460,260Q430,330,440,260Z" fill="#E83E8C"/></svg>
-  <svg class="hero-blob hero-blob-6" viewBox="0 0 500 500"><path d="M432,290Q410,370,330,410Q250,450,170,415Q90,380,55,300Q20,220,75,145Q130,70,215,45Q300,20,375,75Q450,130,460,215Q470,300,432,290Z" fill="#FF8A65"/></svg>
-
+  <svg class="hero-symbol hero-symbol-lg" viewBox="0 0 95 83"><use href="#symbol-color"/></svg>
+  <svg class="hero-symbol hero-symbol-sm" viewBox="0 0 95 83"><use href="#symbol-color"/></svg>
   <div class="container">
     <div class="hero-inner">
       <div class="hero-text">
-        <span class="section-label">Emotional competence basics</span>
+        <span class="section-label">Emotional Competence Basics</span>
         <h1>Lead more calmly under pressure</h1>
-        <p class="hero-intro">Strengthen your emotional stability in difficult conversations, conflicts and high-pressure days. A structured 21-day online course for people in responsibility roles — with practical tools you can apply directly in your work.</p>
-        <div class="hero-price">€197 <span>one-time payment</span></div>
+        <p class="hero-intro">Strengthen your emotional stability for difficult conversations, conflicts and high-pressure days. A structured 21-day online course for people in responsibility roles — with practical tools you can apply directly in your work.</p>
+        <div class="hero-price">
+          <span class="hero-price-amount">€197</span>
+          <span class="hero-price-note">One-time payment · Lifetime access</span>
+        </div>
         <div class="hero-ctas">
-          <a href="#" class="btn btn-primary btn-primary-lg btn-arrow">Start now</a>
-          <a href="emotionspaedagogik-free-info-session-en.html" class="btn btn-secondary">Free info session</a>
+          <a href="#" class="btn btn-primary btn-arrow">Start now</a>
+          <a href="#" class="btn btn-secondary">Free info session</a>
         </div>
         <div class="hero-trust">
-          <span class="hero-trust-badge">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            21-day online course
+          <span class="hero-trust-item">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            DEKRA/ZFU compliant
           </span>
-          <span class="hero-trust-badge">
-            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-            Certified education
+          <span class="hero-trust-item">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Certificate of completion
           </span>
-          <span class="hero-trust-badge">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            Self-paced
+          <span class="hero-trust-item">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Start anytime
           </span>
         </div>
       </div>
       <div class="hero-image-area">
-        <div class="hero-photo-placeholder img-placeholder" style="height: 440px; max-width: 360px; margin: 0 auto; border-radius: 200px 200px 20px 20px;">
-          [Photo: Katrin Michl, warm candid, half-body]
-        </div>
+        <img class="hero-photo-placeholder" src="assets/katrin-michl-portrait-2-highres.png" alt="Katrin Michl" style="object-fit:cover">
         <div class="hero-host-badge">
-          <strong>Katrin</strong> — Emotional Pedagogue
+          <strong>Katrin Michl</strong> · Emotional Educator
         </div>
       </div>
     </div>
@@ -1490,50 +1600,50 @@ a { text-decoration: none; color: inherit; }
 </section>
 
 <!-- ============================================================
-     IS THIS FOR YOU? — WARM COLOR BAND
+     IS THIS FOR YOU? — FIT CHECK
      ============================================================ -->
 <section class="section-audience">
-  <!-- Blob overlays -->
-  <svg class="band-blob" style="top: -80px; right: -100px; width: 360px; height: 360px;" viewBox="0 0 500 500"><path d="M440,280Q420,360,340,400Q260,440,180,410Q100,380,60,300Q20,220,70,150Q120,80,200,50Q280,20,350,70Q420,120,450,200Q480,280,440,280Z" fill="#FFFFFF"/></svg>
-  <svg class="band-blob" style="bottom: -60px; left: -60px; width: 260px; height: 260px;" viewBox="0 0 500 500"><path d="M420,300Q370,400,260,430Q150,460,80,370Q10,280,60,190Q110,100,210,60Q310,20,400,90Q490,160,450,230Q410,300,420,300Z" fill="#FFFFFF"/></svg>
-
   <div class="container">
+    <span class="section-label">Fit check</span>
     <h2>Is this for you?</h2>
-    <div class="audience-grid">
-      <div class="audience-col">
-        <h3>Perfect if…</h3>
-        <div class="audience-item">
-          <div class="audience-item-icon">
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    <div class="audience-card">
+      <div class="audience-grid">
+        <div class="audience-col audience-col-yes">
+          <h3>Perfect if…</h3>
+          <div class="audience-item">
+            <div class="audience-item-icon audience-icon-yes">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>You carry emotional responsibility for others — as a team lead, client-facing professional, educator, or self-employed expert.</div>
           </div>
-          <div>You carry emotional responsibility for others — as a team lead, client-facing professional, educator, or self-employed expert.</div>
+          <div class="audience-item">
+            <div class="audience-item-icon audience-icon-yes">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>You want a structured, professional method — not therapy or self-help — that works in real situations.</div>
+          </div>
+          <div class="audience-item">
+            <div class="audience-item-icon audience-icon-yes">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>You need tools you can use immediately and explain clearly to others without burning out.</div>
+          </div>
         </div>
-        <div class="audience-item">
-          <div class="audience-item-icon">
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        <div class="audience-divider"></div>
+        <div class="audience-col audience-col-no">
+          <h3>Not if…</h3>
+          <div class="audience-item">
+            <div class="audience-item-icon audience-icon-no">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <div>You're looking for therapy or deep personal healing rather than professional tools.</div>
           </div>
-          <div>You want a structured, professional method — not therapy or self-help — that works in real situations.</div>
-        </div>
-        <div class="audience-item">
-          <div class="audience-item-icon">
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="audience-item">
+            <div class="audience-item-icon audience-icon-no">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <div>You expect a quick "fix" without trying things out in real situations.</div>
           </div>
-          <div>You need tools you can use immediately and explain clearly to others without burning out.</div>
-        </div>
-      </div>
-      <div class="audience-col">
-        <h3>Not if…</h3>
-        <div class="audience-item">
-          <div class="audience-item-icon">
-            <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </div>
-          <div>You're looking for therapy or deep personal healing rather than professional tools.</div>
-        </div>
-        <div class="audience-item">
-          <div class="audience-item-icon">
-            <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </div>
-          <div>You expect a quick "fix" without trying things out in real situations.</div>
         </div>
       </div>
     </div>
@@ -1541,39 +1651,37 @@ a { text-decoration: none; color: inherit; }
 </section>
 
 <!-- ============================================================
-     HOW IT WORKS
+     HOW IT WORKS — COLOR BAND
      ============================================================ -->
 <section class="section-howitworks">
+  <svg class="band-symbol band-symbol-1" viewBox="0 0 95 83" fill="none"><use href="#symbol-white"/></svg>
+  <svg class="band-symbol band-symbol-2" viewBox="0 0 95 83" fill="none"><use href="#symbol-white"/></svg>
   <div class="container">
     <h2>How it works</h2>
     <div class="howitworks-grid">
-      <!-- Duration -->
       <div class="howitworks-item">
-        <div class="card-icon card-icon-coral">
+        <div class="hw-icon">
           <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
         <h4>Duration</h4>
         <p>21 days<br>Self-paced with weekly focus</p>
       </div>
-      <!-- Weekly focus -->
       <div class="howitworks-item">
-        <div class="card-icon card-icon-pink">
+        <div class="hw-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <h4>Weekly focus</h4>
         <p>2–3 hours<br>Flexible around your schedule</p>
       </div>
-      <!-- Format -->
       <div class="howitworks-item">
-        <div class="card-icon card-icon-purple">
+        <div class="hw-icon">
           <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
         </div>
         <h4>Format</h4>
         <p>Video lessons + worksheets<br>With exercises for your own situation, plus Q&A</p>
       </div>
-      <!-- Access -->
       <div class="howitworks-item">
-        <div class="card-icon card-icon-coral">
+        <div class="hw-icon">
           <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
         </div>
         <h4>Access</h4>
@@ -1689,9 +1797,9 @@ a { text-decoration: none; color: inherit; }
 </section>
 
 <!-- ============================================================
-     RECOGNITION & PATHWAY — PURPLE BAND
+     RECOGNITION & PATHWAY — PURPLE BAND (hidden)
      ============================================================ -->
-<section class="section-recognition">
+<section class="section-recognition" style="display:none">
   <!-- Blob overlays -->
   <svg class="band-blob" style="top: -60px; right: -80px; width: 320px; height: 320px;" viewBox="0 0 500 500"><path d="M440,280Q420,360,340,400Q260,440,180,410Q100,380,60,300Q20,220,70,150Q120,80,200,50Q280,20,350,70Q420,120,450,200Q480,280,440,280Z" fill="#FFFFFF"/></svg>
   <svg class="band-blob" style="bottom: -40px; left: -50px; width: 220px; height: 220px;" viewBox="0 0 500 500"><path d="M420,300Q370,400,260,430Q150,460,80,370Q10,280,60,190Q110,100,210,60Q310,20,400,90Q490,160,450,230Q410,300,420,300Z" fill="#FF8A65" opacity="0.6"/></svg>
