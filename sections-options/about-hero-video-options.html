@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Page Hero — Video Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-coral: #FF8A65;
+  --color-pink: #E83E8C;
+  --color-purple: #A86BBE;
+  --color-cream: #F7F3EE;
+  --color-white: #FFFFFF;
+  --color-text: #3A3A3A;
+  --color-text-muted: #6B6B6B;
+  --color-border: #E6E0DA;
+  --gradient-warm: linear-gradient(135deg, #FF8A65 0%, #E83E8C 100%);
+  --font-heading: 'Libre Baskerville', Georgia, serif;
+  --font-body: 'Source Sans 3', -apple-system, sans-serif;
+  --container-max: 1100px;
+  --button-radius: 24px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); color: var(--color-text); background: #e8e4df; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+img, video { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: var(--container-max); margin: 0 auto; padding: 0 24px; }
+
+/* Shared */
+.btn { display: inline-flex; align-items: center; gap: 8px; border-radius: var(--button-radius); font-family: var(--font-body); font-weight: 600; cursor: pointer; transition: all 0.25s ease; border: none; }
+.btn-primary-lg { background: var(--color-pink); color: white; padding: 16px 36px; font-size: 0.95rem; }
+.btn-primary-lg:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(232,62,140,0.25); }
+.btn-secondary { background: transparent; color: var(--color-pink); border: 1.5px solid rgba(232,62,140,0.35); padding: 14px 28px; font-size: 0.9rem; font-weight: 500; }
+.btn-secondary:hover { border-color: var(--color-pink); }
+.section-label { font-family: var(--font-body); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-coral); display: block; margin-bottom: 18px; }
+.video-src { width: 100%; height: 100%; object-fit: cover; }
+
+/* Page chrome */
+.page-header { background: var(--color-cream); padding: 48px 0 24px; text-align: center; }
+.page-header h1 { font-family: var(--font-heading); font-size: 2rem; font-weight: 400; margin-bottom: 12px; }
+.page-header p { font-size: 0.9rem; color: var(--color-text-muted); max-width: 680px; margin: 0 auto; line-height: 1.6; }
+.option-divider { background: var(--color-cream); padding: 56px 0 20px; text-align: center; }
+.option-label { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-coral); background: rgba(255,138,101,0.1); padding: 8px 20px; border-radius: 20px; margin-bottom: 14px; }
+.option-title { font-family: var(--font-heading); font-size: 1.55rem; font-weight: 400; margin-bottom: 8px; }
+.option-desc { font-size: 0.84rem; color: var(--color-text-muted); max-width: 640px; margin: 0 auto; line-height: 1.6; }
+.context-below { background: var(--color-cream); padding: 40px 0; text-align: center; border-top: 1px solid var(--color-border); }
+.context-below span { font-size: 0.72rem; color: var(--color-text-muted); opacity: 0.5; }
+
+/* Nav */
+.fake-nav { background: var(--color-white); padding: 0 24px; border-bottom: 1px solid rgba(230,224,218,0.5); }
+.fake-nav-inner { max-width: var(--container-max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.fake-nav-logo { display: flex; align-items: center; gap: 10px; }
+.fake-nav-logo svg { width: 32px; height: 28px; }
+.fake-nav-logo-text { font-family: var(--font-heading); font-size: 0.92rem; }
+.fake-nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.fake-nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--color-text-muted); }
+.fake-nav-links a.active { color: var(--color-text); font-weight: 600; }
+.fake-nav-cta { background: var(--color-pink); color: white !important; padding: 9px 20px; border-radius: var(--button-radius); font-size: 0.82rem !important; font-weight: 600 !important; }
+
+
+/* ============================================================
+   OPTION A — LEFT-ALIGNED TEXT + FULL-WIDTH VIDEO
+   Text left-aligned above, video full container width below.
+   Clean editorial hierarchy. Symbol logo as watermark behind
+   text. CTAs sit between text and video.
+   ============================================================ */
+.hero-a {
+  background: var(--color-cream);
+  padding: 80px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero-a .container { position: relative; z-index: 5; }
+.hero-a .ha-text {
+  max-width: 640px;
+  margin-bottom: 48px;
+  position: relative;
+}
+.hero-a .ha-symbol {
+  position: absolute;
+  width: 340px; height: 299px;
+  top: -30px; right: -180px;
+  z-index: 1;
+  opacity: 0.5;
+}
+.hero-a h1 {
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 400;
+  line-height: 1.12;
+  margin-bottom: 24px;
+  position: relative; z-index: 2;
+}
+.hero-a .ha-intro {
+  font-size: 0.98rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 520px;
+  position: relative; z-index: 2;
+}
+.hero-a .ha-ctas {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  position: relative; z-index: 2;
+}
+.hero-a .ha-video-frame {
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #2a2a2a;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+.hero-a .ha-divider { width: 100%; height: 1px; background: var(--color-border); margin-top: 56px; }
+
+
+/* ============================================================
+   OPTION B — CENTERED TEXT + FULL-WIDTH VIDEO
+   Everything centered: label, headline, intro, CTAs above.
+   Video full-width below. More symmetrical, "institutional
+   statement" feel. Symbol logo centered behind text.
+   ============================================================ */
+.hero-b {
+  background: var(--color-cream);
+  padding: 80px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero-b .container { position: relative; z-index: 5; text-align: center; }
+.hero-b .hb-text {
+  max-width: 700px;
+  margin: 0 auto 48px;
+  position: relative;
+}
+.hero-b .hb-symbol {
+  position: absolute;
+  width: 380px; height: 334px;
+  top: -40px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0.35;
+}
+.hero-b h1 {
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 400;
+  line-height: 1.12;
+  margin-bottom: 24px;
+  position: relative; z-index: 2;
+}
+.hero-b .hb-intro {
+  font-size: 0.98rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 560px;
+  margin-left: auto; margin-right: auto;
+  position: relative; z-index: 2;
+}
+.hero-b .hb-ctas {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  position: relative; z-index: 2;
+}
+.hero-b .hb-video-frame {
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #2a2a2a;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+.hero-b .hb-divider { width: 100%; height: 1px; background: var(--color-border); margin-top: 56px; }
+
+
+/* ============================================================
+   OPTION C — CENTERED TEXT + VIDEO WITH GRADIENT BORDER
+   Same centered layout as B but the video sits inside a
+   gradient border frame (coral → pink → purple). The border
+   adds brand color to the hero without needing blobs or a
+   gradient background. More polished/premium feel.
+   ============================================================ */
+.hero-c {
+  background: var(--color-cream);
+  padding: 80px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero-c .container { position: relative; z-index: 5; text-align: center; }
+.hero-c .hc-text {
+  max-width: 700px;
+  margin: 0 auto 48px;
+  position: relative;
+}
+.hero-c .hc-symbol {
+  position: absolute;
+  width: 360px; height: 316px;
+  top: -30px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0.35;
+}
+.hero-c h1 {
+  font-family: var(--font-heading);
+  font-size: 3.2rem;
+  font-weight: 400;
+  line-height: 1.12;
+  margin-bottom: 24px;
+  position: relative; z-index: 2;
+}
+.hero-c .hc-intro {
+  font-size: 0.98rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 560px;
+  margin-left: auto; margin-right: auto;
+  position: relative; z-index: 2;
+}
+.hero-c .hc-ctas {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  position: relative; z-index: 2;
+}
+/* Gradient border wrapper */
+.hero-c .hc-video-border {
+  border-radius: 14px;
+  background: linear-gradient(160deg, var(--color-coral), var(--color-pink), var(--color-purple));
+  padding: 3px;
+  box-shadow: 0 8px 36px rgba(232,62,140,0.08);
+}
+.hero-c .hc-video-frame {
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #2a2a2a;
+}
+.hero-c .hc-divider { width: 100%; height: 1px; background: var(--color-border); margin-top: 56px; }
+
+
+/* ============================================================
+   OPTION D — LEFT TEXT + RIGHT CAPTION, VIDEO BELOW
+   Two-column text area: headline + intro on the left,
+   Katrin's caption + credentials on the right (like a byline).
+   Full-width video below both. The two-column text creates
+   editorial authority. Symbol logo behind right column.
+   ============================================================ */
+.hero-d {
+  background: var(--color-cream);
+  padding: 80px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero-d .container { position: relative; z-index: 5; }
+.hero-d .hd-header {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 48px;
+}
+.hero-d .hd-left {}
+.hero-d h1 {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.12;
+  margin-bottom: 24px;
+}
+.hero-d .hd-intro {
+  font-size: 0.98rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+.hero-d .hd-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+/* Right column — caption/byline */
+.hero-d .hd-right {
+  position: relative;
+  padding-bottom: 8px;
+}
+.hero-d .hd-symbol {
+  position: absolute;
+  width: 280px; height: 246px;
+  top: -60px; right: -40px;
+  z-index: 1;
+  opacity: 0.4;
+}
+.hero-d .hd-byline {
+  position: relative; z-index: 2;
+  border-left: 2px solid var(--color-border);
+  padding-left: 24px;
+}
+.hero-d .hd-byline-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+.hero-d .hd-byline-role {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.hero-d .hd-byline-credentials {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+/* Video */
+.hero-d .hd-video-frame {
+  width: 100%;
+  aspect-ratio: 16 / 7.5;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #2a2a2a;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+.hero-d .hd-divider { width: 100%; height: 1px; background: var(--color-border); margin-top: 56px; }
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .hero-a h1, .hero-b h1, .hero-c h1, .hero-d h1 { font-size: 2.5rem; }
+  .hero-a, .hero-b, .hero-c, .hero-d { padding: 48px 0 0; }
+  .hero-d .hd-header {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .hero-d .hd-byline { border-left: none; padding-left: 0; border-top: 1px solid var(--color-border); padding-top: 20px; }
+  .fake-nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Symbol logo SVG (hidden) -->
+<svg style="display:none;">
+  <defs>
+    <g id="symbol-logo">
+      <path d="M76.4671 13.8598C101.377 16.1798 98.7071 41.7698 81.6871 56.1798C90.4571 35.0198 81.9371 20.0498 76.4671 13.8598Z" fill="#9984B9"/>
+      <path d="M63.8671 42.9398C62.4671 51.9998 58.3571 61.1898 51.0071 68.4898C43.3671 69.2298 35.9171 68.2798 30.0771 64.9498C41.6971 71.4398 60.3971 63.9698 63.8771 42.9398H63.8671Z" fill="#4B3368"/>
+      <path d="M76.4671 13.8598C81.9271 20.0498 90.4571 35.0198 81.6871 56.1798C74.1671 62.5198 62.3771 67.3798 51.0071 68.4798C58.3671 61.1798 62.4771 51.9898 63.8671 42.9298C67.1471 23.1398 53.0271 11.5398 44.2571 8.42978C44.0271 8.34978 43.8071 8.26978 43.5871 8.17978C54.3071 11.7098 69.1871 12.9198 76.4571 13.8498L76.4671 13.8598Z" fill="#A25499"/>
+      <path d="M76.4671 13.8598C69.1971 12.9298 54.3171 11.7198 43.5971 8.18978C32.6271 4.06978 35.7371 -0.630222 47.1271 0.0697783C60.3271 0.879778 69.9971 5.97978 76.4671 13.8598Z" fill="#F59DB0"/>
+      <path d="M25.0171 7.54977C42.6971 9.48977 56.6572 30.3298 45.0072 48.0798C49.8372 39.4198 49.4571 20.9698 31.4871 18.2598C31.3071 15.9898 29.7772 14.7198 27.4672 13.7898C20.3072 10.8898 21.8771 7.20977 25.0171 7.55977V7.54977Z" fill="#FAB37F"/>
+      <path d="M5.31714 48.2098C7.90714 63.4898 15.9571 74.9698 31.1571 80.1798C8.64714 86.1798 -9.35286 68.4398 5.31714 48.2098Z" fill="#EF5395"/>
+      <path d="M35.3671 36.7998L35.3471 36.8298C34.5371 36.1698 33.3371 35.7798 31.5871 35.7998C27.1971 35.8498 23.2571 38.4998 21.2271 42.4698C17.2071 48.4898 13.0471 46.0198 11.8371 41.8198C19.0171 36.2998 29.3971 31.6798 35.3771 36.7998H35.3671Z" fill="#ED1765"/>
+      <path d="M35.3671 36.7998C29.3871 31.6798 19.0071 36.2998 11.8271 41.8198C10.8371 38.3898 11.8271 33.8198 16.4771 31.7898C23.1271 28.7398 32.4671 25.0198 31.4871 18.2498C49.4571 20.9598 49.8371 39.4198 45.0071 48.0698C44.4071 48.9798 43.7471 49.8898 43.0071 50.7798C40.6171 53.6698 32.8571 57.1698 35.3371 47.6398C36.0371 44.9498 38.2271 39.1798 35.3471 36.8198L35.3671 36.7898V36.7998Z" fill="#F3715A"/>
+      <path d="M31.4871 18.2498C32.4771 25.0198 23.1371 28.7398 16.4771 31.7898C11.8271 33.8198 10.8371 38.3898 11.8271 41.8198C9.00713 43.9898 6.67712 46.2898 5.30712 48.1998C2.69712 31.7898 14.6071 15.8898 31.4871 18.2398V18.2498Z" fill="#F59DB0"/>
+      <path d="M30.0671 64.9398C35.9171 68.2698 43.3671 69.2198 50.9971 68.4798C45.9571 73.4798 39.3971 77.5898 31.1471 80.1698C15.9471 74.9698 7.89713 63.4798 5.30713 48.1998C6.67713 46.2898 9.00713 43.9798 11.8271 41.8198C13.0371 46.0198 17.1971 48.4898 21.2171 42.4698C18.5071 47.7998 19.2071 55.5098 26.8271 62.5798C27.6171 63.3198 28.4771 63.9698 29.3771 64.5298C29.3771 64.5298 29.3871 64.5298 29.3971 64.5398C29.6171 64.6798 29.8371 64.8098 30.0671 64.9398Z" fill="#EE3B76"/>
+      <path d="M81.6772 56.1798C75.6872 69.0098 64.0772 78.9798 54.8172 81.5198C48.2872 83.3098 39.5672 83.3398 31.1472 80.1698C39.3972 77.5898 45.9571 73.4798 50.9971 68.4798C62.3671 67.3798 74.1572 62.5198 81.6772 56.1798Z" fill="#F59DB0"/>
+    </g>
+  </defs>
+</svg>
+
+
+<div class="page-header">
+  <div class="container">
+    <h1>About Page Hero — Video Centered</h1>
+    <p>All options: text above, large video centered below. Four variations on how the text is arranged and how the video is framed. Open in browser to see the video autoplay from the Shopify CDN.</p>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     OPTION A — LEFT-ALIGNED TEXT + FULL-WIDTH VIDEO
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option A</span>
+  <div class="option-title">Left-aligned text — full-width video below</div>
+  <div class="option-desc">Label + headline + intro + CTAs left-aligned above. Video spans the full container width in a cinematic 16:8 ratio below. Clean editorial hierarchy — the left alignment creates a natural reading flow before the eye drops to the video. Symbol logo as faint watermark to the right of the text.</div>
+</div>
+
+<nav class="fake-nav"><div class="fake-nav-inner">
+  <div class="fake-nav-logo">
+    <svg viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+    <span class="fake-nav-logo-text">Emotionspädagogik</span>
+  </div>
+  <ul class="fake-nav-links">
+    <li><a href="#">Our method</a></li><li><a href="#">Training path</a></li>
+    <li><a href="#" class="active">About</a></li><li><a href="#">Entry course</a></li>
+    <li><a href="#" class="fake-nav-cta">Free info session</a></li>
+  </ul>
+</div></nav>
+
+<section class="hero-a">
+  <div class="container">
+    <div class="ha-text">
+      <svg class="ha-symbol" viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+      <span class="section-label">About the institute</span>
+      <h1>About the Institute for Emotional Pedagogy</h1>
+      <p class="ha-intro">A specialised institute for professional emotional competence in leadership — helping people in responsibility roles stay steady under pressure and guide others safely, with recognised training paths up to Emotional Pedagogue (IHK).</p>
+      <div class="ha-ctas">
+        <a href="#" class="btn btn-primary-lg">Book a free info session →</a>
+        <a href="#" class="btn btn-secondary">See the IHK path →</a>
+      </div>
+    </div>
+    <div class="ha-video-frame">
+      <video class="video-src" autoplay muted loop playsinline>
+        <source src="https://emotionspaedagogik.de/cdn/shop/videos/c/vp/b0faa4053c51498cb663d8f1c1bb1eaa/b0faa4053c51498cb663d8f1c1bb1eaa.HD-1080p-7.2Mbps-39315218.mp4?v=0" type="video/mp4">
+      </video>
+    </div>
+    <div class="ha-divider"></div>
+  </div>
+</section>
+
+<div class="context-below"><span>↓ Institute positioning pillars (cream) below</span></div>
+
+
+<!-- ============================================================
+     OPTION B — CENTERED TEXT + FULL-WIDTH VIDEO
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option B</span>
+  <div class="option-title">Centered text — full-width video below</div>
+  <div class="option-desc">Everything centered: label, headline, intro, CTAs all symmetrically aligned above the video. More institutional/formal feel — the centered text communicates "this is an official presentation." The video spans full container width. Symbol logo centered behind the text at low opacity.</div>
+</div>
+
+<nav class="fake-nav"><div class="fake-nav-inner">
+  <div class="fake-nav-logo">
+    <svg viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+    <span class="fake-nav-logo-text">Emotionspädagogik</span>
+  </div>
+  <ul class="fake-nav-links">
+    <li><a href="#">Our method</a></li><li><a href="#">Training path</a></li>
+    <li><a href="#" class="active">About</a></li><li><a href="#">Entry course</a></li>
+    <li><a href="#" class="fake-nav-cta">Free info session</a></li>
+  </ul>
+</div></nav>
+
+<section class="hero-b">
+  <div class="container">
+    <div class="hb-text">
+      <svg class="hb-symbol" viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+      <span class="section-label">About the institute</span>
+      <h1>About the Institute for Emotional Pedagogy</h1>
+      <p class="hb-intro">A specialised institute for professional emotional competence in leadership — helping people in responsibility roles stay steady under pressure and guide others safely, with recognised training paths up to Emotional Pedagogue (IHK).</p>
+      <div class="hb-ctas">
+        <a href="#" class="btn btn-primary-lg">Book a free info session →</a>
+        <a href="#" class="btn btn-secondary">See the IHK path →</a>
+      </div>
+    </div>
+    <div class="hb-video-frame">
+      <video class="video-src" autoplay muted loop playsinline>
+        <source src="https://emotionspaedagogik.de/cdn/shop/videos/c/vp/b0faa4053c51498cb663d8f1c1bb1eaa/b0faa4053c51498cb663d8f1c1bb1eaa.HD-1080p-7.2Mbps-39315218.mp4?v=0" type="video/mp4">
+      </video>
+    </div>
+    <div class="hb-divider"></div>
+  </div>
+</section>
+
+<div class="context-below"><span>↓ Institute positioning pillars (cream) below</span></div>
+
+
+<!-- ============================================================
+     OPTION C — CENTERED TEXT + GRADIENT BORDER VIDEO
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option C</span>
+  <div class="option-title">Centered text — video with gradient border</div>
+  <div class="option-desc">Same centered layout as B, but the video frame gets a 3px gradient border (coral → pink → purple). The border adds brand color to the hero without blobs or a gradient background section. On cream, the gradient border becomes a subtle but distinctive visual anchor. More polished and "designed" than a plain frame.</div>
+</div>
+
+<nav class="fake-nav"><div class="fake-nav-inner">
+  <div class="fake-nav-logo">
+    <svg viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+    <span class="fake-nav-logo-text">Emotionspädagogik</span>
+  </div>
+  <ul class="fake-nav-links">
+    <li><a href="#">Our method</a></li><li><a href="#">Training path</a></li>
+    <li><a href="#" class="active">About</a></li><li><a href="#">Entry course</a></li>
+    <li><a href="#" class="fake-nav-cta">Free info session</a></li>
+  </ul>
+</div></nav>
+
+<section class="hero-c">
+  <div class="container">
+    <div class="hc-text">
+      <svg class="hc-symbol" viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+      <span class="section-label">About the institute</span>
+      <h1>About the Institute for Emotional Pedagogy</h1>
+      <p class="hc-intro">A specialised institute for professional emotional competence in leadership — helping people in responsibility roles stay steady under pressure and guide others safely, with recognised training paths up to Emotional Pedagogue (IHK).</p>
+      <div class="hc-ctas">
+        <a href="#" class="btn btn-primary-lg">Book a free info session →</a>
+        <a href="#" class="btn btn-secondary">See the IHK path →</a>
+      </div>
+    </div>
+    <div class="hc-video-border">
+      <div class="hc-video-frame">
+        <video class="video-src" autoplay muted loop playsinline>
+          <source src="https://emotionspaedagogik.de/cdn/shop/videos/c/vp/b0faa4053c51498cb663d8f1c1bb1eaa/b0faa4053c51498cb663d8f1c1bb1eaa.HD-1080p-7.2Mbps-39315218.mp4?v=0" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="hc-divider"></div>
+  </div>
+</section>
+
+<div class="context-below"><span>↓ Institute positioning pillars (cream) below</span></div>
+
+
+<!-- ============================================================
+     OPTION D — EDITORIAL SPLIT TEXT + BYLINE + VIDEO
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option D</span>
+  <div class="option-title">Editorial split — headline left, byline right, video below</div>
+  <div class="option-desc">Two-column text area: headline + intro + CTAs on the left, Katrin's credentials as a "byline" on the right (separated by a vertical border). Full-width video below both. The byline introduces Katrin without needing a portrait — the video does that job. The two-column text creates editorial authority, like a newspaper profile. Symbol logo behind the byline area.</div>
+</div>
+
+<nav class="fake-nav"><div class="fake-nav-inner">
+  <div class="fake-nav-logo">
+    <svg viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+    <span class="fake-nav-logo-text">Emotionspädagogik</span>
+  </div>
+  <ul class="fake-nav-links">
+    <li><a href="#">Our method</a></li><li><a href="#">Training path</a></li>
+    <li><a href="#" class="active">About</a></li><li><a href="#">Entry course</a></li>
+    <li><a href="#" class="fake-nav-cta">Free info session</a></li>
+  </ul>
+</div></nav>
+
+<section class="hero-d">
+  <div class="container">
+    <span class="section-label">About the institute</span>
+    <div class="hd-header">
+      <div class="hd-left">
+        <h1>About the Institute for Emotional Pedagogy</h1>
+        <p class="hd-intro">A specialised institute for professional emotional competence in leadership — helping people in responsibility roles stay steady under pressure and guide others safely, with recognised training paths up to Emotional Pedagogue (IHK).</p>
+        <div class="hd-ctas">
+          <a href="#" class="btn btn-primary-lg">Book a free info session →</a>
+          <a href="#" class="btn btn-secondary">See the IHK path →</a>
+        </div>
+      </div>
+      <div class="hd-right">
+        <svg class="hd-symbol" viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+        <div class="hd-byline">
+          <div class="hd-byline-name">Katrin Michl</div>
+          <div class="hd-byline-role">Founder & Lead Trainer<br>Private Institute for Emotional Pedagogy</div>
+          <div class="hd-byline-credentials">20+ years in emotional education · IHK-certified training developer · DEKRA & ZFU recognised</div>
+        </div>
+      </div>
+    </div>
+    <div class="hd-video-frame">
+      <video class="video-src" autoplay muted loop playsinline>
+        <source src="https://emotionspaedagogik.de/cdn/shop/videos/c/vp/b0faa4053c51498cb663d8f1c1bb1eaa/b0faa4053c51498cb663d8f1c1bb1eaa.HD-1080p-7.2Mbps-39315218.mp4?v=0" type="video/mp4">
+      </video>
+    </div>
+    <div class="hd-divider"></div>
+  </div>
+</section>
+
+<div class="context-below"><span>↓ Institute positioning pillars (cream) below</span></div>
+
+<div style="height:80px;background:var(--color-cream);"></div>
+
+</body>
+</html>

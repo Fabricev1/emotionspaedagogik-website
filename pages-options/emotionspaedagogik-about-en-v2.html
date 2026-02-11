@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – Institute for Emotional Pedagogy</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CSS VARIABLES
+   ============================================================ */
+:root {
+  --color-coral: #FF8A65;
+  --color-pink: #E83E8C;
+  --color-purple: #A86BBE;
+  --color-purple-deep: #8B5CA0;
+  --color-cream: #F7F3EE;
+  --color-white: #FFFFFF;
+  --color-text: #3A3A3A;
+  --color-text-muted: #6B6B6B;
+  --color-border: #E6E0DA;
+  --gradient-warm: linear-gradient(135deg, #FF8A65 0%, #E83E8C 100%);
+  --gradient-authority: linear-gradient(135deg, #A86BBE 0%, #8B5CA0 100%);
+  --font-heading: 'Libre Baskerville', Georgia, serif;
+  --font-body: 'Source Sans 3', -apple-system, sans-serif;
+  --section-padding: 100px;
+  --section-padding-large: 130px;
+  --section-padding-mobile: 64px;
+  --container-max: 1100px;
+  --card-radius: 8px;
+  --button-radius: 24px;
+  --shadow-soft: 0 1px 2px rgba(58, 58, 58, 0.02);
+  --shadow-hover: 0 4px 16px rgba(58, 58, 58, 0.06);
+  --transition: 0.25s ease;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-cream);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  font-weight: 400;
+  line-height: 1.3;
+}
+h1 { font-size: 3.4rem; }
+h2 { font-size: 2.5rem; margin-bottom: 48px; }
+h3 { font-size: 1.4rem; margin-bottom: 16px; }
+h4 { font-size: 1.2rem; margin-bottom: 12px; }
+p, li {
+  font-family: var(--font-body);
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.67rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-pink);
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: var(--color-white);
+  border-bottom: 1px solid rgba(230, 224, 218, 0.5);
+  height: 72px;
+  display: flex;
+  align-items: center;
+}
+.nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+.nav-logo span { color: var(--color-pink); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color var(--transition);
+}
+.nav-links a:hover { color: var(--color-pink); }
+.nav-cta {
+  background: var(--color-pink);
+  color: var(--color-white) !important;
+  padding: 10px 22px;
+  border-radius: var(--button-radius);
+  font-weight: 600 !important;
+  font-size: 0.82rem !important;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(232, 62, 140, 0.25);
+  color: var(--color-white) !important;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+  text-decoration: none;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-arrow::after {
+  content: '→';
+  display: inline-block;
+  transition: transform var(--transition);
+}
+.btn:hover.btn-arrow::after,
+.btn.btn-arrow:hover::after { transform: translateX(3px); }
+.btn-primary {
+  background: var(--color-pink);
+  color: var(--color-white);
+  padding: 16px 32px;
+  border-radius: var(--button-radius);
+  font-size: 0.95rem;
+}
+.btn-primary:hover { box-shadow: 0 6px 20px rgba(232, 62, 140, 0.3); }
+.btn-primary-lg { padding: 18px 40px; font-size: 1.05rem; }
+.btn-secondary {
+  background: transparent;
+  color: var(--color-pink);
+  border: 1.5px solid rgba(232, 62, 140, 0.45);
+  padding: 14px 28px;
+  border-radius: var(--button-radius);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.btn-secondary:hover {
+  border-color: var(--color-pink);
+  box-shadow: 0 4px 12px rgba(232, 62, 140, 0.12);
+}
+.btn-white {
+  background: var(--color-white);
+  color: var(--color-pink);
+  padding: 18px 40px;
+  border-radius: var(--button-radius);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.btn-white:hover { box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3); }
+.btn-dark {
+  background: var(--color-text);
+  color: var(--color-white);
+  padding: 16px 32px;
+  border-radius: var(--button-radius);
+  font-size: 0.95rem;
+}
+.btn-dark:hover { box-shadow: 0 6px 20px rgba(58, 58, 58, 0.25); }
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card {
+  background: var(--color-white);
+  border-radius: var(--card-radius);
+  padding: 32px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(230, 224, 218, 0.6);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(232, 62, 140, 0.25);
+}
+
+/* ============================================================
+   ICON CONTAINERS
+   ============================================================ */
+.icon-circle {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.icon-circle svg {
+  width: 19px; height: 19px;
+  stroke-width: 1.5;
+  fill: none;
+}
+.icon-pink { background: rgba(232, 62, 140, 0.07); }
+.icon-pink svg { stroke: var(--color-pink); }
+.icon-coral { background: rgba(255, 138, 101, 0.1); }
+.icon-coral svg { stroke: var(--color-coral); }
+.icon-purple { background: rgba(168, 107, 190, 0.1); }
+.icon-purple svg { stroke: var(--color-purple); }
+
+/* ============================================================
+   IMAGE PLACEHOLDERS
+   ============================================================ */
+.img-placeholder {
+  background: #E0DACE;
+  border-radius: var(--card-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: 24px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   V2 HERO — CENTERED, IMMERSIVE
+   ============================================================ */
+.hero-v2 {
+  padding-top: 72px;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero-v2-inner {
+  position: relative;
+  z-index: 5;
+  max-width: 720px;
+  padding: 0 24px;
+}
+.hero-v2 .section-label { text-align: center; }
+.hero-v2 h1 {
+  margin-bottom: 28px;
+  line-height: 1.18;
+}
+.hero-v2-intro {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: 44px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-v2-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+.hero-v2-portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-v2-photo {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  border: 4px solid var(--color-white);
+  box-shadow: 0 4px 24px rgba(58,58,58,0.08);
+}
+.hero-v2-caption { margin-top: 16px; }
+.hero-v2-caption strong {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+.hero-v2-caption span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+/* Hero blobs — larger, more dramatic, centered composition */
+.hb { position: absolute; }
+.hb svg { width: 100%; height: 100%; }
+.hb-1 { top: -14%; right: -12%; width: 580px; height: 580px; }
+.hb-2 { bottom: -10%; left: -14%; width: 520px; height: 520px; }
+.hb-3 { top: 8%; left: -6%; width: 340px; height: 340px; }
+.hb-4 { bottom: 15%; right: 2%; width: 260px; height: 260px; z-index: 6; }
+.hb-5 { top: 38%; right: -8%; width: 200px; height: 200px; }
+.hb-6 { top: -5%; left: 30%; width: 180px; height: 180px; }
+
+/* ============================================================
+   V2 MISSION — CREAM SECTION, NO COLOR BAND
+   Large mission quote with editorial styling
+   ============================================================ */
+.mission-v2 {
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
+}
+.mission-v2-statement {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.45;
+  max-width: 820px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 32px;
+  border-left: 3px solid var(--color-pink);
+}
+.mission-v2-audience {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  max-width: 700px;
+  padding-left: 32px;
+  font-style: italic;
+}
+
+/* ============================================================
+   V2 PILLARS + MISSION PILLARS — AUTHORITY BAND
+   Combined into a single purple band that hits early
+   ============================================================ */
+.pillars-v2 {
+  padding: var(--section-padding-large) 0;
+  background: var(--gradient-authority);
+  position: relative;
+  overflow: hidden;
+}
+.pillars-v2 * { color: var(--color-white); }
+.pillars-v2 .section-label { color: rgba(255,255,255,0.7); }
+.pillars-v2 h2 { color: var(--color-white); font-size: 2.6rem; }
+.pillars-v2-top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 64px;
+}
+.pv2-card {
+  background: rgba(255,255,255,0.1);
+  border-radius: var(--card-radius);
+  padding: 28px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.pv2-card .pv2-icon {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.pv2-card .pv2-icon svg {
+  width: 19px; height: 19px;
+  stroke: white;
+  stroke-width: 1.5;
+  fill: none;
+}
+.pv2-card h4 { color: var(--color-white); font-size: 1.12rem; margin-bottom: 10px; }
+.pv2-card p { color: rgba(255,255,255,0.88); font-size: 0.86rem; line-height: 1.7; }
+/* Divider */
+.pv2-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin-bottom: 56px;
+}
+/* Mission pillars row */
+.pv2-mission-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+.pv2-mission-item h4 {
+  color: var(--color-white);
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+.pv2-mission-item p {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+/* Blob overlays */
+.pv2-blob { position: absolute; opacity: 0.1; }
+
+/* ============================================================
+   V2 GLANCE — FULL-WIDTH CONTAINED CARD, PHOTO RIGHT
+   ============================================================ */
+.glance-v2 {
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
+}
+.glance-v2-card {
+  background: var(--color-white);
+  border-radius: var(--card-radius);
+  border: 1px solid rgba(230, 224, 218, 0.6);
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  overflow: hidden;
+}
+.glance-v2-left { padding: 48px; }
+.glance-v2-left .section-label { margin-bottom: 12px; }
+.glance-v2-left h2 { font-size: 2rem; margin-bottom: 8px; }
+.glance-v2-name {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  margin-bottom: 32px;
+  font-style: italic;
+}
+.glance-v2-facts {
+  list-style: none; padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 36px;
+}
+.glance-v2-facts li {
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  padding-left: 20px;
+  position: relative;
+}
+.glance-v2-facts li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--color-pink);
+  opacity: 0.5;
+}
+.glance-v2-facts li:nth-child(2)::before { background: var(--color-coral); }
+.glance-v2-facts li:nth-child(3)::before { background: var(--color-purple); }
+.glance-v2-facts li:nth-child(4)::before { background: var(--color-coral); }
+.glance-v2-facts li:nth-child(5)::before { background: var(--color-purple); }
+.glance-v2-photo {
+  background: #E0DACE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: 24px;
+  min-height: 100%;
+}
+
+/* ============================================================
+   V2 TIMELINE — HORIZONTAL STEPPER
+   ============================================================ */
+.timeline-v2 {
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
+}
+.timeline-v2-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  margin-top: 16px;
+}
+/* Connecting line */
+.timeline-v2-steps::before {
+  content: '';
+  position: absolute;
+  top: 19px;
+  left: 40px;
+  right: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-coral), var(--color-pink), var(--color-pink), var(--color-purple));
+  border-radius: 2px;
+  z-index: 1;
+}
+.tv2-step { position: relative; text-align: center; padding: 0 12px; }
+.tv2-dot {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 3px solid var(--color-pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-pink);
+}
+.tv2-step:nth-child(1) .tv2-dot { border-color: var(--color-coral); color: var(--color-coral); }
+.tv2-step:nth-child(4) .tv2-dot { border-color: var(--color-purple); color: var(--color-purple); }
+.tv2-step h4 {
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+.tv2-step p {
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+/* ============================================================
+   V2 CREDENTIALS — CREAM + WHITE CARDS (NO COLOR BAND)
+   ============================================================ */
+.credentials-v2 {
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
+}
+.credentials-v2-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.cv2-card {
+  text-align: center;
+  padding: 36px 24px;
+}
+.cv2-badge {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cv2-badge svg {
+  width: 24px; height: 24px;
+  stroke-width: 1.5;
+  fill: none;
+}
+.cv2-card:nth-child(1) .cv2-badge { background: rgba(168, 107, 190, 0.1); }
+.cv2-card:nth-child(1) .cv2-badge svg { stroke: var(--color-purple); }
+.cv2-card:nth-child(2) .cv2-badge { background: rgba(232, 62, 140, 0.07); }
+.cv2-card:nth-child(2) .cv2-badge svg { stroke: var(--color-pink); }
+.cv2-card:nth-child(3) .cv2-badge { background: rgba(255, 138, 101, 0.1); }
+.cv2-card:nth-child(3) .cv2-badge svg { stroke: var(--color-coral); }
+.cv2-card:nth-child(4) .cv2-badge { background: rgba(168, 107, 190, 0.1); }
+.cv2-card:nth-child(4) .cv2-badge svg { stroke: var(--color-purple); }
+.cv2-card h4 { font-size: 1.15rem; margin-bottom: 8px; }
+.cv2-card p { font-size: 0.84rem; line-height: 1.6; }
+.cv2-note {
+  text-align: center;
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  max-width: 560px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+/* ============================================================
+   V2 WHO WE HELP — WARM COLOR BAND + 2-COL HORIZONTAL CARDS
+   ============================================================ */
+.audience-v2 {
+  padding: var(--section-padding-large) 0;
+  background: var(--gradient-warm);
+  position: relative;
+  overflow: hidden;
+}
+.audience-v2 * { color: var(--color-white); }
+.audience-v2 .section-label { color: rgba(255,255,255,0.8); }
+.audience-v2 h2 { color: var(--color-white); }
+.audience-v2-intro {
+  font-size: 1.05rem;
+  opacity: 0.92;
+  max-width: 600px;
+  margin-bottom: 48px;
+  line-height: 1.75;
+}
+.audience-v2-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.av2-card {
+  background: rgba(255,255,255,0.12);
+  border-radius: var(--card-radius);
+  padding: 28px 28px;
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.av2-card-num {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-top: 2px;
+}
+.av2-text h4 { color: var(--color-white); font-size: 1.05rem; margin-bottom: 8px; }
+.av2-text p { color: rgba(255,255,255,0.88); font-size: 0.84rem; line-height: 1.65; }
+/* Blob overlays */
+.av2-blob { position: absolute; opacity: 0.1; }
+
+/* ============================================================
+   V2 TESTIMONIALS — SINGLE FEATURED QUOTE, CAROUSEL-STYLE
+   ============================================================ */
+.testimonials-v2 {
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
+  text-align: center;
+}
+.tv2-carousel {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.tv2-slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+.tv2-slide.active { display: flex; }
+.tv2-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: #E0DACE;
+  margin-bottom: 28px;
+}
+.tv2-quote {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  max-width: 520px;
+}
+.tv2-role {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+/* Navigation dots */
+.tv2-dots {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 40px;
+}
+.tv2-dot-btn {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+  padding: 0;
+}
+.tv2-dot-btn.active {
+  background: var(--color-pink);
+  transform: scale(1.3);
+}
+.tv2-dot-btn:hover { background: var(--color-pink); }
+
+/* ============================================================
+   V2 FAQ — SINGLE COLUMN, EDITORIAL
+   ============================================================ */
+.faq-v2 {
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
+}
+.faq-v2-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.faq-v2-item {
+  border-bottom: 1px solid rgba(230, 224, 218, 0.8);
+  transition: border-color var(--transition);
+}
+.faq-v2-item:first-child { border-top: 1px solid rgba(230, 224, 218, 0.8); }
+.faq-v2-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.5;
+  transition: color var(--transition);
+}
+.faq-v2-question:hover { color: var(--color-pink); }
+.faq-v2-chevron {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  transition: transform 0.3s ease;
+}
+.faq-v2-chevron svg {
+  width: 18px; height: 18px;
+  stroke: var(--color-pink);
+  stroke-width: 2;
+  fill: none;
+}
+.faq-v2-item.open .faq-v2-chevron { transform: rotate(180deg); }
+.faq-v2-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.faq-v2-answer-inner {
+  padding: 0 0 26px;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   V2 FINAL CTA — ASYMMETRIC, DARK
+   ============================================================ */
+.cta-v2 {
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
+}
+.cta-v2-card {
+  background: var(--color-text);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  position: relative;
+}
+.cta-v2-left {
+  padding: 64px 56px;
+  position: relative;
+  z-index: 2;
+}
+.cta-v2-left .section-label { color: var(--color-coral); }
+.cta-v2-left h2 {
+  color: var(--color-white);
+  font-size: 2.25rem;
+  margin-bottom: 18px;
+  line-height: 1.25;
+}
+.cta-v2-sub {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 400px;
+}
+.cta-v2-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.cta-v2-input {
+  flex: 1;
+  min-width: 180px;
+  padding: 15px 22px;
+  border-radius: var(--button-radius);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-white);
+  outline: none;
+}
+.cta-v2-input::placeholder { color: rgba(255,255,255,0.4); }
+.cta-v2-input:focus { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.12); }
+.cta-v2-right {
+  position: relative;
+  overflow: hidden;
+}
+.cta-v2-blobs { position: absolute; inset: 0; }
+.cta-v2-blobs .cvb { position: absolute; }
+.cvb-1 { top: -20%; right: -20%; width: 360px; height: 360px; }
+.cvb-2 { bottom: -25%; left: -15%; width: 300px; height: 300px; }
+.cvb-3 { top: 30%; left: 20%; width: 180px; height: 180px; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--color-white);
+  padding: 72px 0 36px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 48px;
+}
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  transition: color var(--transition);
+}
+.footer-col a:hover { color: var(--color-pink); }
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+}
+.footer-logos {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.footer-logo-item {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+}
+.footer-copy {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET
+   ============================================================ */
+@media (max-width: 1024px) {
+  .hero-v2 h1 { font-size: 2.8rem; }
+  .pillars-v2-top { grid-template-columns: 1fr; gap: 20px; }
+  .pv2-mission-row { grid-template-columns: 1fr; gap: 28px; }
+  .glance-v2-card { grid-template-columns: 1fr; }
+  .glance-v2-photo { min-height: 280px; }
+  .glance-v2-facts { grid-template-columns: 1fr; }
+  .timeline-v2-steps { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
+  .timeline-v2-steps::before { display: none; }
+  .credentials-v2-grid { grid-template-columns: repeat(2, 1fr); }
+  .audience-v2-grid { grid-template-columns: 1fr; }
+  .cta-v2-card { grid-template-columns: 1fr; }
+  .cta-v2-right { min-height: 200px; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 64px;
+    --section-padding-large: 80px;
+  }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  h1 { font-size: 2.3rem; }
+  h2 { font-size: 2rem; margin-bottom: 36px; }
+  h3 { font-size: 1.2rem; }
+  .hero-v2 { min-height: auto; padding-top: 140px; padding-bottom: 80px; }
+  .hero-v2 h1 { font-size: 2.3rem; }
+  .hero-v2-buttons { flex-direction: column; align-items: center; }
+  .hero-v2-buttons .btn { width: 100%; max-width: 320px; justify-content: center; }
+  .hb-1 { width: 340px; height: 340px; right: -100px; top: -60px; }
+  .hb-2 { width: 300px; height: 300px; left: -100px; bottom: -40px; }
+  .hb-3 { width: 200px; height: 200px; }
+  .hb-4 { width: 150px; height: 150px; }
+  .hb-5 { width: 120px; height: 120px; }
+  .hb-6 { display: none; }
+  .mission-v2-statement { font-size: 1.4rem; }
+  .glance-v2-left { padding: 32px; }
+  .timeline-v2-steps { grid-template-columns: 1fr; gap: 36px; }
+  .tv2-step { text-align: left; display: flex; gap: 20px; align-items: flex-start; }
+  .tv2-dot { margin: 0; flex-shrink: 0; }
+  .tv2-quote { font-size: 1.35rem; }
+  .credentials-v2-grid { grid-template-columns: 1fr 1fr; }
+  .cta-v2-left { padding: 40px 28px; }
+  .cta-v2-left h2 { font-size: 1.85rem; }
+  .cta-v2-form { flex-direction: column; }
+  .cta-v2-input { min-width: auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  .hero-v2 h1 { font-size: 2rem; }
+  .credentials-v2-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav">
+  <div class="container">
+    <a href="#" class="nav-logo">Emotionspädagogik <span>Institut</span></a>
+    <ul class="nav-links">
+      <li><a href="#">Our method</a></li>
+      <li><a href="#">Training path</a></li>
+      <li><a href="#" style="color:var(--color-text);font-weight:600;">About</a></li>
+      <li><a href="#">Entry course: leading under pressure</a></li>
+      <li><a href="#" class="nav-cta">Free info session</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO — CENTERED IMMERSIVE
+     ============================================================ -->
+<section class="hero-v2">
+  <!-- Blobs — dramatic, symmetrical, surrounding center content -->
+  <div class="hb hb-1">
+    <svg viewBox="0 0 500 500"><path d="M421,301Q387,352,345,393Q303,434,244,440Q185,446,139,406Q93,366,66,310Q39,254,56,194Q73,134,122,96Q171,58,233,44Q295,30,345,72Q395,114,425,182Q455,250,421,301Z" fill="#FF8A65" opacity="0.85"/></svg>
+  </div>
+  <div class="hb hb-2">
+    <svg viewBox="0 0 500 500"><path d="M407,310Q375,370,318,401Q261,432,199,416Q137,400,101,346Q65,292,58,232Q51,172,95,124Q139,76,199,59Q259,42,316,68Q373,94,406,172Q439,250,407,310Z" fill="#E83E8C" opacity="0.75"/></svg>
+  </div>
+  <div class="hb hb-3">
+    <svg viewBox="0 0 500 500"><path d="M389,305Q366,360,316,393Q266,426,207,418Q148,410,110,363Q72,316,59,258Q46,200,80,148Q114,96,170,64Q226,32,287,49Q348,66,388,123Q428,180,411,240Q394,300,389,305Z" fill="#A86BBE" opacity="0.6"/></svg>
+  </div>
+  <div class="hb hb-4">
+    <svg viewBox="0 0 500 500"><path d="M410,316Q385,382,320,410Q255,438,195,410Q135,382,97,326Q59,270,72,208Q85,146,133,103Q181,60,243,52Q305,44,358,85Q411,126,427,188Q443,250,410,316Z" fill="#E83E8C" opacity="0.5"/></svg>
+  </div>
+  <div class="hb hb-5">
+    <svg viewBox="0 0 500 500"><path d="M392,297Q350,344,304,381Q258,418,201,406Q144,394,107,344Q70,294,63,238Q56,182,93,132Q130,82,190,59Q250,36,310,59Q370,82,403,141Q436,200,420,248Q404,296,392,297Z" fill="#A86BBE" opacity="0.45"/></svg>
+  </div>
+  <div class="hb hb-6">
+    <svg viewBox="0 0 500 500"><path d="M405,298Q353,346,305,385Q257,424,200,410Q143,396,108,341Q73,286,66,229Q59,172,98,124Q137,76,196,55Q255,34,314,55Q373,76,411,138Q449,200,433,249Q417,298,405,298Z" fill="#FF8A65" opacity="0.4"/></svg>
+  </div>
+
+  <div class="hero-v2-inner">
+    <span class="section-label">About the institute</span>
+    <h1>About the Institute for Emotional Pedagogy</h1>
+    <p class="hero-v2-intro">A specialised institute for professional emotional competence in leadership — helping people in responsibility roles stay steady under pressure and guide others safely, with recognised training paths up to Emotional Pedagogue (IHK).</p>
+    <div class="hero-v2-buttons">
+      <a href="#" class="btn btn-primary btn-primary-lg btn-arrow">Book a free info session</a>
+      <a href="#" class="btn btn-secondary btn-arrow">See the IHK path</a>
+    </div>
+    <div class="hero-v2-portrait">
+      <div class="img-placeholder hero-v2-photo">[Photo: Katrin Michl]</div>
+      <div class="hero-v2-caption">
+        <strong>Katrin Michl</strong>
+        <span>Founder, Private Institute for Emotional Pedagogy<br>20+ years Bildungskompetenz</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MISSION — EDITORIAL QUOTE ON CREAM
+     ============================================================ -->
+<section class="mission-v2">
+  <div class="container">
+    <span class="section-label">Our mission</span>
+    <h2 style="margin-bottom:32px;">Our mission</h2>
+    <p class="mission-v2-statement">We strengthen the emotional competence of people in responsibility roles — so they can stay steady under pressure, communicate clearly, and guide others safely.</p>
+    <p class="mission-v2-audience">We work with adults who carry responsibility for others — across education, social and health professions, HR, organisations, and self-employed professional roles.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     PILLARS + MISSION PILLARS — AUTHORITY BAND
+     ============================================================ -->
+<section class="pillars-v2">
+  <!-- Blob overlays -->
+  <div class="pv2-blob" style="top:-80px;right:-120px;width:400px;height:400px;">
+    <svg viewBox="0 0 500 500"><path d="M421,301Q387,352,345,393Q303,434,244,440Q185,446,139,406Q93,366,66,310Q39,254,56,194Q73,134,122,96Q171,58,233,44Q295,30,345,72Q395,114,425,182Q455,250,421,301Z" fill="white"/></svg>
+  </div>
+  <div class="pv2-blob" style="bottom:-100px;left:-80px;width:320px;height:320px;">
+    <svg viewBox="0 0 500 500"><path d="M407,310Q375,370,318,401Q261,432,199,416Q137,400,101,346Q65,292,58,232Q51,172,95,124Q139,76,199,59Q259,42,316,68Q373,94,406,172Q439,250,407,310Z" fill="white"/></svg>
+  </div>
+
+  <div class="container" style="position:relative;z-index:2;">
+    <span class="section-label">What defines us</span>
+    <h2>Our institute</h2>
+    <div class="pillars-v2-top">
+      <!-- Pillar 1 -->
+      <div class="pv2-card">
+        <div class="pv2-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>Our institute is focused on clear methods</h4>
+        <p>Emotional Pedagogy as a structured, teachable approach you can apply in everyday work.</p>
+      </div>
+      <!-- Pillar 2 -->
+      <div class="pv2-card">
+        <div class="pv2-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>Recognised certification programmes</h4>
+        <p>Our courses and certificate programmes — including IHK-certified training — count as formal continuing professional education.</p>
+      </div>
+      <!-- Pillar 3 -->
+      <div class="pv2-card">
+        <div class="pv2-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>Practice-informed development</h4>
+        <p>The institute's methodology is grounded in professional practice and long-term experience with emotional load, responsibility, and leadership — translated into clear, applicable tools.</p>
+      </div>
+    </div>
+
+    <div class="pv2-divider"></div>
+
+    <div class="pv2-mission-row">
+      <div class="pv2-mission-item">
+        <h4>Practical</h4>
+        <p>Short, focused sessions with tools you can use the same day in meetings, discussions, teams and client work.</p>
+      </div>
+      <div class="pv2-mission-item">
+        <h4>Human</h4>
+        <p>Warm, down-to-earth guidance that respects real workloads, emotional realities, and organisational contexts.</p>
+      </div>
+      <div class="pv2-mission-item">
+        <h4>Recognised</h4>
+        <p>Quality-assured programmes with certificates and IHK-certified training that count as formal professional development.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     AT A GLANCE — FULL-WIDTH CARD, PHOTO RIGHT
+     ============================================================ -->
+<section class="glance-v2">
+  <div class="container">
+    <div class="glance-v2-card">
+      <div class="glance-v2-left">
+        <span class="section-label">At a glance</span>
+        <h2 style="margin-bottom:4px;">Katrin Michl</h2>
+        <p class="glance-v2-name">Founder, Private Institute for Emotional Pedagogy</p>
+        <ul class="glance-v2-facts">
+          <li>Based in Bavaria (Germany), working with participants across the German-speaking region.</li>
+          <li>Lead Trainer and method developer</li>
+          <li>Focus on professional education and structured competence development — not therapy or clinical treatment.</li>
+          <li>Trained teacher with extensive classroom and leadership experience</li>
+          <li>Developer of clear, repeatable tools for emotionally demanding professional situations</li>
+        </ul>
+      </div>
+      <div class="glance-v2-photo">[Photo: Katrin Michl, warm candid, half-body]</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TIMELINE — HORIZONTAL STEPPER
+     ============================================================ -->
+<section class="timeline-v2">
+  <div class="container">
+    <span class="section-label">How it began</span>
+    <h2>Development of the method by Katrin Michl</h2>
+    <div class="timeline-v2-steps">
+      <div class="tv2-step">
+        <div class="tv2-dot">1</div>
+        <div>
+          <h4>Professional foundation</h4>
+          <p>Teaching in schools and working with learners revealed how emotions directly affect learning, safety, cooperation, and leadership in everyday professional life.</p>
+        </div>
+      </div>
+      <div class="tv2-step">
+        <div class="tv2-dot">2</div>
+        <div>
+          <h4>Professional contexts</h4>
+          <p>Professional contexts involved crisis, conflict, responsibility, and boundary-setting highlighted the need for emotional competence that goes beyond intuition.</p>
+        </div>
+      </div>
+      <div class="tv2-step">
+        <div class="tv2-dot">3</div>
+        <div>
+          <h4>Method development</h4>
+          <p>Research, teaching practice, and applied experience were translated into clear, repeatable tools for noticing, regulating, and using emotions constructively in professional roles.</p>
+        </div>
+      </div>
+      <div class="tv2-step">
+        <div class="tv2-dot">4</div>
+        <div>
+          <h4>Institute foundation</h4>
+          <p>The Private Institute for Emotional Pedagogy was founded to offer recognised training programmes that strengthen emotional competence where it is most needed: in people who guide others.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CREDENTIALS — CREAM + WHITE CARDS
+     ============================================================ -->
+<section class="credentials-v2">
+  <div class="container">
+    <span class="section-label">Recognised quality</span>
+    <h2 style="text-align:center;">Our credentials</h2>
+    <div class="credentials-v2-grid">
+      <div class="card cv2-card card-hover">
+        <div class="cv2-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 15l-2 5l9-8.5L12 15zM12 15l2 5l-9-8.5L12 15z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="6"/></svg>
+        </div>
+        <h4>IHK</h4>
+        <p>Recognised professional education routes</p>
+      </div>
+      <div class="card cv2-card card-hover">
+        <div class="cv2-badge">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        </div>
+        <h4>DEKRA</h4>
+        <p>Quality checks for processes and materials</p>
+      </div>
+      <div class="card cv2-card card-hover">
+        <div class="cv2-badge">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>ZFU</h4>
+        <p>Compliance for distance-learning formats</p>
+      </div>
+      <div class="card cv2-card card-hover">
+        <div class="cv2-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>Funding options</h4>
+        <p>Funding options may apply by region and employer</p>
+      </div>
+    </div>
+    <p class="cv2-note">All certificate programmes follow assessed quality standards and recognised professional frameworks.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHO WE HELP — WARM COLOR BAND + NUMBERED HORIZONTAL CARDS
+     ============================================================ -->
+<section class="audience-v2">
+  <!-- Blob overlays -->
+  <div class="av2-blob" style="top:-70px;right:-100px;width:380px;height:380px;">
+    <svg viewBox="0 0 500 500"><path d="M421,301Q387,352,345,393Q303,434,244,440Q185,446,139,406Q93,366,66,310Q39,254,56,194Q73,134,122,96Q171,58,233,44Q295,30,345,72Q395,114,425,182Q455,250,421,301Z" fill="white"/></svg>
+  </div>
+  <div class="av2-blob" style="bottom:-90px;left:-80px;width:300px;height:300px;">
+    <svg viewBox="0 0 500 500"><path d="M407,310Q375,370,318,401Q261,432,199,416Q137,400,101,346Q65,292,58,232Q51,172,95,124Q139,76,199,59Q259,42,316,68Q373,94,406,172Q439,250,407,310Z" fill="white"/></svg>
+  </div>
+
+  <div class="container" style="position:relative;z-index:2;">
+    <span class="section-label">Who we help</span>
+    <h2>Who we help</h2>
+    <p class="audience-v2-intro">If you carry emotional responsibility for others, this training strengthens the way you show up.</p>
+    <div class="audience-v2-grid">
+      <div class="av2-card">
+        <div class="av2-card-num">1</div>
+        <div class="av2-text">
+          <h4>Leaders in education settings &amp; teachers</h4>
+          <p>De-escalate tension in classrooms and meetings, set clear boundaries with students and parents, and stay steady in conflict situations.</p>
+        </div>
+      </div>
+      <div class="av2-card">
+        <div class="av2-card-num">2</div>
+        <div class="av2-text">
+          <h4>Social &amp; health professionals</h4>
+          <p>Hold emotionally loaded situations with clients, patients and families, without losing your own stability or overstepping your role.</p>
+        </div>
+      </div>
+      <div class="av2-card">
+        <div class="av2-card-num">3</div>
+        <div class="av2-text">
+          <h4>HR &amp; people managers</h4>
+          <p>Lead difficult conversations, performance, conflict, restructuring and team care with clarity and support healthier team dynamics.</p>
+        </div>
+      </div>
+      <div class="av2-card">
+        <div class="av2-card-num">4</div>
+        <div class="av2-text">
+          <h4>Team &amp; project leads in NGOs, public sector and organisations</h4>
+          <p>Guide teams through pressure, change and crisis, while keeping orientation and emotional safety in the group.</p>
+        </div>
+      </div>
+      <div class="av2-card" style="grid-column:1/-1;max-width:calc(50% - 10px);">
+        <div class="av2-card-num">5</div>
+        <div class="av2-text">
+          <h4>Self-employed professionals in helping roles</h4>
+          <p>Therapists, counsellors, trainers and consultants who want a clear, recognised framework for the emotional side of their work — beyond personal intuition.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS — SINGLE FEATURED QUOTE CAROUSEL
+     ============================================================ -->
+<section class="testimonials-v2">
+  <div class="container">
+    <span class="section-label" style="text-align:center;">What participants say</span>
+    <h2>Participant voices</h2>
+    <div class="tv2-carousel">
+      <div class="tv2-slide active" data-slide="0">
+        <div class="tv2-avatar"></div>
+        <div class="tv2-quote">"I de-escalate faster and keep the room steady."</div>
+        <div class="tv2-role">Teacher, Secondary School</div>
+      </div>
+      <div class="tv2-slide" data-slide="1">
+        <div class="tv2-avatar"></div>
+        <div class="tv2-quote">"The tools are clear, humane, and repeatable."</div>
+        <div class="tv2-role">Coach, independent</div>
+      </div>
+      <div class="tv2-slide" data-slide="2">
+        <div class="tv2-avatar"></div>
+        <div class="tv2-quote">"I lead hard talks without burning out."</div>
+        <div class="tv2-role">HR, Team Lead</div>
+      </div>
+    </div>
+    <div class="tv2-dots">
+      <button class="tv2-dot-btn active" data-target="0" onclick="goToSlide(0)"></button>
+      <button class="tv2-dot-btn" data-target="1" onclick="goToSlide(1)"></button>
+      <button class="tv2-dot-btn" data-target="2" onclick="goToSlide(2)"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ — SINGLE COLUMN, EDITORIAL ACCORDION
+     ============================================================ -->
+<section class="faq-v2">
+  <div class="container">
+    <div class="faq-v2-wrapper">
+      <span class="section-label">Frequently asked</span>
+      <h2>FAQ</h2>
+
+      <div class="faq-v2-item" onclick="toggleFaq2(this)">
+        <button class="faq-v2-question">
+          What exactly is Emotional Pedagogy and how is it different from "classical" emotional intelligence trainings?
+          <span class="faq-v2-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-v2-answer"><div class="faq-v2-answer-inner">[Answer content to be added]</div></div>
+      </div>
+      <div class="faq-v2-item" onclick="toggleFaq2(this)">
+        <button class="faq-v2-question">
+          Who are your trainings designed for — and who are they not for?
+          <span class="faq-v2-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-v2-answer"><div class="faq-v2-answer-inner">[Answer content to be added]</div></div>
+      </div>
+      <div class="faq-v2-item" onclick="toggleFaq2(this)">
+        <button class="faq-v2-question">
+          Is this therapy or coaching, or is it strictly professional education?
+          <span class="faq-v2-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-v2-answer"><div class="faq-v2-answer-inner">[Answer content to be added]</div></div>
+      </div>
+      <div class="faq-v2-item" onclick="toggleFaq2(this)">
+        <button class="faq-v2-question">
+          How are the trainings recognised (IHK, DEKRA, ZFU) and what does that recognition practically mean for me or my employer?
+          <span class="faq-v2-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-v2-answer"><div class="faq-v2-answer-inner">[Answer content to be added]</div></div>
+      </div>
+      <div class="faq-v2-item" onclick="toggleFaq2(this)">
+        <button class="faq-v2-question">
+          How does the IHK training path work from the 21-day basics course up to Emotional Pedagogue (IHK) levels &amp; WAT?
+          <span class="faq-v2-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-v2-answer"><div class="faq-v2-answer-inner">[Answer content to be added]</div></div>
+      </div>
+      <div class="faq-v2-item" onclick="toggleFaq2(this)">
+        <button class="faq-v2-question">
+          Can my employer pay or reimburse training — and what documents do you provide for HR or supervisors?
+          <span class="faq-v2-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-v2-answer"><div class="faq-v2-answer-inner">[Answer content to be added]</div></div>
+      </div>
+      <div class="faq-v2-item" onclick="toggleFaq2(this)">
+        <button class="faq-v2-question">
+          What kind of time investment should I expect for the different formats (entry course, IHK modules, live sessions)?
+          <span class="faq-v2-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-v2-answer"><div class="faq-v2-answer-inner">[Answer content to be added]</div></div>
+      </div>
+      <div class="faq-v2-item" onclick="toggleFaq2(this)">
+        <button class="faq-v2-question">
+          Do I need a specific professional background or prior training to participate?
+          <span class="faq-v2-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-v2-answer"><div class="faq-v2-answer-inner">[Answer content to be added]</div></div>
+      </div>
+      <div class="faq-v2-item" onclick="toggleFaq2(this)">
+        <button class="faq-v2-question">
+          In which languages are the courses and materials available?
+          <span class="faq-v2-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-v2-answer"><div class="faq-v2-answer-inner">[Answer content to be added]</div></div>
+      </div>
+      <div class="faq-v2-item" onclick="toggleFaq2(this)">
+        <button class="faq-v2-question">
+          Are the trainings online, in person, or hybrid — and how large are the groups?
+          <span class="faq-v2-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-v2-answer"><div class="faq-v2-answer-inner">[Answer content to be added]</div></div>
+      </div>
+      <div class="faq-v2-item" onclick="toggleFaq2(this)">
+        <button class="faq-v2-question">
+          If I still have questions or an unusual situation, how can I get personal advice on whether this is a fit?
+          <span class="faq-v2-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-v2-answer"><div class="faq-v2-answer-inner">[Answer content to be added]</div></div>
+      </div>
+      <div class="faq-v2-item" onclick="toggleFaq2(this)">
+        <button class="faq-v2-question">
+          Do you offer group or enterprise options?
+          <span class="faq-v2-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="faq-v2-answer"><div class="faq-v2-answer-inner">[Answer content to be added]</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA — ASYMMETRIC DARK CARD
+     ============================================================ -->
+<section class="cta-v2">
+  <div class="container">
+    <div class="cta-v2-card">
+      <div class="cta-v2-left">
+        <span class="section-label">Stay informed</span>
+        <h2>Build your emotional competence as a leader</h2>
+        <p class="cta-v2-sub">Short, professional insights into emotional competence for people in responsibility roles. No spam, no esoterics — just what helps in practice.</p>
+        <div class="cta-v2-form">
+          <input type="email" class="cta-v2-input" placeholder="you@example.com">
+          <a href="#" class="btn btn-white btn-arrow" style="padding:15px 32px;font-size:0.95rem;">Send me the insights</a>
+        </div>
+      </div>
+      <div class="cta-v2-right">
+        <div class="cta-v2-blobs">
+          <div class="cvb cvb-1">
+            <svg viewBox="0 0 500 500"><path d="M421,301Q387,352,345,393Q303,434,244,440Q185,446,139,406Q93,366,66,310Q39,254,56,194Q73,134,122,96Q171,58,233,44Q295,30,345,72Q395,114,425,182Q455,250,421,301Z" fill="#FF8A65" opacity="0.7"/></svg>
+          </div>
+          <div class="cvb cvb-2">
+            <svg viewBox="0 0 500 500"><path d="M407,310Q375,370,318,401Q261,432,199,416Q137,400,101,346Q65,292,58,232Q51,172,95,124Q139,76,199,59Q259,42,316,68Q373,94,406,172Q439,250,407,310Z" fill="#E83E8C" opacity="0.6"/></svg>
+          </div>
+          <div class="cvb cvb-3">
+            <svg viewBox="0 0 500 500"><path d="M389,305Q366,360,316,393Q266,426,207,418Q148,410,110,363Q72,316,59,258Q46,200,80,148Q114,96,170,64Q226,32,287,49Q348,66,388,123Q428,180,411,240Q394,300,389,305Z" fill="#A86BBE" opacity="0.5"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="#">Emotional Competence Basics</a></li>
+          <li><a href="#">IHK-certified training</a></li>
+          <li><a href="#">Free info session</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">About Katrin &amp; the institute</a></li>
+          <li><a href="#">Credentials</a></li>
+          <li><a href="#">Media &amp; Partners</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact / Book a call</a></li>
+          <li><a href="#">Email support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Cookie Settings</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-logos">
+        <span class="footer-logo-item">IHK</span>
+        <span class="footer-logo-item">DEKRA</span>
+        <span class="footer-logo-item">ZFU</span>
+        <span class="footer-logo-item">KOMPASS</span>
+      </div>
+      <span class="footer-copy">© 2025 Emotionspädagogik Institut</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+/* FAQ accordion */
+function toggleFaq2(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-v2-item').forEach(el => {
+    el.classList.remove('open');
+    el.querySelector('.faq-v2-answer').style.maxHeight = '0';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    const answer = item.querySelector('.faq-v2-answer');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+
+/* Testimonial carousel */
+let currentSlide = 0;
+let autoTimer;
+
+function goToSlide(n) {
+  currentSlide = n;
+  document.querySelectorAll('.tv2-slide').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tv2-dot-btn').forEach(d => d.classList.remove('active'));
+  document.querySelector(`.tv2-slide[data-slide="${n}"]`).classList.add('active');
+  document.querySelector(`.tv2-dot-btn[data-target="${n}"]`).classList.add('active');
+  resetAuto();
+}
+
+function nextSlide() {
+  goToSlide((currentSlide + 1) % 3);
+}
+
+function resetAuto() {
+  clearInterval(autoTimer);
+  autoTimer = setInterval(nextSlide, 5000);
+}
+
+resetAuto();
+</script>
+
+</body>
+</html>

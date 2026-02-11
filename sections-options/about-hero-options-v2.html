@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Page Hero v2 — Options (Cream BG)</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-coral: #FF8A65;
+  --color-pink: #E83E8C;
+  --color-purple: #A86BBE;
+  --color-cream: #F7F3EE;
+  --color-white: #FFFFFF;
+  --color-text: #3A3A3A;
+  --color-text-muted: #6B6B6B;
+  --color-border: #E6E0DA;
+  --gradient-warm: linear-gradient(135deg, #FF8A65 0%, #E83E8C 100%);
+  --font-heading: 'Libre Baskerville', Georgia, serif;
+  --font-body: 'Source Sans 3', -apple-system, sans-serif;
+  --container-max: 1100px;
+  --button-radius: 24px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); color: var(--color-text); background: #e8e4df; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: var(--container-max); margin: 0 auto; padding: 0 24px; }
+
+/* Shared */
+.btn { display: inline-flex; align-items: center; gap: 8px; border-radius: var(--button-radius); font-family: var(--font-body); font-weight: 600; cursor: pointer; transition: all 0.25s ease; border: none; }
+.btn-primary-lg { background: var(--color-pink); color: white; padding: 16px 36px; font-size: 0.95rem; }
+.btn-primary-lg:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(232,62,140,0.25); }
+.btn-secondary { background: transparent; color: var(--color-pink); border: 1.5px solid rgba(232,62,140,0.35); padding: 14px 28px; font-size: 0.9rem; font-weight: 500; }
+.btn-secondary:hover { border-color: var(--color-pink); }
+.section-label { font-family: var(--font-body); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-coral); display: block; margin-bottom: 18px; }
+
+/* Page chrome */
+.page-header { background: var(--color-cream); padding: 48px 0 24px; text-align: center; }
+.page-header h1 { font-family: var(--font-heading); font-size: 2rem; font-weight: 400; margin-bottom: 12px; }
+.page-header p { font-size: 0.9rem; color: var(--color-text-muted); max-width: 680px; margin: 0 auto; line-height: 1.6; }
+.option-divider { background: var(--color-cream); padding: 56px 0 20px; text-align: center; }
+.option-label { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-coral); background: rgba(255,138,101,0.1); padding: 8px 20px; border-radius: 20px; margin-bottom: 14px; }
+.option-title { font-family: var(--font-heading); font-size: 1.55rem; font-weight: 400; margin-bottom: 8px; }
+.option-desc { font-size: 0.84rem; color: var(--color-text-muted); max-width: 640px; margin: 0 auto; line-height: 1.6; }
+.context-below { background: var(--color-cream); padding: 40px 0; text-align: center; border-top: 1px solid var(--color-border); }
+.context-below span { font-size: 0.72rem; color: var(--color-text-muted); opacity: 0.5; }
+
+/* Nav bar */
+.fake-nav { background: var(--color-white); padding: 0 24px; border-bottom: 1px solid rgba(230,224,218,0.5); }
+.fake-nav-inner { max-width: var(--container-max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.fake-nav-logo { display: flex; align-items: center; gap: 10px; }
+.fake-nav-logo svg { width: 32px; height: 28px; }
+.fake-nav-logo-text { font-family: var(--font-heading); font-size: 0.92rem; }
+.fake-nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.fake-nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--color-text-muted); }
+.fake-nav-links a.active { color: var(--color-text); font-weight: 600; }
+.fake-nav-cta { background: var(--color-pink); color: white !important; padding: 9px 20px; border-radius: var(--button-radius); font-size: 0.82rem !important; font-weight: 600 !important; }
+
+/* Photo caption shared */
+.photo-caption { text-align: center; margin-top: 16px; position: relative; z-index: 5; }
+.photo-caption strong { display: block; font-size: 0.88rem; font-weight: 600; color: var(--color-text); }
+.photo-caption span { font-size: 0.78rem; color: var(--color-text-muted); line-height: 1.5; display: block; }
+
+/* ============================================================
+   SYMBOL LOGO (hidden, referenced)
+   ============================================================ */
+
+/* ============================================================
+   OPTION A — PORTRAIT LEFT + SYMBOL BEHIND
+   Reversed from homepage. Photo left, text right.
+   Symbol logo behind Katrin. Cream background throughout.
+   ============================================================ */
+.hero-a {
+  background: var(--color-cream);
+  padding: 80px 0 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+.hero-a .container { position: relative; z-index: 5; }
+.hero-a .ha-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  align-items: center;
+}
+/* Photo side — LEFT */
+.hero-a .ha-image-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 480px;
+  justify-content: center;
+}
+.hero-a .ha-symbol {
+  position: absolute;
+  width: 460px; height: 404px;
+  top: -10px; left: -100px;
+  z-index: 1;
+  opacity: 0.85;
+}
+.hero-a .ha-photo-frame {
+  position: relative; z-index: 3;
+  width: 300px; height: 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ddd4c8;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+.hero-a .ha-photo-frame img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+/* Text side — RIGHT */
+.hero-a .ha-content { max-width: 480px; }
+.hero-a h1 {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1.18;
+  margin-bottom: 24px;
+}
+.hero-a .ha-intro {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 440px;
+}
+.hero-a .ha-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-a .ha-divider { width: 100%; height: 1px; background: var(--color-border); margin-top: 64px; }
+
+
+/* ============================================================
+   OPTION B — ARCH WINDOW FRAME + PORTRAIT LEFT
+   Photo inside an arch/window shape (rounded top, flat bottom).
+   Symbol logo sits behind the arch. Portrait on the left.
+   ============================================================ */
+.hero-b {
+  background: var(--color-cream);
+  padding: 80px 0 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+.hero-b .container { position: relative; z-index: 5; }
+.hero-b .hb-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  align-items: center;
+}
+/* Photo side — LEFT with arch window */
+.hero-b .hb-image-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.hero-b .hb-symbol {
+  position: absolute;
+  width: 420px; height: 369px;
+  top: -30px; left: -80px;
+  z-index: 1;
+  opacity: 0.7;
+}
+/* The arch window frame */
+.hero-b .hb-arch {
+  position: relative; z-index: 3;
+  width: 280px;
+  height: 400px;
+  border-radius: 140px 140px 0 0; /* semicircle top, flat bottom */
+  overflow: hidden;
+  background: #e8e0d6;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+}
+.hero-b .hb-arch img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+/* Subtle inner border on the arch */
+.hero-b .hb-arch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 140px 140px 0 0;
+  border: 1px solid rgba(255,255,255,0.4);
+  pointer-events: none;
+}
+/* Text side — RIGHT */
+.hero-b .hb-content { max-width: 480px; }
+.hero-b h1 {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1.18;
+  margin-bottom: 24px;
+}
+.hero-b .hb-intro {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 440px;
+}
+.hero-b .hb-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-b .hb-divider { width: 100%; height: 1px; background: var(--color-border); margin-top: 64px; }
+
+
+/* ============================================================
+   OPTION C — ARCH WINDOW + PORTRAIT RIGHT + SYMBOL BEHIND
+   The arch window frame on the RIGHT side (like the screenshot
+   reference). Symbol logo large behind. Text left.
+   ============================================================ */
+.hero-c {
+  background: var(--color-cream);
+  padding: 80px 0 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+.hero-c .container { position: relative; z-index: 5; }
+.hero-c .hc-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+/* Text side — LEFT */
+.hero-c .hc-content { max-width: 500px; }
+.hero-c h1 {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1.18;
+  margin-bottom: 24px;
+}
+.hero-c .hc-intro {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 460px;
+}
+.hero-c .hc-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+/* Photo side — RIGHT with arch window */
+.hero-c .hc-image-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.hero-c .hc-symbol {
+  position: absolute;
+  width: 480px; height: 422px;
+  top: -30px; right: -100px;
+  z-index: 1;
+  opacity: 0.8;
+}
+.hero-c .hc-arch {
+  position: relative; z-index: 3;
+  width: 280px;
+  height: 400px;
+  border-radius: 140px 140px 0 0;
+  overflow: hidden;
+  background: #e8e0d6;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+}
+.hero-c .hc-arch img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hero-c .hc-arch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 140px 140px 0 0;
+  border: 1px solid rgba(255,255,255,0.4);
+  pointer-events: none;
+}
+.hero-c .hc-divider { width: 100%; height: 1px; background: var(--color-border); margin-top: 64px; }
+
+
+/* ============================================================
+   OPTION D — PORTRAIT LEFT, ARCH WINDOW + GRADIENT INNER GLOW
+   Arch window on left side with a subtle warm gradient border
+   that echoes the brand colors. The gradient acts as a "halo"
+   around the arch. Symbol logo partially visible behind.
+   Most distinctive treatment of the photo.
+   ============================================================ */
+.hero-d {
+  background: var(--color-cream);
+  padding: 80px 0 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+.hero-d .container { position: relative; z-index: 5; }
+.hero-d .hd-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  align-items: center;
+}
+/* Photo side — LEFT with gradient-bordered arch */
+.hero-d .hd-image-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.hero-d .hd-symbol {
+  position: absolute;
+  width: 400px; height: 352px;
+  top: -20px; left: -80px;
+  z-index: 1;
+  opacity: 0.6;
+}
+/* Gradient border wrapper */
+.hero-d .hd-arch-border {
+  position: relative; z-index: 3;
+  width: 296px;
+  height: 416px;
+  border-radius: 148px 148px 0 0;
+  background: linear-gradient(160deg, var(--color-coral), var(--color-pink), var(--color-purple));
+  padding: 4px;
+  box-shadow: 0 8px 36px rgba(232,62,140,0.12);
+}
+/* Inner arch with photo */
+.hero-d .hd-arch-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 144px 144px 0 0;
+  overflow: hidden;
+  background: #e8e0d6;
+}
+.hero-d .hd-arch-inner img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+/* Text side — RIGHT */
+.hero-d .hd-content { max-width: 480px; }
+.hero-d h1 {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1.18;
+  margin-bottom: 24px;
+}
+.hero-d .hd-intro {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 440px;
+}
+.hero-d .hd-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-d .hd-divider { width: 100%; height: 1px; background: var(--color-border); margin-top: 64px; }
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .hero-a .ha-grid,
+  .hero-b .hb-grid,
+  .hero-c .hc-grid,
+  .hero-d .hd-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .hero-a, .hero-b, .hero-c, .hero-d {
+    min-height: auto;
+    padding: 48px 0 0;
+  }
+  .hero-a h1, .hero-b h1, .hero-c h1, .hero-d h1 { font-size: 2.4rem; }
+  /* On mobile, always show photo first */
+  .hero-a .ha-image-area,
+  .hero-b .hb-image-area,
+  .hero-d .hd-image-area { order: -1; min-height: auto; }
+  .hero-c .hc-image-area { order: -1; }
+  .hero-a .ha-photo-frame { width: 240px; height: 300px; }
+  .hero-b .hb-arch { width: 220px; height: 320px; border-radius: 110px 110px 0 0; }
+  .hero-b .hb-arch::after { border-radius: 110px 110px 0 0; }
+  .hero-c .hc-arch { width: 220px; height: 320px; border-radius: 110px 110px 0 0; }
+  .hero-c .hc-arch::after { border-radius: 110px 110px 0 0; }
+  .hero-d .hd-arch-border { width: 236px; height: 336px; border-radius: 118px 118px 0 0; }
+  .hero-d .hd-arch-inner { border-radius: 114px 114px 0 0; }
+  .hero-a .ha-symbol { width: 300px; height: 264px; left: -50px; }
+  .hero-b .hb-symbol { width: 300px; height: 264px; left: -50px; }
+  .hero-c .hc-symbol { width: 340px; height: 299px; right: -60px; }
+  .hero-d .hd-symbol { width: 280px; height: 246px; left: -40px; }
+  .fake-nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Symbol logo SVG (hidden, referenced) -->
+<svg style="display:none;">
+  <defs>
+    <g id="symbol-logo">
+      <path d="M76.4671 13.8598C101.377 16.1798 98.7071 41.7698 81.6871 56.1798C90.4571 35.0198 81.9371 20.0498 76.4671 13.8598Z" fill="#9984B9"/>
+      <path d="M63.8671 42.9398C62.4671 51.9998 58.3571 61.1898 51.0071 68.4898C43.3671 69.2298 35.9171 68.2798 30.0771 64.9498C41.6971 71.4398 60.3971 63.9698 63.8771 42.9398H63.8671Z" fill="#4B3368"/>
+      <path d="M76.4671 13.8598C81.9271 20.0498 90.4571 35.0198 81.6871 56.1798C74.1671 62.5198 62.3771 67.3798 51.0071 68.4798C58.3671 61.1798 62.4771 51.9898 63.8671 42.9298C67.1471 23.1398 53.0271 11.5398 44.2571 8.42978C44.0271 8.34978 43.8071 8.26978 43.5871 8.17978C54.3071 11.7098 69.1871 12.9198 76.4571 13.8498L76.4671 13.8598Z" fill="#A25499"/>
+      <path d="M76.4671 13.8598C69.1971 12.9298 54.3171 11.7198 43.5971 8.18978C32.6271 4.06978 35.7371 -0.630222 47.1271 0.0697783C60.3271 0.879778 69.9971 5.97978 76.4671 13.8598Z" fill="#F59DB0"/>
+      <path d="M25.0171 7.54977C42.6971 9.48977 56.6572 30.3298 45.0072 48.0798C49.8372 39.4198 49.4571 20.9698 31.4871 18.2598C31.3071 15.9898 29.7772 14.7198 27.4672 13.7898C20.3072 10.8898 21.8771 7.20977 25.0171 7.55977V7.54977Z" fill="#FAB37F"/>
+      <path d="M5.31714 48.2098C7.90714 63.4898 15.9571 74.9698 31.1571 80.1798C8.64714 86.1798 -9.35286 68.4398 5.31714 48.2098Z" fill="#EF5395"/>
+      <path d="M35.3671 36.7998L35.3471 36.8298C34.5371 36.1698 33.3371 35.7798 31.5871 35.7998C27.1971 35.8498 23.2571 38.4998 21.2271 42.4698C17.2071 48.4898 13.0471 46.0198 11.8371 41.8198C19.0171 36.2998 29.3971 31.6798 35.3771 36.7998H35.3671Z" fill="#ED1765"/>
+      <path d="M35.3671 36.7998C29.3871 31.6798 19.0071 36.2998 11.8271 41.8198C10.8371 38.3898 11.8271 33.8198 16.4771 31.7898C23.1271 28.7398 32.4671 25.0198 31.4871 18.2498C49.4571 20.9598 49.8371 39.4198 45.0071 48.0698C44.4071 48.9798 43.7471 49.8898 43.0071 50.7798C40.6171 53.6698 32.8571 57.1698 35.3371 47.6398C36.0371 44.9498 38.2271 39.1798 35.3471 36.8198L35.3671 36.7898V36.7998Z" fill="#F3715A"/>
+      <path d="M31.4871 18.2498C32.4771 25.0198 23.1371 28.7398 16.4771 31.7898C11.8271 33.8198 10.8371 38.3898 11.8271 41.8198C9.00713 43.9898 6.67712 46.2898 5.30712 48.1998C2.69712 31.7898 14.6071 15.8898 31.4871 18.2398V18.2498Z" fill="#F59DB0"/>
+      <path d="M30.0671 64.9398C35.9171 68.2698 43.3671 69.2198 50.9971 68.4798C45.9571 73.4798 39.3971 77.5898 31.1471 80.1698C15.9471 74.9698 7.89713 63.4798 5.30713 48.1998C6.67713 46.2898 9.00713 43.9798 11.8271 41.8198C13.0371 46.0198 17.1971 48.4898 21.2171 42.4698C18.5071 47.7998 19.2071 55.5098 26.8271 62.5798C27.6171 63.3198 28.4771 63.9698 29.3771 64.5298C29.3771 64.5298 29.3871 64.5298 29.3971 64.5398C29.6171 64.6798 29.8371 64.8098 30.0671 64.9398Z" fill="#EE3B76"/>
+      <path d="M81.6772 56.1798C75.6872 69.0098 64.0772 78.9798 54.8172 81.5198C48.2872 83.3098 39.5672 83.3398 31.1472 80.1698C39.3972 77.5898 45.9571 73.4798 50.9971 68.4798C62.3671 67.3798 74.1572 62.5198 81.6772 56.1798Z" fill="#F59DB0"/>
+    </g>
+  </defs>
+</svg>
+
+
+<div class="page-header">
+  <div class="container">
+    <h1>About Page Hero v2 — Options</h1>
+    <p>All on cream background. Options A, B, D have portrait on the LEFT (reversed from homepage). Options B, C, D use the arch/window frame. Each includes the symbol logo and a bottom divider separating from the pillars section below.</p>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     OPTION A — PORTRAIT LEFT + RECTANGULAR FRAME + SYMBOL
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option A</span>
+  <div class="option-title">Portrait left — rectangular frame + symbol behind</div>
+  <div class="option-desc">Simple reversed layout: Katrin's photo on the left in a standard rectangular frame with rounded corners and shadow. Symbol logo behind, bleeding off left edge. Text and CTAs on the right. Clean inversion of the homepage — visitor immediately sees it's a different page.</div>
+</div>
+
+<nav class="fake-nav"><div class="fake-nav-inner">
+  <div class="fake-nav-logo">
+    <svg viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+    <span class="fake-nav-logo-text">Emotionspädagogik</span>
+  </div>
+  <ul class="fake-nav-links">
+    <li><a href="#">Our method</a></li><li><a href="#">Training path</a></li>
+    <li><a href="#" class="active">About</a></li><li><a href="#">Entry course</a></li>
+    <li><a href="#" class="fake-nav-cta">Free info session</a></li>
+  </ul>
+</div></nav>
+
+<section class="hero-a">
+  <div class="container">
+    <div class="ha-grid">
+      <div class="ha-image-area">
+        <svg class="ha-symbol" viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+        <div class="ha-photo-frame">
+          <div style="width:100%;height:100%;background:linear-gradient(180deg, #e8ddd3 0%, #d4c5b5 100%);display:flex;align-items:center;justify-content:center;color:#b0a090;font-size:0.8rem;">Katrin portrait</div>
+        </div>
+        <div class="photo-caption">
+          <strong>Katrin Michl</strong>
+          <span>Founder · Lead Trainer · 20+ years in emotional education</span>
+        </div>
+      </div>
+      <div class="ha-content">
+        <span class="section-label">About the institute</span>
+        <h1>About the Institute for Emotional Pedagogy</h1>
+        <p class="ha-intro">A specialised institute for professional emotional competence in leadership — helping people in responsibility roles stay steady under pressure and guide others safely, with recognised training paths up to Emotional Pedagogue (IHK).</p>
+        <div class="ha-ctas">
+          <a href="#" class="btn btn-primary-lg">Book a free info session →</a>
+          <a href="#" class="btn btn-secondary">See the IHK path →</a>
+        </div>
+      </div>
+    </div>
+    <div class="ha-divider"></div>
+  </div>
+</section>
+
+<div class="context-below"><span>↓ Institute positioning pillars (cream) below</span></div>
+
+
+<!-- ============================================================
+     OPTION B — ARCH WINDOW LEFT + SYMBOL BEHIND
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option B</span>
+  <div class="option-title">Arch window left — symbol behind</div>
+  <div class="option-desc">Katrin's photo on the LEFT inside the arch/window frame (rounded top, flat bottom — like the screenshot reference). The symbol logo sits behind, partially visible. Text and CTAs on the right. The arch shape adds warmth and distinctiveness to what would otherwise be a standard portrait. "Meet the founder" energy.</div>
+</div>
+
+<nav class="fake-nav"><div class="fake-nav-inner">
+  <div class="fake-nav-logo">
+    <svg viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+    <span class="fake-nav-logo-text">Emotionspädagogik</span>
+  </div>
+  <ul class="fake-nav-links">
+    <li><a href="#">Our method</a></li><li><a href="#">Training path</a></li>
+    <li><a href="#" class="active">About</a></li><li><a href="#">Entry course</a></li>
+    <li><a href="#" class="fake-nav-cta">Free info session</a></li>
+  </ul>
+</div></nav>
+
+<section class="hero-b">
+  <div class="container">
+    <div class="hb-grid">
+      <div class="hb-image-area">
+        <svg class="hb-symbol" viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+        <div class="hb-arch">
+          <div style="width:100%;height:100%;background:linear-gradient(180deg, #e8ddd3 0%, #d4c5b5 100%);display:flex;align-items:center;justify-content:center;color:#b0a090;font-size:0.8rem;">Katrin portrait</div>
+        </div>
+        <div class="photo-caption">
+          <strong>Katrin Michl</strong>
+          <span>Founder · Lead Trainer · 20+ years in emotional education</span>
+        </div>
+      </div>
+      <div class="hb-content">
+        <span class="section-label">About the institute</span>
+        <h1>About the Institute for Emotional Pedagogy</h1>
+        <p class="hb-intro">A specialised institute for professional emotional competence in leadership — helping people in responsibility roles stay steady under pressure and guide others safely, with recognised training paths up to Emotional Pedagogue (IHK).</p>
+        <div class="hb-ctas">
+          <a href="#" class="btn btn-primary-lg">Book a free info session →</a>
+          <a href="#" class="btn btn-secondary">See the IHK path →</a>
+        </div>
+      </div>
+    </div>
+    <div class="hb-divider"></div>
+  </div>
+</section>
+
+<div class="context-below"><span>↓ Institute positioning pillars (cream) below</span></div>
+
+
+<!-- ============================================================
+     OPTION C — ARCH WINDOW RIGHT + TEXT LEFT
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option C</span>
+  <div class="option-title">Arch window right — text left, symbol behind right</div>
+  <div class="option-desc">Text on the left, Katrin in the arch window on the right. Same side as the homepage portrait but the arch shape differentiates it. The symbol logo sits large behind the arch, bleeding off the right viewport edge. If you want photo-right consistency across pages but with a distinct feel, this is it.</div>
+</div>
+
+<nav class="fake-nav"><div class="fake-nav-inner">
+  <div class="fake-nav-logo">
+    <svg viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+    <span class="fake-nav-logo-text">Emotionspädagogik</span>
+  </div>
+  <ul class="fake-nav-links">
+    <li><a href="#">Our method</a></li><li><a href="#">Training path</a></li>
+    <li><a href="#" class="active">About</a></li><li><a href="#">Entry course</a></li>
+    <li><a href="#" class="fake-nav-cta">Free info session</a></li>
+  </ul>
+</div></nav>
+
+<section class="hero-c">
+  <div class="container">
+    <div class="hc-grid">
+      <div class="hc-content">
+        <span class="section-label">About the institute</span>
+        <h1>About the Institute for Emotional Pedagogy</h1>
+        <p class="hc-intro">A specialised institute for professional emotional competence in leadership — helping people in responsibility roles stay steady under pressure and guide others safely, with recognised training paths up to Emotional Pedagogue (IHK).</p>
+        <div class="hc-ctas">
+          <a href="#" class="btn btn-primary-lg">Book a free info session →</a>
+          <a href="#" class="btn btn-secondary">See the IHK path →</a>
+        </div>
+      </div>
+      <div class="hc-image-area">
+        <svg class="hc-symbol" viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+        <div class="hc-arch">
+          <div style="width:100%;height:100%;background:linear-gradient(180deg, #e8ddd3 0%, #d4c5b5 100%);display:flex;align-items:center;justify-content:center;color:#b0a090;font-size:0.8rem;">Katrin portrait</div>
+        </div>
+        <div class="photo-caption">
+          <strong>Katrin Michl</strong>
+          <span>Founder · Lead Trainer · 20+ years in emotional education</span>
+        </div>
+      </div>
+    </div>
+    <div class="hc-divider"></div>
+  </div>
+</section>
+
+<div class="context-below"><span>↓ Institute positioning pillars (cream) below</span></div>
+
+
+<!-- ============================================================
+     OPTION D — ARCH + GRADIENT BORDER LEFT
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option D</span>
+  <div class="option-title">Arch window left — gradient border + symbol behind</div>
+  <div class="option-desc">The arch/window frame gets a 4px gradient border (coral → pink → purple) that acts as a warm halo around Katrin's photo. Portrait on the left, text on the right. Symbol logo behind at reduced opacity. The gradient border is the most distinctive photo treatment — ties the portrait directly to the brand colors. The border is subtle enough to feel elegant, not decorative.</div>
+</div>
+
+<nav class="fake-nav"><div class="fake-nav-inner">
+  <div class="fake-nav-logo">
+    <svg viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+    <span class="fake-nav-logo-text">Emotionspädagogik</span>
+  </div>
+  <ul class="fake-nav-links">
+    <li><a href="#">Our method</a></li><li><a href="#">Training path</a></li>
+    <li><a href="#" class="active">About</a></li><li><a href="#">Entry course</a></li>
+    <li><a href="#" class="fake-nav-cta">Free info session</a></li>
+  </ul>
+</div></nav>
+
+<section class="hero-d">
+  <div class="container">
+    <div class="hd-grid">
+      <div class="hd-image-area">
+        <svg class="hd-symbol" viewBox="0 0 95 83" fill="none"><use href="#symbol-logo"/></svg>
+        <div class="hd-arch-border">
+          <div class="hd-arch-inner">
+            <div style="width:100%;height:100%;background:linear-gradient(180deg, #e8ddd3 0%, #d4c5b5 100%);display:flex;align-items:center;justify-content:center;color:#b0a090;font-size:0.8rem;">Katrin portrait</div>
+          </div>
+        </div>
+        <div class="photo-caption">
+          <strong>Katrin Michl</strong>
+          <span>Founder · Lead Trainer · 20+ years in emotional education</span>
+        </div>
+      </div>
+      <div class="hd-content">
+        <span class="section-label">About the institute</span>
+        <h1>About the Institute for Emotional Pedagogy</h1>
+        <p class="hd-intro">A specialised institute for professional emotional competence in leadership — helping people in responsibility roles stay steady under pressure and guide others safely, with recognised training paths up to Emotional Pedagogue (IHK).</p>
+        <div class="hd-ctas">
+          <a href="#" class="btn btn-primary-lg">Book a free info session →</a>
+          <a href="#" class="btn btn-secondary">See the IHK path →</a>
+        </div>
+      </div>
+    </div>
+    <div class="hd-divider"></div>
+  </div>
+</section>
+
+<div class="context-below"><span>↓ Institute positioning pillars (cream) below</span></div>
+
+<div style="height:80px;background:var(--color-cream);"></div>
+
+</body>
+</html>

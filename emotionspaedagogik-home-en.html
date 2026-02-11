@@ -47,7 +47,7 @@ a:hover { color: #d1357d; }
 
 /* ===== CONTAINER ===== */
 .container {
-  max-width: var(--container-max);
+  width: var(--container-max);
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -106,7 +106,7 @@ p { margin-bottom: 1rem; }
 .btn-primary-lg {
   background: var(--color-pink);
   color: white;
-  padding: 18px 40px;
+  padding: 14px 28px;
   font-size: 1.05rem;
 }
 .btn-primary-lg:hover { color: white; background: #d1357d; }
@@ -202,15 +202,16 @@ p { margin-bottom: 1rem; }
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  max-width: var(--container-max);
 }
 .nav-logo {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--color-text);
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
 }
-.nav-logo span { color: var(--color-pink); }
+.nav-logo img {
+  height: 50px;
+  width: auto;
+}
 .nav-links {
   display: flex;
   align-items: center;
@@ -258,37 +259,37 @@ p { margin-bottom: 1rem; }
 
 /* ===== HERO SECTION ===== */
 .hero {
-  background: var(--color-cream);
-  padding: 152px 0 100px;
+  background: var(--color-cream) url('assets/BG-hero-01.png') right bottom / auto 88% no-repeat;
+  padding-top: 140px;
+  margin-bottom: 80px;
   position: relative;
-  overflow: hidden;
-  min-height: 88vh;
-  display: flex;
-  align-items: center;
+  height: 80vh;
+  min-height: 600px;
+  display: none;
+  align-items: flex-start;
 }
-.hero .container { position: relative; z-index: 5; }
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+.hero-content {
+  max-width: 500px;
+  padding: 20px 0 0;
 }
-.hero-content { max-width: 520px; }
 .hero h1 {
+  font-size: 3.2rem;
   color: var(--color-text);
   margin-bottom: 28px;
+  line-height: 1.15;
 }
 .hero-sub {
   font-size: 1.02rem;
   color: var(--color-text-muted);
   line-height: 1.75;
   margin-bottom: 40px;
-  max-width: 460px;
+  max-width: 480px;
 }
 .hero-ctas {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
   margin-bottom: 48px;
 }
 .hero-trust {
@@ -301,72 +302,173 @@ p { margin-bottom: 1rem; }
   gap: 24px;
   align-items: center;
 }
-.hero-logo-badge {
-  background: rgba(230, 224, 218, 0.5);
-  padding: 6px 16px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  letter-spacing: 0.05em;
-}
-.hero-image-area {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.hero-portrait {
-  width: 340px;
-  height: 420px;
-  border-radius: 16px;
-  position: relative;
-  z-index: 3;
-}
-.hero-portrait-caption {
-  text-align: center;
-  margin-top: 16px;
-  position: relative;
-  z-index: 5;
-}
-.hero-portrait-caption strong {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
-  color: var(--color-text);
-  font-weight: 400;
-}
-.hero-portrait-caption span {
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
-  line-height: 1.6;
+.hero-logo-badge img {
+  height: 48px;
+  width: auto;
 }
 
-/* Hero Blobs - SVG organic shapes */
-.hero-blob {
-  position: absolute;
-  z-index: 1;
+/* ===== SECTION: HERO INTRO ===== */
+.section-hero-intro {
+  background: var(--color-cream);
+  padding: 100px 0 var(--section-padding);
 }
-.hero-blob svg { width: 100%; height: 100%; }
-.blob-1 { width: 500px; height: 500px; top: -140px; right: -160px; z-index: 1; }
-.blob-2 { width: 320px; height: 320px; top: 120px; right: 60px; z-index: 4; }
-.blob-3 { width: 240px; height: 240px; top: 20px; right: -20px; z-index: 2; }
-.blob-4 { width: 200px; height: 200px; bottom: -80px; left: -100px; z-index: 1; }
-.blob-5 { width: 160px; height: 160px; bottom: 40px; right: 280px; z-index: 2; }
-.blob-6 { width: 140px; height: 140px; top: -40px; left: 30%; z-index: 1; }
+.hero-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.hero-intro-text h2 {
+  font-size: 2.6rem;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+.hero-intro-text .intro-subtitle {
+  font-size: 1.02rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  max-width: 460px;
+}
+.hero-intro-trust {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+.hero-intro-logos {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.hero-intro-logos img {
+  height: 25px;
+  width: auto;
+  filter: grayscale(100%);
+  opacity: 0.75;
+}
+.hero-intro-ctas {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+}
+.hero-intro-portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-intro-portrait-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.hero-intro-portrait-wrap .portrait-blob {
+  position: absolute;
+  width: 105%;
+  height: 105%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.hero-intro-portrait-wrap .portrait-blob img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.hero-intro-portrait-wrap .portrait-img {
+  position: relative;
+  z-index: 1;
+  width: 408px;
+  height: 408px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+}
+.hero-intro-caption {
+  text-align: center;
+}
+.hero-intro-caption strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.01rem;
+  color: var(--color-text);
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+.hero-intro-caption span {
+  font-size: 0.98rem;
+  color: var(--color-text-muted);
+}
+
+/* ===== HERO-2 HIDDEN ===== */
+#hero-2 { display: none; }
+
+/* ===== HERO-2-COPY OVERRIDES ===== */
+#hero-2-copy {
+  padding: 100px 0 60px;
+  border-bottom: 1px solid #C8C0B8;
+}
+#hero-2-copy .hero-intro-text h2 {
+  font-size: 3.4rem;
+  line-height: 1.15;
+}
+#hero-2-copy .hero-intro-ctas {
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+#hero-2-copy .hero-intro-logos {
+  margin-bottom: 0;
+}
+#hero-2-copy .hero-intro-logos img {
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+#hero-2-copy .hero-intro-portrait-wrap .portrait-blob {
+  transform: translate(-50%, -46%);
+}
+#hero-2-copy .hero-intro-portrait-wrap .portrait-img {
+  box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+}
+@media (max-width: 768px) {
+  #hero-2-copy .hero-intro-ctas {
+    flex-direction: column;
+  }
+}
 
 /* ===== SECTION: WHY PROFESSIONALS ===== */
 .section-why {
   background: var(--color-cream);
-  padding: var(--section-padding) 0;
+  padding: 60px 0;
 }
 .section-why h2 { text-align: left; }
 .why-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px;
 }
-.why-card { padding: 36px 28px; }
+.why-card {
+  padding: 40px 36px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+.why-card .icon-wrap {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 0;
+}
+.why-card .icon-wrap svg {
+  width: 22px;
+  height: 22px;
+}
+.why-card-text {
+  flex: 1;
+}
 .why-card h4 {
   margin-bottom: 14px;
   font-size: 1.15rem;
@@ -425,6 +527,113 @@ p { margin-bottom: 1rem; }
 }
 .band-blob svg { width: 100%; height: 100%; }
 
+/* ===== SECTION: APPROACH V2 (TWO-TONE SPLIT) ===== */
+#approach-2 {
+  position: relative;
+  overflow: hidden;
+}
+#approach-2 .method-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+}
+#approach-2 .method-left {
+  background: linear-gradient(135deg, #FF8A65 0%, #E83E8C 100%);
+  padding: 80px 48px 80px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+#approach-2 .method-left-inner {
+  max-width: 480px;
+  margin-left: auto;
+  padding-left: 24px;
+  position: relative;
+  z-index: 2;
+}
+#approach-2 .method-left .section-label {
+  color: rgba(255, 255, 255, 0.65);
+}
+#approach-2 .method-left h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+#approach-2 .method-left p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.92rem;
+  line-height: 1.8;
+  max-width: 400px;
+}
+#approach-2 .method-symbol {
+  position: absolute;
+  width: 360px;
+  height: 316px;
+  bottom: -40px;
+  left: -60px;
+  z-index: 1;
+  opacity: 0.08;
+}
+#approach-2 .method-right {
+  background: var(--color-cream);
+  padding: 64px 0 64px 56px;
+  display: flex;
+  align-items: center;
+}
+#approach-2 .method-right-inner {
+  max-width: 480px;
+}
+#approach-2 .method-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px 32px;
+}
+#approach-2 .method-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(232, 62, 140, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+#approach-2 .method-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--color-pink);
+  stroke-width: 1.5;
+}
+#approach-2 .method-pillar h4 {
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+#approach-2 .method-pillar p {
+  color: var(--color-text-muted);
+  font-size: 0.83rem;
+  line-height: 1.7;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  #approach-2 .method-split { grid-template-columns: 1fr; }
+  #approach-2 .method-left { padding: 64px 24px; }
+  #approach-2 .method-left-inner { margin-left: 0; max-width: 100%; }
+  #approach-2 .method-right { padding: 48px 24px; }
+}
+@media (max-width: 600px) {
+  #approach-2 .method-pillars { grid-template-columns: 1fr; gap: 28px; }
+}
+
 /* ===== SECTION: YOUR PATH ===== */
 .section-path {
   background: var(--color-cream);
@@ -442,8 +651,11 @@ p { margin-bottom: 1rem; }
 }
 .path-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+}
+.path-card--full {
+  grid-column: 1 / -1;
 }
 .path-card {
   padding: 28px 24px;
@@ -490,144 +702,263 @@ p { margin-bottom: 1rem; }
 }
 .path-card .btn-sm { margin-top: 18px; }
 
-/* ===== SECTION: VIDEO TESTIMONIAL ===== */
-.section-video {
+/* ===== SECTION: TRAINING PATH V2 ===== */
+.training-path-v2 {
   background: var(--color-cream);
   padding: var(--section-padding) 0;
 }
-.section-video h2 { text-align: left; }
-.section-video .video-subtitle {
-  max-width: 560px;
-  margin-bottom: 52px;
+.training-path-v2 .tp2-header {
+  margin-bottom: 56px;
 }
-.video-block {
-  background: var(--gradient-authority);
-  border-radius: 12px;
-  padding: 56px 52px;
-  position: relative;
-  overflow: hidden;
+.training-path-v2 .tp2-header h2 {
+  font-size: 2.45rem;
+  margin-bottom: 16px;
+}
+.training-path-v2 .tp2-header p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  max-width: 600px;
+}
+.tp2-block-label {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-pink);
+  margin-bottom: 20px;
+  display: block;
+}
+.tp2-grid-start {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
+  gap: 24px;
+  margin-bottom: 56px;
 }
-.video-block-blob {
+.tp2-grid-advanced {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.tp2-card {
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+}
+.tp2-card::before {
+  content: '';
   position: absolute;
-  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-coral), var(--color-pink));
 }
-.video-block-blob svg { width: 100%; height: 100%; }
-.video-text { position: relative; z-index: 2; }
-.video-text blockquote {
+.tp2-num {
   font-family: var(--font-heading);
-  font-size: 1.2rem;
-  color: white;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #FF8A65 0%, #E83E8C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tp2-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+.tp2-card .tp2-subtitle {
+  font-size: 0.84rem;
   font-style: italic;
-  line-height: 1.65;
-  margin-bottom: 28px;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
 }
-.video-text .author {
-  color: rgba(255,255,255,0.9);
-  font-size: 0.85rem;
+.tp2-card p {
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
 }
-.video-text .author strong {
-  display: block;
+.tp2-meta {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+.tp2-note {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+.tp2-card .tp2-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
   font-weight: 600;
-  color: white;
-  font-size: 0.9rem;
-  margin-bottom: 2px;
+  color: var(--color-pink);
 }
-.video-thumb {
-  position: relative;
-  z-index: 2;
+.tp2-card .tp2-link:hover {
+  color: #d1357d;
 }
-.video-thumb .img-placeholder {
-  width: 100%;
-  aspect-ratio: 16/10;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.7);
-  font-size: 0.85rem;
-  position: relative;
+@media (max-width: 900px) {
+  .tp2-grid-start { grid-template-columns: 1fr; }
+  .tp2-grid-advanced { grid-template-columns: 1fr; }
 }
-.play-btn {
-  width: 64px;
-  height: 64px;
-  background: rgba(255,255,255,0.95);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.play-btn:hover { transform: translate(-50%, -50%) scale(1.08); }
-.play-btn svg { width: 24px; height: 24px; fill: var(--color-pink); margin-left: 3px; }
 
-/* ===== SECTION: ENTRY COURSE (COLOR BAND - PURPLE) ===== */
-.section-entry {
-  background: var(--gradient-authority);
+/* ===== SECTION: VIDEO TESTIMONIAL ===== */
+/* ===== SECTION: VIDEO TESTIMONIAL ===== */
+.section-video {
+  background: var(--gradient-warm);
   padding: var(--section-padding-large) 0;
   position: relative;
   overflow: hidden;
 }
-.section-entry .container { position: relative; z-index: 2; }
-.section-entry .section-label { color: rgba(255,255,255,0.65); }
+.section-video .container { position: relative; z-index: 2; }
+.section-video .section-label { color: rgba(255,255,255,0.85); }
+.section-video h2 {
+  text-align: left;
+  color: white;
+  max-width: 600px;
+}
+.section-video .video-subtitle {
+  max-width: 560px;
+  margin-bottom: 52px;
+  color: rgba(255,255,255,0.85);
+}
+.video-blob {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+}
+.video-blob--1 { width: 300px; height: 300px; background: rgba(255,255,255,0.08); top: -80px; right: -60px; }
+.video-blob--2 { width: 200px; height: 200px; background: rgba(255,255,255,0.06); bottom: -60px; left: -40px; }
+.video-blob--3 { width: 160px; height: 160px; background: rgba(232,62,140,0.15); bottom: 40px; right: 10%; }
+.video-frame {
+  max-width: 720px;
+  margin: 0 auto 56px;
+  background: white;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+}
+.video-frame iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  display: block;
+}
+.video-quote {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: left;
+  position: relative;
+  padding-left: 32px;
+}
+.video-quote::before {
+  content: '\201C\201C';
+  position: absolute;
+  left: 0;
+  top: -4px;
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  color: var(--color-pink);
+  line-height: 1;
+}
+.video-quote blockquote {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: white;
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.video-quote .author strong {
+  display: block;
+  font-weight: 600;
+  color: white;
+  font-size: 0.88rem;
+  margin-bottom: 2px;
+}
+.video-quote .author {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+/* ===== SECTION: ENTRY COURSE (COLOR BAND - PURPLE) ===== */
+.section-entry {
+  background: var(--color-cream);
+  padding: 100px 0 var(--section-padding);
+}
 .entry-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
+  gap: 40px;
   align-items: center;
 }
-.entry-text h2 {
-  color: white;
-  font-size: 2.35rem;
-  margin-bottom: 16px;
+.entry-image {
+  border-radius: 12px;
+  overflow: hidden;
 }
-.entry-text .entry-subtitle {
-  color: rgba(255,255,255,0.8);
-  font-size: 0.95rem;
-  margin-bottom: 36px;
+.entry-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
 }
 .entry-card {
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: var(--card-radius);
-  padding: 36px;
-  backdrop-filter: blur(4px);
+  background: var(--color-white);
+  border-radius: 12px;
+  padding: 48px 40px;
+}
+.entry-card .section-label {
+  margin-bottom: 20px;
 }
 .entry-card h3 {
-  color: white;
-  font-size: 1.35rem;
-  margin-bottom: 18px;
-  line-height: 1.35;
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  line-height: 1.3;
 }
 .entry-card p {
-  color: rgba(255,255,255,0.85);
+  color: var(--color-text-muted);
   font-size: 0.88rem;
   line-height: 1.75;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 .entry-facts {
   display: flex;
-  gap: 24px;
-  margin-bottom: 32px;
+  gap: 16px;
+  margin-bottom: 36px;
   flex-wrap: wrap;
 }
 .entry-fact {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255,255,255,0.8);
+  color: var(--color-text-muted);
   font-size: 0.82rem;
+  background: var(--color-cream);
+  padding: 8px 16px;
+  border-radius: 20px;
 }
 .entry-fact svg {
   width: 16px;
   height: 16px;
-  stroke: rgba(255,255,255,0.7);
+  stroke: var(--color-text-muted);
   fill: none;
   stroke-width: 1.5;
 }
@@ -636,7 +967,6 @@ p { margin-bottom: 1rem; }
   gap: 14px;
   flex-wrap: wrap;
 }
-.entry-ctas .btn-white { padding: 14px 28px; }
 .btn-ghost-white {
   background: transparent;
   color: white;
@@ -660,22 +990,14 @@ p { margin-bottom: 1rem; }
 .funding-text { max-width: 620px; }
 .funding-text h2 { font-size: 2.2rem; }
 .funding-text p { margin-bottom: 28px; }
-.funding-badges {
+.funding-image {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
   align-items: center;
+  justify-content: center;
 }
-.funding-badge {
-  background: var(--color-white);
-  border: 1px solid rgba(230, 224, 218, 0.6);
-  border-radius: var(--card-radius);
-  padding: 20px 36px;
-  text-align: center;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  letter-spacing: 0.03em;
+.funding-image img {
+  width: 300px;
+  height: auto;
 }
 
 /* ===== SECTION: TESTIMONIALS ===== */
@@ -685,71 +1007,121 @@ p { margin-bottom: 1rem; }
 }
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 28px;
 }
 .testimonial-card {
-  padding: 36px 30px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+.testimonial-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+.testimonial-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .testimonial-card blockquote {
   font-family: var(--font-heading);
-  font-size: 0.98rem;
+  font-size: 0.88rem;
   color: var(--color-text);
-  font-style: italic;
+  font-style: normal;
   line-height: 1.65;
   margin-bottom: 28px;
 }
-.testimonial-card blockquote::before {
-  content: '"';
-  display: block;
-  font-size: 2.5rem;
-  color: var(--color-pink);
-  line-height: 1;
-  margin-bottom: 12px;
-  font-style: normal;
-}
 .testimonial-author strong {
   display: block;
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 0.88rem;
-  color: var(--color-text);
+  font-size: 0.82rem;
+  color: var(--color-pink);
   margin-bottom: 2px;
 }
 .testimonial-author span {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  color: var(--color-pink);
 }
 
-/* ===== SECTION: ABOUT / TRAINER (WARM COLOR BAND) ===== */
+/* ===== SECTION: ABOUT / TRAINER (SPLIT LAYOUT) ===== */
 .section-about {
-  background: var(--gradient-warm);
-  padding: var(--section-padding-large) 0;
+  background: var(--color-cream);
+  padding: 0;
   position: relative;
   overflow: hidden;
 }
-.section-about .container { position: relative; z-index: 2; }
 .about-grid {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 56px;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  min-height: 700px;
 }
-.about-photo .img-placeholder {
-  width: 260px;
-  height: 320px;
-  border-radius: 50% 50% 50% 50%;
-  background: rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.7);
+.about-photo-col {
+  background: var(--gradient-warm);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
 }
-.about-content .section-label { color: rgba(255,255,255,0.65); }
-.about-content h2 {
+.about-photo-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.about-photo-caption {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 100%);
+}
+.about-photo-caption strong {
+  display: block;
   color: white;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.about-photo-caption span {
+  display: block;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+.about-photo-blob {
+  position: absolute;
+  bottom: -40px;
+  right: -30px;
+  width: 180px;
+  height: 180px;
+  background: rgba(180, 140, 200, 0.25);
+  border-radius: 50%;
+  z-index: 1;
+}
+.about-content-col {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-content-col .section-label { color: var(--color-pink); }
+.about-content-col h2 {
+  color: var(--color-text);
   font-size: 2.4rem;
   margin-bottom: 28px;
 }
-.about-content p {
-  color: rgba(255,255,255,0.88);
+.about-content-col p {
+  color: var(--color-text-muted);
   font-size: 0.9rem;
   line-height: 1.8;
   margin-bottom: 16px;
@@ -758,9 +1130,13 @@ p { margin-bottom: 1rem; }
 .about-defines {
   margin-top: 32px;
   margin-bottom: 36px;
+  background: var(--color-white);
+  border-left: 3px solid var(--color-pink);
+  border-radius: 8px;
+  padding: 28px 32px;
 }
 .about-defines h4 {
-  color: white;
+  color: var(--color-text);
   font-size: 1.05rem;
   margin-bottom: 14px;
 }
@@ -768,11 +1144,11 @@ p { margin-bottom: 1rem; }
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 .about-defines-list li {
-  color: rgba(255,255,255,0.85);
-  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -781,7 +1157,7 @@ p { margin-bottom: 1rem; }
   content: '';
   width: 6px;
   height: 6px;
-  background: rgba(255,255,255,0.5);
+  background: var(--color-pink);
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -790,52 +1166,111 @@ p { margin-bottom: 1rem; }
   gap: 14px;
   flex-wrap: wrap;
 }
+.about-ctas .btn-primary { padding: 16px 32px; }
+.about-ctas .btn-secondary { padding: 16px 32px; }
 
 /* ===== SECTION: FINAL CTA (PURPLE BAND) ===== */
 .section-final-cta {
-  background: var(--gradient-authority);
-  padding: 100px 0 110px;
+  background: var(--color-cream);
+  padding: 120px 0 140px;
   position: relative;
   overflow: hidden;
   text-align: center;
 }
 .section-final-cta .container { position: relative; z-index: 2; }
 .section-final-cta h2 {
-  color: white;
-  font-size: 2.6rem;
+  color: var(--color-text);
+  font-size: 2.8rem;
   margin-bottom: 20px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 .section-final-cta p {
-  color: rgba(255,255,255,0.85);
-  max-width: 520px;
-  margin: 0 auto 40px;
+  color: var(--color-text-muted);
+  max-width: 560px;
+  margin: 0 auto 44px;
   font-size: 0.92rem;
   line-height: 1.75;
 }
+.cta-blob {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+}
+.cta-blob--1 { width: 320px; height: 320px; background: rgba(255, 179, 150, 0.25); top: -80px; left: -100px; }
+.cta-blob--2 { width: 200px; height: 200px; background: rgba(180, 140, 200, 0.2); top: -40px; right: -30px; }
+.cta-blob--3 { width: 260px; height: 260px; background: rgba(255, 179, 150, 0.18); bottom: -80px; right: -60px; }
+.cta-blob--4 { width: 160px; height: 160px; background: rgba(180, 140, 200, 0.12); bottom: -20px; left: 10%; }
 .email-form {
   display: flex;
-  gap: 12px;
-  max-width: 460px;
+  align-items: center;
+  gap: 16px;
+  max-width: 560px;
   margin: 0 auto;
   justify-content: center;
 }
+.email-form-input-wrap {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 50px;
+  padding: 6px 16px 6px 24px;
+  flex: 1;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
 .email-form input[type="email"] {
-  padding: 14px 20px;
-  border-radius: var(--button-radius);
-  border: 1.5px solid rgba(255,255,255,0.3);
-  background: rgba(255,255,255,0.12);
-  color: white;
+  background: transparent;
+  border: none;
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: 0.9rem;
   flex: 1;
   outline: none;
-  transition: all 0.3s;
+  padding: 12px 0;
+  min-width: 0;
 }
-.email-form input[type="email"]::placeholder { color: rgba(255,255,255,0.5); }
-.email-form input[type="email"]:focus { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.18); }
+.email-form input[type="email"]::placeholder { color: #aaa; }
+.email-form-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(232, 62, 140, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.email-form-icon svg {
+  width: 15px;
+  height: 15px;
+  stroke: var(--color-pink);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.email-form .btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-pink);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 32px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+  text-decoration: none;
+}
+.email-form .btn-cta:hover { background: #d1357d; color: white; transform: translateY(-1px); }
+.email-form .btn-cta .btn-arrow { transition: transform 0.3s ease; display: inline-block; }
+.email-form .btn-cta:hover .btn-arrow { transform: translateX(3px); }
 
 /* ===== FOOTER ===== */
 .site-footer {
@@ -882,54 +1317,57 @@ p { margin-bottom: 1rem; }
 }
 .footer-badges {
   display: flex;
-  gap: 20px;
+  gap: 28px;
   align-items: center;
+  justify-content: center;
   margin-bottom: 12px;
 }
-.footer-badge {
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
+.footer-badge img {
+  height: 44px;
+  width: auto;
+  filter: grayscale(100%);
   opacity: 0.5;
-  letter-spacing: 0.03em;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.footer-badge img:hover {
+  filter: grayscale(0%);
+  opacity: 0.85;
 }
 .footer-copyright {
   font-family: var(--font-body);
   font-size: 0.7rem;
   color: var(--color-text-muted);
   opacity: 0.6;
+  text-align: center;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-  .why-grid { grid-template-columns: repeat(2, 1fr); }
   .method-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
-  .path-grid { grid-template-columns: repeat(3, 1fr); }
   .entry-grid { grid-template-columns: 1fr; }
-  .video-block { grid-template-columns: 1fr; }
-  .about-grid { grid-template-columns: 1fr; }
-  .about-photo { display: flex; justify-content: center; }
+  .about-grid { grid-template-columns: 1fr; min-height: auto; }
+  .about-photo-col { min-height: 400px; }
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
   .funding-inner { grid-template-columns: 1fr; }
-  .funding-badges { flex-direction: row; justify-content: flex-start; }
+  .funding-image { justify-content: flex-start; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero-intro-grid { gap: 40px; }
+  .hero-intro-portrait-wrap .portrait-img { width: 336px; height: 336px; }
 }
 @media (max-width: 768px) {
   h1 { font-size: 2.6rem; }
   h2 { font-size: 2rem; margin-bottom: 36px; }
   h3 { font-size: 1.2rem; }
-  .hero { padding: 120px 0 64px; min-height: auto; }
-  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  .hero-image-area { order: -1; }
-  .hero-portrait { width: 240px; height: 300px; }
-  .hero-ctas { flex-direction: column; }
-  .hero-ctas .btn { text-align: center; justify-content: center; width: 100%; }
-  .blob-1 { width: 300px; height: 300px; top: -80px; right: -100px; }
-  .blob-2 { width: 190px; height: 190px; top: 60px; right: 20px; }
-  .blob-3 { width: 140px; height: 140px; top: 10px; right: -30px; }
-  .blob-4 { width: 120px; height: 120px; bottom: -40px; left: -60px; }
-  .blob-5 { width: 100px; height: 100px; }
-  .blob-6 { width: 80px; height: 80px; }
+  .hero { height: auto; min-height: auto; padding: 120px 0 64px; background-size: auto 50%; background-position: right bottom; }
+  .hero-content { padding: 0; max-width: 100%; }
+  .hero-intro-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-intro-text h2 { font-size: 2rem; }
+  .hero-intro-text .intro-subtitle { max-width: 100%; }
+  .hero-intro-trust { text-align: center; }
+  .hero-intro-logos { justify-content: center; }
+  .hero-intro-ctas { justify-content: center; flex-wrap: wrap; }
+  .hero-intro-portrait { order: -1; margin-bottom: 20px; }
+  .hero-intro-portrait-wrap .portrait-img { width: 312px; height: 312px; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
   .section-why,
@@ -938,24 +1376,26 @@ p { margin-bottom: 1rem; }
   .section-funding,
   .section-testimonials { padding: var(--section-padding-mobile) 0; }
   .section-method,
-  .section-entry,
-  .section-about { padding: 80px 0; }
+  .section-entry { padding: 80px 0; }
+  .about-content-col { padding: 48px 24px; }
   .section-final-cta { padding: 80px 0; }
+  .section-final-cta h2 { font-size: 2.2rem; }
   .why-grid { grid-template-columns: 1fr; gap: 20px; }
   .method-grid { grid-template-columns: 1fr; gap: 24px; }
   .path-grid { grid-template-columns: 1fr; gap: 20px; }
   .path-header { flex-direction: column; gap: 20px; }
-  .testimonials-grid { grid-template-columns: 1fr; gap: 20px; }
-  .video-block { padding: 36px 28px; }
+  .testimonials-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .video-frame { margin-bottom: 36px; }
+  .video-quote { padding-left: 28px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
   .email-form { flex-direction: column; }
-  .email-form .btn-white { width: 100%; justify-content: center; }
-  .about-grid { gap: 36px; }
-  .about-photo .img-placeholder { width: 200px; height: 240px; }
+  .email-form-input-wrap { width: 100%; }
+  .email-form .btn-cta { width: 100%; justify-content: center; }
+  .about-photo-col { min-height: 340px; }
   .entry-ctas { flex-direction: column; }
   .entry-ctas .btn { width: 100%; justify-content: center; text-align: center; }
-  .funding-badges { flex-direction: column; align-items: flex-start; }
+  .funding-image img { width: 160px; }
 }
 @media (max-width: 480px) {
   .footer-grid { grid-template-columns: 1fr; }
@@ -1011,10 +1451,10 @@ p { margin-bottom: 1rem; }
 <!-- ===== NAVIGATION ===== -->
 <nav class="nav">
   <div class="container">
-    <a href="emotionspaedagogik-home-en.html" class="nav-logo">Emotionspädagogik <span>Institut</span></a>
+    <a href="emotionspaedagogik-home-en.html" class="nav-logo"><img src="assets/logo-horizontal-medium-clean.svg" alt="Emotionspädagogik Institut"></a>
     <ul class="nav-links">
       <li><a href="#" style="color: var(--color-text); font-weight: 600;">Our method</a></li>
-      <li><a href="emotionspaedagogik-entry-course-en.html">Training path</a></li>
+      <li><a href="#training-path">Training path</a></li>
       <li><a href="emotionspaedagogik-about-en.html">About</a></li>
       <li><a href="emotionspaedagogik-entry-course-en.html">Entry course</a></li>
       <li><a href="emotionspaedagogik-free-info-session-en.html" class="nav-cta">Free info session</a></li>
@@ -1026,62 +1466,83 @@ p { margin-bottom: 1rem; }
 </nav>
 
 <!-- ===== HERO SECTION ===== -->
-<section class="hero">
-  <!-- Blobs -->
-  <div class="hero-blob blob-1">
-    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-      <path d="M426,295Q414,390,324,421Q234,452,157,408Q80,364,59,272Q38,180,107,109Q176,38,270,52Q364,66,406,158Q448,250,426,295Z" fill="#FF8A65" opacity="0.9"/>
-    </svg>
-  </div>
-  <div class="hero-blob blob-2">
-    <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
-      <path d="M256,192Q244,264,173,278Q102,292,63,221Q24,150,79,85Q134,20,200,46Q266,72,268,136Q270,200,256,192Z" fill="#E83E8C" opacity="0.8"/>
-    </svg>
-  </div>
-  <div class="hero-blob blob-3">
-    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-      <path d="M192,144Q184,208,120,216Q56,224,38,162Q20,100,68,54Q116,8,168,40Q220,72,200,108Q180,144,192,144Z" fill="#A86BBE" opacity="0.7"/>
-    </svg>
-  </div>
-  <div class="hero-blob blob-4">
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <path d="M160,120Q152,180,92,176Q32,172,28,116Q24,60,76,38Q128,16,156,58Q184,100,168,120Q152,140,160,120Z" fill="#A86BBE" opacity="0.45"/>
-    </svg>
-  </div>
-  <div class="hero-blob blob-5">
-    <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-      <path d="M128,96Q120,144,76,140Q32,136,24,88Q16,40,64,28Q112,16,124,58Q136,100,128,96Z" fill="#FF8A65" opacity="0.5"/>
-    </svg>
-  </div>
-  <div class="hero-blob blob-6">
-    <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-      <path d="M112,84Q104,124,66,120Q28,116,22,78Q16,40,56,26Q96,12,108,46Q120,80,112,84Z" fill="#E83E8C" opacity="0.4"/>
-    </svg>
-  </div>
-
+<section id="hero-1" class="hero">
   <div class="container">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <h1>Lead calmly when emotions run high.</h1>
-        <p class="hero-sub">Professional Emotional Pedagogy training for people in responsibility roles — educators, HR professionals, team leaders, social workers, consultants, conflict, and high-pressure situations.</p>
-        <div class="hero-ctas">
-          <a href="emotionspaedagogik-free-info-session-en.html" class="btn btn-primary-lg">Join the free info session <span class="btn-arrow">→</span></a>
+    <div class="hero-content">
+      <h1>Lead calmly when emotions run high.</h1>
+      <p class="hero-sub">Professional Emotional Pedagogy training for people in responsibility roles — educators, HR professionals, team leaders, social workers, consultants, conflict, and high-pressure situations.</p>
+      <div class="hero-ctas">
+        <a href="emotionspaedagogik-free-info-session-en.html" class="btn btn-primary-lg">Join the free info session <span class="btn-arrow">→</span></a>
+        <a href="emotionspaedagogik-entry-course-en.html" class="btn btn-secondary">Start the entry course <span class="btn-arrow">→</span></a>
+      </div>
+      <p class="hero-trust">Developed by educator Katrin Michl — recognised by IHK, DEKRA & ZFU</p>
+      <div class="hero-logos">
+        <span class="hero-logo-badge"><img src="assets/SEAL-IHK.svg" alt="IHK Seal"></span>
+        <span class="hero-logo-badge"><img src="assets/SEAL-DEKRA.svg" alt="DEKRA Seal"></span>
+        <span class="hero-logo-badge"><img src="assets/SEAL-ZFU.png" alt="ZFU Seal"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HERO INTRO SECTION ===== -->
+<section id="hero-2" class="section-hero-intro">
+  <div class="container">
+    <div class="hero-intro-grid">
+      <div class="hero-intro-text">
+        <h2>Lead calmly when emotions run high.</h2>
+        <p class="intro-subtitle">Professional Emotional Pedagogy training for people in responsibility roles — educators, HR professionals, team leaders, social workers, and consultants.</p>
+        <p class="hero-intro-trust">Developed by educator Katrin Michl — recognised by:</p>
+        <div class="hero-intro-logos">
+          <img src="assets/SEAL-IHK.svg" alt="IHK certified">
+          <img src="assets/SEAL-DEKRA.svg" alt="DEKRA certified">
+          <img src="assets/SEAL-ZFU.png" alt="ZFU approved">
+        </div>
+        <div class="hero-intro-ctas">
+          <a href="emotionspaedagogik-free-info-session-en.html" class="btn btn-primary">Join the free info session <span class="btn-arrow">→</span></a>
           <a href="emotionspaedagogik-entry-course-en.html" class="btn btn-secondary">Start the entry course <span class="btn-arrow">→</span></a>
         </div>
-        <p class="hero-trust">Developed by educator Katrin Michl — recognised by IHK, DEKRA & ZFU</p>
-        <div class="hero-logos">
-          <span class="hero-logo-badge">IHK</span>
-          <span class="hero-logo-badge">DEKRA</span>
-          <span class="hero-logo-badge">ZFU</span>
+      </div>
+      <div class="hero-intro-portrait">
+        <div class="hero-intro-portrait-wrap">
+          <div class="portrait-blob"><img src="assets/symbol clean.svg" alt=""></div>
+          <img class="portrait-img" src="assets/katrin-michl-portrait-2-highres.png" alt="Katrin Michl">
+        </div>
+        <div class="hero-intro-caption">
+          <strong>Katrin Michl</strong>
+          <span>Founder &amp; Lead Trainer</span>
         </div>
       </div>
-      <div class="hero-image-area">
-        <div>
-          <div class="img-placeholder hero-portrait">[Photo: Katrin Michl, warm candid, half-body]</div>
-          <div class="hero-portrait-caption">
-            <strong>Katrin Michl</strong>
-            <span>Founder & Lead Trainer<br>Privates Institut für Emotionspädagogik</span>
-          </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HERO INTRO SECTION (COPY) ===== -->
+<section id="hero-2-copy" class="section-hero-intro">
+  <div class="container">
+    <div class="hero-intro-grid">
+      <div class="hero-intro-text">
+        <h2>Lead calmly when emotions run high.</h2>
+        <p class="intro-subtitle">Professional Emotional Pedagogy training for people in responsibility roles — educators, HR professionals, team leaders, social workers, and consultants.</p>
+        <div class="hero-intro-ctas">
+          <a href="emotionspaedagogik-free-info-session-en.html" class="btn btn-primary">Join the free info session <span class="btn-arrow">→</span></a>
+          <a href="emotionspaedagogik-entry-course-en.html" class="btn btn-secondary">Start the entry course <span class="btn-arrow">→</span></a>
+        </div>
+        <p class="hero-intro-trust">Developed by educator Katrin Michl — recognised by:</p>
+        <div class="hero-intro-logos">
+          <img src="assets/SEAL-IHK.svg" alt="IHK certified">
+          <img src="assets/SEAL-DEKRA.svg" alt="DEKRA certified">
+          <img src="assets/SEAL-ZFU.png" alt="ZFU approved">
+        </div>
+      </div>
+      <div class="hero-intro-portrait">
+        <div class="hero-intro-portrait-wrap">
+          <div class="portrait-blob"><img src="assets/symbol clean.svg" alt=""></div>
+          <img class="portrait-img" src="assets/katrin-michl-portrait-2-highres.png" alt="Katrin Michl">
+        </div>
+        <div class="hero-intro-caption">
+          <strong>Katrin Michl</strong>
+          <span>Founder &amp; Lead Trainer</span>
         </div>
       </div>
     </div>
@@ -1098,174 +1559,207 @@ p { margin-bottom: 1rem; }
         <div class="icon-wrap">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h4>Recognised professional development</h4>
-        <p>Train with an educator recognised by IHK, DEKRA & ZFU — your skills count as professional qualification, not personal insight.</p>
+        <div class="why-card-text">
+          <h4>Recognised professional development</h4>
+          <p>Train with an educator recognised by IHK, DEKRA & ZFU — your skills count as professional qualification, not personal insight.</p>
+        </div>
       </div>
       <div class="card why-card">
         <div class="icon-wrap">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h4>Built for everyday leadership</h4>
-        <p>Every concept is translated into practical competence for difficult situations, pressure, conflict, and emotional responsibility in your role.</p>
+        <div class="why-card-text">
+          <h4>Built for everyday leadership</h4>
+          <p>Every concept is translated into practical competence for difficult situations, pressure, conflict, and emotional responsibility in your role.</p>
+        </div>
       </div>
       <div class="card why-card">
         <div class="icon-wrap">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/><polyline points="12 6 12 12 16 14" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h4>Fits alongside your workload</h4>
-        <p>Study at your own pace, with a clear structure and realistic time commitment designed for professionals with limited capacity.</p>
+        <div class="why-card-text">
+          <h4>Fits alongside your workload</h4>
+          <p>Study at your own pace, with a clear structure and realistic time commitment designed for professionals with limited capacity.</p>
+        </div>
       </div>
       <div class="card why-card">
         <div class="icon-wrap">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h4>Led by a proven expert</h4>
-        <p>Learn directly from Katrin Michl, educator and founder with 20+ years of experience in emotional education and training for people in responsibility roles.</p>
+        <div class="why-card-text">
+          <h4>Led by a proven expert</h4>
+          <p>Learn directly from Katrin Michl, educator and founder with 20+ years of experience in emotional education and training for people in responsibility roles.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== STRUCTURED METHOD (WARM COLOR BAND) ===== -->
-<section class="section-method">
-  <!-- Band blob overlays -->
-  <div class="band-blob" style="width:360px;height:360px;top:-100px;right:-80px;">
-    <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg"><path d="M288,216Q276,292,196,304Q116,316,66,248Q16,180,72,108Q128,36,208,48Q288,60,296,130Q304,200,288,216Z" fill="white" opacity="0.1"/></svg>
-  </div>
-  <div class="band-blob" style="width:240px;height:240px;bottom:-60px;left:-40px;">
-    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"><path d="M192,144Q184,208,120,216Q56,224,38,162Q20,100,68,54Q116,8,168,40Q220,72,200,108Q180,144,192,144Z" fill="white" opacity="0.08"/></svg>
-  </div>
+<!-- ===== STRUCTURED METHOD (TWO-TONE SPLIT) ===== -->
+<section id="approach-2">
+  <div class="method-split">
 
-  <div class="container">
-    <span class="section-label">Our approach</span>
-    <h2>A structured method for emotional competence</h2>
-    <p class="method-intro">Emotional Pedagogy is professional education — not therapy, not self-help. It offers a clear, teachable system for understanding emotions, regulating reactions, guiding others safely, and remaining effective under pressure.</p>
-    <div class="method-grid">
-      <div class="method-pillar">
-        <div class="icon-wrap">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="21" x2="16" y2="21" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="17" x2="12" y2="21" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Recognised approach</h4>
-        <p>A structured educational method with institutional recognition and a clear professional framework.</p>
-      </div>
-      <div class="method-pillar">
-        <div class="icon-wrap">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="16" x2="12" y2="12" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="8" x2="12.01" y2="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Human science–based</h4>
-        <p>Built on psychology, pedagogy, and emotional learning — adapted for real professional contexts.</p>
-      </div>
-      <div class="method-pillar">
-        <div class="icon-wrap">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="16 3 21 3 21 8" stroke-linecap="round" stroke-linejoin="round"/><line x1="4" y1="20" x2="21" y2="3" stroke-linecap="round" stroke-linejoin="round"/><polyline points="21 16 21 21 16 21" stroke-linecap="round" stroke-linejoin="round"/><line x1="15" y1="15" x2="21" y2="21" stroke-linecap="round" stroke-linejoin="round"/><line x1="4" y1="4" x2="9" y2="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Transfer to real life</h4>
-        <p>Concrete tools you can apply immediately in leadership, education, teams, and conflict situations.</p>
-      </div>
-      <div class="method-pillar">
-        <div class="icon-wrap">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.73 21a2 2 0 0 1-3.46 0" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Applied under pressure</h4>
-        <p>Designed for emotionally demanding environments where stability and clarity are essential.</p>
+    <!-- LEFT: Gradient side with headline + intro -->
+    <div class="method-left">
+      <svg class="method-symbol" viewBox="0 0 95 83" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M76.4671 13.8598C101.377 16.1798 98.7071 41.7698 81.6871 56.1798C90.4571 35.0198 81.9371 20.0498 76.4671 13.8598Z" fill="white"/>
+        <path d="M63.8671 42.9398C62.4671 51.9998 58.3571 61.1898 51.0071 68.4898C43.3671 69.2298 35.9171 68.2798 30.0771 64.9498C41.6971 71.4398 60.3971 63.9698 63.8771 42.9398H63.8671Z" fill="white"/>
+        <path d="M76.4671 13.8598C81.9271 20.0498 90.4571 35.0198 81.6871 56.1798C74.1671 62.5198 62.3771 67.3798 51.0071 68.4798C58.3671 61.1798 62.4771 51.9898 63.8671 42.9298C67.1471 23.1398 53.0271 11.5398 44.2571 8.42978C44.0271 8.34978 43.8071 8.26978 43.5871 8.17978C54.3071 11.7098 69.1871 12.9198 76.4571 13.8498L76.4671 13.8598Z" fill="white"/>
+        <path d="M76.4671 13.8598C69.1971 12.9298 54.3171 11.7198 43.5971 8.18978C32.6271 4.06978 35.7371 -0.630222 47.1271 0.0697783C60.3271 0.879778 69.9971 5.97978 76.4671 13.8598Z" fill="white"/>
+        <path d="M25.0171 7.54977C42.6971 9.48977 56.6572 30.3298 45.0072 48.0798C49.8372 39.4198 49.4571 20.9698 31.4871 18.2598C31.3071 15.9898 29.7772 14.7198 27.4672 13.7898C20.3072 10.8898 21.8771 7.20977 25.0171 7.55977V7.54977Z" fill="white"/>
+        <path d="M5.31714 48.2098C7.90714 63.4898 15.9571 74.9698 31.1571 80.1798C8.64714 86.1798 -9.35286 68.4398 5.31714 48.2098Z" fill="white"/>
+        <path d="M35.3671 36.7998L35.3471 36.8298C34.5371 36.1698 33.3371 35.7798 31.5871 35.7998C27.1971 35.8498 23.2571 38.4998 21.2271 42.4698C17.2071 48.4898 13.0471 46.0198 11.8371 41.8198C19.0171 36.2998 29.3971 31.6798 35.3771 36.7998H35.3671Z" fill="white"/>
+        <path d="M35.3671 36.7998C29.3871 31.6798 19.0071 36.2998 11.8271 41.8198C10.8371 38.3898 11.8271 33.8198 16.4771 31.7898C23.1271 28.7398 32.4671 25.0198 31.4871 18.2498C49.4571 20.9598 49.8371 39.4198 45.0071 48.0698C44.4071 48.9798 43.7471 49.8898 43.0071 50.7798C40.6171 53.6698 32.8571 57.1698 35.3371 47.6398C36.0371 44.9498 38.2271 39.1798 35.3471 36.8198L35.3671 36.7898V36.7998Z" fill="white"/>
+        <path d="M31.4871 18.2498C32.4771 25.0198 23.1371 28.7398 16.4771 31.7898C11.8271 33.8198 10.8371 38.3898 11.8271 41.8198C9.00713 43.9898 6.67712 46.2898 5.30712 48.1998C2.69712 31.7898 14.6071 15.8898 31.4871 18.2398V18.2498Z" fill="white"/>
+        <path d="M30.0671 64.9398C35.9171 68.2698 43.3671 69.2198 50.9971 68.4798C45.9571 73.4798 39.3971 77.5898 31.1471 80.1698C15.9471 74.9698 7.89713 63.4798 5.30713 48.1998C6.67713 46.2898 9.00713 43.9798 11.8271 41.8198C13.0371 46.0198 17.1971 48.4898 21.2171 42.4698C18.5071 47.7998 19.2071 55.5098 26.8271 62.5798C27.6171 63.3198 28.4771 63.9698 29.3771 64.5298C29.3771 64.5298 29.3871 64.5298 29.3971 64.5398C29.6171 64.6798 29.8371 64.8098 30.0671 64.9398Z" fill="white"/>
+        <path d="M81.6772 56.1798C75.6872 69.0098 64.0772 78.9798 54.8172 81.5198C48.2872 83.3098 39.5672 83.3398 31.1472 80.1698C39.3972 77.5898 45.9571 73.4798 50.9971 68.4798C62.3671 67.3798 74.1572 62.5198 81.6772 56.1798Z" fill="white"/>
+      </svg>
+      <div class="method-left-inner">
+        <span class="section-label">Our approach</span>
+        <h2>A structured method for emotional competence</h2>
+        <p>Emotional Pedagogy is professional education — not therapy, not self-help. A clear, teachable system for understanding emotions, regulating reactions, guiding others safely, and remaining effective under pressure.</p>
       </div>
     </div>
+
+    <!-- RIGHT: Cream side with 4 pillars in 2x2 grid -->
+    <div class="method-right">
+      <div class="method-right-inner">
+        <div class="method-pillars">
+
+          <div class="method-pillar">
+            <div class="method-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="21" x2="16" y2="21" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="17" x2="12" y2="21" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Recognised approach</h4>
+            <p>A structured educational method with institutional recognition and a clear professional framework.</p>
+          </div>
+
+          <div class="method-pillar">
+            <div class="method-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="16" x2="12" y2="12" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="8" x2="12.01" y2="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Human science–based</h4>
+            <p>Built on psychology, pedagogy, and emotional learning — adapted for real professional contexts.</p>
+          </div>
+
+          <div class="method-pillar">
+            <div class="method-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="16 3 21 3 21 8" stroke-linecap="round" stroke-linejoin="round"/><line x1="4" y1="20" x2="21" y2="3" stroke-linecap="round" stroke-linejoin="round"/><polyline points="21 16 21 21 16 21" stroke-linecap="round" stroke-linejoin="round"/><line x1="15" y1="15" x2="21" y2="21" stroke-linecap="round" stroke-linejoin="round"/><line x1="4" y1="4" x2="9" y2="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Transfer to real life</h4>
+            <p>Concrete tools you can apply immediately in leadership, education, teams, and conflict situations.</p>
+          </div>
+
+          <div class="method-pillar">
+            <div class="method-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.73 21a2 2 0 0 1-3.46 0" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Applied under pressure</h4>
+            <p>Designed for emotionally demanding environments where stability and clarity are essential.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- ===== YOUR PATH ===== -->
-<section class="section-path">
+<!-- ===== TRAINING PATH V2 ===== -->
+<section id="training-path" class="training-path-v2">
   <div class="container">
-    <div class="path-header">
-      <div>
-        <span class="section-label">Training path</span>
-        <h2>Your path to recognised emotional competence as a leader</h2>
-      </div>
-    </div>
-    <p class="path-intro">From your first orientation to IHK-certified Emotional Pedagogy — a clear steps that guide you forward safely.</p>
 
-    <div class="path-grid">
-      <!-- Step 1 -->
-      <div class="card card-clickable path-card">
-        <span class="path-step-num">Step 1</span>
+    <!-- Section header -->
+    <div class="tp2-header">
+      <span class="section-label">Training path</span>
+      <h2>Your path to recognised emotional competence as a leader</h2>
+      <p>From your first orientation to IHK-certified Emotional Pedagogy — clear steps that guide you forward safely.</p>
+    </div>
+
+    <!-- Block 1: Start here -->
+    <span class="tp2-block-label">Start here</span>
+    <div class="tp2-grid-start">
+
+      <!-- Card 01 -->
+      <div class="tp2-card">
+        <div class="tp2-num">01</div>
         <h4>Free info session</h4>
         <p>An online session with Katrin Michl to clarify your questions, your starting point, and whether this training fits your role.</p>
-        <div class="path-meta">Duration: 60 minutes</div>
-        <div class="path-meta">Format: Online live</div>
-        <a href="emotionspaedagogik-free-info-session-en.html" class="btn btn-primary btn-sm" style="margin-top:18px;">Learn more <span class="btn-arrow">→</span></a>
+        <div class="tp2-meta">Duration: 60 minutes</div>
+        <div class="tp2-meta">Format: Online live</div>
+        <a href="emotionspaedagogik-free-info-session-en.html" class="btn btn-primary btn-sm" style="margin-top:18px;">Learn more <span class="btn-arrow">›</span></a>
       </div>
-      <!-- Step 2 -->
-      <div class="card card-clickable path-card">
-        <span class="path-step-num">Step 2</span>
+
+      <!-- Card 02 -->
+      <div class="tp2-card">
+        <div class="tp2-num">02</div>
         <h4>Leading under Pressure</h4>
-        <div class="path-subtitle">Emotional Competence Basics</div>
+        <div class="tp2-subtitle">Emotional Competence Basics</div>
         <p>Develop core skills for emotional regulation, clarity, and stability in responsibility roles.</p>
-        <div class="path-meta">Duration: 21 days</div>
-        <div class="path-meta">Format: Online</div>
-        <a href="emotionspaedagogik-entry-course-en.html" class="btn btn-primary btn-sm" style="margin-top:18px;">Learn more <span class="btn-arrow">→</span></a>
+        <div class="tp2-meta">Duration: 21 days</div>
+        <div class="tp2-meta">Format: Online</div>
+        <a href="emotionspaedagogik-entry-course-en.html" class="btn btn-primary btn-sm" style="margin-top:18px;">Learn more <span class="btn-arrow">›</span></a>
       </div>
-      <!-- Step 3 -->
-      <div class="card card-clickable path-card">
-        <span class="path-step-num">Step 3</span>
+
+    </div>
+
+    <!-- Block 2: Advanced certification pathway -->
+    <span class="tp2-block-label">Advanced certification pathway</span>
+    <div class="tp2-grid-advanced">
+
+      <!-- Card 03 -->
+      <div class="tp2-card">
+        <div class="tp2-num">03</div>
         <h4>Companion (IHK)</h4>
-        <p>Learn to guide emotional processes in yourself and others with structure and professional responsibility.</p>
-        <div class="path-meta">Duration: 12 weeks</div>
-        <div class="path-meta">Format: Online + live</div>
-        <p class="path-note">Also available fully online with Institute certification (without IHK) — qualifies for Specialist (IHK).</p>
-        <a href="#" class="btn btn-primary btn-sm" style="margin-top:18px;">Learn more <span class="btn-arrow">→</span></a>
+        <p>Guide emotional processes in yourself and others with structure and professional responsibility.</p>
+        <div class="tp2-meta">12 weeks · Online + live</div>
+        <div class="tp2-note">Also available fully online with Institute certification — qualifies for Specialist (IHK).</div>
+        <a href="#" class="tp2-link">Learn more →</a>
       </div>
-      <!-- Step 4 -->
-      <div class="card card-clickable path-card">
-        <span class="path-step-num">Step 4</span>
+
+      <!-- Card 04 -->
+      <div class="tp2-card">
+        <div class="tp2-num">04</div>
         <h4>Specialist (IHK)</h4>
         <p>Deepen your competence and apply Emotional Pedagogy professionally in complex contexts.</p>
-        <div class="path-meta">Duration: 6–8 weeks</div>
-        <div class="path-meta">Format: Online + live</div>
-        <a href="#" class="btn btn-primary btn-sm" style="margin-top:18px;">Learn more <span class="btn-arrow">→</span></a>
+        <div class="tp2-meta">6–8 weeks · Online + live</div>
+        <a href="#" class="tp2-link">Learn more →</a>
       </div>
-      <!-- Step 5 -->
-      <div class="card card-clickable path-card">
-        <span class="path-step-num">Step 5</span>
+
+      <!-- Card 05 -->
+      <div class="tp2-card">
+        <div class="tp2-num">05</div>
         <h4>Emotional Pedagogue (IHK)</h4>
-        <p>Qualification pathway to become a certified Emotional Pedagogue with professional recognition.</p>
-        <div class="path-meta">Duration: 6–8 weeks</div>
-        <div class="path-meta">Format: Online + live</div>
-        <a href="#" class="btn btn-primary btn-sm" style="margin-top:18px;">Learn more <span class="btn-arrow">→</span></a>
+        <p>Become a certified Emotional Pedagogue with full professional recognition.</p>
+        <div class="tp2-meta">6–8 weeks · Online + live</div>
+        <a href="#" class="tp2-link">Learn more →</a>
       </div>
+
     </div>
+
   </div>
 </section>
 
 <!-- ===== VIDEO TESTIMONIAL ===== -->
 <section class="section-video">
+  <div class="video-blob video-blob--1"></div>
+  <div class="video-blob video-blob--2"></div>
+  <div class="video-blob video-blob--3"></div>
   <div class="container">
     <span class="section-label">Participant insights</span>
     <h2>How the training changes everyday leadership</h2>
     <p class="video-subtitle">Insights from participants who use Emotional Pedagogy in their professional roles.</p>
 
-    <div class="video-block">
-      <!-- Blob overlays -->
-      <div class="video-block-blob" style="width:200px;height:200px;top:-50px;right:-40px;">
-        <svg viewBox="0 0 200 200"><path d="M160,120Q152,180,92,176Q32,172,28,116Q24,60,76,38Q128,16,156,58Q184,100,168,120Q152,140,160,120Z" fill="white" opacity="0.1"/></svg>
-      </div>
-      <div class="video-block-blob" style="width:160px;height:160px;bottom:-30px;left:-20px;">
-        <svg viewBox="0 0 160 160"><path d="M128,96Q120,144,76,140Q32,136,24,88Q16,40,64,28Q112,16,124,58Q136,100,128,96Z" fill="white" opacity="0.08"/></svg>
-      </div>
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/_H5MfI3n03s" title="Emotional Pedagogy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 
-      <div class="video-text">
-        <blockquote>During the training, we strengthened our own qualities. Katrin, as a trainer, possesses incredible knowledge. I can integrate Emotional Pedagogy into my professional life.</blockquote>
-        <div class="author">
-          <strong>Frank S.</strong>
-          Trainer & Emotional Pedagogue (IHK), Specialist for Addiction Counselling
-        </div>
-      </div>
-      <div class="video-thumb">
-        <div class="img-placeholder" style="aspect-ratio:16/10;">
-          [Video thumbnail: Intro to Emotional Pedagogy]
-          <div class="play-btn">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-        </div>
+    <div class="video-quote">
+      <blockquote>During the training, we strengthened our own qualities. Katrin, as a trainer, possesses incredible knowledge. I can integrate Emotional Pedagogy into my professional life.</blockquote>
+      <div class="author">
+        <strong>Frank S.</strong>
+        Trainer &amp; Emotional Pedagogue (IHK), Specialist for Addiction Counselling
       </div>
     </div>
   </div>
@@ -1273,22 +1767,13 @@ p { margin-bottom: 1rem; }
 
 <!-- ===== ENTRY COURSE (PURPLE AUTHORITY BAND) ===== -->
 <section class="section-entry">
-  <!-- Band blob overlays -->
-  <div class="band-blob" style="width:300px;height:300px;top:-80px;left:-60px;">
-    <svg viewBox="0 0 300 300"><path d="M240,180Q228,260,150,268Q72,276,44,198Q16,120,76,66Q136,12,204,48Q272,84,252,132Q232,180,240,180Z" fill="white" opacity="0.1"/></svg>
-  </div>
-  <div class="band-blob" style="width:220px;height:220px;bottom:-60px;right:-50px;">
-    <svg viewBox="0 0 220 220"><path d="M176,132Q168,192,108,192Q48,192,36,132Q24,72,72,42Q120,12,162,48Q204,84,184,108Q164,132,176,132Z" fill="white" opacity="0.08"/></svg>
-  </div>
-
   <div class="container">
-    <span class="section-label">Entry course</span>
     <div class="entry-grid">
-      <div class="entry-text">
-        <h2>Build your emotional competence for leading under pressure</h2>
-        <p class="entry-subtitle">The 21-day foundation in professional emotional competence — your first step.</p>
+      <div class="entry-image">
+        <img src="assets/IMG-entry-course-001.png" alt="Workshop setting, group interaction">
       </div>
       <div class="entry-card">
+        <span class="section-label">Entry course</span>
         <h3>Emotional Competence Basics — Leading under Pressure</h3>
         <p>In this entry course, you'll learn to recognise your emotional patterns under stress and remain effective when emotions escalate. Designed for people in responsibility roles — from team leaders and HR professionals to educators and consultants. This is the first step in the IHK-recognised training path in Emotional Pedagogy.</p>
         <div class="entry-facts">
@@ -1306,8 +1791,8 @@ p { margin-bottom: 1rem; }
           </div>
         </div>
         <div class="entry-ctas">
-          <a href="emotionspaedagogik-entry-course-en.html" class="btn btn-white">Join now (€197) <span class="btn-arrow">→</span></a>
-          <a href="emotionspaedagogik-free-info-session-en.html" class="btn btn-ghost-white">Watch info session first <span class="btn-arrow">→</span></a>
+          <a href="emotionspaedagogik-entry-course-en.html" class="btn btn-primary">Join now (€197) <span class="btn-arrow">→</span></a>
+          <a href="emotionspaedagogik-free-info-session-en.html" class="btn btn-secondary">Watch info session first <span class="btn-arrow">→</span></a>
         </div>
       </div>
     </div>
@@ -1324,9 +1809,8 @@ p { margin-bottom: 1rem; }
         <p>Our programme in Emotional Pedagogy is recognised as professional development in Germany. Many participants have their costs covered by their employer or by national training budgets. For self-employed professionals, additional funding is available via KOMPASS, which supports accredited professional development.</p>
         <a href="#" class="btn btn-primary">Learn more about funding & reimbursement <span class="btn-arrow">→</span></a>
       </div>
-      <div class="funding-badges">
-        <div class="funding-badge">IHK-zertifizierte<br>Weiterbildung</div>
-        <div class="funding-badge">KOMPASS</div>
+      <div class="funding-image">
+        <img src="assets/IHK-zertifikat.png" alt="IHK Zertifikat">
       </div>
     </div>
   </div>
@@ -1338,86 +1822,103 @@ p { margin-bottom: 1rem; }
     <span class="section-label">Testimonials</span>
     <h2>What our participants say</h2>
     <div class="testimonials-grid">
-      <div class="card testimonial-card">
+      <div class="testimonial-card">
+        <div class="testimonial-photo">
+          <img src="assets/TESTI-stephanie-P.webp" alt="Stefanie P.">
+        </div>
         <blockquote>What a powerful presence, it was intensive in the best way. Everything is already there — I just needed to be reminded and deeply connected. This education gave me clarity and tools I had been missing.</blockquote>
         <div class="testimonial-author">
-          <strong>Stefanie P.</strong>
-          <span>Emotional Pedagogue (IHK), educator, consultant</span>
+          <strong>/ Stefanie P.</strong>
+          <span>Educator, Emotional Pedagogue (IHK)</span>
         </div>
       </div>
-      <div class="card testimonial-card">
-        <blockquote>I recommend Emotional Pedagogy to people who want to feel more stable in emotionally intense situations. Even a few concrete exercises made a great impact.</blockquote>
+      <div class="testimonial-card">
+        <div class="testimonial-photo">
+          <img src="assets/TESTI-kurt-B.webp" alt="Kurt B.">
+        </div>
+        <blockquote>I recommend Emotional Pedagogy to people who want to be more conscious and fundamentally feel themselves better. Emotions like anger, rage, sadness simply belong and are allowed to be felt.</blockquote>
         <div class="testimonial-author">
-          <strong>Katja S.</strong>
-          <span>Team lead</span>
+          <strong>/ Kurt B.</strong>
+          <span>Teacher, Emotional Pedagogue (IHK)</span>
         </div>
       </div>
-      <div class="card testimonial-card">
+      <div class="testimonial-card">
+        <div class="testimonial-photo">
+          <img src="assets/TESTI-manuella-P.webp" alt="Manuela P.">
+        </div>
         <blockquote>For me, this training was a real game changer. You truly see emotional patterns. Thanks to Emotional Pedagogy, I feel much more confident in my work with clients.</blockquote>
         <div class="testimonial-author">
-          <strong>Miranda P.</strong>
-          <span>Emotional Pedagogue (IHK), coach</span>
+          <strong>/ Manuela P.</strong>
+          <span>Emotional Pedagogue (IHK), independent practice</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-photo">
+          <img src="assets/TESTI-jan-B.webp" alt="Jan B.">
+        </div>
+        <blockquote>I recommend Emotional Pedagogy to people who want to be more conscious and fundamentally feel themselves better. Emotions like anger, rage, sadness simply belong and are allowed to be felt.</blockquote>
+        <div class="testimonial-author">
+          <strong>/ Jan B.</strong>
+          <span>Dipl. Wirtschaftsingenieur, Emotional Pedagogue (IHK)</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== ABOUT / TRAINER (WARM COLOR BAND) ===== -->
+<!-- ===== ABOUT / TRAINER (SPLIT LAYOUT) ===== -->
 <section class="section-about">
-  <!-- Band blob overlays -->
-  <div class="band-blob" style="width:320px;height:320px;top:-80px;right:-80px;">
-    <svg viewBox="0 0 320 320"><path d="M256,192Q244,264,173,278Q102,292,63,221Q24,150,79,85Q134,20,200,46Q266,72,268,136Q270,200,256,192Z" fill="white" opacity="0.12"/></svg>
-  </div>
-  <div class="band-blob" style="width:200px;height:200px;bottom:-50px;left:-40px;">
-    <svg viewBox="0 0 200 200"><path d="M160,120Q152,180,92,176Q32,172,28,116Q24,60,76,38Q128,16,156,58Q184,100,168,120Q152,140,160,120Z" fill="white" opacity="0.08"/></svg>
-  </div>
-
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-photo">
-        <div class="img-placeholder">[Photo: Katrin Michl, professional portrait]</div>
+  <div class="about-grid">
+    <div class="about-photo-col">
+      <img src="assets/katrin-michl-portrait-2-highres.png" alt="Katrin Michl, founder of the Institute for Emotional Pedagogy">
+      <div class="about-photo-blob"></div>
+      <div class="about-photo-caption">
+        <strong>Katrin Michl</strong>
+        <span>Founder · Lead Trainer<br>20+ years in emotional education</span>
       </div>
-      <div class="about-content">
-        <span class="section-label">About</span>
-        <h2>A recognised institute for professional emotional competence</h2>
-        <p>The Institut für Emotionspädagogik is a professional training institute specialising in emotional competence for people in responsibility roles.</p>
-        <p>We provide structured, practice-oriented education for leaders, educators, and professionals who work under pressure and guide others — with recognised training paths up to Emotional Pedagogue (IHK).</p>
-        <p>Our programmes focus on applied competence, not self-help — helping leaders remain calm, communicate clearly, and act responsibly in complex human situations.</p>
+    </div>
+    <div class="about-content-col">
+      <span class="section-label">About the institute and Katrin Michl</span>
+      <h2>A recognised institute for professional emotional competence</h2>
+      <p>The Institut für Emotionspädagogik is a professional training institute specialising in emotional competence for people in responsibility roles.</p>
+      <p>We provide structured, practice-oriented education for leaders, educators, and professionals who work under pressure and guide others — with recognised training paths up to Emotional Pedagogue (IHK).</p>
+      <p>Our programmes focus on applied competence, not self-help — helping leaders remain calm, communicate clearly, and act responsibly in complex human situations.</p>
 
-        <div class="about-defines">
-          <h4>What defines the institute</h4>
-          <ul class="about-defines-list">
-            <li>Structured methodology in Emotional Pedagogy</li>
-            <li>Recognised training paths</li>
-            <li>Certified further education with a formal professional framework</li>
-          </ul>
-        </div>
-        <div class="about-ctas">
-          <a href="emotionspaedagogik-about-en.html" class="btn btn-white">Explore the institute <span class="btn-arrow">→</span></a>
-          <a href="emotionspaedagogik-entry-course-en.html" class="btn btn-ghost-white">See the IHK training path <span class="btn-arrow">→</span></a>
-        </div>
+      <div class="about-defines">
+        <h4>What defines the institute</h4>
+        <ul class="about-defines-list">
+          <li>Structured methodology in Emotional Pedagogy</li>
+          <li>Recognised training paths</li>
+          <li>Certified further education with a formal professional framework</li>
+        </ul>
+      </div>
+      <div class="about-ctas">
+        <a href="emotionspaedagogik-about-en.html" class="btn btn-primary">Explore the institute <span class="btn-arrow">→</span></a>
+        <a href="emotionspaedagogik-entry-course-en.html" class="btn btn-secondary">See the IHK training path <span class="btn-arrow">→</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FINAL CTA (PURPLE BAND) ===== -->
+<!-- ===== FINAL CTA ===== -->
 <section class="section-final-cta">
-  <!-- Band blob overlays -->
-  <div class="band-blob" style="width:280px;height:280px;top:-80px;left:-60px;">
-    <svg viewBox="0 0 280 280"><path d="M224,168Q216,236,140,244Q64,252,40,176Q16,100,72,52Q128,4,192,36Q256,68,240,118Q224,168,224,168Z" fill="white" opacity="0.1"/></svg>
-  </div>
-  <div class="band-blob" style="width:200px;height:200px;bottom:-50px;right:-40px;">
-    <svg viewBox="0 0 200 200"><path d="M160,120Q152,180,92,176Q32,172,28,116Q24,60,76,38Q128,16,156,58Q184,100,168,120Q152,140,160,120Z" fill="white" opacity="0.08"/></svg>
-  </div>
+  <!-- Decorative blobs -->
+  <div class="cta-blob cta-blob--1"></div>
+  <div class="cta-blob cta-blob--2"></div>
+  <div class="cta-blob cta-blob--3"></div>
+  <div class="cta-blob cta-blob--4"></div>
 
   <div class="container">
     <h2>Build your emotional competence as a leader.</h2>
     <p>Short, professional insights into emotional competence for people in responsibility roles. No spam, no esoterics — just what helps in practice.</p>
     <div class="email-form">
-      <input type="email" placeholder="hello@email.com">
-      <a href="#" class="btn btn-white">Send me insights <span class="btn-arrow">→</span></a>
+      <div class="email-form-input-wrap">
+        <input type="email" placeholder="your@email.com">
+        <div class="email-form-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+      </div>
+      <a href="#" class="btn-cta">Send me insights <span class="btn-arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -1427,7 +1928,7 @@ p { margin-bottom: 1rem; }
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="emotionspaedagogik-home-en.html" class="nav-logo">Emotionspädagogik <span>Institut</span></a>
+        <a href="emotionspaedagogik-home-en.html" class="nav-logo"><img src="assets/logo-horizontal-medium-clean.svg" alt="Emotionspädagogik Institut"></a>
         <p>Professional training in emotional competence for people in responsibility roles.</p>
       </div>
       <div class="footer-col">
@@ -1458,10 +1959,9 @@ p { margin-bottom: 1rem; }
     </div>
     <hr class="footer-divider">
     <div class="footer-badges">
-      <span class="footer-badge">✓ IHK</span>
-      <span class="footer-badge">✓ DEKRA</span>
-      <span class="footer-badge">✓ ZFU</span>
-      <span class="footer-badge">✓ KOMPASS</span>
+      <span class="footer-badge"><img src="assets/SEAL-IHK.svg" alt="IHK certified"></span>
+      <span class="footer-badge"><img src="assets/SEAL-DEKRA.svg" alt="DEKRA certified"></span>
+      <span class="footer-badge"><img src="assets/SEAL-ZFU.png" alt="ZFU approved"></span>
     </div>
     <div class="footer-copyright">© 2026 Emotionspädagogik Institut · Privates Institut für Emotionspädagogik</div>
   </div>
