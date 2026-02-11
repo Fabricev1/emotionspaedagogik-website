@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – Institute for Emotional Pedagogy</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   CSS VARIABLES
+   ============================================================ */
+:root {
+  --color-coral: #FF8A65;
+  --color-pink: #E83E8C;
+  --color-purple: #A86BBE;
+  --color-purple-deep: #8B5CA0;
+  --color-cream: #F7F3EE;
+  --color-white: #FFFFFF;
+  --color-text: #3A3A3A;
+  --color-text-muted: #6B6B6B;
+  --color-border: #E6E0DA;
+  --gradient-warm: linear-gradient(135deg, #FF8A65 0%, #E83E8C 100%);
+  --gradient-authority: linear-gradient(135deg, #A86BBE 0%, #8B5CA0 100%);
+  --font-heading: 'Libre Baskerville', Georgia, serif;
+  --font-body: 'Source Sans 3', -apple-system, sans-serif;
+  --section-padding: 100px;
+  --section-padding-large: 130px;
+  --section-padding-mobile: 64px;
+  --container-max: 1100px;
+  --card-radius: 8px;
+  --button-radius: 24px;
+  --shadow-soft: 0 1px 2px rgba(58, 58, 58, 0.02);
+  --shadow-hover: 0 4px 16px rgba(58, 58, 58, 0.06);
+  --transition: 0.25s ease;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-cream);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  font-weight: 400;
+  line-height: 1.3;
+}
+h1 { font-size: 3.35rem; }
+h2 { font-size: 2.5rem; margin-bottom: 48px; }
+h3 { font-size: 1.4rem; margin-bottom: 16px; }
+h4 { font-size: 1.2rem; margin-bottom: 12px; }
+p, li {
+  font-family: var(--font-body);
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.67rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-pink);
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--color-white);
+  border-bottom: 1px solid rgba(230, 224, 218, 0.5);
+  height: 72px;
+  display: flex;
+  align-items: center;
+}
+.nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+.nav-logo span { color: var(--color-pink); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color var(--transition);
+}
+.nav-links a:hover { color: var(--color-pink); }
+.nav-cta {
+  background: var(--color-pink);
+  color: var(--color-white) !important;
+  padding: 10px 22px;
+  border-radius: var(--button-radius);
+  font-weight: 600 !important;
+  font-size: 0.82rem !important;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(232, 62, 140, 0.25);
+  color: var(--color-white) !important;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+  text-decoration: none;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn-arrow::after {
+  content: '→';
+  display: inline-block;
+  transition: transform var(--transition);
+}
+.btn:hover .btn-arrow::after,
+.btn.btn-arrow:hover::after {
+  transform: translateX(3px);
+}
+.btn-primary {
+  background: var(--color-pink);
+  color: var(--color-white);
+  padding: 16px 32px;
+  border-radius: var(--button-radius);
+  font-size: 0.95rem;
+}
+.btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(232, 62, 140, 0.3);
+}
+.btn-primary-large {
+  padding: 18px 40px;
+  font-size: 1.05rem;
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--color-pink);
+  border: 1.5px solid rgba(232, 62, 140, 0.45);
+  padding: 14px 28px;
+  border-radius: var(--button-radius);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.btn-secondary:hover {
+  border-color: var(--color-pink);
+  box-shadow: 0 4px 12px rgba(232, 62, 140, 0.12);
+}
+.btn-white {
+  background: var(--color-white);
+  color: var(--color-pink);
+  padding: 18px 40px;
+  border-radius: var(--button-radius);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.btn-white:hover {
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+.btn-dark {
+  background: var(--color-text);
+  color: var(--color-white);
+  padding: 16px 32px;
+  border-radius: var(--button-radius);
+  font-size: 0.95rem;
+}
+.btn-dark:hover {
+  box-shadow: 0 6px 20px rgba(58, 58, 58, 0.25);
+}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card {
+  background: var(--color-white);
+  border-radius: var(--card-radius);
+  padding: 32px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(230, 224, 218, 0.6);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(232, 62, 140, 0.25);
+}
+
+/* ============================================================
+   ICON CONTAINERS
+   ============================================================ */
+.icon-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.icon-circle svg {
+  width: 19px;
+  height: 19px;
+  stroke-width: 1.5;
+  fill: none;
+}
+.icon-pink {
+  background: rgba(232, 62, 140, 0.07);
+}
+.icon-pink svg { stroke: var(--color-pink); }
+.icon-coral {
+  background: rgba(255, 138, 101, 0.1);
+}
+.icon-coral svg { stroke: var(--color-coral); }
+.icon-purple {
+  background: rgba(168, 107, 190, 0.1);
+}
+.icon-purple svg { stroke: var(--color-purple); }
+
+/* ============================================================
+   IMAGE PLACEHOLDERS
+   ============================================================ */
+.img-placeholder {
+  background: #E0DACE;
+  border-radius: var(--card-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: 24px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+  padding-top: 160px;
+  padding-bottom: var(--section-padding);
+  min-height: 88vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.hero .container {
+  position: relative;
+  z-index: 5;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.hero-content { position: relative; z-index: 5; }
+.hero h1 {
+  margin-bottom: 28px;
+  line-height: 1.2;
+}
+.hero-intro {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin-bottom: 40px;
+  max-width: 520px;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+.hero-image-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-photo {
+  width: 320px;
+  height: 400px;
+  border-radius: 12px;
+  position: relative;
+  z-index: 3;
+}
+.hero-caption {
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+  z-index: 5;
+}
+.hero-caption strong {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.hero-caption span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Hero Blobs */
+.hero-blob {
+  position: absolute;
+  z-index: 1;
+}
+.hero-blob svg {
+  width: 100%;
+  height: 100%;
+}
+.blob-1 { top: -100px; right: -160px; width: 500px; height: 500px; z-index: 1; }
+.blob-2 { top: 120px; right: 80px; width: 320px; height: 320px; z-index: 4; }
+.blob-3 { top: 20px; right: -20px; width: 240px; height: 240px; z-index: 2; }
+.blob-4 { bottom: -80px; left: -100px; width: 200px; height: 200px; z-index: 1; }
+.blob-5 { top: -60px; left: 40%; width: 160px; height: 160px; z-index: 1; }
+.blob-6 { bottom: 40px; right: 30%; width: 120px; height: 120px; z-index: 1; }
+
+/* ============================================================
+   PILLARS SECTION
+   ============================================================ */
+.pillars-section {
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
+}
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+.pillar-card {
+  text-align: left;
+}
+.pillar-card .icon-circle {
+  margin-bottom: 20px;
+}
+.pillar-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+.pillar-card p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   MISSION SECTION (Warm Color Band)
+   ============================================================ */
+.mission-section {
+  padding: var(--section-padding-large) 0;
+  background: var(--gradient-warm);
+  position: relative;
+  overflow: hidden;
+}
+.mission-section * { color: var(--color-white); }
+.mission-section .section-label { color: rgba(255,255,255,0.8); }
+.mission-section h2 { color: var(--color-white); margin-bottom: 24px; }
+.mission-statement {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  max-width: 780px;
+  margin-bottom: 56px;
+  opacity: 0.95;
+}
+.mission-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 48px;
+}
+.mission-pillar-card {
+  background: rgba(255,255,255,0.13);
+  border-radius: var(--card-radius);
+  padding: 28px;
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+}
+.mission-pillar-card h4 {
+  color: var(--color-white);
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+}
+.mission-pillar-card p {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+.mission-audience {
+  font-size: 0.92rem;
+  opacity: 0.88;
+  max-width: 780px;
+  font-style: italic;
+}
+/* Mission blob overlays */
+.mission-blob {
+  position: absolute;
+  opacity: 0.12;
+}
+
+/* ============================================================
+   AT A GLANCE SECTION
+   ============================================================ */
+.glance-section {
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
+}
+.glance-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.glance-photo-area {
+  position: relative;
+}
+.glance-photo {
+  width: 100%;
+  height: 420px;
+  border-radius: 12px;
+}
+.glance-name {
+  margin-top: 20px;
+}
+.glance-name strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+.glance-name span {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+.glance-facts {
+  list-style: none;
+  padding: 0;
+}
+.glance-facts li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(230, 224, 218, 0.6);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+.glance-facts li:first-child { padding-top: 0; }
+.glance-facts li:last-child { border-bottom: none; }
+.glance-facts .icon-circle {
+  margin-top: 2px;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+.glance-facts .icon-circle svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ============================================================
+   TIMELINE SECTION
+   ============================================================ */
+.timeline-section {
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
+  position: relative;
+  overflow: hidden;
+}
+.timeline-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.timeline-content { position: relative; }
+.timeline-items {
+  position: relative;
+  padding-left: 36px;
+}
+.timeline-items::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-coral), var(--color-pink), var(--color-purple));
+  border-radius: 2px;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2.5px solid var(--color-pink);
+  background: var(--color-cream);
+  z-index: 2;
+}
+.timeline-item:nth-child(1)::before { border-color: var(--color-coral); }
+.timeline-item:nth-child(2)::before { border-color: var(--color-pink); }
+.timeline-item:nth-child(3)::before { border-color: var(--color-pink); }
+.timeline-item:nth-child(4)::before { border-color: var(--color-purple); }
+.timeline-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: var(--color-text);
+}
+.timeline-item p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+.timeline-image {
+  position: relative;
+}
+.timeline-photo {
+  width: 100%;
+  height: 380px;
+  border-radius: 12px;
+}
+.timeline-blob {
+  position: absolute;
+}
+
+/* ============================================================
+   CREDENTIALS SECTION (Authority Color Band)
+   ============================================================ */
+.credentials-section {
+  padding: var(--section-padding-large) 0;
+  background: var(--gradient-authority);
+  position: relative;
+  overflow: hidden;
+}
+.credentials-section * { color: var(--color-white); }
+.credentials-section .section-label { color: rgba(255,255,255,0.7); }
+.credentials-section h2 { color: var(--color-white); }
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-bottom: 40px;
+}
+.credential-item {
+  text-align: center;
+  background: rgba(255,255,255,0.1);
+  border-radius: var(--card-radius);
+  padding: 28px 20px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.credential-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+.credential-badge svg {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+  fill: none;
+  stroke-width: 1.5;
+}
+.credential-item h4 {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+.credential-item p {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+.credentials-note {
+  text-align: center;
+  font-size: 0.88rem;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.credentials-blob {
+  position: absolute;
+  opacity: 0.1;
+}
+
+/* ============================================================
+   WHO WE HELP SECTION
+   ============================================================ */
+.audience-section {
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
+}
+.audience-intro {
+  font-size: 1rem;
+  margin-bottom: 48px;
+  max-width: 640px;
+  line-height: 1.75;
+}
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.audience-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+.audience-card p {
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   TESTIMONIALS SECTION
+   ============================================================ */
+.testimonials-section {
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
+}
+.testimonials-section h2 {
+  text-align: center;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.testimonial-card {
+  text-align: center;
+  padding: 36px 28px;
+}
+.testimonial-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #E0DACE;
+  margin: 0 auto 16px;
+}
+.testimonial-role {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+.testimonial-quote {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   FAQ SECTION
+   ============================================================ */
+.faq-section {
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
+}
+.faq-wrapper {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.faq-item {
+  background: var(--color-white);
+  border-radius: var(--card-radius);
+  border: 1px solid rgba(230, 224, 218, 0.6);
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+.faq-item:hover {
+  border-color: rgba(232, 62, 140, 0.25);
+}
+.faq-question {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.5;
+  transition: color var(--transition);
+}
+.faq-question:hover {
+  color: var(--color-pink);
+}
+.faq-toggle {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-pink);
+  font-size: 1.2rem;
+  font-weight: 300;
+  transition: transform var(--transition);
+  margin-top: 2px;
+}
+.faq-item.open .faq-toggle {
+  transform: rotate(45deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.faq-answer-inner {
+  padding: 0 24px 22px;
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   FINAL CTA SECTION (Warm Band)
+   ============================================================ */
+.final-cta-section {
+  padding: 110px 0;
+  background: var(--gradient-warm);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.final-cta-section * { color: var(--color-white); }
+.final-cta-section h2 {
+  color: var(--color-white);
+  font-size: 2.65rem;
+  margin-bottom: 20px;
+}
+.final-cta-sub {
+  font-size: 1rem;
+  opacity: 0.92;
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+.final-cta-form {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.final-cta-input {
+  flex: 1;
+  min-width: 220px;
+  padding: 16px 24px;
+  border-radius: var(--button-radius);
+  border: 1.5px solid rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.15);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--color-white);
+  outline: none;
+  backdrop-filter: blur(4px);
+}
+.final-cta-input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+.final-cta-input:focus {
+  border-color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.22);
+}
+.final-cta-blob {
+  position: absolute;
+  opacity: 0.12;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--color-white);
+  padding: 72px 0 36px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 48px;
+}
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-col li {
+  margin-bottom: 10px;
+}
+.footer-col a {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  transition: color var(--transition);
+}
+.footer-col a:hover {
+  color: var(--color-pink);
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+}
+.footer-logos {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.footer-logo-item {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+}
+.footer-copy {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET
+   ============================================================ */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero { min-height: auto; padding-top: 140px; }
+  .hero-image-area { order: -1; }
+  .hero h1 { font-size: 2.75rem; }
+  .pillars-grid { grid-template-columns: 1fr; gap: 24px; }
+  .mission-pillars { grid-template-columns: 1fr; gap: 20px; }
+  .glance-grid { grid-template-columns: 1fr; gap: 40px; }
+  .timeline-grid { grid-template-columns: 1fr; }
+  .timeline-image { display: none; }
+  .credentials-grid { grid-template-columns: repeat(2, 1fr); }
+  .audience-grid { grid-template-columns: 1fr 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; gap: 20px; max-width: 480px; margin: 0 auto; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 64px;
+    --section-padding-large: 80px;
+  }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  h1 { font-size: 2.35rem; }
+  h2 { font-size: 2rem; margin-bottom: 36px; }
+  h3 { font-size: 1.2rem; }
+  .hero { padding-top: 120px; padding-bottom: 64px; }
+  .hero-photo { width: 240px; height: 300px; }
+  .hero-buttons { flex-direction: column; }
+  .hero-buttons .btn { width: 100%; justify-content: center; }
+  .blob-1 { width: 300px; height: 300px; right: -100px; top: -60px; }
+  .blob-2 { width: 200px; height: 200px; right: 20px; top: 80px; }
+  .blob-3 { width: 150px; height: 150px; }
+  .blob-4 { width: 120px; height: 120px; }
+  .blob-5 { width: 100px; height: 100px; }
+  .blob-6 { display: none; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .audience-grid { grid-template-columns: 1fr; }
+  .credentials-grid { grid-template-columns: 1fr; }
+  .glance-facts li { flex-direction: column; gap: 10px; }
+  .final-cta-section h2 { font-size: 2.1rem; }
+  .final-cta-form { flex-direction: column; }
+  .final-cta-input { min-width: auto; width: 100%; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav">
+  <div class="container">
+    <a href="emotionspaedagogik-home-en.html" class="nav-logo">Emotionspädagogik <span>Institut</span></a>
+    <ul class="nav-links">
+      <li><a href="emotionspaedagogik-home-en.html">Our method</a></li>
+      <li><a href="emotionspaedagogik-entry-course-en.html">Training path</a></li>
+      <li><a href="#" style="color: var(--color-text); font-weight: 600;">About</a></li>
+      <li><a href="emotionspaedagogik-entry-course-en.html">Entry course</a></li>
+      <li><a href="emotionspaedagogik-free-info-session-en.html" class="nav-cta">Free info session</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<section class="hero">
+  <!-- Blobs -->
+  <div class="hero-blob blob-1">
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <path d="M421,301Q387,352,345,393Q303,434,244,440Q185,446,139,406Q93,366,66,310Q39,254,56,194Q73,134,122,96Q171,58,233,44Q295,30,345,72Q395,114,425,182Q455,250,421,301Z" fill="#FF8A65" opacity="0.9"/>
+    </svg>
+  </div>
+  <div class="hero-blob blob-2">
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <path d="M407,310Q375,370,318,401Q261,432,199,416Q137,400,101,346Q65,292,58,232Q51,172,95,124Q139,76,199,59Q259,42,316,68Q373,94,406,172Q439,250,407,310Z" fill="#E83E8C" opacity="0.8"/>
+    </svg>
+  </div>
+  <div class="hero-blob blob-3">
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <path d="M389,305Q366,360,316,393Q266,426,207,418Q148,410,110,363Q72,316,59,258Q46,200,80,148Q114,96,170,64Q226,32,287,49Q348,66,388,123Q428,180,411,240Q394,300,389,305Z" fill="#A86BBE" opacity="0.7"/>
+    </svg>
+  </div>
+  <div class="hero-blob blob-4">
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <path d="M410,316Q385,382,320,410Q255,438,195,410Q135,382,97,326Q59,270,72,208Q85,146,133,103Q181,60,243,52Q305,44,358,85Q411,126,427,188Q443,250,410,316Z" fill="#A86BBE" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="hero-blob blob-5">
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <path d="M392,297Q350,344,304,381Q258,418,201,406Q144,394,107,344Q70,294,63,238Q56,182,93,132Q130,82,190,59Q250,36,310,59Q370,82,403,141Q436,200,420,248Q404,296,392,297Z" fill="#E83E8C" opacity="0.45"/>
+    </svg>
+  </div>
+  <div class="hero-blob blob-6">
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <path d="M405,298Q353,346,305,385Q257,424,200,410Q143,396,108,341Q73,286,66,229Q59,172,98,124Q137,76,196,55Q255,34,314,55Q373,76,411,138Q449,200,433,249Q417,298,405,298Z" fill="#FF8A65" opacity="0.55"/>
+    </svg>
+  </div>
+
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="section-label">About the institute</span>
+        <h1>About the Institute for Emotional Pedagogy</h1>
+        <p class="hero-intro">A specialised institute for professional emotional competence in leadership — helping people in responsibility roles stay steady under pressure and guide others safely, with recognised training paths up to Emotional Pedagogue (IHK).</p>
+        <div class="hero-buttons">
+          <a href="emotionspaedagogik-free-info-session-en.html" class="btn btn-primary btn-primary-large btn-arrow">Book a free info session</a>
+          <a href="emotionspaedagogik-entry-course-en.html" class="btn btn-secondary btn-arrow">See the IHK path</a>
+        </div>
+      </div>
+      <div class="hero-image-area">
+        <div class="img-placeholder hero-photo">[Photo: Katrin Michl, warm candid, half-body]</div>
+        <div class="hero-caption">
+          <strong>Katrin Michl</strong>
+          <span>Founder, Private Institute for Emotional Pedagogy<br>20+ years Bildungskompetenz</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INSTITUTE POSITIONING PILLARS
+     ============================================================ -->
+<section class="pillars-section">
+  <div class="container">
+    <div class="pillars-grid">
+      <!-- Pillar 1 — Coral -->
+      <div class="card pillar-card">
+        <div class="icon-circle icon-coral">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20V10M18 20V4M6 20v-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>Our institute is focused on clear methods</h4>
+        <p>Emotional Pedagogy as a structured, teachable approach you can apply in everyday work.</p>
+      </div>
+      <!-- Pillar 2 — Pink -->
+      <div class="card pillar-card">
+        <div class="icon-circle icon-pink">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>Recognised certification programmes</h4>
+        <p>Our courses and certificate programmes — including IHK-certified training — count as formal continuing professional education.</p>
+      </div>
+      <!-- Pillar 3 — Purple -->
+      <div class="card pillar-card">
+        <div class="icon-circle icon-purple">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>Practice-informed development</h4>
+        <p>The institute's methodology is grounded in professional practice and long-term experience with emotional load, responsibility, and leadership — translated into clear, applicable tools.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OUR MISSION (Warm Color Band)
+     ============================================================ -->
+<section class="mission-section">
+  <!-- Blob overlays for depth -->
+  <div class="mission-blob" style="top:-80px;right:-120px;width:400px;height:400px;">
+    <svg viewBox="0 0 500 500"><path d="M421,301Q387,352,345,393Q303,434,244,440Q185,446,139,406Q93,366,66,310Q39,254,56,194Q73,134,122,96Q171,58,233,44Q295,30,345,72Q395,114,425,182Q455,250,421,301Z" fill="white"/></svg>
+  </div>
+  <div class="mission-blob" style="bottom:-100px;left:-80px;width:300px;height:300px;">
+    <svg viewBox="0 0 500 500"><path d="M407,310Q375,370,318,401Q261,432,199,416Q137,400,101,346Q65,292,58,232Q51,172,95,124Q139,76,199,59Q259,42,316,68Q373,94,406,172Q439,250,407,310Z" fill="white"/></svg>
+  </div>
+
+  <div class="container" style="position:relative;z-index:2;">
+    <span class="section-label">Our mission</span>
+    <h2>Our mission</h2>
+    <p class="mission-statement">We strengthen the emotional competence of people in responsibility roles — so they can stay steady under pressure, communicate clearly, and guide others safely.</p>
+    
+    <div class="mission-pillars">
+      <div class="mission-pillar-card">
+        <h4>Practical</h4>
+        <p>Short, focused sessions with tools you can use the same day in meetings, discussions, teams and client work.</p>
+      </div>
+      <div class="mission-pillar-card">
+        <h4>Human</h4>
+        <p>Warm, down-to-earth guidance that respects real workloads, emotional realities, and organisational contexts.</p>
+      </div>
+      <div class="mission-pillar-card">
+        <h4>Recognised</h4>
+        <p>Quality-assured programmes with certificates and IHK-certified training that count as formal professional development.</p>
+      </div>
+    </div>
+
+    <p class="mission-audience">We work with adults who carry responsibility for others — across education, social and health professions, HR, organisations, and self-employed professional roles.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     AT A GLANCE
+     ============================================================ -->
+<section class="glance-section">
+  <div class="container">
+    <span class="section-label">At a glance</span>
+    <h2>At a glance</h2>
+    <div class="glance-grid">
+      <div class="glance-photo-area">
+        <div class="img-placeholder glance-photo">[Photo: Katrin Michl, warm candid, half-body]</div>
+        <div class="glance-name">
+          <strong>Katrin Michl</strong>
+          <span>Founder, Private Institute for Emotional Pedagogy</span>
+        </div>
+      </div>
+      <div>
+        <ul class="glance-facts">
+          <li>
+            <div class="icon-circle icon-pink">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="12" cy="10" r="3" fill="none"/></svg>
+            </div>
+            <span>Based in Bavaria (Germany), working with participants across the German-speaking region.</span>
+          </li>
+          <li>
+            <div class="icon-circle icon-pink">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="12" cy="7" r="4" fill="none"/></svg>
+            </div>
+            <span>Lead Trainer and method developer</span>
+          </li>
+          <li>
+            <div class="icon-circle icon-pink">
+              <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            </div>
+            <span>Focus on professional education and structured competence development — not therapy or clinical treatment.</span>
+          </li>
+          <li>
+            <div class="icon-circle icon-pink">
+              <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            </div>
+            <span>Trained teacher with extensive classroom and leadership experience</span>
+          </li>
+          <li>
+            <div class="icon-circle icon-pink">
+              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            </div>
+            <span>Developer of clear, repeatable tools for emotionally demanding professional situations</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DEVELOPMENT OF THE METHOD (Timeline)
+     ============================================================ -->
+<section class="timeline-section">
+  <div class="container">
+    <span class="section-label">How it began</span>
+    <h2>Development of the method by Katrin Michl</h2>
+    <div class="timeline-grid">
+      <div class="timeline-content">
+        <div class="timeline-items">
+          <div class="timeline-item">
+            <h4>Professional foundation</h4>
+            <p>Teaching in schools and working with learners revealed how emotions directly affect learning, safety, cooperation, and leadership in everyday professional life.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Professional contexts</h4>
+            <p>Professional contexts involved crisis, conflict, responsibility, and boundary-setting highlighted the need for emotional competence that goes beyond intuition.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Method development</h4>
+            <p>Research, teaching practice, and applied experience were translated into clear, repeatable tools for noticing, regulating, and using emotions constructively in professional roles.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Institute foundation</h4>
+            <p>The Private Institute for Emotional Pedagogy was founded to offer recognised training programmes that strengthen emotional competence where it is most needed: in people who guide others.</p>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-image">
+        <div class="img-placeholder timeline-photo">[Photo: Workshop / training setting]</div>
+        <!-- Decorative blob -->
+        <div class="timeline-blob" style="position:absolute;top:-40px;right:-60px;width:200px;height:200px;z-index:-1;">
+          <svg viewBox="0 0 500 500"><path d="M421,301Q387,352,345,393Q303,434,244,440Q185,446,139,406Q93,366,66,310Q39,254,56,194Q73,134,122,96Q171,58,233,44Q295,30,345,72Q395,114,425,182Q455,250,421,301Z" fill="#E83E8C" opacity="0.15"/></svg>
+        </div>
+        <div class="timeline-blob" style="position:absolute;bottom:-30px;left:-40px;width:160px;height:160px;z-index:-1;">
+          <svg viewBox="0 0 500 500"><path d="M407,310Q375,370,318,401Q261,432,199,416Q137,400,101,346Q65,292,58,232Q51,172,95,124Q139,76,199,59Q259,42,316,68Q373,94,406,172Q439,250,407,310Z" fill="#A86BBE" opacity="0.12"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OUR CREDENTIALS (Authority Color Band)
+     ============================================================ -->
+<section class="credentials-section">
+  <!-- Blob overlays -->
+  <div class="credentials-blob" style="top:-60px;right:-100px;width:350px;height:350px;">
+    <svg viewBox="0 0 500 500"><path d="M389,305Q366,360,316,393Q266,426,207,418Q148,410,110,363Q72,316,59,258Q46,200,80,148Q114,96,170,64Q226,32,287,49Q348,66,388,123Q428,180,411,240Q394,300,389,305Z" fill="white"/></svg>
+  </div>
+  <div class="credentials-blob" style="bottom:-80px;left:-60px;width:260px;height:260px;">
+    <svg viewBox="0 0 500 500"><path d="M410,316Q385,382,320,410Q255,438,195,410Q135,382,97,326Q59,270,72,208Q85,146,133,103Q181,60,243,52Q305,44,358,85Q411,126,427,188Q443,250,410,316Z" fill="white"/></svg>
+  </div>
+
+  <div class="container" style="position:relative;z-index:2;">
+    <span class="section-label">Recognised quality</span>
+    <h2>Our credentials</h2>
+    <div class="credentials-grid">
+      <div class="credential-item">
+        <div class="credential-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 15l-2 5l9-8.5L12 15zM12 15l2 5l-9-8.5L12 15z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="6"/></svg>
+        </div>
+        <h4>IHK</h4>
+        <p>Recognised professional education routes</p>
+      </div>
+      <div class="credential-item">
+        <div class="credential-badge">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        </div>
+        <h4>DEKRA</h4>
+        <p>Quality checks for processes and materials</p>
+      </div>
+      <div class="credential-item">
+        <div class="credential-badge">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>ZFU</h4>
+        <p>Compliance for distance-learning formats</p>
+      </div>
+      <div class="credential-item">
+        <div class="credential-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>Funding options</h4>
+        <p>Funding options may apply by region and employer</p>
+      </div>
+    </div>
+    <p class="credentials-note">All certificate programmes follow assessed quality standards and recognised professional frameworks.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHO WE HELP
+     ============================================================ -->
+<section class="audience-section">
+  <div class="container">
+    <span class="section-label">Who we help</span>
+    <h2>Who we help</h2>
+    <p class="audience-intro">If you carry emotional responsibility for others, this training strengthens the way you show up.</p>
+    <div class="audience-grid">
+      <div class="card card-hover">
+        <h4>Leaders in education settings &amp; teachers</h4>
+        <p>De-escalate tension in classrooms and meetings, set clear boundaries with students and parents, and stay steady in conflict situations.</p>
+      </div>
+      <div class="card card-hover">
+        <h4>Social &amp; health professionals</h4>
+        <p>Hold emotionally loaded situations with clients, patients and families, without losing your own stability or overstepping your role.</p>
+      </div>
+      <div class="card card-hover">
+        <h4>HR &amp; people managers</h4>
+        <p>Lead difficult conversations, performance, conflict, restructuring and team care with clarity and support healthier team dynamics.</p>
+      </div>
+      <div class="card card-hover">
+        <h4>Team &amp; project leads in NGOs, public sector and organisations</h4>
+        <p>Guide teams through pressure, change and crisis, while keeping orientation and emotional safety in the group.</p>
+      </div>
+      <div class="card card-hover">
+        <h4>Self-employed professionals in helping roles</h4>
+        <p>Therapists, counsellors, trainers and consultants who want a clear, recognised framework for the emotional side of their work — beyond personal intuition.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PARTICIPANT VOICES
+     ============================================================ -->
+<section class="testimonials-section">
+  <div class="container">
+    <span class="section-label" style="text-align:center;display:block;">What participants say</span>
+    <h2>Participant voices</h2>
+    <div class="testimonials-grid">
+      <div class="card testimonial-card">
+        <div class="testimonial-avatar"></div>
+        <div class="testimonial-role">Teacher, Secondary School</div>
+        <div class="testimonial-quote">"I de-escalate faster and keep the room steady."</div>
+      </div>
+      <div class="card testimonial-card">
+        <div class="testimonial-avatar"></div>
+        <div class="testimonial-role">Coach, independent</div>
+        <div class="testimonial-quote">"The tools are clear, humane, and repeatable."</div>
+      </div>
+      <div class="card testimonial-card">
+        <div class="testimonial-avatar"></div>
+        <div class="testimonial-role">HR, Team Lead</div>
+        <div class="testimonial-quote">"I lead hard talks without burning out."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-wrapper">
+      <span class="section-label">Frequently asked</span>
+      <h2>FAQ</h2>
+      <div class="faq-grid">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            What exactly is Emotional Pedagogy and how is it different from "classical" emotional intelligence trainings?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            Who are your trainings designed for — and who are they not for?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            Is this therapy or coaching, or is it strictly professional education?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            How are the trainings recognised (IHK, DEKRA, ZFU) and what does that recognition practically mean for me or my employer?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            How does the IHK training path work from the 21-day basics course up to Emotional Pedagogue (IHK) levels &amp; WAT?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            Can my employer pay or reimburse training — and what documents do you provide for HR or supervisors?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            What kind of time investment should I expect for the different formats (entry course, IHK modules, live sessions)?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            Do I need a specific professional background or prior training to participate?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            In which languages are the courses and materials available?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            Are the trainings online, in person, or hybrid — and how large are the groups?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            If I still have questions or an unusual situation, how can I get personal advice on whether this is a fit?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <button class="faq-question">
+            Do you offer group or enterprise options?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA (Warm Color Band)
+     ============================================================ -->
+<section class="final-cta-section">
+  <!-- Blob overlays -->
+  <div class="final-cta-blob" style="top:-60px;left:-100px;width:320px;height:320px;">
+    <svg viewBox="0 0 500 500"><path d="M421,301Q387,352,345,393Q303,434,244,440Q185,446,139,406Q93,366,66,310Q39,254,56,194Q73,134,122,96Q171,58,233,44Q295,30,345,72Q395,114,425,182Q455,250,421,301Z" fill="white"/></svg>
+  </div>
+  <div class="final-cta-blob" style="bottom:-80px;right:-120px;width:380px;height:380px;">
+    <svg viewBox="0 0 500 500"><path d="M407,310Q375,370,318,401Q261,432,199,416Q137,400,101,346Q65,292,58,232Q51,172,95,124Q139,76,199,59Q259,42,316,68Q373,94,406,172Q439,250,407,310Z" fill="white"/></svg>
+  </div>
+  <div class="final-cta-blob" style="top:30%;left:60%;width:180px;height:180px;opacity:0.08;">
+    <svg viewBox="0 0 500 500"><path d="M389,305Q366,360,316,393Q266,426,207,418Q148,410,110,363Q72,316,59,258Q46,200,80,148Q114,96,170,64Q226,32,287,49Q348,66,388,123Q428,180,411,240Q394,300,389,305Z" fill="white"/></svg>
+  </div>
+
+  <div class="container" style="position:relative;z-index:2;">
+    <h2>Build your emotional competence as a leader</h2>
+    <p class="final-cta-sub">Short, professional insights into emotional competence for people in responsibility roles. No spam, no esoterics — just what helps in practice.</p>
+    <div class="final-cta-form">
+      <input type="email" class="final-cta-input" placeholder="you@example.com">
+      <a href="#" class="btn btn-white btn-arrow">Send me the insights</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="emotionspaedagogik-entry-course-en.html">Emotional Competence Basics</a></li>
+          <li><a href="emotionspaedagogik-entry-course-en.html">IHK-certified training</a></li>
+          <li><a href="emotionspaedagogik-free-info-session-en.html">Free info session</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="emotionspaedagogik-about-en.html">About Katrin &amp; the institute</a></li>
+          <li><a href="emotionspaedagogik-about-en.html">Credentials</a></li>
+          <li><a href="emotionspaedagogik-about-en.html">Media &amp; Partners</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact / Book a call</a></li>
+          <li><a href="#">Email support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Cookie Settings</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-logos">
+        <span class="footer-logo-item">IHK</span>
+        <span class="footer-logo-item">DEKRA</span>
+        <span class="footer-logo-item">ZFU</span>
+        <span class="footer-logo-item">KOMPASS</span>
+      </div>
+      <span class="footer-copy">© 2026 Emotionspädagogik Institut</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FAQ TOGGLE SCRIPT
+     ============================================================ -->
+<script>
+function toggleFaq(item) {
+  const isOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-item').forEach(el => {
+    el.classList.remove('open');
+    el.querySelector('.faq-answer').style.maxHeight = '0';
+  });
+  // Open clicked if it was closed
+  if (!isOpen) {
+    item.classList.add('open');
+    const answer = item.querySelector('.faq-answer');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+</script>
+
+</body>
+</html>
