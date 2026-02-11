@@ -285,6 +285,10 @@ p, li {
   background: rgba(168, 107, 190, 0.1);
 }
 .icon-purple svg { stroke: var(--color-purple); }
+.icon-pink-mid { background: rgba(224,97,122,0.1); }
+.icon-pink-mid svg { stroke: #e0617a; }
+.icon-purple-deep { background: rgba(139,92,160,0.1); }
+.icon-purple-deep svg { stroke: #8B5CA0; }
 
 /* ============================================================
    IMAGE PLACEHOLDERS
@@ -370,7 +374,7 @@ p, li {
    MISSION V2 — CREAM SECTION, EDITORIAL QUOTE
    ============================================================ */
 .mission-v2 {
-  padding: var(--section-padding) 0;
+  padding: 50px 0;
   background: var(--color-cream);
 }
 .mission-v2-statement {
@@ -391,6 +395,44 @@ p, li {
   max-width: 700px;
   padding-left: 32px;
   font-style: italic;
+}
+.mission-v2-approach-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-pink);
+  margin-top: 48px;
+  margin-bottom: 28px;
+}
+.mission-v2-approach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+.mission-v2-approach-item {
+  padding-left: 20px;
+  border-left: 3px solid var(--color-coral);
+}
+.mission-v2-approach-item:nth-child(2) {
+  border-left-color: var(--color-pink);
+}
+.mission-v2-approach-item:nth-child(3) {
+  border-left-color: var(--color-purple);
+}
+.mission-v2-approach-item h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: var(--color-text);
+}
+.mission-v2-approach-item p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
 }
 
 /* ============================================================
@@ -479,36 +521,74 @@ p, li {
    AT A GLANCE SECTION
    ============================================================ */
 .glance-section {
-  padding: var(--section-padding) 0;
-  background: var(--color-cream);
-}
-.glance-grid {
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 64px;
-  align-items: start;
-}
-.glance-photo-area {
+  background: linear-gradient(135deg, #FF8A65 0%, #E83E8C 100%);
+  padding: 88px 0 96px;
   position: relative;
+  overflow: hidden;
+}
+.glance-symbol {
+  position: absolute;
+  width: 380px;
+  height: 334px;
+  top: -60px;
+  right: -80px;
+  opacity: 0.08;
+  z-index: 1;
+}
+.glance-section .container {
+  position: relative;
+  z-index: 2;
+}
+.glance-section .section-label {
+  color: rgba(255,255,255,0.7);
+}
+.glance-section h2 {
+  color: var(--color-white);
+  margin-bottom: 36px;
+}
+.glance-wrapper {
+  max-width: 780px;
+}
+.glance-photo-row {
+  display: flex;
+  gap: 24px;
+  align-items: flex-end;
+  margin-bottom: -32px;
+  position: relative;
+  z-index: 3;
+  padding-left: 48px;
 }
 .glance-photo {
-  width: 100%;
-  height: 420px;
-  border-radius: 12px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  object-fit: cover;
 }
-.glance-name {
-  margin-top: 20px;
+.glance-name-float {
+  padding-bottom: 40px;
 }
-.glance-name strong {
+.glance-name-float strong {
   display: block;
   font-family: var(--font-heading);
-  font-size: 1.15rem;
-  color: var(--color-text);
-  margin-bottom: 4px;
+  font-size: 1.3rem;
+  color: white;
+  margin-bottom: 2px;
 }
-.glance-name span {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
+.glance-name-float span {
+  font-size: 0.86rem;
+  color: rgba(255,255,255,0.85);
+  font-style: italic;
+}
+.glance-card {
+  background: var(--color-white);
+  border-radius: 12px;
+  padding: 56px 48px 44px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  position: relative;
+  z-index: 2;
 }
 .glance-facts {
   list-style: none;
@@ -518,14 +598,18 @@ p, li {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(230, 224, 218, 0.6);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
   font-size: 0.9rem;
   line-height: 1.65;
   color: var(--color-text-muted);
 }
-.glance-facts li:first-child { padding-top: 0; }
-.glance-facts li:last-child { border-bottom: none; }
+.glance-facts li:first-child {
+  padding-top: 0;
+}
+.glance-facts li:last-child {
+  border-bottom: none;
+}
 .glance-facts .icon-circle {
   margin-top: 2px;
   width: 36px;
@@ -602,76 +686,62 @@ p, li {
 }
 .timeline-photo {
   width: 100%;
-  height: 380px;
   border-radius: 12px;
+  object-fit: cover;
 }
 .timeline-blob {
   position: absolute;
 }
 
 /* ============================================================
-   CREDENTIALS SECTION (Authority Color Band)
+   CREDENTIALS SECTION
    ============================================================ */
 .credentials-section {
-  padding: var(--section-padding-large) 0;
-  background: var(--gradient-authority);
-  position: relative;
-  overflow: hidden;
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
 }
-.credentials-section * { color: var(--color-white); }
-.credentials-section .section-label { color: rgba(255,255,255,0.7); }
-.credentials-section h2 { color: var(--color-white); }
+.credentials-section h2 {
+  margin-bottom: 48px;
+}
 .credentials-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-  margin-bottom: 40px;
+  gap: 24px;
+  margin-bottom: 36px;
 }
 .credential-item {
-  text-align: center;
-  background: rgba(255,255,255,0.1);
+  background: var(--color-white);
   border-radius: var(--card-radius);
-  padding: 28px 20px;
-  border: 1px solid rgba(255,255,255,0.12);
+  padding: 36px 24px 28px;
+  border: 1px solid var(--color-border);
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(58,58,58,0.02);
 }
 .credential-badge {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 16px;
-}
-.credential-badge svg {
-  width: 24px;
-  height: 24px;
-  stroke: white;
-  fill: none;
-  stroke-width: 1.5;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin: 0 auto 20px;
 }
 .credential-item h4 {
-  color: var(--color-white);
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
+  font-weight: 400;
   margin-bottom: 8px;
+  color: var(--color-text);
 }
 .credential-item p {
-  color: rgba(255,255,255,0.85);
   font-size: 0.84rem;
+  color: var(--color-text-muted);
   line-height: 1.6;
 }
 .credentials-note {
   text-align: center;
-  font-size: 0.88rem;
-  opacity: 0.8;
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  font-style: italic;
   max-width: 600px;
   margin: 0 auto;
-}
-.credentials-blob {
-  position: absolute;
-  opacity: 0.1;
 }
 
 /* ============================================================
@@ -681,199 +751,311 @@ p, li {
   padding: var(--section-padding) 0;
   background: var(--color-cream);
 }
-.audience-intro {
-  font-size: 1rem;
-  margin-bottom: 48px;
-  max-width: 640px;
-  line-height: 1.75;
-}
 .audience-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  grid-template-columns: 0.4fr 0.6fr;
+  gap: 56px;
+  align-items: start;
+}
+.audience-left {
+  position: sticky;
+  top: 100px;
+}
+.audience-section h2 {
+  margin-bottom: 16px;
+}
+.audience-intro {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: none;
+  margin-bottom: 0;
+}
+.audience-roles {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.audience-card {
+  background: var(--color-white);
+  border-radius: var(--card-radius);
+  padding: 24px 28px;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  box-shadow: 0 1px 3px rgba(58,58,58,0.02);
+}
+.audience-card:nth-child(1) { border-left-color: var(--color-coral); }
+.audience-card:nth-child(2) { border-left-color: #e0617a; }
+.audience-card:nth-child(3) { border-left-color: var(--color-pink); }
+.audience-card:nth-child(4) { border-left-color: #c04da4; }
+.audience-card:nth-child(5) { border-left-color: var(--color-purple); }
+.audience-card .icon-circle {
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 .audience-card h4 {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 400;
+  margin-bottom: 6px;
+  line-height: 1.35;
   color: var(--color-text);
 }
 .audience-card p {
-  font-size: 0.86rem;
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
   line-height: 1.7;
 }
 
 /* ============================================================
    TESTIMONIALS SECTION
    ============================================================ */
-.testimonials-section {
-  padding: var(--section-padding) 0;
+.section-testimonials {
   background: var(--color-cream);
-}
-.testimonials-section h2 {
-  text-align: center;
+  padding: var(--section-padding) 0;
 }
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 28px;
 }
 .testimonial-card {
-  text-align: center;
-  padding: 36px 28px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
-.testimonial-avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #E0DACE;
-  margin: 0 auto 16px;
+.testimonial-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 24px;
 }
-.testimonial-role {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 12px;
+.testimonial-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.testimonial-quote {
+.testimonial-card blockquote {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
-  font-style: italic;
+  font-size: 0.88rem;
   color: var(--color-text);
-  line-height: 1.6;
+  font-style: normal;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+.testimonial-author strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--color-pink);
+  margin-bottom: 2px;
+}
+.testimonial-author span {
+  font-size: 0.78rem;
+  color: var(--color-pink);
 }
 
 /* ============================================================
    FAQ SECTION
    ============================================================ */
 .faq-section {
-  padding: var(--section-padding) 0;
   background: var(--color-cream);
+  padding: 80px 0 96px;
 }
-.faq-wrapper {
-  max-width: 780px;
-  margin: 0 auto;
-}
-.faq-grid {
+.faq-section .faq-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  grid-template-columns: 0.4fr 0.6fr;
+  gap: 56px;
+  align-items: start;
 }
-.faq-item {
-  background: var(--color-white);
-  border-radius: var(--card-radius);
-  border: 1px solid rgba(230, 224, 218, 0.6);
-  overflow: hidden;
-  transition: border-color var(--transition);
+.faq-section .faq-left {
+  position: sticky;
+  top: 100px;
 }
-.faq-item:hover {
-  border-color: rgba(232, 62, 140, 0.25);
+.faq-section h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 16px;
 }
-.faq-question {
+.faq-section .faq-intro {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.faq-section .faq-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-pink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.faq-section .faq-link:hover { text-decoration: underline; }
+/* Right — accordion */
+.faq-section .faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+.faq-section .faq-item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+.faq-section .faq-question {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 22px 24px;
+  padding: 20px 0;
   cursor: pointer;
   background: none;
   border: none;
   width: 100%;
   text-align: left;
   font-family: var(--font-body);
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.5;
   transition: color var(--transition);
 }
-.faq-question:hover {
-  color: var(--color-pink);
-}
-.faq-toggle {
+.faq-section .faq-question:hover { color: var(--color-pink); }
+.faq-section .faq-toggle {
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: rgba(232,62,140,0.08);
+  display: flex; align-items: center; justify-content: center;
   color: var(--color-pink);
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 300;
-  transition: transform var(--transition);
-  margin-top: 2px;
+  transition: transform var(--transition), background var(--transition);
 }
-.faq-item.open .faq-toggle {
+.faq-section .faq-item.open .faq-toggle {
   transform: rotate(45deg);
+  background: rgba(232,62,140,0.15);
 }
-.faq-answer {
+.faq-section .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  transition: max-height 0.35s ease;
 }
-.faq-answer-inner {
-  padding: 0 24px 22px;
+.faq-section .faq-answer-inner {
+  padding: 0 0 22px;
   font-size: 0.86rem;
   color: var(--color-text-muted);
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 /* ============================================================
-   FINAL CTA SECTION (Warm Band)
+   FINAL CTA SECTION
    ============================================================ */
-.final-cta-section {
-  padding: 110px 0;
-  background: var(--gradient-warm);
+.section-final-cta {
+  background: var(--color-cream);
+  padding: 120px 0 140px;
   position: relative;
   overflow: hidden;
   text-align: center;
 }
-.final-cta-section * { color: var(--color-white); }
-.final-cta-section h2 {
-  color: var(--color-white);
-  font-size: 2.65rem;
+.section-final-cta .container { position: relative; z-index: 2; }
+.section-final-cta h2 {
+  color: var(--color-text);
+  font-size: 2.8rem;
   margin-bottom: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.final-cta-sub {
-  font-size: 1rem;
-  opacity: 0.92;
+.section-final-cta p {
+  color: var(--color-text-muted);
   max-width: 560px;
-  margin: 0 auto 40px;
-  line-height: 1.7;
-}
-.final-cta-form {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 480px;
-  margin: 0 auto;
-}
-.final-cta-input {
-  flex: 1;
-  min-width: 220px;
-  padding: 16px 24px;
-  border-radius: var(--button-radius);
-  border: 1.5px solid rgba(255,255,255,0.4);
-  background: rgba(255,255,255,0.15);
-  font-family: var(--font-body);
+  margin: 0 auto 44px;
   font-size: 0.92rem;
-  color: var(--color-white);
-  outline: none;
-  backdrop-filter: blur(4px);
+  line-height: 1.75;
 }
-.final-cta-input::placeholder {
-  color: rgba(255,255,255,0.6);
-}
-.final-cta-input:focus {
-  border-color: rgba(255,255,255,0.7);
-  background: rgba(255,255,255,0.22);
-}
-.final-cta-blob {
+.cta-blob {
   position: absolute;
-  opacity: 0.12;
+  border-radius: 50%;
+  z-index: 0;
 }
+.cta-blob--1 { width: 320px; height: 320px; background: rgba(255, 179, 150, 0.25); top: -80px; left: -100px; }
+.cta-blob--2 { width: 200px; height: 200px; background: rgba(180, 140, 200, 0.2); top: -40px; right: -30px; }
+.cta-blob--3 { width: 260px; height: 260px; background: rgba(255, 179, 150, 0.18); bottom: -80px; right: -60px; }
+.cta-blob--4 { width: 160px; height: 160px; background: rgba(180, 140, 200, 0.12); bottom: -20px; left: 10%; }
+.email-form {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 560px;
+  margin: 0 auto;
+  justify-content: center;
+}
+.email-form-input-wrap {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 50px;
+  padding: 6px 16px 6px 24px;
+  flex: 1;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.email-form input[type="email"] {
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  flex: 1;
+  outline: none;
+  padding: 12px 0;
+  min-width: 0;
+}
+.email-form input[type="email"]::placeholder { color: #aaa; }
+.email-form-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(232, 62, 140, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.email-form-icon svg {
+  width: 15px;
+  height: 15px;
+  stroke: var(--color-pink);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.email-form .btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-pink);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 32px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+  text-decoration: none;
+}
+.email-form .btn-cta:hover { background: #d1357d; color: white; transform: translateY(-1px); }
+.email-form .btn-cta .btn-arrow { transition: transform 0.3s ease; display: inline-block; }
+.email-form .btn-cta:hover .btn-arrow { transform: translateX(3px); }
 
 /* ============================================================
    FOOTER
@@ -1044,14 +1226,24 @@ p, li {
   .hero-d .hd-symbol { width: 280px; height: 246px; left: -40px; }
   .pillars-grid { grid-template-columns: 1fr; gap: 24px; }
   .mission-pillars { grid-template-columns: 1fr; gap: 20px; }
-  .glance-grid { grid-template-columns: 1fr; gap: 40px; }
   .timeline-grid { grid-template-columns: 1fr; }
   .timeline-image { display: none; }
   .credentials-grid { grid-template-columns: repeat(2, 1fr); }
-  .audience-grid { grid-template-columns: 1fr 1fr; }
-  .testimonials-grid { grid-template-columns: 1fr; gap: 20px; max-width: 480px; margin: 0 auto; }
-  .faq-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+  .faq-section .faq-grid { grid-template-columns: 1fr; gap: 32px; }
+  .faq-section .faq-left { position: static; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 900px) {
+  .audience-grid { grid-template-columns: 1fr; gap: 32px; }
+  .audience-left { position: static; }
+  .credentials-grid { grid-template-columns: 1fr 1fr; }
+  .glance-section { padding: 64px 0 72px; }
+  .glance-card { padding: 48px 24px 36px; }
+  .glance-photo-row { padding-left: 24px; }
+  .glance-photo { width: 120px; height: 120px; }
+  .glance-name-float strong { font-size: 1.1rem; }
 }
 
 /* ============================================================
@@ -1070,15 +1262,24 @@ p, li {
   .hero-d .hd-ctas { flex-direction: column; }
   .hero-d .hd-ctas .btn { width: 100%; justify-content: center; }
   .mission-v2-statement { font-size: 1.4rem; }
+  .mission-v2-approach-grid { grid-template-columns: 1fr; }
   .pillars-grid { grid-template-columns: 1fr; }
-  .audience-grid { grid-template-columns: 1fr; }
   .credentials-grid { grid-template-columns: 1fr; }
-  .glance-facts li { flex-direction: column; gap: 10px; }
-  .final-cta-section h2 { font-size: 2.1rem; }
-  .final-cta-form { flex-direction: column; }
-  .final-cta-input { min-width: auto; width: 100%; }
+  .testimonials-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .section-final-cta { padding: 80px 0; }
+  .faq-section h2 { font-size: 1.9rem; }
+  .section-final-cta h2 { font-size: 2.2rem; }
+  .email-form { flex-direction: column; }
+  .email-form-input-wrap { width: 100%; }
+  .email-form .btn-cta { width: 100%; justify-content: center; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 600px) {
+  .credentials-grid { grid-template-columns: 1fr; }
+  .glance-photo-row { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: -24px; }
+  .glance-name-float { padding-bottom: 32px; }
 }
 
 @media (max-width: 480px) {
@@ -1105,6 +1306,19 @@ p, li {
       <path d="M31.4871 18.2498C32.4771 25.0198 23.1371 28.7398 16.4771 31.7898C11.8271 33.8198 10.8371 38.3898 11.8271 41.8198C9.00713 43.9898 6.67712 46.2898 5.30712 48.1998C2.69712 31.7898 14.6071 15.8898 31.4871 18.2398V18.2498Z" fill="#F59DB0"/>
       <path d="M30.0671 64.9398C35.9171 68.2698 43.3671 69.2198 50.9971 68.4798C45.9571 73.4798 39.3971 77.5898 31.1471 80.1698C15.9471 74.9698 7.89713 63.4798 5.30713 48.1998C6.67713 46.2898 9.00713 43.9798 11.8271 41.8198C13.0371 46.0198 17.1971 48.4898 21.2171 42.4698C18.5071 47.7998 19.2071 55.5098 26.8271 62.5798C27.6171 63.3198 28.4771 63.9698 29.3771 64.5298C29.3771 64.5298 29.3871 64.5298 29.3971 64.5398C29.6171 64.6798 29.8371 64.8098 30.0671 64.9398Z" fill="#EE3B76"/>
       <path d="M81.6772 56.1798C75.6872 69.0098 64.0772 78.9798 54.8172 81.5198C48.2872 83.3098 39.5672 83.3398 31.1472 80.1698C39.3972 77.5898 45.9571 73.4798 50.9971 68.4798C62.3671 67.3798 74.1572 62.5198 81.6772 56.1798Z" fill="#F59DB0"/>
+    </g>
+    <g id="symbol-white">
+      <path d="M76.4671 13.8598C101.377 16.1798 98.7071 41.7698 81.6871 56.1798C90.4571 35.0198 81.9371 20.0498 76.4671 13.8598Z" fill="white"/>
+      <path d="M63.8671 42.9398C62.4671 51.9998 58.3571 61.1898 51.0071 68.4898C43.3671 69.2298 35.9171 68.2798 30.0771 64.9498C41.6971 71.4398 60.3971 63.9698 63.8771 42.9398H63.8671Z" fill="white"/>
+      <path d="M76.4671 13.8598C81.9271 20.0498 90.4571 35.0198 81.6871 56.1798C74.1671 62.5198 62.3771 67.3798 51.0071 68.4798C58.3671 61.1798 62.4771 51.9898 63.8671 42.9298C67.1471 23.1398 53.0271 11.5398 44.2571 8.42978C44.0271 8.34978 43.8071 8.26978 43.5871 8.17978C54.3071 11.7098 69.1871 12.9198 76.4571 13.8498L76.4671 13.8598Z" fill="white"/>
+      <path d="M76.4671 13.8598C69.1971 12.9298 54.3171 11.7198 43.5971 8.18978C32.6271 4.06978 35.7371 -0.630222 47.1271 0.0697783C60.3271 0.879778 69.9971 5.97978 76.4671 13.8598Z" fill="white"/>
+      <path d="M25.0171 7.54977C42.6971 9.48977 56.6572 30.3298 45.0072 48.0798C49.8372 39.4198 49.4571 20.9698 31.4871 18.2598C31.3071 15.9898 29.7772 14.7198 27.4672 13.7898C20.3072 10.8898 21.8771 7.20977 25.0171 7.55977V7.54977Z" fill="white"/>
+      <path d="M5.31714 48.2098C7.90714 63.4898 15.9571 74.9698 31.1571 80.1798C8.64714 86.1798 -9.35286 68.4398 5.31714 48.2098Z" fill="white"/>
+      <path d="M35.3671 36.7998L35.3471 36.8298C34.5371 36.1698 33.3371 35.7798 31.5871 35.7998C27.1971 35.8498 23.2571 38.4998 21.2271 42.4698C17.2071 48.4898 13.0471 46.0198 11.8371 41.8198C19.0171 36.2998 29.3971 31.6798 35.3771 36.7998H35.3671Z" fill="white"/>
+      <path d="M35.3671 36.7998C29.3871 31.6798 19.0071 36.2998 11.8271 41.8198C10.8371 38.3898 11.8271 33.8198 16.4771 31.7898C23.1271 28.7398 32.4671 25.0198 31.4871 18.2498C49.4571 20.9598 49.8371 39.4198 45.0071 48.0698C44.4071 48.9798 43.7471 49.8898 43.0071 50.7798C40.6171 53.6698 32.8571 57.1698 35.3371 47.6398C36.0371 44.9498 38.2271 39.1798 35.3471 36.8198L35.3671 36.7898V36.7998Z" fill="white"/>
+      <path d="M31.4871 18.2498C32.4771 25.0198 23.1371 28.7398 16.4771 31.7898C11.8271 33.8198 10.8371 38.3898 11.8271 41.8198C9.00713 43.9898 6.67712 46.2898 5.30712 48.1998C2.69712 31.7898 14.6071 15.8898 31.4871 18.2398V18.2498Z" fill="white"/>
+      <path d="M30.0671 64.9398C35.9171 68.2698 43.3671 69.2198 50.9971 68.4798C45.9571 73.4798 39.3971 77.5898 31.1471 80.1698C15.9471 74.9698 7.89713 63.4798 5.30713 48.1998C6.67713 46.2898 9.00713 43.9798 11.8271 41.8198C13.0371 46.0198 17.1971 48.4898 21.2171 42.4698C18.5071 47.7998 19.2071 55.5098 26.8271 62.5798C27.6171 63.3198 28.4771 63.9698 29.3771 64.5298C29.3771 64.5298 29.3871 64.5298 29.3971 64.5398C29.6171 64.6798 29.8371 64.8098 30.0671 64.9398Z" fill="white"/>
+      <path d="M81.6772 56.1798C75.6872 69.0098 64.0772 78.9798 54.8172 81.5198C48.2872 83.3098 39.5672 83.3398 31.1472 80.1698C39.3972 77.5898 45.9571 73.4798 50.9971 68.4798C62.3671 67.3798 74.1572 62.5198 81.6772 56.1798Z" fill="white"/>
     </g>
   </defs>
 </svg>
@@ -1195,104 +1409,53 @@ p, li {
     <h2 style="margin-bottom:32px;">Our mission</h2>
     <p class="mission-v2-statement">We strengthen the emotional competence of people in responsibility roles — so they can stay steady under pressure, communicate clearly, and guide others safely.</p>
     <p class="mission-v2-audience">We work with adults who carry responsibility for others — across education, social and health professions, HR, organisations, and self-employed professional roles.</p>
-  </div>
-</section>
 
-<!-- ============================================================
-     INSTITUTE POSITIONING PILLARS
-     ============================================================ -->
-<section class="pillars-section">
-  <div class="container">
-    <div class="pillars-grid">
-      <!-- Pillar 1 — Coral -->
-      <div class="card pillar-card">
-        <div class="icon-circle icon-coral">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20V10M18 20V4M6 20v-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Our institute is focused on clear methods</h4>
-        <p>Emotional Pedagogy as a structured, teachable approach you can apply in everyday work.</p>
-      </div>
-      <!-- Pillar 2 — Pink -->
-      <div class="card pillar-card">
-        <div class="icon-circle icon-pink">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Recognised certification programmes</h4>
-        <p>Our courses and certificate programmes — including IHK-certified training — count as formal continuing professional education.</p>
-      </div>
-      <!-- Pillar 3 — Purple -->
-      <div class="card pillar-card">
-        <div class="icon-circle icon-purple">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Practice-informed development</h4>
-        <p>The institute's methodology is grounded in professional practice and long-term experience with emotional load, responsibility, and leadership — translated into clear, applicable tools.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     OUR MISSION (Warm Color Band)
-     ============================================================ -->
-<section class="mission-section">
-  <!-- Blob overlays for depth -->
-  <div class="mission-blob" style="top:-80px;right:-120px;width:400px;height:400px;">
-    <svg viewBox="0 0 500 500"><path d="M421,301Q387,352,345,393Q303,434,244,440Q185,446,139,406Q93,366,66,310Q39,254,56,194Q73,134,122,96Q171,58,233,44Q295,30,345,72Q395,114,425,182Q455,250,421,301Z" fill="white"/></svg>
-  </div>
-  <div class="mission-blob" style="bottom:-100px;left:-80px;width:300px;height:300px;">
-    <svg viewBox="0 0 500 500"><path d="M407,310Q375,370,318,401Q261,432,199,416Q137,400,101,346Q65,292,58,232Q51,172,95,124Q139,76,199,59Q259,42,316,68Q373,94,406,172Q439,250,407,310Z" fill="white"/></svg>
-  </div>
-
-  <div class="container" style="position:relative;z-index:2;">
-    <span class="section-label">Our mission</span>
-    <h2>Our mission</h2>
-    <p class="mission-statement">We strengthen the emotional competence of people in responsibility roles — so they can stay steady under pressure, communicate clearly, and guide others safely.</p>
-    
-    <div class="mission-pillars">
-      <div class="mission-pillar-card">
-        <h4>Practical</h4>
+    <span class="mission-v2-approach-label">Our approach</span>
+    <div class="mission-v2-approach-grid">
+      <div class="mission-v2-approach-item">
+        <h3>Practical</h3>
         <p>Short, focused sessions with tools you can use the same day in meetings, discussions, teams and client work.</p>
       </div>
-      <div class="mission-pillar-card">
-        <h4>Human</h4>
+      <div class="mission-v2-approach-item">
+        <h3>Human</h3>
         <p>Warm, down-to-earth guidance that respects real workloads, emotional realities, and organisational contexts.</p>
       </div>
-      <div class="mission-pillar-card">
-        <h4>Recognised</h4>
+      <div class="mission-v2-approach-item">
+        <h3>Recognised</h3>
         <p>Quality-assured programmes with certificates and IHK-certified training that count as formal professional development.</p>
       </div>
     </div>
-
-    <p class="mission-audience">We work with adults who carry responsibility for others — across education, social and health professions, HR, organisations, and self-employed professional roles.</p>
   </div>
 </section>
+
+
 
 <!-- ============================================================
      AT A GLANCE
      ============================================================ -->
 <section class="glance-section">
+  <svg class="glance-symbol" viewBox="0 0 95 83" fill="none"><use href="#symbol-white"/></svg>
   <div class="container">
     <span class="section-label">At a glance</span>
-    <h2>At a glance</h2>
-    <div class="glance-grid">
-      <div class="glance-photo-area">
-        <div class="img-placeholder glance-photo">[Photo: Katrin Michl, warm candid, half-body]</div>
-        <div class="glance-name">
+    <h2>Katrin Michl</h2>
+    <div class="glance-wrapper">
+      <div class="glance-photo-row">
+        <img class="glance-photo" src="assets/headshot.png" alt="Katrin Michl">
+        <div class="glance-name-float">
           <strong>Katrin Michl</strong>
           <span>Founder, Private Institute for Emotional Pedagogy</span>
         </div>
       </div>
-      <div>
+      <div class="glance-card">
         <ul class="glance-facts">
           <li>
-            <div class="icon-circle icon-pink">
+            <div class="icon-circle icon-coral">
               <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="12" cy="10" r="3" fill="none"/></svg>
             </div>
             <span>Based in Bavaria (Germany), working with participants across the German-speaking region.</span>
           </li>
           <li>
-            <div class="icon-circle icon-pink">
+            <div class="icon-circle icon-coral">
               <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="12" cy="7" r="4" fill="none"/></svg>
             </div>
             <span>Lead Trainer and method developer</span>
@@ -1310,7 +1473,7 @@ p, li {
             <span>Trained teacher with extensive classroom and leadership experience</span>
           </li>
           <li>
-            <div class="icon-circle icon-pink">
+            <div class="icon-circle icon-purple">
               <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
             </div>
             <span>Developer of clear, repeatable tools for emotionally demanding professional situations</span>
@@ -1350,7 +1513,7 @@ p, li {
         </div>
       </div>
       <div class="timeline-image">
-        <div class="img-placeholder timeline-photo">[Photo: Workshop / training setting]</div>
+        <img class="timeline-photo" src="assets/Demo-3.png" alt="Workshop / training setting">
         <!-- Decorative blob -->
         <div class="timeline-blob" style="position:absolute;top:-40px;right:-60px;width:200px;height:200px;z-index:-1;">
           <svg viewBox="0 0 500 500"><path d="M421,301Q387,352,345,393Q303,434,244,440Q185,446,139,406Q93,366,66,310Q39,254,56,194Q73,134,122,96Q171,58,233,44Q295,30,345,72Q395,114,425,182Q455,250,421,301Z" fill="#E83E8C" opacity="0.15"/></svg>
@@ -1367,43 +1530,27 @@ p, li {
      OUR CREDENTIALS (Authority Color Band)
      ============================================================ -->
 <section class="credentials-section">
-  <!-- Blob overlays -->
-  <div class="credentials-blob" style="top:-60px;right:-100px;width:350px;height:350px;">
-    <svg viewBox="0 0 500 500"><path d="M389,305Q366,360,316,393Q266,426,207,418Q148,410,110,363Q72,316,59,258Q46,200,80,148Q114,96,170,64Q226,32,287,49Q348,66,388,123Q428,180,411,240Q394,300,389,305Z" fill="white"/></svg>
-  </div>
-  <div class="credentials-blob" style="bottom:-80px;left:-60px;width:260px;height:260px;">
-    <svg viewBox="0 0 500 500"><path d="M410,316Q385,382,320,410Q255,438,195,410Q135,382,97,326Q59,270,72,208Q85,146,133,103Q181,60,243,52Q305,44,358,85Q411,126,427,188Q443,250,410,316Z" fill="white"/></svg>
-  </div>
-
-  <div class="container" style="position:relative;z-index:2;">
+  <div class="container">
     <span class="section-label">Recognised quality</span>
     <h2>Our credentials</h2>
     <div class="credentials-grid">
       <div class="credential-item">
-        <div class="credential-badge">
-          <svg viewBox="0 0 24 24"><path d="M12 15l-2 5l9-8.5L12 15zM12 15l2 5l-9-8.5L12 15z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="8" r="6"/></svg>
-        </div>
+        <img class="credential-badge" src="assets/SEAL-IHK.svg" alt="IHK seal">
         <h4>IHK</h4>
         <p>Recognised professional education routes</p>
       </div>
       <div class="credential-item">
-        <div class="credential-badge">
-          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
-        </div>
+        <img class="credential-badge" src="assets/SEAL-DEKRA.svg" alt="DEKRA seal">
         <h4>DEKRA</h4>
         <p>Quality checks for processes and materials</p>
       </div>
       <div class="credential-item">
-        <div class="credential-badge">
-          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <img class="credential-badge" src="assets/SEAL-ZFU.png" alt="ZFU seal">
         <h4>ZFU</h4>
         <p>Compliance for distance-learning formats</p>
       </div>
       <div class="credential-item">
-        <div class="credential-badge">
-          <svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <img class="credential-badge" src="assets/kompass-01.svg" alt="Kompass seal">
         <h4>Funding options</h4>
         <p>Funding options may apply by region and employer</p>
       </div>
@@ -1417,56 +1564,110 @@ p, li {
      ============================================================ -->
 <section class="audience-section">
   <div class="container">
-    <span class="section-label">Who we help</span>
-    <h2>Who we help</h2>
-    <p class="audience-intro">If you carry emotional responsibility for others, this training strengthens the way you show up.</p>
     <div class="audience-grid">
-      <div class="card card-hover">
-        <h4>Leaders in education settings &amp; teachers</h4>
-        <p>De-escalate tension in classrooms and meetings, set clear boundaries with students and parents, and stay steady in conflict situations.</p>
+      <div class="audience-left">
+        <span class="section-label">Who we help</span>
+        <h2>Who we help</h2>
+        <p class="audience-intro">If you carry emotional responsibility for others, this training strengthens the way you show up.</p>
       </div>
-      <div class="card card-hover">
-        <h4>Social &amp; health professionals</h4>
-        <p>Hold emotionally loaded situations with clients, patients and families, without losing your own stability or overstepping your role.</p>
-      </div>
-      <div class="card card-hover">
-        <h4>HR &amp; people managers</h4>
-        <p>Lead difficult conversations, performance, conflict, restructuring and team care with clarity and support healthier team dynamics.</p>
-      </div>
-      <div class="card card-hover">
-        <h4>Team &amp; project leads in NGOs, public sector and organisations</h4>
-        <p>Guide teams through pressure, change and crisis, while keeping orientation and emotional safety in the group.</p>
-      </div>
-      <div class="card card-hover">
-        <h4>Self-employed professionals in helping roles</h4>
-        <p>Therapists, counsellors, trainers and consultants who want a clear, recognised framework for the emotional side of their work — beyond personal intuition.</p>
+      <div class="audience-roles">
+        <div class="audience-card">
+          <div class="icon-circle icon-coral">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4>Leaders in education settings &amp; teachers</h4>
+            <p>De-escalate tension in classrooms and meetings, set clear boundaries with students and parents, and stay steady in conflict situations.</p>
+          </div>
+        </div>
+        <div class="audience-card">
+          <div class="icon-circle icon-pink-mid">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4>Social &amp; health professionals</h4>
+            <p>Hold emotionally loaded situations with clients, patients and families, without losing your own stability or overstepping your role.</p>
+          </div>
+        </div>
+        <div class="audience-card">
+          <div class="icon-circle icon-pink">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4>HR &amp; people managers</h4>
+            <p>Lead difficult conversations, performance, conflict, restructuring and team care with clarity and support healthier team dynamics.</p>
+          </div>
+        </div>
+        <div class="audience-card">
+          <div class="icon-circle icon-purple">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          </div>
+          <div>
+            <h4>Team &amp; project leads</h4>
+            <p>Guide teams through pressure, change and crisis in NGOs, public sector and organisations, while keeping orientation and emotional safety.</p>
+          </div>
+        </div>
+        <div class="audience-card">
+          <div class="icon-circle icon-purple-deep">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="20" height="14" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4>Self-employed helping professionals</h4>
+            <p>Therapists, counsellors, trainers and consultants who want a clear, recognised framework for the emotional side of their work.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     PARTICIPANT VOICES
+     TESTIMONIALS
      ============================================================ -->
-<section class="testimonials-section">
+<section class="section-testimonials">
   <div class="container">
-    <span class="section-label" style="text-align:center;display:block;">What participants say</span>
-    <h2>Participant voices</h2>
+    <span class="section-label">Testimonials</span>
+    <h2>What our participants say</h2>
     <div class="testimonials-grid">
-      <div class="card testimonial-card">
-        <div class="testimonial-avatar"></div>
-        <div class="testimonial-role">Teacher, Secondary School</div>
-        <div class="testimonial-quote">"I de-escalate faster and keep the room steady."</div>
+      <div class="testimonial-card">
+        <div class="testimonial-photo">
+          <img src="assets/TESTI-stephanie-P.webp" alt="Stefanie P.">
+        </div>
+        <blockquote>What a powerful presence, it was intensive in the best way. Everything is already there — I just needed to be reminded and deeply connected. This education gave me clarity and tools I had been missing.</blockquote>
+        <div class="testimonial-author">
+          <strong>/ Stefanie P.</strong>
+          <span>Educator, Emotional Pedagogue (IHK)</span>
+        </div>
       </div>
-      <div class="card testimonial-card">
-        <div class="testimonial-avatar"></div>
-        <div class="testimonial-role">Coach, independent</div>
-        <div class="testimonial-quote">"The tools are clear, humane, and repeatable."</div>
+      <div class="testimonial-card">
+        <div class="testimonial-photo">
+          <img src="assets/TESTI-kurt-B.webp" alt="Kurt B.">
+        </div>
+        <blockquote>I recommend Emotional Pedagogy to people who want to be more conscious and fundamentally feel themselves better. Emotions like anger, rage, sadness simply belong and are allowed to be felt.</blockquote>
+        <div class="testimonial-author">
+          <strong>/ Kurt B.</strong>
+          <span>Teacher, Emotional Pedagogue (IHK)</span>
+        </div>
       </div>
-      <div class="card testimonial-card">
-        <div class="testimonial-avatar"></div>
-        <div class="testimonial-role">HR, Team Lead</div>
-        <div class="testimonial-quote">"I lead hard talks without burning out."</div>
+      <div class="testimonial-card">
+        <div class="testimonial-photo">
+          <img src="assets/TESTI-manuella-P.webp" alt="Manuela P.">
+        </div>
+        <blockquote>For me, this training was a real game changer. You truly see emotional patterns. Thanks to Emotional Pedagogy, I feel much more confident in my work with clients.</blockquote>
+        <div class="testimonial-author">
+          <strong>/ Manuela P.</strong>
+          <span>Emotional Pedagogue (IHK), independent practice</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-photo">
+          <img src="assets/TESTI-jan-B.webp" alt="Jan B.">
+        </div>
+        <blockquote>I recommend Emotional Pedagogy to people who want to be more conscious and fundamentally feel themselves better. Emotions like anger, rage, sadness simply belong and are allowed to be felt.</blockquote>
+        <div class="testimonial-author">
+          <strong>/ Jan B.</strong>
+          <span>Dipl. Wirtschaftsingenieur, Emotional Pedagogue (IHK)</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1477,93 +1678,66 @@ p, li {
      ============================================================ -->
 <section class="faq-section">
   <div class="container">
-    <div class="faq-wrapper">
-      <span class="section-label">Frequently asked</span>
-      <h2>FAQ</h2>
-      <div class="faq-grid">
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <button class="faq-question">
+    <div class="faq-grid">
+      <div class="faq-left">
+        <span class="section-label">Frequently asked</span>
+        <h2>FAQ</h2>
+        <p class="faq-intro">Everything you need to know about the institute, our training paths, certifications, and how to get started.</p>
+        <a href="#" class="faq-link">Still have questions? Book a free info session →</a>
+      </div>
+      <div class="faq-right">
+        <div class="faq-item open">
+          <button class="faq-question" onclick="toggleFaq(this.parentElement)">
             What exactly is Emotional Pedagogy and how is it different from "classical" emotional intelligence trainings?
             <span class="faq-toggle">+</span>
           </button>
-          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+          <div class="faq-answer" style="max-height:200px;">
+            <div class="faq-answer-inner">Emotional Pedagogy is a structured, method-based approach to building emotional competence in professional contexts. Unlike classical emotional intelligence trainings, which often focus on self-awareness exercises, our programmes provide concrete tools and frameworks you can apply immediately in leadership situations, team conflicts, and high-pressure conversations.</div>
+          </div>
         </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <button class="faq-question">
-            Who are your trainings designed for — and who are they not for?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this.parentElement)">Who are your trainings designed for — and who are they not for?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content]</div></div>
         </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <button class="faq-question">
-            Is this therapy or coaching, or is it strictly professional education?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this.parentElement)">Is this therapy or coaching, or is it strictly professional education?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content]</div></div>
         </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <button class="faq-question">
-            How are the trainings recognised (IHK, DEKRA, ZFU) and what does that recognition practically mean for me or my employer?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this.parentElement)">How are the trainings recognised (IHK, DEKRA, ZFU) and what does that mean for me?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content]</div></div>
         </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <button class="faq-question">
-            How does the IHK training path work from the 21-day basics course up to Emotional Pedagogue (IHK) levels &amp; WAT?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this.parentElement)">How does the IHK training path work from the 21-day basics to Emotional Pedagogue (IHK)?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content]</div></div>
         </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <button class="faq-question">
-            Can my employer pay or reimburse training — and what documents do you provide for HR or supervisors?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this.parentElement)">Can my employer pay or reimburse training — and what documents do you provide?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content]</div></div>
         </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <button class="faq-question">
-            What kind of time investment should I expect for the different formats (entry course, IHK modules, live sessions)?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this.parentElement)">What time investment should I expect for each format?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content]</div></div>
         </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <button class="faq-question">
-            Do I need a specific professional background or prior training to participate?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this.parentElement)">Do I need a specific professional background or prior training?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content]</div></div>
         </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <button class="faq-question">
-            In which languages are the courses and materials available?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this.parentElement)">In which languages are the courses and materials available?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content]</div></div>
         </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <button class="faq-question">
-            Are the trainings online, in person, or hybrid — and how large are the groups?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this.parentElement)">Are the trainings online, in person, or hybrid — and how large are the groups?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content]</div></div>
         </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <button class="faq-question">
-            If I still have questions or an unusual situation, how can I get personal advice on whether this is a fit?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this.parentElement)">How can I get personal advice on whether this is a fit?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content]</div></div>
         </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <button class="faq-question">
-            Do you offer group or enterprise options?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer"><div class="faq-answer-inner">[Answer content to be added]</div></div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this.parentElement)">Do you offer group or enterprise options?<span class="faq-toggle">+</span></button>
+          <div class="faq-answer"><div class="faq-answer-inner">[Answer content]</div></div>
         </div>
       </div>
     </div>
@@ -1571,26 +1745,26 @@ p, li {
 </section>
 
 <!-- ============================================================
-     FINAL CTA (Warm Color Band)
+     FINAL CTA
      ============================================================ -->
-<section class="final-cta-section">
-  <!-- Blob overlays -->
-  <div class="final-cta-blob" style="top:-60px;left:-100px;width:320px;height:320px;">
-    <svg viewBox="0 0 500 500"><path d="M421,301Q387,352,345,393Q303,434,244,440Q185,446,139,406Q93,366,66,310Q39,254,56,194Q73,134,122,96Q171,58,233,44Q295,30,345,72Q395,114,425,182Q455,250,421,301Z" fill="white"/></svg>
-  </div>
-  <div class="final-cta-blob" style="bottom:-80px;right:-120px;width:380px;height:380px;">
-    <svg viewBox="0 0 500 500"><path d="M407,310Q375,370,318,401Q261,432,199,416Q137,400,101,346Q65,292,58,232Q51,172,95,124Q139,76,199,59Q259,42,316,68Q373,94,406,172Q439,250,407,310Z" fill="white"/></svg>
-  </div>
-  <div class="final-cta-blob" style="top:30%;left:60%;width:180px;height:180px;opacity:0.08;">
-    <svg viewBox="0 0 500 500"><path d="M389,305Q366,360,316,393Q266,426,207,418Q148,410,110,363Q72,316,59,258Q46,200,80,148Q114,96,170,64Q226,32,287,49Q348,66,388,123Q428,180,411,240Q394,300,389,305Z" fill="white"/></svg>
-  </div>
+<section class="section-final-cta">
+  <!-- Decorative blobs -->
+  <div class="cta-blob cta-blob--1"></div>
+  <div class="cta-blob cta-blob--2"></div>
+  <div class="cta-blob cta-blob--3"></div>
+  <div class="cta-blob cta-blob--4"></div>
 
-  <div class="container" style="position:relative;z-index:2;">
-    <h2>Build your emotional competence as a leader</h2>
-    <p class="final-cta-sub">Short, professional insights into emotional competence for people in responsibility roles. No spam, no esoterics — just what helps in practice.</p>
-    <div class="final-cta-form">
-      <input type="email" class="final-cta-input" placeholder="you@example.com">
-      <a href="#" class="btn btn-white btn-arrow">Send me the insights</a>
+  <div class="container">
+    <h2>Build your emotional competence as a leader.</h2>
+    <p>Short, professional insights into emotional competence for people in responsibility roles. No spam, no esoterics — just what helps in practice.</p>
+    <div class="email-form">
+      <div class="email-form-input-wrap">
+        <input type="email" placeholder="your@email.com">
+        <div class="email-form-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+      </div>
+      <a href="#" class="btn-cta">Send me insights <span class="btn-arrow">→</span></a>
     </div>
   </div>
 </section>

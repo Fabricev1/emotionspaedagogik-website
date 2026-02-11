@@ -1,0 +1,260 @@
+/* ============================================================
+   PRICING SECTION — IMPLEMENTATION FILE
+   ============================================================
+   
+   TARGET: emotionspaedagogik-entry-course-en.html
+   
+   STEP 1 — CSS
+   Replace the entire /* PRICING */ block (from .section-pricing
+   through .pricing-ctas) AND the entire /* GUARANTEES */ block
+   (from .section-guarantees through .guarantee-box p) with the
+   CSS below. The guarantee is now integrated into the pricing
+   section so the separate guarantees section is removed.
+   
+   STEP 2 — HTML
+   Replace BOTH the <section class="section-pricing"> block
+   AND the <section class="section-guarantees"> block with
+   the single HTML block below.
+   
+   STEP 3 — RESPONSIVE
+   In the existing responsive media queries, replace any
+   .pricing- and .guarantee- rules with the responsive rules
+   below.
+   
+   ============================================================ */
+
+
+/* =========================
+   CSS TO PASTE
+   ========================= */
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.section-pricing {
+  background: var(--color-cream);
+  padding: var(--section-padding) 0;
+}
+.section-pricing h2 {
+  font-family: var(--font-heading);
+  font-size: 2.35rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 48px;
+  line-height: 1.25;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  align-items: start;
+}
+.pricing-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 44px;
+  box-shadow: 0 4px 20px rgba(58,58,58,0.06);
+  border: 1px solid rgba(230,224,218,0.6);
+  position: relative;
+  overflow: hidden;
+}
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-warm);
+  border-radius: 12px 12px 0 0;
+}
+.pricing-amount {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+.pricing-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 28px;
+}
+.pricing-includes {
+  list-style: none;
+  margin-bottom: 32px;
+}
+.pricing-includes li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 0;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+.pricing-includes li svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--color-pink);
+  stroke-width: 2.5;
+  fill: none;
+  flex-shrink: 0;
+}
+.pricing-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+/* Extras sidebar */
+.pricing-extras {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pricing-extra {
+  background: #FFFFFF;
+  border-radius: var(--card-radius);
+  padding: 24px;
+  border: 1px solid rgba(230,224,218,0.6);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.pricing-extra-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pricing-extra-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.8;
+  fill: none;
+}
+.pricing-extra-icon-coral {
+  background: rgba(255,138,101,0.1);
+}
+.pricing-extra-icon-coral svg {
+  stroke: var(--color-coral);
+}
+.pricing-extra-icon-pink {
+  background: rgba(232,62,140,0.08);
+}
+.pricing-extra-icon-pink svg {
+  stroke: var(--color-pink);
+}
+.pricing-extra-icon-purple {
+  background: rgba(168,107,190,0.08);
+}
+.pricing-extra-icon-purple svg {
+  stroke: var(--color-purple);
+}
+.pricing-extra h4 {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+.pricing-extra p {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+
+/* =========================
+   RESPONSIVE RULES
+   Replace any .pricing- and .guarantee- rules
+   ========================= */
+/*
+@media (max-width: 900px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .section-pricing h2 { font-size: 1.9rem; }
+  .pricing-card { padding: 32px 24px; }
+  .pricing-ctas { flex-direction: column; }
+  .pricing-ctas .btn { width: 100%; justify-content: center; }
+}
+*/
+
+
+/* =========================
+   HTML TO PASTE
+   (replaces BOTH pricing AND guarantees sections)
+   ========================= */
+<!--
+<section class="section-pricing">
+  <div class="container">
+    <h2>Price & what's included</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-amount">€197</div>
+        <div class="pricing-subtitle">One-time payment. Lifetime access.</div>
+        <ul class="pricing-includes">
+          <li>
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            All video lessons
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Printable workbook & exercises
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Reflection prompts & scenarios
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Templates & checklists
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Certificate of completion
+          </li>
+        </ul>
+        <div class="pricing-ctas">
+          <a href="#" class="btn btn-primary btn-primary-lg btn-arrow">Start now</a>
+          <a href="#" class="btn btn-secondary">Book info session first</a>
+        </div>
+      </div>
+      <div class="pricing-extras">
+        <div class="pricing-extra">
+          <div class="pricing-extra-icon pricing-extra-icon-coral">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <h4>Lifetime access</h4>
+            <p>Go at your own pace. Return to any lesson whenever you need it.</p>
+          </div>
+        </div>
+        <div class="pricing-extra">
+          <div class="pricing-extra-icon pricing-extra-icon-pink">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h4>14-day guarantee</h4>
+            <p>Not a fit? Cancel within 14 days — we'll refund kindly and easily.</p>
+          </div>
+        </div>
+        <div class="pricing-extra">
+          <div class="pricing-extra-icon pricing-extra-icon-purple">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div>
+            <h4>Certificate included</h4>
+            <p>Receive a certificate of completion for your professional portfolio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->

@@ -1,0 +1,186 @@
+/* ============================================================
+   WHO WE HELP SECTION — IMPLEMENTATION FILE
+   ============================================================
+   
+   TARGET: emotionspaedagogik-about-en.html
+   
+   STEP 1 — CSS
+   Replace the entire /* WHO WE HELP SECTION */ block 
+   (from .audience-section through .audience-card p)
+   with the CSS below.
+   
+   STEP 2 — HTML
+   Replace the entire <section class="audience-section"> block
+   with the HTML below.
+   
+   STEP 3 — RESPONSIVE
+   In the existing responsive section, replace:
+     .audience-grid { grid-template-columns: 1fr 1fr; }
+   and
+     .audience-grid { grid-template-columns: 1fr; }
+   with the responsive rules below.
+   
+   NOTE: Icon circle classes (.icon-circle, .icon-coral, etc.)
+   already exist in the project. If .icon-pink-mid and
+   .icon-purple-deep do NOT exist, add them.
+   
+   ============================================================ */
+
+
+/* =========================
+   CSS TO PASTE
+   ========================= */
+
+/* ============================================================
+   WHO WE HELP SECTION
+   ============================================================ */
+.audience-section {
+  padding: var(--section-padding) 0;
+  background: var(--color-cream);
+}
+.audience-grid {
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+  gap: 56px;
+  align-items: start;
+}
+.audience-left {
+  position: sticky;
+  top: 100px;
+}
+.audience-section h2 {
+  margin-bottom: 16px;
+}
+.audience-intro {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: none;
+  margin-bottom: 0;
+}
+.audience-roles {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.audience-card {
+  background: var(--color-white);
+  border-radius: var(--card-radius);
+  padding: 24px 28px;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  box-shadow: 0 1px 3px rgba(58,58,58,0.02);
+}
+.audience-card:nth-child(1) { border-left-color: var(--color-coral); }
+.audience-card:nth-child(2) { border-left-color: #e0617a; }
+.audience-card:nth-child(3) { border-left-color: var(--color-pink); }
+.audience-card:nth-child(4) { border-left-color: #c04da4; }
+.audience-card:nth-child(5) { border-left-color: var(--color-purple); }
+.audience-card .icon-circle {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.audience-card h4 {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 400;
+  margin-bottom: 6px;
+  line-height: 1.35;
+  color: var(--color-text);
+}
+.audience-card p {
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+
+/* =========================
+   ICON CLASSES TO ADD
+   (only if they don't already exist)
+   ========================= */
+/*
+.icon-pink-mid { background: rgba(224,97,122,0.1); }
+.icon-pink-mid svg { stroke: #e0617a; }
+.icon-purple-deep { background: rgba(139,92,160,0.1); }
+.icon-purple-deep svg { stroke: #8B5CA0; }
+*/
+
+
+/* =========================
+   RESPONSIVE RULES TO REPLACE
+   ========================= */
+/*
+@media (max-width: 900px) {
+  .audience-grid { grid-template-columns: 1fr; gap: 32px; }
+  .audience-left { position: static; }
+}
+*/
+
+
+/* =========================
+   HTML TO PASTE
+   ========================= */
+<!--
+<section class="audience-section">
+  <div class="container">
+    <div class="audience-grid">
+      <div class="audience-left">
+        <span class="section-label">Who we help</span>
+        <h2>Who we help</h2>
+        <p class="audience-intro">If you carry emotional responsibility for others, this training strengthens the way you show up.</p>
+      </div>
+      <div class="audience-roles">
+        <div class="audience-card">
+          <div class="icon-circle icon-coral">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4>Leaders in education settings &amp; teachers</h4>
+            <p>De-escalate tension in classrooms and meetings, set clear boundaries with students and parents, and stay steady in conflict situations.</p>
+          </div>
+        </div>
+        <div class="audience-card">
+          <div class="icon-circle icon-pink-mid">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4>Social &amp; health professionals</h4>
+            <p>Hold emotionally loaded situations with clients, patients and families, without losing your own stability or overstepping your role.</p>
+          </div>
+        </div>
+        <div class="audience-card">
+          <div class="icon-circle icon-pink">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4>HR &amp; people managers</h4>
+            <p>Lead difficult conversations, performance, conflict, restructuring and team care with clarity and support healthier team dynamics.</p>
+          </div>
+        </div>
+        <div class="audience-card">
+          <div class="icon-circle icon-purple">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          </div>
+          <div>
+            <h4>Team &amp; project leads</h4>
+            <p>Guide teams through pressure, change and crisis in NGOs, public sector and organisations, while keeping orientation and emotional safety.</p>
+          </div>
+        </div>
+        <div class="audience-card">
+          <div class="icon-circle icon-purple-deep">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="20" height="14" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <h4>Self-employed helping professionals</h4>
+            <p>Therapists, counsellors, trainers and consultants who want a clear, recognised framework for the emotional side of their work.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->

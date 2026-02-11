@@ -1,0 +1,241 @@
+/* ============================================================
+   FAQ SECTION — IMPLEMENTATION FILE
+   ============================================================
+   
+   TARGET: emotionspaedagogik-entry-course-en.html
+   
+   STEP 1 — CSS
+   Replace the entire /* FAQ */ block (from .section-faq
+   through .faq-item.open .faq-answer) AND the entire
+   /* FUNDING & INVOICES */ block (from .section-funding
+   through .funding-note p) with the CSS below. The funding
+   note is now integrated into the FAQ section.
+   
+   STEP 2 — HTML
+   Replace BOTH the <section class="section-faq"> block
+   AND the <section class="section-funding"> block with
+   the single HTML block below.
+   
+   STEP 3 — RESPONSIVE
+   In the existing responsive media queries, replace any
+   .section-faq, .faq-, and .funding- rules with the
+   responsive rules below.
+   
+   ============================================================ */
+
+
+/* =========================
+   CSS TO PASTE
+   ========================= */
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.section-faq {
+  background: var(--color-cream);
+  padding: var(--section-padding) 0;
+  border-top: 1px solid rgba(230,224,218,0.5);
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: 0.38fr 0.62fr;
+  gap: 56px;
+  align-items: start;
+}
+.faq-left {
+  position: sticky;
+  top: 100px;
+}
+.section-faq h2 {
+  font-family: var(--font-heading);
+  font-size: 2.35rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+.faq-intro {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+/* Funding callout in sticky column */
+.faq-funding {
+  background: #FFFFFF;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-purple);
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(58,58,58,0.04);
+}
+.faq-funding-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.faq-funding-head svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--color-purple);
+  fill: none;
+  stroke-width: 1.8;
+  flex-shrink: 0;
+}
+.faq-funding-head h4 {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.faq-funding p {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+/* Accordion right column */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  max-width: none;
+}
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 0;
+  border-left: none;
+  border-right: none;
+  box-shadow: none;
+}
+.faq-item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+.faq-item:hover {
+  border-color: var(--color-border);
+  box-shadow: none;
+}
+.faq-question {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--color-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 4px;
+}
+.faq-toggle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(232,62,140,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-pink);
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+.faq-item.open .faq-toggle {
+  transform: rotate(45deg);
+}
+.faq-answer {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  padding: 0 4px 18px;
+  display: none;
+}
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+
+/* =========================
+   RESPONSIVE RULES
+   Replace any .section-faq, .faq-, .funding- rules
+   ========================= */
+/*
+@media (max-width: 900px) {
+  .faq-grid { grid-template-columns: 1fr; gap: 32px; }
+  .faq-left { position: static; }
+  .section-faq h2 { font-size: 1.9rem; }
+}
+*/
+
+
+/* =========================
+   HTML TO PASTE
+   (replaces BOTH faq AND funding sections)
+   ========================= */
+<!--
+<section class="section-faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-left">
+        <span class="section-label">FAQ</span>
+        <h2>Frequently asked questions</h2>
+        <p class="faq-intro">Short, clear answers — no jargon.</p>
+        <div class="faq-funding">
+          <div class="faq-funding-head">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            <h4>Invoices & funding</h4>
+          </div>
+          <p>You'll receive a proper PDF invoice for your employer. For solo self-employed, parts of the training can be funded via KOMPASS. More on the sessions page.</p>
+        </div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-question">Is this therapy?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">[Answer content to be added]</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-question">How much time will it take?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">[Answer content to be added]</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-question">Are there live sessions?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">[Answer content to be added]</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-question">How long do I have access?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">[Answer content to be added]</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-question">Do I get a certificate?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">[Answer content to be added]</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-question">How is this related to the IHK training?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">[Answer content to be added]</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-question">Will my employer pay?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">[Answer content to be added]</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-question">Invoices & VAT?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">[Answer content to be added]</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-question">When do I start?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">[Answer content to be added]</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('open')">
+          <div class="faq-question">What if I need support?<span class="faq-toggle">+</span></div>
+          <div class="faq-answer">[Answer content to be added]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->

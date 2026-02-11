@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — FAQ Section Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-coral: #FF8A65;
+  --color-pink: #E83E8C;
+  --color-purple: #A86BBE;
+  --color-cream: #F7F3EE;
+  --color-white: #FFFFFF;
+  --color-text: #3A3A3A;
+  --color-text-muted: #6B6B6B;
+  --color-border: #E6E0DA;
+  --font-heading: 'Libre Baskerville', Georgia, serif;
+  --font-body: 'Source Sans 3', -apple-system, sans-serif;
+  --container-max: 1100px;
+  --card-radius: 8px;
+  --transition: 0.25s ease;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); color: var(--color-text); background: #e8e4df; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: var(--container-max); margin: 0 auto; padding: 0 24px; }
+.section-label { font-family: var(--font-body); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-coral); display: block; margin-bottom: 18px; }
+
+/* Page chrome */
+.page-header { background: var(--color-cream); padding: 48px 0 24px; text-align: center; }
+.page-header h1 { font-family: var(--font-heading); font-size: 2rem; font-weight: 400; margin-bottom: 12px; }
+.page-header p { font-size: 0.9rem; color: var(--color-text-muted); max-width: 700px; margin: 0 auto; line-height: 1.6; }
+.option-divider { background: var(--color-cream); padding: 56px 0 20px; text-align: center; }
+.option-label { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-coral); background: rgba(255,138,101,0.1); padding: 8px 20px; border-radius: 20px; margin-bottom: 14px; }
+.option-title { font-family: var(--font-heading); font-size: 1.55rem; font-weight: 400; margin-bottom: 8px; }
+.option-desc { font-size: 0.84rem; color: var(--color-text-muted); max-width: 680px; margin: 0 auto; line-height: 1.6; }
+.context-label { font-size: 0.68rem; color: var(--color-text-muted); opacity: 0.4; padding: 16px 0; text-align: center; }
+
+
+/* ============================================================
+   OPTION A — SINGLE COLUMN, FULL WIDTH, CLEAN ACCORDION
+   Standard FAQ pattern. One column, full container width.
+   Each item is a clean bordered row. Answer slides open
+   below. No cards — just borders between items. The most
+   readable and accessible pattern.
+   ============================================================ */
+.faq-a {
+  background: var(--color-cream);
+  padding: 80px 0 96px;
+}
+.faq-a h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 48px;
+}
+.faq-a .fa-list {
+  max-width: 780px;
+}
+.faq-a .fa-item {
+  border-bottom: 1px solid var(--color-border);
+}
+.faq-a .fa-item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+.faq-a .fa-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.5;
+  transition: color var(--transition);
+}
+.faq-a .fa-question:hover { color: var(--color-pink); }
+.faq-a .fa-toggle {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(232,62,140,0.08);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-pink);
+  font-size: 1.1rem;
+  font-weight: 300;
+  transition: transform var(--transition), background var(--transition);
+}
+.faq-a .fa-item.open .fa-toggle {
+  transform: rotate(45deg);
+  background: rgba(232,62,140,0.15);
+}
+.faq-a .fa-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.faq-a .fa-answer-inner {
+  padding: 0 0 24px;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+
+/* ============================================================
+   OPTION B — SINGLE COLUMN WITH CATEGORY GROUPS
+   Same single column but questions grouped into 3 categories
+   with small category headers. Helps visitors scan for their
+   question type. Grouped by: Method & approach, Training path
+   & logistics, Practical details.
+   ============================================================ */
+.faq-b {
+  background: var(--color-cream);
+  padding: 80px 0 96px;
+}
+.faq-b h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 48px;
+}
+.faq-b .fb-wrapper { max-width: 780px; }
+.faq-b .fb-category { margin-bottom: 40px; }
+.faq-b .fb-category:last-child { margin-bottom: 0; }
+.faq-b .fb-cat-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  padding-left: 2px;
+}
+.faq-b .fb-cat-label.cat-coral { color: var(--color-coral); }
+.faq-b .fb-cat-label.cat-pink { color: var(--color-pink); }
+.faq-b .fb-cat-label.cat-purple { color: var(--color-purple); }
+.faq-b .fb-item {
+  background: var(--color-white);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--color-border);
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+.faq-b .fb-item:hover { border-color: rgba(232,62,140,0.2); }
+.faq-b .fb-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.5;
+  transition: color var(--transition);
+}
+.faq-b .fb-question:hover { color: var(--color-pink); }
+.faq-b .fb-toggle {
+  flex-shrink: 0;
+  color: var(--color-pink);
+  font-size: 1.15rem;
+  font-weight: 300;
+  transition: transform var(--transition);
+}
+.faq-b .fb-item.open .fb-toggle { transform: rotate(45deg); }
+.faq-b .fb-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.faq-b .fb-answer-inner {
+  padding: 0 22px 20px;
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+
+/* ============================================================
+   OPTION C — TWO COLUMN: HEADING LEFT, QUESTIONS RIGHT
+   Left column: sticky heading + intro + CTA link. Right
+   column: the accordion. Creates an editorial split and
+   uses the width more efficiently. The heading stays visible
+   as the visitor scrolls through questions.
+   ============================================================ */
+.faq-c {
+  background: var(--color-cream);
+  padding: 80px 0 96px;
+}
+.faq-c .fc-grid {
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+  gap: 56px;
+  align-items: start;
+}
+.faq-c .fc-left {
+  position: sticky;
+  top: 100px;
+}
+.faq-c h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.faq-c .fc-intro {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.faq-c .fc-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-pink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.faq-c .fc-link:hover { text-decoration: underline; }
+/* Right — accordion */
+.faq-c .fc-item {
+  border-bottom: 1px solid var(--color-border);
+}
+.faq-c .fc-item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+.faq-c .fc-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.5;
+  transition: color var(--transition);
+}
+.faq-c .fc-question:hover { color: var(--color-pink); }
+.faq-c .fc-toggle {
+  flex-shrink: 0;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: rgba(232,62,140,0.08);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-pink);
+  font-size: 1.05rem;
+  font-weight: 300;
+  transition: transform var(--transition), background var(--transition);
+}
+.faq-c .fc-item.open .fc-toggle {
+  transform: rotate(45deg);
+  background: rgba(232,62,140,0.15);
+}
+.faq-c .fc-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.faq-c .fc-answer-inner {
+  padding: 0 0 22px;
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+
+/* ============================================================
+   OPTION D — WHITE PANEL + CATEGORY TABS
+   All questions inside a single white card panel. Category
+   tabs across the top let visitors filter by topic. Only
+   one category shown at a time. The white card lifts the
+   FAQ off the cream bg and contains it visually.
+   ============================================================ */
+.faq-d {
+  background: var(--color-cream);
+  padding: 80px 0 96px;
+}
+.faq-d h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 36px;
+}
+.faq-d .fd-panel {
+  background: var(--color-white);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  max-width: 780px;
+}
+/* Tabs */
+.faq-d .fd-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+}
+.faq-d .fd-tab {
+  flex: 1;
+  padding: 16px 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  border: none;
+  background: none;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition);
+  font-family: var(--font-body);
+}
+.faq-d .fd-tab:hover { color: var(--color-text); }
+.faq-d .fd-tab.active {
+  color: var(--color-pink);
+  border-bottom-color: var(--color-pink);
+  background: rgba(232,62,140,0.03);
+}
+/* Tab content */
+.faq-d .fd-tab-content { display: none; }
+.faq-d .fd-tab-content.active { display: block; }
+.faq-d .fd-item {
+  border-bottom: 1px solid rgba(230,224,218,0.5);
+}
+.faq-d .fd-item:last-child { border-bottom: none; }
+.faq-d .fd-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 28px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.5;
+  transition: color var(--transition);
+}
+.faq-d .fd-question:hover { color: var(--color-pink); }
+.faq-d .fd-toggle {
+  flex-shrink: 0;
+  color: var(--color-pink);
+  font-size: 1.15rem;
+  font-weight: 300;
+  transition: transform var(--transition);
+}
+.faq-d .fd-item.open .fd-toggle { transform: rotate(45deg); }
+.faq-d .fd-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.faq-d .fd-answer-inner {
+  padding: 0 28px 22px;
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .faq-a h2, .faq-b h2, .faq-c h2, .faq-d h2 { font-size: 1.9rem; }
+  .faq-c .fc-grid { grid-template-columns: 1fr; gap: 32px; }
+  .faq-c .fc-left { position: static; }
+  .faq-d .fd-tabs { flex-wrap: wrap; }
+  .faq-d .fd-tab { flex: none; padding: 12px 16px; font-size: 0.74rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="container">
+    <h1>About — FAQ Section Options</h1>
+    <p>Four layout approaches for 12 FAQ items. All are functional accordions — click any question to see the answer expand. The first open item in each option shows a sample answer to demonstrate the expanded state.</p>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     OPTION A — SINGLE COLUMN, CLEAN ACCORDION
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option A</span>
+  <div class="option-title">Single column — clean line accordion</div>
+  <div class="option-desc">The industry standard. One column, full width (780px max), simple horizontal lines between items. No cards, no boxes — just clean typography and borders. The "+" sits in a tinted circle for easier click targeting. Most accessible, most scannable, answers expand cleanly without layout shifting. Works perfectly for 12 items.</div>
+</div>
+
+<div class="context-label">↑ Previous section above</div>
+
+<section class="faq-a">
+  <div class="container">
+    <span class="section-label">Frequently asked</span>
+    <h2>FAQ</h2>
+    <div class="fa-list">
+      <div class="fa-item open">
+        <button class="fa-question" onclick="toggleA(this.parentElement)">
+          What exactly is Emotional Pedagogy and how is it different from "classical" emotional intelligence trainings?
+          <span class="fa-toggle">+</span>
+        </button>
+        <div class="fa-answer" style="max-height:200px;">
+          <div class="fa-answer-inner">Emotional Pedagogy is a structured, method-based approach to building emotional competence in professional contexts. Unlike classical emotional intelligence trainings, which often focus on self-awareness exercises, our programmes provide concrete tools and frameworks you can apply immediately in leadership situations, team conflicts, and high-pressure conversations.</div>
+        </div>
+      </div>
+      <div class="fa-item">
+        <button class="fa-question" onclick="toggleA(this.parentElement)">
+          Who are your trainings designed for — and who are they not for?
+          <span class="fa-toggle">+</span>
+        </button>
+        <div class="fa-answer"><div class="fa-answer-inner">[Answer content]</div></div>
+      </div>
+      <div class="fa-item">
+        <button class="fa-question" onclick="toggleA(this.parentElement)">
+          Is this therapy or coaching, or is it strictly professional education?
+          <span class="fa-toggle">+</span>
+        </button>
+        <div class="fa-answer"><div class="fa-answer-inner">[Answer content]</div></div>
+      </div>
+      <div class="fa-item">
+        <button class="fa-question" onclick="toggleA(this.parentElement)">
+          How are the trainings recognised (IHK, DEKRA, ZFU) and what does that mean for me?
+          <span class="fa-toggle">+</span>
+        </button>
+        <div class="fa-answer"><div class="fa-answer-inner">[Answer content]</div></div>
+      </div>
+      <div class="fa-item">
+        <button class="fa-question" onclick="toggleA(this.parentElement)">
+          How does the IHK training path work from the 21-day basics to Emotional Pedagogue (IHK)?
+          <span class="fa-toggle">+</span>
+        </button>
+        <div class="fa-answer"><div class="fa-answer-inner">[Answer content]</div></div>
+      </div>
+      <div class="fa-item">
+        <button class="fa-question" onclick="toggleA(this.parentElement)">
+          Can my employer pay or reimburse training — and what documents do you provide?
+          <span class="fa-toggle">+</span>
+        </button>
+        <div class="fa-answer"><div class="fa-answer-inner">[Answer content]</div></div>
+      </div>
+      <div class="fa-item">
+        <button class="fa-question" onclick="toggleA(this.parentElement)">
+          What time investment should I expect for each format?
+          <span class="fa-toggle">+</span>
+        </button>
+        <div class="fa-answer"><div class="fa-answer-inner">[Answer content]</div></div>
+      </div>
+      <div class="fa-item">
+        <button class="fa-question" onclick="toggleA(this.parentElement)">
+          Do I need a specific professional background or prior training?
+          <span class="fa-toggle">+</span>
+        </button>
+        <div class="fa-answer"><div class="fa-answer-inner">[Answer content]</div></div>
+      </div>
+      <div class="fa-item">
+        <button class="fa-question" onclick="toggleA(this.parentElement)">
+          In which languages are the courses and materials available?
+          <span class="fa-toggle">+</span>
+        </button>
+        <div class="fa-answer"><div class="fa-answer-inner">[Answer content]</div></div>
+      </div>
+      <div class="fa-item">
+        <button class="fa-question" onclick="toggleA(this.parentElement)">
+          Are the trainings online, in person, or hybrid — and how large are the groups?
+          <span class="fa-toggle">+</span>
+        </button>
+        <div class="fa-answer"><div class="fa-answer-inner">[Answer content]</div></div>
+      </div>
+      <div class="fa-item">
+        <button class="fa-question" onclick="toggleA(this.parentElement)">
+          How can I get personal advice on whether this is a fit?
+          <span class="fa-toggle">+</span>
+        </button>
+        <div class="fa-answer"><div class="fa-answer-inner">[Answer content]</div></div>
+      </div>
+      <div class="fa-item">
+        <button class="fa-question" onclick="toggleA(this.parentElement)">
+          Do you offer group or enterprise options?
+          <span class="fa-toggle">+</span>
+        </button>
+        <div class="fa-answer"><div class="fa-answer-inner">[Answer content]</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="context-label">↓ Next section below</div>
+
+
+<!-- ============================================================
+     OPTION B — SINGLE COLUMN WITH CATEGORY GROUPS
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option B</span>
+  <div class="option-title">Single column — grouped by category</div>
+  <div class="option-desc">Same single-column accordion but questions organized into 3 category groups with colored labels: "Method & approach" (coral), "Training path & certification" (pink), "Practical details" (purple). Items in white cards with subtle border. Visitors can scan category headers to find their question type immediately. The colored labels tie back to the brand's 3-color system.</div>
+</div>
+
+<div class="context-label">↑ Previous section above</div>
+
+<section class="faq-b">
+  <div class="container">
+    <span class="section-label">Frequently asked</span>
+    <h2>FAQ</h2>
+    <div class="fb-wrapper">
+
+      <!-- Category 1 — Method & approach -->
+      <div class="fb-category">
+        <div class="fb-cat-label cat-coral">Method & approach</div>
+        <div class="fb-item open">
+          <button class="fb-question" onclick="toggleB(this.parentElement)">
+            What exactly is Emotional Pedagogy and how is it different from "classical" emotional intelligence trainings?
+            <span class="fb-toggle">+</span>
+          </button>
+          <div class="fb-answer" style="max-height:200px;">
+            <div class="fb-answer-inner">Emotional Pedagogy is a structured, method-based approach to building emotional competence in professional contexts. Unlike classical emotional intelligence trainings, which often focus on self-awareness exercises, our programmes provide concrete tools and frameworks you can apply immediately in leadership situations, team conflicts, and high-pressure conversations.</div>
+          </div>
+        </div>
+        <div class="fb-item">
+          <button class="fb-question" onclick="toggleB(this.parentElement)">
+            Who are your trainings designed for — and who are they not for?
+            <span class="fb-toggle">+</span>
+          </button>
+          <div class="fb-answer"><div class="fb-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fb-item">
+          <button class="fb-question" onclick="toggleB(this.parentElement)">
+            Is this therapy or coaching, or is it strictly professional education?
+            <span class="fb-toggle">+</span>
+          </button>
+          <div class="fb-answer"><div class="fb-answer-inner">[Answer content]</div></div>
+        </div>
+      </div>
+
+      <!-- Category 2 — Training path & certification -->
+      <div class="fb-category">
+        <div class="fb-cat-label cat-pink">Training path & certification</div>
+        <div class="fb-item">
+          <button class="fb-question" onclick="toggleB(this.parentElement)">
+            How are the trainings recognised (IHK, DEKRA, ZFU) and what does that mean for me?
+            <span class="fb-toggle">+</span>
+          </button>
+          <div class="fb-answer"><div class="fb-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fb-item">
+          <button class="fb-question" onclick="toggleB(this.parentElement)">
+            How does the IHK training path work from the 21-day basics to Emotional Pedagogue (IHK)?
+            <span class="fb-toggle">+</span>
+          </button>
+          <div class="fb-answer"><div class="fb-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fb-item">
+          <button class="fb-question" onclick="toggleB(this.parentElement)">
+            Can my employer pay or reimburse training — and what documents do you provide?
+            <span class="fb-toggle">+</span>
+          </button>
+          <div class="fb-answer"><div class="fb-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fb-item">
+          <button class="fb-question" onclick="toggleB(this.parentElement)">
+            Do I need a specific professional background or prior training?
+            <span class="fb-toggle">+</span>
+          </button>
+          <div class="fb-answer"><div class="fb-answer-inner">[Answer content]</div></div>
+        </div>
+      </div>
+
+      <!-- Category 3 — Practical details -->
+      <div class="fb-category">
+        <div class="fb-cat-label cat-purple">Practical details</div>
+        <div class="fb-item">
+          <button class="fb-question" onclick="toggleB(this.parentElement)">
+            What time investment should I expect for each format?
+            <span class="fb-toggle">+</span>
+          </button>
+          <div class="fb-answer"><div class="fb-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fb-item">
+          <button class="fb-question" onclick="toggleB(this.parentElement)">
+            Are the trainings online, in person, or hybrid — and how large are the groups?
+            <span class="fb-toggle">+</span>
+          </button>
+          <div class="fb-answer"><div class="fb-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fb-item">
+          <button class="fb-question" onclick="toggleB(this.parentElement)">
+            In which languages are the courses and materials available?
+            <span class="fb-toggle">+</span>
+          </button>
+          <div class="fb-answer"><div class="fb-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fb-item">
+          <button class="fb-question" onclick="toggleB(this.parentElement)">
+            Do you offer group or enterprise options?
+            <span class="fb-toggle">+</span>
+          </button>
+          <div class="fb-answer"><div class="fb-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fb-item">
+          <button class="fb-question" onclick="toggleB(this.parentElement)">
+            How can I get personal advice on whether this is a fit?
+            <span class="fb-toggle">+</span>
+          </button>
+          <div class="fb-answer"><div class="fb-answer-inner">[Answer content]</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="context-label">↓ Next section below</div>
+
+
+<!-- ============================================================
+     OPTION C — TWO COLUMN: HEADING LEFT, QUESTIONS RIGHT
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option C</span>
+  <div class="option-title">Split layout — sticky heading left, questions right</div>
+  <div class="option-desc">Two-column editorial split: the heading, intro text, and a "Still have questions?" CTA link sit in a sticky left column. The accordion runs in the right column. As the visitor scrolls through questions, the heading stays visible. Uses the full container width efficiently. The left column provides context without competing with the questions. My recommendation — the most distinctive layout here.</div>
+</div>
+
+<div class="context-label">↑ Previous section above</div>
+
+<section class="faq-c">
+  <div class="container">
+    <div class="fc-grid">
+      <div class="fc-left">
+        <span class="section-label">Frequently asked</span>
+        <h2>FAQ</h2>
+        <p class="fc-intro">Everything you need to know about the institute, our training paths, certifications, and how to get started.</p>
+        <a href="#" class="fc-link">Still have questions? Book a free info session →</a>
+      </div>
+      <div class="fc-right">
+        <div class="fc-item open">
+          <button class="fc-question" onclick="toggleC(this.parentElement)">
+            What exactly is Emotional Pedagogy and how is it different from "classical" emotional intelligence trainings?
+            <span class="fc-toggle">+</span>
+          </button>
+          <div class="fc-answer" style="max-height:200px;">
+            <div class="fc-answer-inner">Emotional Pedagogy is a structured, method-based approach to building emotional competence in professional contexts. Unlike classical emotional intelligence trainings, which often focus on self-awareness exercises, our programmes provide concrete tools and frameworks you can apply immediately in leadership situations, team conflicts, and high-pressure conversations.</div>
+          </div>
+        </div>
+        <div class="fc-item">
+          <button class="fc-question" onclick="toggleC(this.parentElement)">Who are your trainings designed for — and who are they not for?<span class="fc-toggle">+</span></button>
+          <div class="fc-answer"><div class="fc-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fc-item">
+          <button class="fc-question" onclick="toggleC(this.parentElement)">Is this therapy or coaching, or is it strictly professional education?<span class="fc-toggle">+</span></button>
+          <div class="fc-answer"><div class="fc-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fc-item">
+          <button class="fc-question" onclick="toggleC(this.parentElement)">How are the trainings recognised (IHK, DEKRA, ZFU) and what does that mean for me?<span class="fc-toggle">+</span></button>
+          <div class="fc-answer"><div class="fc-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fc-item">
+          <button class="fc-question" onclick="toggleC(this.parentElement)">How does the IHK training path work from the 21-day basics to Emotional Pedagogue (IHK)?<span class="fc-toggle">+</span></button>
+          <div class="fc-answer"><div class="fc-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fc-item">
+          <button class="fc-question" onclick="toggleC(this.parentElement)">Can my employer pay or reimburse training — and what documents do you provide?<span class="fc-toggle">+</span></button>
+          <div class="fc-answer"><div class="fc-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fc-item">
+          <button class="fc-question" onclick="toggleC(this.parentElement)">What time investment should I expect for each format?<span class="fc-toggle">+</span></button>
+          <div class="fc-answer"><div class="fc-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fc-item">
+          <button class="fc-question" onclick="toggleC(this.parentElement)">Do I need a specific professional background or prior training?<span class="fc-toggle">+</span></button>
+          <div class="fc-answer"><div class="fc-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fc-item">
+          <button class="fc-question" onclick="toggleC(this.parentElement)">In which languages are the courses and materials available?<span class="fc-toggle">+</span></button>
+          <div class="fc-answer"><div class="fc-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fc-item">
+          <button class="fc-question" onclick="toggleC(this.parentElement)">Are the trainings online, in person, or hybrid — and how large are the groups?<span class="fc-toggle">+</span></button>
+          <div class="fc-answer"><div class="fc-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fc-item">
+          <button class="fc-question" onclick="toggleC(this.parentElement)">How can I get personal advice on whether this is a fit?<span class="fc-toggle">+</span></button>
+          <div class="fc-answer"><div class="fc-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fc-item">
+          <button class="fc-question" onclick="toggleC(this.parentElement)">Do you offer group or enterprise options?<span class="fc-toggle">+</span></button>
+          <div class="fc-answer"><div class="fc-answer-inner">[Answer content]</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="context-label">↓ Next section below</div>
+
+
+<!-- ============================================================
+     OPTION D — WHITE PANEL + CATEGORY TABS
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option D</span>
+  <div class="option-title">Tabbed panel — filter by category</div>
+  <div class="option-desc">All questions inside a single white card. Three tabs across the top let visitors filter by topic: "Method & approach," "Training & certification," "Practical details." Only one category visible at a time — reduces overwhelm from 12 items to 3-5 per view. The tabs use the brand pink for the active state. Cleanest option for a large FAQ set.</div>
+</div>
+
+<div class="context-label">↑ Previous section above</div>
+
+<section class="faq-d">
+  <div class="container">
+    <span class="section-label">Frequently asked</span>
+    <h2>FAQ</h2>
+    <div class="fd-panel">
+      <div class="fd-tabs">
+        <button class="fd-tab active" onclick="switchTab(this, 'tab1')">Method & approach</button>
+        <button class="fd-tab" onclick="switchTab(this, 'tab2')">Training & certification</button>
+        <button class="fd-tab" onclick="switchTab(this, 'tab3')">Practical details</button>
+      </div>
+
+      <!-- Tab 1 — Method -->
+      <div class="fd-tab-content active" id="tab1">
+        <div class="fd-item open">
+          <button class="fd-question" onclick="toggleD(this.parentElement)">
+            What exactly is Emotional Pedagogy and how is it different from "classical" emotional intelligence trainings?
+            <span class="fd-toggle">+</span>
+          </button>
+          <div class="fd-answer" style="max-height:200px;">
+            <div class="fd-answer-inner">Emotional Pedagogy is a structured, method-based approach to building emotional competence in professional contexts. Unlike classical emotional intelligence trainings, which often focus on self-awareness exercises, our programmes provide concrete tools and frameworks you can apply immediately in leadership situations, team conflicts, and high-pressure conversations.</div>
+          </div>
+        </div>
+        <div class="fd-item">
+          <button class="fd-question" onclick="toggleD(this.parentElement)">Who are your trainings designed for — and who are they not for?<span class="fd-toggle">+</span></button>
+          <div class="fd-answer"><div class="fd-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fd-item">
+          <button class="fd-question" onclick="toggleD(this.parentElement)">Is this therapy or coaching, or is it strictly professional education?<span class="fd-toggle">+</span></button>
+          <div class="fd-answer"><div class="fd-answer-inner">[Answer content]</div></div>
+        </div>
+      </div>
+
+      <!-- Tab 2 — Training & cert -->
+      <div class="fd-tab-content" id="tab2">
+        <div class="fd-item">
+          <button class="fd-question" onclick="toggleD(this.parentElement)">How are the trainings recognised (IHK, DEKRA, ZFU) and what does that mean for me?<span class="fd-toggle">+</span></button>
+          <div class="fd-answer"><div class="fd-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fd-item">
+          <button class="fd-question" onclick="toggleD(this.parentElement)">How does the IHK training path work from the 21-day basics to Emotional Pedagogue (IHK)?<span class="fd-toggle">+</span></button>
+          <div class="fd-answer"><div class="fd-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fd-item">
+          <button class="fd-question" onclick="toggleD(this.parentElement)">Can my employer pay or reimburse training — and what documents do you provide?<span class="fd-toggle">+</span></button>
+          <div class="fd-answer"><div class="fd-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fd-item">
+          <button class="fd-question" onclick="toggleD(this.parentElement)">Do I need a specific professional background or prior training?<span class="fd-toggle">+</span></button>
+          <div class="fd-answer"><div class="fd-answer-inner">[Answer content]</div></div>
+        </div>
+      </div>
+
+      <!-- Tab 3 — Practical -->
+      <div class="fd-tab-content" id="tab3">
+        <div class="fd-item">
+          <button class="fd-question" onclick="toggleD(this.parentElement)">What time investment should I expect for each format?<span class="fd-toggle">+</span></button>
+          <div class="fd-answer"><div class="fd-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fd-item">
+          <button class="fd-question" onclick="toggleD(this.parentElement)">Are the trainings online, in person, or hybrid — and how large are the groups?<span class="fd-toggle">+</span></button>
+          <div class="fd-answer"><div class="fd-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fd-item">
+          <button class="fd-question" onclick="toggleD(this.parentElement)">In which languages are the courses and materials available?<span class="fd-toggle">+</span></button>
+          <div class="fd-answer"><div class="fd-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fd-item">
+          <button class="fd-question" onclick="toggleD(this.parentElement)">Do you offer group or enterprise options?<span class="fd-toggle">+</span></button>
+          <div class="fd-answer"><div class="fd-answer-inner">[Answer content]</div></div>
+        </div>
+        <div class="fd-item">
+          <button class="fd-question" onclick="toggleD(this.parentElement)">How can I get personal advice on whether this is a fit?<span class="fd-toggle">+</span></button>
+          <div class="fd-answer"><div class="fd-answer-inner">[Answer content]</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="context-label">↓ Next section below</div>
+
+<div style="height:80px;background:var(--color-cream);"></div>
+
+<script>
+/* Toggle functions for each option */
+function toggleA(item) {
+  const wasOpen = item.classList.contains('open');
+  item.classList.toggle('open');
+  const answer = item.querySelector('.fa-answer');
+  if (wasOpen) { answer.style.maxHeight = '0'; }
+  else { answer.style.maxHeight = answer.scrollHeight + 'px'; }
+}
+function toggleB(item) {
+  const wasOpen = item.classList.contains('open');
+  item.classList.toggle('open');
+  const answer = item.querySelector('.fb-answer');
+  if (wasOpen) { answer.style.maxHeight = '0'; }
+  else { answer.style.maxHeight = answer.scrollHeight + 'px'; }
+}
+function toggleC(item) {
+  const wasOpen = item.classList.contains('open');
+  item.classList.toggle('open');
+  const answer = item.querySelector('.fc-answer');
+  if (wasOpen) { answer.style.maxHeight = '0'; }
+  else { answer.style.maxHeight = answer.scrollHeight + 'px'; }
+}
+function toggleD(item) {
+  const wasOpen = item.classList.contains('open');
+  item.classList.toggle('open');
+  const answer = item.querySelector('.fd-answer');
+  if (wasOpen) { answer.style.maxHeight = '0'; }
+  else { answer.style.maxHeight = answer.scrollHeight + 'px'; }
+}
+function switchTab(btn, tabId) {
+  // Deactivate all tabs
+  btn.parentElement.querySelectorAll('.fd-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  // Hide all content
+  btn.closest('.fd-panel').querySelectorAll('.fd-tab-content').forEach(c => c.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+}
+</script>
+
+</body>
+</html>
