@@ -1091,63 +1091,65 @@ a { text-decoration: none; color: inherit; }
 /* ============================================================
    FOOTER
    ============================================================ */
-.footer {
-  background: var(--color-white);
-  padding: 72px 0 36px;
+.site-footer {
+  background: #FFFFFF;
+  border-top: 1px solid var(--color-border);
+  padding: 56px 0 36px;
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  margin-bottom: 48px;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 36px;
 }
-.footer-col h4 {
+.footer-brand p {
   font-family: var(--font-body);
   font-size: 0.78rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-text);
-  margin-bottom: 20px;
-}
-.footer-col ul {
-  list-style: none;
-  padding: 0;
-}
-.footer-col li {
-  margin-bottom: 10px;
-}
-.footer-col a {
-  font-size: 0.85rem;
   color: var(--color-text-muted);
-  transition: color var(--transition);
+  line-height: 1.6;
+  max-width: 220px;
+  margin-top: 12px;
 }
-.footer-col a:hover {
-  color: var(--color-pink);
-}
-.footer-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 32px;
-  border-top: 1px solid var(--color-border);
-}
-.footer-logos {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-}
-.footer-logo-item {
+.footer-col-title {
   font-family: var(--font-body);
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--color-text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.6;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
 }
-.footer-copy {
-  font-size: 0.78rem;
+.footer-col a {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  padding: 4px 0;
+  transition: color var(--transition);
+}
+.footer-col a:hover { color: var(--color-pink); }
+.footer-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin-bottom: 20px;
+}
+.footer-badges {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.footer-badge {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+  letter-spacing: 0.03em;
+}
+.footer-copyright {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
   color: var(--color-text-muted);
   opacity: 0.6;
 }
@@ -1209,8 +1211,8 @@ a { text-decoration: none; color: inherit; }
   .trainer-photo { margin: 0 auto 16px; width: 160px; height: 160px; }
   .trainer-text p { max-width: 100%; }
 
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
 
   .btn-primary-lg { padding: 14px 28px; font-size: 0.95rem; }
   .hero-ctas { flex-direction: column; }
@@ -1791,52 +1793,47 @@ a { text-decoration: none; color: inherit; }
 <!-- ============================================================
      FOOTER
      ============================================================ -->
-<footer class="footer">
+<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-col">
-        <h4>Learn</h4>
-        <ul>
-          <li><a href="emotionspaedagogik-entry-course-en.html">Emotional Competence Basics</a></li>
-          <li><a href="emotionspaedagogik-entry-course-en.html">IHK-certified training</a></li>
-          <li><a href="emotionspaedagogik-free-info-session-en.html">Free info session</a></li>
-        </ul>
+      <div class="footer-brand">
+        <a href="emotionspaedagogik-home-en.html" class="nav-logo">Emotionspädagogik <span>Institut</span></a>
+        <p>Professional training in emotional competence for people in responsibility roles.</p>
       </div>
       <div class="footer-col">
-        <h4>About</h4>
-        <ul>
-          <li><a href="emotionspaedagogik-about-en.html">About Katrin &amp; the institute</a></li>
-          <li><a href="emotionspaedagogik-about-en.html">Credentials</a></li>
-          <li><a href="emotionspaedagogik-about-en.html">Media &amp; Partners</a></li>
-        </ul>
+        <div class="footer-col-title">Learn</div>
+        <a href="emotionspaedagogik-entry-course-en.html">Emotional Competence Basics</a>
+        <a href="emotionspaedagogik-entry-course-en.html">IHK-certified training</a>
+        <a href="emotionspaedagogik-free-info-session-en.html">Free info session</a>
       </div>
       <div class="footer-col">
-        <h4>Help</h4>
-        <ul>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Contact / Book a call</a></li>
-          <li><a href="#">Email support</a></li>
-        </ul>
+        <div class="footer-col-title">About</div>
+        <a href="emotionspaedagogik-about-en.html">About Katrin &amp; the institute</a>
+        <a href="emotionspaedagogik-about-en.html">Credentials</a>
+        <a href="emotionspaedagogik-about-en.html">Media &amp; Partners</a>
       </div>
       <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#">Impressum</a></li>
-          <li><a href="#">Datenschutz</a></li>
-          <li><a href="#">Terms</a></li>
-          <li><a href="#">Cookie Settings</a></li>
-        </ul>
+        <div class="footer-col-title">Help</div>
+        <a href="#">FAQ</a>
+        <a href="#">Contact</a>
+        <a href="#">Email support</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookie settings</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-logos">
-        <span class="footer-logo-item">IHK</span>
-        <span class="footer-logo-item">DEKRA</span>
-        <span class="footer-logo-item">ZFU</span>
-        <span class="footer-logo-item">KOMPASS</span>
-      </div>
-      <span class="footer-copy">© 2026 Emotionspädagogik Institut</span>
+    <hr class="footer-divider">
+    <div class="footer-badges">
+      <span class="footer-badge">✓ IHK</span>
+      <span class="footer-badge">✓ DEKRA</span>
+      <span class="footer-badge">✓ ZFU</span>
+      <span class="footer-badge">✓ KOMPASS</span>
     </div>
+    <div class="footer-copyright">© 2026 Emotionspädagogik Institut · Privates Institut für Emotionspädagogik</div>
   </div>
 </footer>
 
