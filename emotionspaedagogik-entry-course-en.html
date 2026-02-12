@@ -280,7 +280,7 @@ a { text-decoration: none; color: inherit; }
    ============================================================ */
 .hero {
   background: var(--color-cream);
-  padding: 60px 0 80px;
+  padding: 120px 0 80px;
   position: relative;
   overflow: hidden;
   min-height: 88vh;
@@ -546,89 +546,81 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ============================================================
-   HOW IT WORKS — COLOR BAND
+   HOW IT WORKS — INLINE STATS BAR
    ============================================================ */
 .section-howitworks {
-  background: linear-gradient(135deg, #FF8A65 0%, #E83E8C 100%);
-  padding: var(--section-padding-large) 0;
+  background: var(--color-pink);
+  padding: 36px 0;
   position: relative;
   overflow: hidden;
 }
 .section-howitworks .band-symbol {
   position: absolute;
-  opacity: 0.08;
+  opacity: 0.06;
   z-index: 1;
 }
 .section-howitworks .band-symbol-1 {
-  width: 360px;
-  height: 316px;
-  top: -60px;
-  right: -80px;
-}
-.section-howitworks .band-symbol-2 {
   width: 200px;
   height: 176px;
-  bottom: -40px;
-  left: -40px;
-  transform: rotate(-20deg);
+  top: -30px;
+  right: -30px;
 }
 .section-howitworks .container {
   position: relative;
   z-index: 2;
 }
-.section-howitworks h2 {
-  font-family: var(--font-heading);
-  font-size: 2.35rem;
-  font-weight: 400;
-  color: #FFFFFF;
-  margin-bottom: 56px;
-  line-height: 1.25;
-}
-.howitworks-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-}
-.howitworks-item {
-  text-align: left;
-}
-.howitworks-item .hw-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.15);
+.howitworks-inline {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+  gap: 40px;
 }
-.howitworks-item .hw-icon svg {
-  width: 21px;
-  height: 21px;
-  stroke: #FFFFFF;
-  stroke-width: 1.5;
-  fill: none;
-}
-.howitworks-item h4 {
+.section-howitworks h2 {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.4rem;
   font-weight: 400;
   color: #FFFFFF;
-  margin-bottom: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1.25;
+  margin-bottom: 0;
+}
+.howitworks-divider {
+  width: 1px;
+  height: 48px;
+  background: rgba(255,255,255,0.25);
+  flex-shrink: 0;
+}
+.howitworks-items {
+  display: flex;
+  gap: 36px;
+  flex: 1;
+}
+.howitworks-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.howitworks-item svg {
+  width: 18px;
+  height: 18px;
+  stroke: rgba(255,255,255,0.7);
+  stroke-width: 1.5;
+  fill: none;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.howitworks-item h4 {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 1px;
 }
 .howitworks-item p {
   font-family: var(--font-body);
-  font-size: 0.86rem;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.65;
-}
-.howitworks-note {
-  margin-top: 48px;
-  font-family: var(--font-body);
-  font-size: 0.84rem;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.65;
-  font-style: italic;
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.4;
 }
 
 /* ============================================================
@@ -639,32 +631,58 @@ a { text-decoration: none; color: inherit; }
   padding: var(--section-padding) 0;
   border-top: 1px solid rgba(230,224,218,0.5);
 }
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: 0.38fr 0.62fr;
+  gap: 56px;
+  align-items: start;
+}
+.curriculum-left {
+  position: sticky;
+  top: 100px;
+}
 .section-curriculum h2 {
   font-family: var(--font-heading);
   font-size: 2.35rem;
   font-weight: 400;
   color: var(--color-text);
-  margin-bottom: 56px;
+  margin-bottom: 12px;
   line-height: 1.25;
 }
-.curriculum-list {
-  max-width: 760px;
+.curriculum-intro {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+.curriculum-timeline {
+  position: relative;
+  padding-left: 44px;
+}
+.curriculum-timeline::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 17px;
+  width: 3px;
+  background: linear-gradient(180deg, var(--color-coral) 0%, var(--color-pink) 50%, var(--color-purple) 100%);
+  border-radius: 2px;
 }
 .curriculum-item {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-  padding: 28px 0;
-  border-bottom: 1px solid rgba(230,224,218,0.6);
+  position: relative;
+  padding: 0 0 36px;
 }
-.curriculum-item:first-child { padding-top: 0; }
-.curriculum-item:last-child { border-bottom: none; }
+.curriculum-item:last-child {
+  padding-bottom: 0;
+}
 .curriculum-number {
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
+  position: absolute;
+  left: -44px;
+  top: 0;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: var(--color-pink);
   color: #FFFFFF;
   font-family: var(--font-body);
   font-size: 0.78rem;
@@ -672,20 +690,25 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2px;
+  z-index: 2;
 }
+.curriculum-item:nth-child(1) .curriculum-number { background: var(--color-coral); }
+.curriculum-item:nth-child(2) .curriculum-number { background: #F3715A; }
+.curriculum-item:nth-child(3) .curriculum-number { background: var(--color-pink); }
+.curriculum-item:nth-child(4) .curriculum-number { background: #C44A9A; }
+.curriculum-item:nth-child(5) .curriculum-number { background: var(--color-purple); }
 .curriculum-content h4 {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 400;
   color: var(--color-text);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 .curriculum-content p {
   font-family: var(--font-body);
   font-size: 0.86rem;
   color: var(--color-text-muted);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 /* ============================================================
@@ -693,7 +716,7 @@ a { text-decoration: none; color: inherit; }
    ============================================================ */
 .section-features {
   background: var(--color-cream);
-  padding: var(--section-padding) 0;
+  padding: 0;
 }
 .section-features h2 {
   font-family: var(--font-heading);
@@ -707,6 +730,13 @@ a { text-decoration: none; color: inherit; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
+}
+.features-grid .card-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 .features-grid .card h4 {
   font-family: var(--font-heading);
@@ -864,7 +894,7 @@ a { text-decoration: none; color: inherit; }
    ============================================================ */
 .section-pricing {
   background: var(--color-cream);
-  padding: var(--section-padding) 0;
+  padding: 0;
 }
 .section-pricing h2 {
   font-family: var(--font-heading);
@@ -1340,23 +1370,28 @@ a { text-decoration: none; color: inherit; }
 }
 .footer-badges {
   display: flex;
-  gap: 20px;
+  gap: 28px;
   align-items: center;
+  justify-content: center;
   margin-bottom: 12px;
 }
-.footer-badge {
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
+.footer-badge img {
+  height: 25px;
+  width: auto;
+  filter: grayscale(100%);
   opacity: 0.5;
-  letter-spacing: 0.03em;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.footer-badge img:hover {
+  filter: grayscale(0%);
+  opacity: 0.85;
 }
 .footer-copyright {
   font-family: var(--font-body);
   font-size: 0.7rem;
   color: var(--color-text-muted);
   opacity: 0.6;
+  text-align: center;
 }
 
 /* ============================================================
@@ -1376,8 +1411,10 @@ a { text-decoration: none; color: inherit; }
   .hero-ctas .btn { width: 100%; justify-content: center; text-align: center; }
   .hero-symbol-lg { width: 280px; height: 246px; }
   .hero-symbol-sm { display: none; }
-  .section-howitworks h2 { font-size: 1.9rem; }
-  .howitworks-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .howitworks-inline { flex-wrap: wrap; gap: 24px; }
+  .howitworks-divider { display: none; }
+  .howitworks-items { flex-wrap: wrap; gap: 20px; }
+  .section-howitworks h2 { width: 100%; }
   .section-audience h2 { font-size: 1.9rem; }
   .audience-grid { grid-template-columns: 1fr; }
   .audience-divider { display: none; }
@@ -1386,6 +1423,9 @@ a { text-decoration: none; color: inherit; }
   .faq-grid { grid-template-columns: 1fr; gap: 32px; }
   .faq-left { position: static; }
   .section-faq h2 { font-size: 1.9rem; }
+  .section-curriculum h2 { font-size: 1.9rem; }
+  .curriculum-grid { grid-template-columns: 1fr; gap: 32px; }
+  .curriculum-left { position: static; }
 }
 
 @media (max-width: 768px) {
@@ -1393,7 +1433,6 @@ a { text-decoration: none; color: inherit; }
   .hamburger { display: flex; }
   
   .section-outcomes,
-  .section-curriculum,
   .section-features,
   .section-testimonials,
   .section-pricing,
@@ -1408,7 +1447,6 @@ a { text-decoration: none; color: inherit; }
   .section-final-cta h2 { font-size: 2.2rem; }
 
   .section-outcomes h2,
-  .section-curriculum h2,
   .section-features h2,
   .section-testimonials h2,
   .section-pricing h2,
@@ -1437,12 +1475,15 @@ a { text-decoration: none; color: inherit; }
   .hero-text h1 { font-size: 2rem; }
   .hero-price-amount { font-size: 1.6rem; }
   .hero-trust { gap: 16px; }
-  .howitworks-grid { grid-template-columns: 1fr; gap: 28px; }
+  .howitworks-items { flex-direction: column; gap: 16px; }
   .audience-col { padding: 32px 24px; }
   .section-pricing h2 { font-size: 1.9rem; }
   .pricing-card { padding: 32px 24px; }
   .pricing-ctas { flex-direction: column; }
   .pricing-ctas .btn { width: 100%; justify-content: center; }
+  .curriculum-timeline { padding-left: 40px; }
+  .curriculum-number { left: -40px; width: 34px; height: 34px; }
+  .curriculum-timeline::before { left: 15px; }
 }
 
 @media (max-width: 480px) {
@@ -1651,41 +1692,43 @@ a { text-decoration: none; color: inherit; }
 </section>
 
 <!-- ============================================================
-     HOW IT WORKS — COLOR BAND
+     HOW IT WORKS — INLINE STATS BAR
      ============================================================ -->
 <section class="section-howitworks">
   <svg class="band-symbol band-symbol-1" viewBox="0 0 95 83" fill="none"><use href="#symbol-white"/></svg>
-  <svg class="band-symbol band-symbol-2" viewBox="0 0 95 83" fill="none"><use href="#symbol-white"/></svg>
   <div class="container">
-    <h2>How it works</h2>
-    <div class="howitworks-grid">
-      <div class="howitworks-item">
-        <div class="hw-icon">
+    <div class="howitworks-inline">
+      <h2>How it works</h2>
+      <div class="howitworks-divider"></div>
+      <div class="howitworks-items">
+        <div class="howitworks-item">
           <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <div>
+            <h4>21 days</h4>
+            <p>Self-paced</p>
+          </div>
         </div>
-        <h4>Duration</h4>
-        <p>21 days<br>Self-paced with weekly focus</p>
-      </div>
-      <div class="howitworks-item">
-        <div class="hw-icon">
+        <div class="howitworks-item">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div>
+            <h4>2–3 hrs/week</h4>
+            <p>Flexible schedule</p>
+          </div>
         </div>
-        <h4>Weekly focus</h4>
-        <p>2–3 hours<br>Flexible around your schedule</p>
-      </div>
-      <div class="howitworks-item">
-        <div class="hw-icon">
+        <div class="howitworks-item">
           <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          <div>
+            <h4>Video + exercises</h4>
+            <p>With Q&A</p>
+          </div>
         </div>
-        <h4>Format</h4>
-        <p>Video lessons + worksheets<br>With exercises for your own situation, plus Q&A</p>
-      </div>
-      <div class="howitworks-item">
-        <div class="hw-icon">
+        <div class="howitworks-item">
           <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <div>
+            <h4>Lifetime access</h4>
+            <p>Revisit anytime</p>
+          </div>
         </div>
-        <h4>Access</h4>
-        <p>Lifetime access<br>Revisit lessons whenever needed</p>
       </div>
     </div>
   </div>
@@ -1696,41 +1739,47 @@ a { text-decoration: none; color: inherit; }
      ============================================================ -->
 <section class="section-curriculum">
   <div class="container">
-    <h2>Curriculum at a glance</h2>
-    <div class="curriculum-list">
-      <div class="curriculum-item">
-        <div class="curriculum-number">1</div>
-        <div class="curriculum-content">
-          <h4>Module 1 — Awareness</h4>
-          <p>Spot emotional signals early, in yourself and others.</p>
-        </div>
+    <div class="curriculum-grid">
+      <div class="curriculum-left">
+        <span class="section-label">Your learning path</span>
+        <h2>Curriculum at a glance</h2>
+        <p class="curriculum-intro">Five focused modules over 21 days. Each builds on the last — from recognising emotional patterns to applying new tools in real work situations.</p>
       </div>
-      <div class="curriculum-item">
-        <div class="curriculum-number" style="background: var(--color-coral);">2</div>
-        <div class="curriculum-content">
-          <h4>Module 2 — Regulation</h4>
-          <p>Learn how to stabilise yourself under stress before reacting.</p>
+      <div class="curriculum-timeline">
+        <div class="curriculum-item">
+          <div class="curriculum-number">1</div>
+          <div class="curriculum-content">
+            <h4>Module 1 — Awareness</h4>
+            <p>Spot emotional signals early, in yourself and others.</p>
+          </div>
         </div>
-      </div>
-      <div class="curriculum-item">
-        <div class="curriculum-number" style="background: var(--color-purple);">3</div>
-        <div class="curriculum-content">
-          <h4>Module 3 — Communication</h4>
-          <p>Name emotions and boundaries clearly without escalation.</p>
+        <div class="curriculum-item">
+          <div class="curriculum-number">2</div>
+          <div class="curriculum-content">
+            <h4>Module 2 — Regulation</h4>
+            <p>Learn how to stabilise yourself under stress before reacting.</p>
+          </div>
         </div>
-      </div>
-      <div class="curriculum-item">
-        <div class="curriculum-number">4</div>
-        <div class="curriculum-content">
-          <h4>Module 4 — Boundaries</h4>
-          <p>Protect your energy while staying present and professional.</p>
+        <div class="curriculum-item">
+          <div class="curriculum-number">3</div>
+          <div class="curriculum-content">
+            <h4>Module 3 — Communication</h4>
+            <p>Name emotions and boundaries clearly without escalation.</p>
+          </div>
         </div>
-      </div>
-      <div class="curriculum-item">
-        <div class="curriculum-number" style="background: var(--color-coral);">5</div>
-        <div class="curriculum-content">
-          <h4>Module 5 — Integration</h4>
-          <p>Transfer what you've learned into everyday leadership and work contexts.</p>
+        <div class="curriculum-item">
+          <div class="curriculum-number">4</div>
+          <div class="curriculum-content">
+            <h4>Module 4 — Boundaries</h4>
+            <p>Protect your energy while staying present and professional.</p>
+          </div>
+        </div>
+        <div class="curriculum-item">
+          <div class="curriculum-number">5</div>
+          <div class="curriculum-content">
+            <h4>Module 5 — Integration</h4>
+            <p>Transfer what you've learned into everyday leadership and work contexts.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1746,49 +1795,37 @@ a { text-decoration: none; color: inherit; }
     <div class="features-grid">
       <!-- Video lessons -->
       <div class="card">
-        <div class="card-icon card-icon-pink">
-          <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
-        </div>
+        <img class="card-image" src="assets/laptop-1.jpeg" alt="Video lessons">
         <h4>Video lessons</h4>
         <p>Short, clear, practice-oriented inputs you can replay whenever needed.</p>
       </div>
       <!-- Private workbook -->
       <div class="card">
-        <div class="card-icon card-icon-coral">
-          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-        </div>
+        <img class="card-image" src="assets/workbook-1.jpeg" alt="Private workbook">
         <h4>Private workbook</h4>
         <p>Exercises, reflections and real-life prompts tailored to your everyday situations.</p>
       </div>
       <!-- Reflection prompts -->
       <div class="card">
-        <div class="card-icon card-icon-purple">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-        </div>
+        <img class="card-image" src="assets/Reflections-1.jpeg" alt="Reflection prompts">
         <h4>Reflection prompts</h4>
         <p>Guided questions that help you look at your reactions, decisions and patterns.</p>
       </div>
       <!-- Scenarios & case studies -->
       <div class="card">
-        <div class="card-icon card-icon-coral">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
+        <img class="card-image" src="assets/Scenarios-1.jpeg" alt="Scenarios and case studies">
         <h4>Scenarios & case studies</h4>
         <p>Realistic examples from professional contexts.</p>
       </div>
       <!-- Templates & checklists -->
       <div class="card">
-        <div class="card-icon card-icon-pink">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </div>
+        <img class="card-image" src="assets/checklists-1.jpeg" alt="Templates and checklists">
         <h4>Templates & checklists</h4>
         <p>Ready-to-use formats for difficult conversations, preparation and follow-up.</p>
       </div>
       <!-- Certificate of completion -->
       <div class="card">
-        <div class="card-icon card-icon-purple">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-        </div>
+        <img class="card-image" src="assets/certificate-1.jpeg" alt="Certificate of completion">
         <h4>Certificate of completion</h4>
         <p>Confirms your participation and learning progress — useful for HR, supervisors and professional documentation.</p>
       </div>
@@ -2109,10 +2146,9 @@ a { text-decoration: none; color: inherit; }
     </div>
     <hr class="footer-divider">
     <div class="footer-badges">
-      <span class="footer-badge">✓ IHK</span>
-      <span class="footer-badge">✓ DEKRA</span>
-      <span class="footer-badge">✓ ZFU</span>
-      <span class="footer-badge">✓ KOMPASS</span>
+      <span class="footer-badge"><img src="assets/SEAL-IHK.svg" alt="IHK certified"></span>
+      <span class="footer-badge"><img src="assets/SEAL-DEKRA.svg" alt="DEKRA certified"></span>
+      <span class="footer-badge"><img src="assets/SEAL-ZFU.png" alt="ZFU approved"></span>
     </div>
     <div class="footer-copyright">© 2026 Emotionspädagogik Institut · Privates Institut für Emotionspädagogik</div>
   </div>

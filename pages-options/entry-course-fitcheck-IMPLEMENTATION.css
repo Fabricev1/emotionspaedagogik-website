@@ -1,0 +1,197 @@
+/* ============================================================
+   IS THIS FOR YOU SECTION — IMPLEMENTATION FILE
+   ============================================================
+   
+   TARGET: emotionspaedagogik-entry-course-en.html
+   
+   STEP 1 — CSS
+   Replace the entire /* IS THIS FOR YOU */ block (from
+   .section-audience through .audience-item-icon svg) with
+   the CSS below.
+   
+   STEP 2 — HTML
+   Replace the entire <section class="section-audience">
+   block (including the blob SVGs inside it) with the HTML
+   below.
+   
+   STEP 3 — RESPONSIVE
+   In the existing responsive media queries, replace any
+   .section-audience and .audience- rules with the
+   responsive rules below.
+   
+   ============================================================ */
+
+
+/* =========================
+   CSS TO PASTE
+   ========================= */
+
+/* ============================================================
+   IS THIS FOR YOU — FIT CHECK
+   ============================================================ */
+.section-audience {
+  background: var(--color-cream);
+  padding: var(--section-padding-large) 0;
+  position: relative;
+  overflow: hidden;
+}
+.section-audience h2 {
+  font-family: var(--font-heading);
+  font-size: 2.35rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 48px;
+  line-height: 1.25;
+}
+.audience-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+.audience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-warm);
+  border-radius: 12px 12px 0 0;
+}
+.audience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0;
+}
+.audience-col {
+  padding: 44px 40px;
+}
+.audience-divider {
+  background: var(--color-border);
+  margin: 32px 0;
+}
+.audience-col h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 28px;
+}
+.audience-col-yes h3 {
+  color: var(--color-text);
+}
+.audience-col-no h3 {
+  color: var(--color-text-muted);
+}
+.audience-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+.audience-item:last-child {
+  margin-bottom: 0;
+}
+.audience-item-icon {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+.audience-item-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.5;
+  fill: none;
+}
+.audience-icon-yes {
+  background: rgba(255,138,101,0.1);
+}
+.audience-icon-yes svg {
+  stroke: var(--color-coral);
+}
+.audience-icon-no {
+  background: rgba(58,58,58,0.06);
+}
+.audience-icon-no svg {
+  stroke: var(--color-text-muted);
+}
+
+
+/* =========================
+   RESPONSIVE RULES
+   Replace any .section-audience and .audience- rules
+   ========================= */
+/*
+@media (max-width: 900px) {
+  .section-audience h2 { font-size: 1.9rem; }
+  .audience-grid { grid-template-columns: 1fr; }
+  .audience-divider { display: none; }
+  .audience-col:last-child { border-top: 1px solid var(--color-border); }
+}
+@media (max-width: 600px) {
+  .audience-col { padding: 32px 24px; }
+}
+*/
+
+
+/* =========================
+   HTML TO PASTE
+   ========================= */
+<!--
+<section class="section-audience">
+  <div class="container">
+    <span class="section-label">Fit check</span>
+    <h2>Is this for you?</h2>
+    <div class="audience-card">
+      <div class="audience-grid">
+        <div class="audience-col audience-col-yes">
+          <h3>Perfect if…</h3>
+          <div class="audience-item">
+            <div class="audience-item-icon audience-icon-yes">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>You carry emotional responsibility for others — as a team lead, client-facing professional, educator, or self-employed expert.</div>
+          </div>
+          <div class="audience-item">
+            <div class="audience-item-icon audience-icon-yes">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>You want a structured, professional method — not therapy or self-help — that works in real situations.</div>
+          </div>
+          <div class="audience-item">
+            <div class="audience-item-icon audience-icon-yes">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>You need tools you can use immediately and explain clearly to others without burning out.</div>
+          </div>
+        </div>
+        <div class="audience-divider"></div>
+        <div class="audience-col audience-col-no">
+          <h3>Not if…</h3>
+          <div class="audience-item">
+            <div class="audience-item-icon audience-icon-no">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <div>You're looking for therapy or deep personal healing rather than professional tools.</div>
+          </div>
+          <div class="audience-item">
+            <div class="audience-item-icon audience-icon-no">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <div>You expect a quick "fix" without trying things out in real situations.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->

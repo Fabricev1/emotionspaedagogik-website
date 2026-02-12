@@ -1,0 +1,262 @@
+/* ============================================================
+   PICK A DATE — IMPLEMENTATION FILE (CREAM + PINK ACCENT CARD)
+   ============================================================
+   
+   TARGET: emotionspaedagogik-free-info-session-en.html
+   
+   STEP 1 — CSS
+   Replace the entire /* ===== COLOR BAND: PICK A DATE ===== */
+   block (from .section-date through the last .date- rule
+   before the next section comment) with the CSS below.
+   Also remove the /* Blob overlays */ block (.band-blob
+   and .band-blob svg) ONLY if no other section still
+   uses .band-blob — check first.
+   
+   STEP 2 — HTML
+   Replace the entire <section class="section-date" id="date">
+   block (including band-blob divs) with the HTML below.
+   
+   STEP 3 — RESPONSIVE
+   Replace any existing .section-date and .date- responsive
+   rules with the responsive rules below.
+   
+   ============================================================ */
+
+
+/* =========================
+   CSS TO PASTE
+   ========================= */
+
+/* ===== PICK A DATE ===== */
+.section-date {
+  background: var(--color-cream);
+  padding: 80px 0 88px;
+}
+.section-date h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 24px;
+}
+.date-card {
+  background: var(--color-white);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  border-left: 5px solid var(--color-pink);
+  padding: 36px 40px;
+}
+.date-label {
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+  display: block;
+}
+.date-layout {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: start;
+}
+.date-tiles {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.date-tile {
+  border: 1.5px solid var(--color-border);
+  border-radius: 10px;
+  padding: 16px 22px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 100px;
+}
+.date-tile:hover {
+  border-color: var(--color-pink);
+  box-shadow: 0 2px 12px rgba(232,62,140,0.1);
+}
+.date-tile-month {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-coral);
+  margin-bottom: 4px;
+}
+.date-tile-day {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.date-tile-detail {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+}
+.date-info {
+  max-width: 240px;
+}
+.date-info p {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.date-info strong {
+  color: var(--color-text);
+}
+.date-zoom-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--color-pink);
+  background: rgba(232,62,140,0.06);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+.date-zoom-tag svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--color-pink);
+  stroke-width: 1.5;
+  fill: none;
+}
+.date-bottom {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.date-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-pink);
+  color: #FFFFFF;
+  padding: 16px 36px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.date-cta:hover {
+  background: #d1357d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(232,62,140,0.25);
+}
+.date-email {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+.date-email svg {
+  width: 15px;
+  height: 15px;
+  stroke: var(--color-text-muted);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+
+/* =========================
+   RESPONSIVE RULES
+   Replace any existing .section-date and .date-
+   rules in media queries.
+   ========================= */
+/*
+@media (max-width: 900px) {
+  .section-date h2 { font-size: 1.8rem; }
+  .date-layout { grid-template-columns: 1fr; gap: 28px; }
+  .date-info { max-width: 100%; }
+}
+@media (max-width: 600px) {
+  .date-card { padding: 28px 24px; }
+  .date-tiles { gap: 10px; }
+  .date-tile { min-width: 85px; padding: 14px 16px; }
+  .date-tile-day { font-size: 1.5rem; }
+  .date-cta { width: 100%; justify-content: center; }
+  .date-bottom { flex-direction: column; align-items: stretch; }
+  .date-email { justify-content: center; }
+}
+*/
+
+
+/* =========================
+   HTML TO PASTE
+   ========================= */
+<!--
+<section class="section-date" id="date">
+  <div class="container">
+    <h2>Pick a date</h2>
+    <div class="date-card">
+      <span class="date-label">Upcoming sessions</span>
+      <div class="date-layout">
+        <div>
+          <div class="date-tiles">
+            <div class="date-tile">
+              <span class="date-tile-month">Feb</span>
+              <span class="date-tile-day">11</span>
+              <span class="date-tile-detail">Tuesday<br>18:00 CET</span>
+            </div>
+            <div class="date-tile">
+              <span class="date-tile-month">Feb</span>
+              <span class="date-tile-day">25</span>
+              <span class="date-tile-detail">Tuesday<br>18:00 CET</span>
+            </div>
+            <div class="date-tile">
+              <span class="date-tile-month">Mar</span>
+              <span class="date-tile-day">11</span>
+              <span class="date-tile-detail">Tuesday<br>18:00 CET</span>
+            </div>
+            <div class="date-tile">
+              <span class="date-tile-month">Mar</span>
+              <span class="date-tile-day">25</span>
+              <span class="date-tile-detail">Tuesday<br>18:00 CET</span>
+            </div>
+          </div>
+        </div>
+        <div class="date-info">
+          <p>Choose a date that works for you. After registration, you'll receive the <strong>Zoom link automatically</strong> by email.</p>
+          <span class="date-zoom-tag">
+            <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            Live Zoom session · 45–60 min
+          </span>
+        </div>
+      </div>
+      <div class="date-bottom">
+        <a href="#date" class="date-cta">Register for free <span>→</span></a>
+        <span class="date-email">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Prefer email booking?
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+-->

@@ -1,0 +1,140 @@
+/* ============================================================
+   YOUR HOST — IMPLEMENTATION FILE (PINK BAND + WHITE CARD)
+   ============================================================
+   
+   TARGET: emotionspaedagogik-free-info-session-en.html
+   
+   STEP 1 — CSS
+   Replace the entire /* ===== COLOR BAND: YOUR HOST ===== */
+   block (from .section-host through .host-content p) with
+   the CSS below.
+   
+   STEP 2 — HTML
+   Replace the entire <section class="section-host"> block
+   (including the band-blob divs inside it) with the HTML
+   below.
+   
+   STEP 3 — SYMBOL DEFS
+   Ensure <g id="symbol-white"> exists in a hidden SVG defs
+   block near the top of the file. If not, add it (provided
+   in hero implementation files or below).
+   
+   STEP 4 — RESPONSIVE
+   Replace any existing .section-host responsive rules with
+   the responsive rules below.
+   
+   ============================================================ */
+
+
+/* =========================
+   CSS TO PASTE
+   ========================= */
+
+/* ===== COLOR BAND: YOUR HOST ===== */
+.section-host {
+  background: var(--color-pink);
+  padding: 64px 0;
+  position: relative;
+  overflow: hidden;
+}
+.section-host .band-symbol {
+  position: absolute;
+  opacity: 0.06;
+  z-index: 1;
+}
+.section-host .band-symbol-1 {
+  width: 280px;
+  height: 246px;
+  top: -40px;
+  right: -50px;
+}
+.section-host .container {
+  position: relative;
+  z-index: 3;
+}
+.host-card {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  padding: 44px 48px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 44px;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.host-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.host-photo .img-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(232,62,140,0.08);
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+}
+.host-content .section-label {
+  color: var(--color-coral);
+}
+.host-content h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+.host-content p {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.8;
+  margin-bottom: 14px;
+  max-width: 520px;
+}
+
+
+/* =========================
+   RESPONSIVE RULES
+   Replace any existing .section-host rules in
+   media queries.
+   ========================= */
+/*
+@media (max-width: 900px) {
+  .host-card { grid-template-columns: 1fr; text-align: center; padding: 36px 28px; }
+  .host-photo { margin: 0 auto; }
+  .host-content p { max-width: 100%; }
+}
+@media (max-width: 600px) {
+  .host-card { padding: 28px 24px; gap: 28px; }
+  .host-photo { width: 160px; height: 160px; }
+  .host-content h2 { font-size: 1.7rem; }
+}
+*/
+
+
+/* =========================
+   HTML TO PASTE
+   ========================= */
+<!--
+<section class="section-host">
+  <svg class="band-symbol band-symbol-1" viewBox="0 0 95 83" fill="none"><use href="#symbol-white"/></svg>
+  <div class="container">
+    <div class="host-card">
+      <div class="host-photo">
+        <div class="img-placeholder">[Photo: Katrin Michl, warm candid, half-body]</div>
+      </div>
+      <div class="host-content">
+        <div class="section-label">Meet your host</div>
+        <h2>Your host: Katrin</h2>
+        <p>Teacher, trainer and founder of the Private Institute for Emotional Pedagogy, Katrin has spent over 20 years working with people in responsibility roles — from school leadership and teaching to social, health and HR contexts.</p>
+        <p>She brings a clear, research-informed method that turns emotional pressure in everyday work into teachable competence, fully aligned with the recognised IHK training pathway.</p>
+      </div>
+    </div>
+  </div>
+</section>
+-->

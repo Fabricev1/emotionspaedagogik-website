@@ -1,0 +1,291 @@
+/* ============================================================
+   FREE INFO SESSION HERO — IMPLEMENTATION FILE (LAPTOP FRAME)
+   ============================================================
+   
+   TARGET: emotionspaedagogik-free-info-session-en.html
+   
+   STEP 1 — CSS
+   Replace the entire /* ===== HERO ===== */ block (from
+   .hero through .hero-blob--6) with the CSS below. This
+   removes ALL hero-blob rules.
+   
+   STEP 2 — HTML
+   Replace the entire <section class="hero"> block
+   (including all 6 hero-blob divs inside it) with the
+   HTML below.
+   
+   STEP 3 — SYMBOL DEFS
+   The HTML references <use href="#symbol-color"/>. Ensure
+   <g id="symbol-color"> exists in a hidden SVG defs block
+   near the top of the file. If only symbol-white exists,
+   add symbol-color next to it inside the same <defs>.
+   The full symbol-color paths are provided at the bottom
+   of this file.
+   
+   STEP 4 — RESPONSIVE
+   Replace any existing .hero responsive rules with the
+   responsive rules below.
+   
+   ============================================================ */
+
+
+/* =========================
+   CSS TO PASTE
+   ========================= */
+
+/* ===== HERO ===== */
+.hero {
+  background: var(--color-cream);
+  padding: 80px 0 100px;
+  position: relative;
+  overflow: hidden;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+}
+.hero-symbol {
+  position: absolute;
+  z-index: 1;
+}
+.hero-symbol-tr {
+  width: 300px;
+  height: 264px;
+  top: -30px;
+  right: -40px;
+  opacity: 0.08;
+}
+.hero-symbol-bl {
+  width: 220px;
+  height: 193px;
+  bottom: -30px;
+  left: -40px;
+  opacity: 0.06;
+  transform: rotate(-15deg);
+}
+.hero .container {
+  position: relative;
+  z-index: 5;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero-content {
+  max-width: 520px;
+}
+.hero-label {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-pink);
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 3.2rem;
+  line-height: 1.15;
+  margin-bottom: 28px;
+  color: var(--color-text);
+}
+.hero-intro {
+  font-size: 0.93rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 460px;
+}
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.hero-trust {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+.trust-badge-icon {
+  width: 28px;
+  height: 28px;
+  background: rgba(230, 224, 218, 0.5);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.hero-image-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.hero-laptop {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 12px 12px 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 3;
+}
+.hero-laptop-screen {
+  width: 100%;
+  height: 260px;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+  position: relative;
+}
+.hero-laptop-screen .img-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px 6px 0 0;
+}
+.hero-laptop-bar {
+  height: 28px;
+  background: #FFFFFF;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-laptop-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-border);
+}
+.hero-live-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(232,62,140,0.9);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  z-index: 10;
+}
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  z-index: 5;
+}
+.hero-meta svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-text-muted);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+
+/* =========================
+   RESPONSIVE RULES
+   Replace any existing .hero rules in media queries.
+   ========================= */
+/*
+@media (max-width: 900px) {
+  .hero { padding: 48px 0 64px; min-height: auto; }
+  .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  .hero h1 { font-size: 2.4rem; }
+  .hero-laptop { max-width: 340px; }
+  .hero-laptop-screen { height: 210px; }
+  .hero-cta-row { flex-direction: column; }
+  .hero-cta-row .btn { width: 100%; justify-content: center; text-align: center; }
+  .hero-symbol-tr { width: 200px; height: 176px; }
+  .hero-symbol-bl { display: none; }
+}
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2rem; }
+  .hero-laptop-screen { height: 180px; }
+  .hero-trust { gap: 16px; }
+}
+*/
+
+
+/* =========================
+   SYMBOL-COLOR SVG DEFS
+   Add inside <svg style="display:none"><defs>...</defs></svg>
+   if not already present. If symbol-white already exists,
+   add this <g> next to it inside the same <defs>.
+   ========================= */
+/*
+<g id="symbol-color">
+  <path d="M76.4671 13.8598C101.377 16.1798 98.7071 41.7698 81.6871 56.1798C90.4571 35.0198 81.9371 20.0498 76.4671 13.8598Z" fill="#9984B9"/>
+  <path d="M63.8671 42.9398C62.4671 51.9998 58.3571 61.1898 51.0071 68.4898C43.3671 69.2298 35.9171 68.2798 30.0771 64.9498C41.6971 71.4398 60.3971 63.9698 63.8771 42.9398H63.8671Z" fill="#4B3368"/>
+  <path d="M76.4671 13.8598C81.9271 20.0498 90.4571 35.0198 81.6871 56.1798C74.1671 62.5198 62.3771 67.3798 51.0071 68.4798C58.3671 61.1798 62.4771 51.9898 63.8671 42.9298C67.1471 23.1398 53.0271 11.5398 44.2571 8.42978C44.0271 8.34978 43.8071 8.26978 43.5871 8.17978C54.3071 11.7098 69.1871 12.9198 76.4571 13.8498L76.4671 13.8598Z" fill="#A25499"/>
+  <path d="M76.4671 13.8598C69.1971 12.9298 54.3171 11.7198 43.5971 8.18978C32.6271 4.06978 35.7371 -0.630222 47.1271 0.0697783C60.3271 0.879778 69.9971 5.97978 76.4671 13.8598Z" fill="#F59DB0"/>
+  <path d="M25.0171 7.54977C42.6971 9.48977 56.6572 30.3298 45.0072 48.0798C49.8372 39.4198 49.4571 20.9698 31.4871 18.2598C31.3071 15.9898 29.7772 14.7198 27.4672 13.7898C20.3072 10.8898 21.8771 7.20977 25.0171 7.55977V7.54977Z" fill="#FAB37F"/>
+  <path d="M5.31714 48.2098C7.90714 63.4898 15.9571 74.9698 31.1571 80.1798C8.64714 86.1798 -9.35286 68.4398 5.31714 48.2098Z" fill="#EF5395"/>
+  <path d="M35.3671 36.7998L35.3471 36.8298C34.5371 36.1698 33.3371 35.7798 31.5871 35.7998C27.1971 35.8498 23.2571 38.4998 21.2271 42.4698C17.2071 48.4898 13.0471 46.0198 11.8371 41.8198C19.0171 36.2998 29.3971 31.6798 35.3771 36.7998H35.3671Z" fill="#ED1765"/>
+  <path d="M35.3671 36.7998C29.3871 31.6798 19.0071 36.2998 11.8271 41.8198C10.8371 38.3898 11.8271 33.8198 16.4771 31.7898C23.1271 28.7398 32.4671 25.0198 31.4871 18.2498C49.4571 20.9598 49.8371 39.4198 45.0071 48.0698C44.4071 48.9798 43.7471 49.8898 43.0071 50.7798C40.6171 53.6698 32.8571 57.1698 35.3371 47.6398C36.0371 44.9498 38.2271 39.1798 35.3471 36.8198L35.3671 36.7898V36.7998Z" fill="#F3715A"/>
+  <path d="M31.4871 18.2498C32.4771 25.0198 23.1371 28.7398 16.4771 31.7898C11.8271 33.8198 10.8371 38.3898 11.8271 41.8198C9.00713 43.9898 6.67712 46.2898 5.30712 48.1998C2.69712 31.7898 14.6071 15.8898 31.4871 18.2398V18.2498Z" fill="#F59DB0"/>
+  <path d="M30.0671 64.9398C35.9171 68.2698 43.3671 69.2198 50.9971 68.4798C45.9571 73.4798 39.3971 77.5898 31.1471 80.1698C15.9471 74.9698 7.89713 63.4798 5.30713 48.1998C6.67713 46.2898 9.00713 43.9798 11.8271 41.8198C13.0371 46.0198 17.1971 48.4898 21.2171 42.4698C18.5071 47.7998 19.2071 55.5098 26.8271 62.5798C27.6171 63.3198 28.4771 63.9698 29.3771 64.5298C29.3771 64.5298 29.3871 64.5298 29.3971 64.5398C29.6171 64.6798 29.8371 64.8098 30.0671 64.9398Z" fill="#EE3B76"/>
+  <path d="M81.6772 56.1798C75.6872 69.0098 64.0772 78.9798 54.8172 81.5198C48.2872 83.3098 39.5672 83.3398 31.1472 80.1698C39.3972 77.5898 45.9571 73.4798 50.9971 68.4798C62.3671 67.3798 74.1572 62.5198 81.6772 56.1798Z" fill="#F59DB0"/>
+</g>
+*/
+
+
+/* =========================
+   HTML TO PASTE
+   ========================= */
+<!--
+<section class="hero">
+  <svg class="hero-symbol hero-symbol-tr" viewBox="0 0 95 83"><use href="#symbol-color"/></svg>
+  <svg class="hero-symbol hero-symbol-bl" viewBox="0 0 95 83"><use href="#symbol-color"/></svg>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-label">Free info session:</div>
+        <h1>Emotional Pedagogy in leadership &amp; the IHK&nbsp;path</h1>
+        <p class="hero-intro">In about 15 minutes, get a clear overview of how Emotional Pedagogy strengthens your emotional competence in responsibility roles, what the recognised IHK training path looks like, and which next step fits your situation.</p>
+        <div class="hero-cta-row">
+          <a href="#date" class="btn btn-primary-lg">Reserve my spot <span class="btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-badge"><div class="trust-badge-icon">IHK</div></div>
+          <div class="trust-badge"><div class="trust-badge-icon">DEKRA</div></div>
+          <div class="trust-badge"><div class="trust-badge-icon">ZFU</div></div>
+        </div>
+      </div>
+      <div class="hero-image-col">
+        <div class="hero-laptop">
+          <div class="hero-laptop-screen">
+            <div class="img-placeholder">[Photo: Katrin on Zoom, warm lighting, speaking to camera]</div>
+            <span class="hero-live-tag">● Live</span>
+          </div>
+          <div class="hero-laptop-bar">
+            <div class="hero-laptop-dot"></div>
+          </div>
+        </div>
+        <div class="hero-meta">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          45–60 min · Hosted by Katrin Michl
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->

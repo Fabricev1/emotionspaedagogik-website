@@ -1,0 +1,143 @@
+/* ============================================================
+   HOW IT WORKS — IMPLEMENTATION FILE (INLINE BAR, MAX COMPACT)
+   ============================================================
+   
+   TARGET: emotionspaedagogik-free-info-session-en.html
+   
+   STEP 1 — CSS
+   Replace the entire /* ===== HOW IT WORKS ===== */ block
+   (from .section-how through .how-meta strong) with the
+   CSS below.
+   
+   STEP 2 — HTML
+   Replace the entire <section class="section-how"> block
+   with the HTML below.
+   
+   STEP 3 — RESPONSIVE
+   Replace any existing .section-how responsive rules with
+   the responsive rules below.
+   
+   ============================================================ */
+
+
+/* =========================
+   CSS TO PASTE
+   ========================= */
+
+/* ===== HOW IT WORKS ===== */
+.section-how {
+  background: var(--color-pink);
+  padding: 32px 0;
+}
+.how-inline {
+  display: flex;
+  align-items: center;
+}
+.section-how h2 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #FFFFFF;
+  white-space: nowrap;
+  margin-right: 36px;
+  flex-shrink: 0;
+}
+.how-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+.how-items {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.how-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 28px;
+  white-space: nowrap;
+}
+.how-item svg {
+  width: 16px;
+  height: 16px;
+  stroke: rgba(255,255,255,0.6);
+  stroke-width: 1.5;
+  fill: none;
+  flex-shrink: 0;
+}
+.how-item-label {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+.how-item-sep {
+  width: 1px;
+  height: 24px;
+  background: rgba(255,255,255,0.15);
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   RESPONSIVE RULES
+   Replace any existing .section-how responsive rules.
+   ========================= */
+/*
+@media (max-width: 900px) {
+  .how-inline { flex-wrap: wrap; gap: 16px; }
+  .how-divider { display: none; }
+  .how-items { flex-wrap: wrap; gap: 8px; }
+  .how-item-sep { display: none; }
+  .how-item { padding: 6px 0; }
+}
+@media (max-width: 600px) {
+  .section-how { padding: 28px 0; }
+  .section-how h2 { font-size: 1.2rem; margin-right: 0; width: 100%; }
+  .how-items { flex-direction: column; align-items: flex-start; }
+}
+*/
+
+
+/* =========================
+   HTML TO PASTE
+   ========================= */
+<!--
+<section class="section-how">
+  <div class="container">
+    <div class="how-inline">
+      <h2>How it works</h2>
+      <div class="how-divider"></div>
+      <div class="how-items">
+        <div class="how-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="how-item-label">30–45 min</span>
+        </div>
+        <div class="how-item-sep"></div>
+        <div class="how-item">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span class="how-item-label">Zoom (live)</span>
+        </div>
+        <div class="how-item-sep"></div>
+        <div class="how-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span class="how-item-label">Your local time</span>
+        </div>
+        <div class="how-item-sep"></div>
+        <div class="how-item">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span class="how-item-label">Live Q&amp;A</span>
+        </div>
+        <div class="how-item-sep"></div>
+        <div class="how-item">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span class="how-item-label">German</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->

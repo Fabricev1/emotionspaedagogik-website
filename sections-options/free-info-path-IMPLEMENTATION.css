@@ -1,0 +1,189 @@
+/* ============================================================
+   TRAINING PATH — IMPLEMENTATION FILE (SPLIT + STACKED CARDS)
+   ============================================================
+   
+   TARGET: emotionspaedagogik-free-info-session-en.html
+   
+   STEP 1 — CSS
+   Replace the entire /* ===== TRAINING PATH ===== */ block
+   (from .section-path through .path-card-icon) with the
+   CSS below.
+   
+   STEP 2 — HTML
+   Replace the entire <section class="section-path"> block
+   with the HTML below.
+   
+   STEP 3 — RESPONSIVE
+   In the existing responsive media queries, replace any
+   .section-path and .path- rules with the responsive
+   rules below.
+   
+   ============================================================ */
+
+
+/* =========================
+   CSS TO PASTE
+   ========================= */
+
+/* ===== TRAINING PATH ===== */
+.section-path {
+  background: var(--color-cream);
+  padding: var(--section-padding) 0;
+}
+.path-grid {
+  display: grid;
+  grid-template-columns: 0.38fr 0.62fr;
+  gap: 56px;
+  align-items: start;
+}
+.path-left {
+  position: sticky;
+  top: 100px;
+}
+.section-path h2 {
+  font-size: 2.35rem;
+  margin-bottom: 12px;
+}
+.path-intro {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+.path-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.path-card {
+  background: var(--color-white);
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid;
+  padding: 28px 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.path-card:nth-child(1) {
+  border-left-color: var(--color-coral);
+  border-left-width: 5px;
+  box-shadow: 0 2px 12px rgba(255,138,101,0.08);
+}
+.path-card:nth-child(2) {
+  border-left-color: var(--color-pink);
+}
+.path-card:nth-child(3) {
+  border-left-color: var(--color-purple);
+}
+.path-number {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.path-card:nth-child(1) .path-number { background: var(--color-coral); }
+.path-card:nth-child(2) .path-number { background: var(--color-pink); }
+.path-card:nth-child(3) .path-number { background: var(--color-purple); }
+.path-recommend {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-coral);
+  background: rgba(255,138,101,0.08);
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.path-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+.path-card p {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+.path-card .btn {
+  margin-top: 14px;
+  font-size: 0.86rem;
+}
+
+
+/* =========================
+   RESPONSIVE RULES
+   Replace any existing .section-path and .path- rules
+   in media queries.
+   ========================= */
+/*
+@media (max-width: 900px) {
+  .section-path h2 { font-size: 1.9rem; }
+  .path-grid { grid-template-columns: 1fr; gap: 32px; }
+  .path-left { position: static; }
+}
+@media (max-width: 600px) {
+  .path-card { padding: 22px 20px; gap: 16px; }
+  .path-number { width: 32px; height: 32px; font-size: 0.72rem; }
+}
+*/
+
+
+/* =========================
+   HTML TO PASTE
+   ========================= */
+<!--
+<section class="section-path">
+  <div class="container">
+    <div class="path-grid">
+      <div class="path-left">
+        <div class="section-label">Training pathway</div>
+        <h2>The professional training path at a glance</h2>
+        <p class="path-intro">This session helps you choose the right starting point. Each level builds on the last — from personal foundations to professional certification.</p>
+      </div>
+      <div class="path-list">
+        <div class="path-card">
+          <div class="path-number">1</div>
+          <div>
+            <span class="path-recommend">Recommended start</span>
+            <h4>Emotional Competence Basics — Leading under Pressure</h4>
+            <p>21-day foundation with practical tools for your everyday work.</p>
+            <a href="#" class="btn btn-secondary">Learn more <span class="btn-arrow">→</span></a>
+          </div>
+        </div>
+        <div class="path-card">
+          <div class="path-number">2</div>
+          <div>
+            <h4>Module 1 (IHK)</h4>
+            <p>Core competencies for guiding others safely through emotional processes — the first IHK level.</p>
+            <a href="#" class="btn btn-secondary">See the full IHK path <span class="btn-arrow">→</span></a>
+          </div>
+        </div>
+        <div class="path-card">
+          <div class="path-number">3</div>
+          <div>
+            <h4>Module 2/3</h4>
+            <p>Advanced applications and specialisation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->

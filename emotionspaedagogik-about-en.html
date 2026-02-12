@@ -315,7 +315,7 @@ p, li {
 .btn-primary-lg:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(232,62,140,0.25); }
 .hero {
   background: var(--color-cream);
-  padding: 80px 0 0;
+  padding: 120px 0 0;
   position: relative;
   overflow: hidden;
 }
@@ -1104,23 +1104,28 @@ p, li {
 }
 .footer-badges {
   display: flex;
-  gap: 20px;
+  gap: 28px;
   align-items: center;
+  justify-content: center;
   margin-bottom: 12px;
 }
-.footer-badge {
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
+.footer-badge img {
+  height: 25px;
+  width: auto;
+  filter: grayscale(100%);
   opacity: 0.5;
-  letter-spacing: 0.03em;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.footer-badge img:hover {
+  filter: grayscale(0%);
+  opacity: 0.85;
 }
 .footer-copyright {
   font-family: var(--font-body);
   font-size: 0.7rem;
   color: var(--color-text-muted);
   opacity: 0.6;
+  text-align: center;
 }
 
 /* ============================================================
@@ -1807,10 +1812,9 @@ p, li {
     </div>
     <hr class="footer-divider">
     <div class="footer-badges">
-      <span class="footer-badge">✓ IHK</span>
-      <span class="footer-badge">✓ DEKRA</span>
-      <span class="footer-badge">✓ ZFU</span>
-      <span class="footer-badge">✓ KOMPASS</span>
+      <span class="footer-badge"><img src="assets/SEAL-IHK.svg" alt="IHK certified"></span>
+      <span class="footer-badge"><img src="assets/SEAL-DEKRA.svg" alt="DEKRA certified"></span>
+      <span class="footer-badge"><img src="assets/SEAL-ZFU.png" alt="ZFU approved"></span>
     </div>
     <div class="footer-copyright">© 2026 Emotionspädagogik Institut · Privates Institut für Emotionspädagogik</div>
   </div>

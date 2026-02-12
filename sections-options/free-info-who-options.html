@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Info Session — Who It's For Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-coral: #FF8A65;
+  --color-pink: #E83E8C;
+  --color-purple: #A86BBE;
+  --color-cream: #F7F3EE;
+  --color-white: #FFFFFF;
+  --color-text: #3A3A3A;
+  --color-text-muted: #6B6B6B;
+  --color-border: #E6E0DA;
+  --font-heading: 'Libre Baskerville', Georgia, serif;
+  --font-body: 'Source Sans 3', -apple-system, sans-serif;
+  --container-max: 1100px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); color: var(--color-text); background: #e8e4df; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+.container { max-width: var(--container-max); margin: 0 auto; padding: 0 24px; }
+
+.page-header { background: var(--color-cream); padding: 48px 0 24px; text-align: center; }
+.page-header h1 { font-family: var(--font-heading); font-size: 2rem; font-weight: 400; margin-bottom: 12px; }
+.page-header p { font-size: 0.9rem; color: var(--color-text-muted); max-width: 700px; margin: 0 auto; line-height: 1.6; }
+.option-divider { background: var(--color-cream); padding: 56px 0 20px; text-align: center; }
+.option-label { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-coral); background: rgba(255,138,101,0.1); padding: 8px 20px; border-radius: 20px; margin-bottom: 14px; }
+.option-title { font-family: var(--font-heading); font-size: 1.55rem; font-weight: 400; margin-bottom: 8px; }
+.option-desc { font-size: 0.84rem; color: var(--color-text-muted); max-width: 680px; margin: 0 auto; line-height: 1.6; }
+
+
+/* ============================================================
+   OPTION A — SPLIT LAYOUT (HEADING LEFT, CARDS RIGHT)
+   Consistent with FAQ, curriculum, training path sections.
+   Heading + intro sticky left. Right side has two stacked
+   cards: "Perfect if" card with pink left border, "Not for
+   you if" card with muted border. Each card contains its
+   list items. Clean line dividers between items.
+   ============================================================ */
+.wa {
+  background: var(--color-cream);
+  padding: 80px 0 88px;
+}
+.wa .wa-grid {
+  display: grid;
+  grid-template-columns: 0.38fr 0.62fr;
+  gap: 56px;
+  align-items: start;
+}
+.wa .wa-left {
+  position: sticky;
+  top: 120px;
+}
+.wa .wa-left h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+.wa .wa-left p {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+.wa .wa-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.wa .wa-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 28px 32px;
+}
+.wa .wa-card--yes {
+  border-left: 4px solid var(--color-pink);
+}
+.wa .wa-card--no {
+  border-left: 4px solid var(--color-border);
+}
+.wa .wa-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.wa .wa-card-title svg {
+  width: 18px; height: 18px;
+  stroke-width: 2; fill: none;
+  flex-shrink: 0;
+}
+.wa .wa-card--yes .wa-card-title svg { stroke: var(--color-pink); }
+.wa .wa-card--no .wa-card-title svg { stroke: var(--color-text-muted); }
+.wa .wa-item {
+  padding: 14px 0;
+  border-top: 1px solid rgba(230,224,218,0.5);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.wa .wa-item:first-of-type { border-top: none; padding-top: 0; }
+.wa .wa-check {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.wa .wa-check--yes { background: rgba(232,62,140,0.1); color: var(--color-pink); }
+.wa .wa-check--no { background: rgba(107,107,107,0.08); color: var(--color-text-muted); }
+.wa .wa-item p {
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   OPTION B — TWO WHITE CARDS SIDE BY SIDE
+   Keep the two-column grid but put each column inside a
+   proper white card. "Perfect if" card gets pink left
+   border, "Not for you" card gets muted border. Heading
+   centered above both cards. More contained than current.
+   ============================================================ */
+.wb {
+  background: var(--color-cream);
+  padding: 80px 0 88px;
+}
+.wb h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 36px;
+}
+.wb .wb-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.wb .wb-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 32px 28px;
+}
+.wb .wb-card--yes { border-top: 4px solid var(--color-pink); }
+.wb .wb-card--no { border-top: 4px solid var(--color-border); }
+.wb .wb-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.wb .wb-card-title svg {
+  width: 18px; height: 18px;
+  stroke-width: 2; fill: none;
+  flex-shrink: 0;
+}
+.wb .wb-card--yes .wb-card-title svg { stroke: var(--color-pink); }
+.wb .wb-card--no .wb-card-title svg { stroke: var(--color-text-muted); }
+.wb .wb-item {
+  padding: 12px 0;
+  border-top: 1px solid rgba(230,224,218,0.5);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.wb .wb-item:first-of-type { border-top: none; padding-top: 0; }
+.wb .wb-check {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.wb .wb-check--yes { background: rgba(232,62,140,0.1); color: var(--color-pink); }
+.wb .wb-check--no { background: rgba(107,107,107,0.08); color: var(--color-text-muted); }
+.wb .wb-item p {
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   OPTION C — FEATURED "PERFECT IF" + MUTED "NOT FOR"
+   "Perfect if" gets a white card with pink left border,
+   generous space, and larger type. "Not for you" sits
+   below as a compact muted row — no card, just small
+   text with X marks inline. Prioritizes the positive
+   list and downplays the negative. Conversion-focused.
+   ============================================================ */
+.wc {
+  background: var(--color-cream);
+  padding: 80px 0 88px;
+}
+.wc h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 36px;
+}
+.wc .wc-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-left: 5px solid var(--color-pink);
+  border-radius: 12px;
+  padding: 36px 40px;
+  margin-bottom: 28px;
+}
+.wc .wc-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.wc .wc-card-title svg {
+  width: 20px; height: 20px;
+  stroke: var(--color-pink);
+  stroke-width: 2; fill: none;
+}
+.wc .wc-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 40px;
+}
+.wc .wc-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.wc .wc-check {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-top: 2px;
+  background: rgba(232,62,140,0.1);
+  color: var(--color-pink);
+}
+.wc .wc-item p {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+.wc .wc-not {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 8px;
+}
+.wc .wc-not-label {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  opacity: 0.6;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.wc .wc-not-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+.wc .wc-not-item {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.wc .wc-not-item::before {
+  content: '✗';
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+
+/* ============================================================
+   OPTION D — SINGLE CARD, TWO COLUMNS INSIDE
+   One white card contains both columns separated by a
+   vertical line. "Perfect if" left (pink accent), "Not
+   for you" right (muted). Heading above the card. The
+   single card creates a contained "fit check" panel.
+   Pink top-left corner accent on the card.
+   ============================================================ */
+.wd {
+  background: var(--color-cream);
+  padding: 80px 0 88px;
+}
+.wd h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 36px;
+}
+.wd .wd-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.wd .wd-card-inner {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  min-height: 100%;
+}
+.wd .wd-divider {
+  background: var(--color-border);
+}
+.wd .wd-col {
+  padding: 36px 32px;
+}
+.wd .wd-col--yes {
+  border-top: 4px solid var(--color-pink);
+}
+.wd .wd-col--no {
+  border-top: 4px solid transparent;
+}
+.wd .wd-col-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.wd .wd-col-title svg {
+  width: 18px; height: 18px;
+  stroke-width: 2; fill: none;
+  flex-shrink: 0;
+}
+.wd .wd-col--yes .wd-col-title svg { stroke: var(--color-pink); }
+.wd .wd-col--no .wd-col-title svg { stroke: var(--color-text-muted); }
+.wd .wd-item {
+  padding: 12px 0;
+  border-top: 1px solid rgba(230,224,218,0.5);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.wd .wd-item:first-of-type { border-top: none; padding-top: 0; }
+.wd .wd-check {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.wd .wd-check--yes { background: rgba(232,62,140,0.1); color: var(--color-pink); }
+.wd .wd-check--no { background: rgba(107,107,107,0.08); color: var(--color-text-muted); }
+.wd .wd-item p {
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+
+@media (max-width: 900px) {
+  .wa .wa-grid { grid-template-columns: 1fr; gap: 32px; }
+  .wa .wa-left { position: static; }
+  .wb .wb-grid { grid-template-columns: 1fr; }
+  .wc .wc-items { grid-template-columns: 1fr; }
+  .wd .wd-card-inner { grid-template-columns: 1fr; }
+  .wd .wd-divider { height: 1px; width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Free Info Session — Who It's For Options</h1>
+    <p>Current issues: flat cream-on-cream, no card containment, check/X circles are small and low-weight, large gap between heading and content, columns feel disconnected. All options add proper containment and visual hierarchy.</p>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     OPTION A — SPLIT LAYOUT (HEADING LEFT, CARDS RIGHT)
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option A</span>
+  <div class="option-title">Split layout — heading left, stacked cards right</div>
+  <div class="option-desc">Consistent with FAQ, curriculum, and training path split patterns. Heading + intro sticky left. Right side: two stacked cards — "Perfect if" with pink left border, "Not for you" with muted border. Line dividers between items. Most consistent with the page's design language.</div>
+</div>
+
+<section class="wa">
+  <div class="container">
+    <div class="wa-grid">
+      <div class="wa-left">
+        <h2>Who it's for (and not for)</h2>
+        <p>This session is designed for people in professional responsibility roles. Here's how to tell if it fits your situation.</p>
+      </div>
+      <div class="wa-cards">
+        <div class="wa-card wa-card--yes">
+          <div class="wa-card-title">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Perfect if…
+          </div>
+          <div class="wa-item">
+            <span class="wa-check wa-check--yes">✓</span>
+            <p>You carry emotional responsibility for others in your work — e.g. school leadership, teaching, social and health professions, HR, team leads, or self-employed experts.</p>
+          </div>
+          <div class="wa-item">
+            <span class="wa-check wa-check--yes">✓</span>
+            <p>You want recognised, practical professional development — with clarity on how the IHK path fits your role.</p>
+          </div>
+          <div class="wa-item">
+            <span class="wa-check wa-check--yes">✓</span>
+            <p>You prefer structured, non-therapeutic tools that you can explain to colleagues, supervisors, or HR.</p>
+          </div>
+        </div>
+        <div class="wa-card wa-card--no">
+          <div class="wa-card-title">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Not for you if…
+          </div>
+          <div class="wa-item">
+            <span class="wa-check wa-check--no">✗</span>
+            <p>You're looking for therapy, clinical treatment, or crisis support.</p>
+          </div>
+          <div class="wa-item">
+            <span class="wa-check wa-check--no">✗</span>
+            <p>You dislike live sessions and only want self-paced videos.</p>
+          </div>
+          <div class="wa-item">
+            <span class="wa-check wa-check--no">✗</span>
+            <p>Recognised qualifications and certificates are not important for you or your organisation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     OPTION B — TWO CARDS SIDE BY SIDE
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option B</span>
+  <div class="option-title">Two cards side by side — contained columns</div>
+  <div class="option-desc">Same two-column layout but each column sits inside a white card with colored top border. "Perfect if" gets pink top, "Not for you" gets muted top. Heading above both cards. More contained than current — the cards create clear visual boundaries. Keeps the equal-weight comparison.</div>
+</div>
+
+<section class="wb">
+  <div class="container">
+    <h2>Who it's for (and not for)</h2>
+    <div class="wb-grid">
+      <div class="wb-card wb-card--yes">
+        <div class="wb-card-title">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Perfect if…
+        </div>
+        <div class="wb-item">
+          <span class="wb-check wb-check--yes">✓</span>
+          <p>You carry emotional responsibility for others in your work — e.g. school leadership, teaching, social and health professions, HR, team leads, or self-employed experts.</p>
+        </div>
+        <div class="wb-item">
+          <span class="wb-check wb-check--yes">✓</span>
+          <p>You want recognised, practical professional development — with clarity on how the IHK path fits your role.</p>
+        </div>
+        <div class="wb-item">
+          <span class="wb-check wb-check--yes">✓</span>
+          <p>You prefer structured, non-therapeutic tools that you can explain to colleagues, supervisors, or HR.</p>
+        </div>
+      </div>
+      <div class="wb-card wb-card--no">
+        <div class="wb-card-title">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Not for you if…
+        </div>
+        <div class="wb-item">
+          <span class="wb-check wb-check--no">✗</span>
+          <p>You're looking for therapy, clinical treatment, or crisis support.</p>
+        </div>
+        <div class="wb-item">
+          <span class="wb-check wb-check--no">✗</span>
+          <p>You dislike live sessions and only want self-paced videos.</p>
+        </div>
+        <div class="wb-item">
+          <span class="wb-check wb-check--no">✗</span>
+          <p>Recognised qualifications and certificates are not important for you or your organisation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     OPTION C — FEATURED POSITIVE + MUTED NEGATIVE
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option C</span>
+  <div class="option-title">Featured positive — downplayed negative</div>
+  <div class="option-desc">"Perfect if" gets a prominent white card with pink left border and two-column item layout inside. "Not for you" sits below as a compact inline row — no card, small muted text. Prioritizes the positive fit and downplays the negative. Most conversion-focused — the "yes" list dominates.</div>
+</div>
+
+<section class="wc">
+  <div class="container">
+    <h2>Who it's for (and not for)</h2>
+    <div class="wc-card">
+      <div class="wc-card-title">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        Perfect if…
+      </div>
+      <div class="wc-items">
+        <div class="wc-item">
+          <span class="wc-check">✓</span>
+          <p>You carry emotional responsibility for others in your work — e.g. school leadership, teaching, social and health professions, HR, team leads, or self-employed experts.</p>
+        </div>
+        <div class="wc-item">
+          <span class="wc-check">✓</span>
+          <p>You want recognised, practical professional development — with clarity on how the IHK path fits your role.</p>
+        </div>
+        <div class="wc-item">
+          <span class="wc-check">✓</span>
+          <p>You prefer structured, non-therapeutic tools that you can explain to colleagues, supervisors, or HR.</p>
+        </div>
+      </div>
+    </div>
+    <div class="wc-not">
+      <span class="wc-not-label">Not for you if:</span>
+      <div class="wc-not-items">
+        <span class="wc-not-item">Seeking therapy or crisis support</span>
+        <span class="wc-not-item">Only want self-paced videos</span>
+        <span class="wc-not-item">Certifications aren't important</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     OPTION D — SINGLE CARD, TWO COLUMNS INSIDE
+     ============================================================ -->
+<div class="option-divider">
+  <span class="option-label">Option D</span>
+  <div class="option-title">Single card — split inside with divider</div>
+  <div class="option-desc">One white card contains both columns separated by a vertical line. "Perfect if" left with pink top border, "Not for you" right with no accent. Heading above the card. The single card creates a contained "fit check" panel — like a comparison table. Most structured and contained.</div>
+</div>
+
+<section class="wd">
+  <div class="container">
+    <h2>Who it's for (and not for)</h2>
+    <div class="wd-card">
+      <div class="wd-card-inner">
+        <div class="wd-col wd-col--yes">
+          <div class="wd-col-title">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Perfect if…
+          </div>
+          <div class="wd-item">
+            <span class="wd-check wd-check--yes">✓</span>
+            <p>You carry emotional responsibility for others in your work — e.g. school leadership, teaching, social and health professions, HR, team leads, or self-employed experts.</p>
+          </div>
+          <div class="wd-item">
+            <span class="wd-check wd-check--yes">✓</span>
+            <p>You want recognised, practical professional development — with clarity on how the IHK path fits your role.</p>
+          </div>
+          <div class="wd-item">
+            <span class="wd-check wd-check--yes">✓</span>
+            <p>You prefer structured, non-therapeutic tools that you can explain to colleagues, supervisors, or HR.</p>
+          </div>
+        </div>
+        <div class="wd-divider"></div>
+        <div class="wd-col wd-col--no">
+          <div class="wd-col-title">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Not for you if…
+          </div>
+          <div class="wd-item">
+            <span class="wd-check wd-check--no">✗</span>
+            <p>You're looking for therapy, clinical treatment, or crisis support.</p>
+          </div>
+          <div class="wd-item">
+            <span class="wd-check wd-check--no">✗</span>
+            <p>You dislike live sessions and only want self-paced videos.</p>
+          </div>
+          <div class="wd-item">
+            <span class="wd-check wd-check--no">✗</span>
+            <p>Recognised qualifications and certificates are not important for you or your organisation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:80px;background:var(--color-cream);"></div>
+
+</body>
+</html>

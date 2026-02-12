@@ -1,0 +1,188 @@
+/* ============================================================
+   CURRICULUM — IMPLEMENTATION FILE
+   ============================================================
+   
+   TARGET: emotionspaedagogik-entry-course-en.html
+   
+   STEP 1 — CSS
+   Replace the entire /* CURRICULUM */ block (from
+   .section-curriculum through .curriculum-content p)
+   with the CSS below.
+   
+   STEP 2 — HTML
+   Replace the entire <section class="section-curriculum">
+   block with the HTML below.
+   
+   STEP 3 — RESPONSIVE
+   In the existing responsive media queries, replace any
+   .section-curriculum and .curriculum- rules with the
+   responsive rules below.
+   
+   ============================================================ */
+
+
+/* =========================
+   CSS TO PASTE
+   ========================= */
+
+/* ============================================================
+   CURRICULUM
+   ============================================================ */
+.section-curriculum {
+  background: var(--color-cream);
+  padding: var(--section-padding) 0;
+  border-top: 1px solid rgba(230,224,218,0.5);
+}
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: 0.38fr 0.62fr;
+  gap: 56px;
+  align-items: start;
+}
+.curriculum-left {
+  position: sticky;
+  top: 100px;
+}
+.section-curriculum h2 {
+  font-family: var(--font-heading);
+  font-size: 2.35rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+.curriculum-intro {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+.curriculum-timeline {
+  position: relative;
+  padding-left: 44px;
+}
+.curriculum-timeline::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 17px;
+  width: 3px;
+  background: linear-gradient(180deg, var(--color-coral) 0%, var(--color-pink) 50%, var(--color-purple) 100%);
+  border-radius: 2px;
+}
+.curriculum-item {
+  position: relative;
+  padding: 0 0 36px;
+}
+.curriculum-item:last-child {
+  padding-bottom: 0;
+}
+.curriculum-number {
+  position: absolute;
+  left: -44px;
+  top: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.curriculum-item:nth-child(1) .curriculum-number { background: var(--color-coral); }
+.curriculum-item:nth-child(2) .curriculum-number { background: #F3715A; }
+.curriculum-item:nth-child(3) .curriculum-number { background: var(--color-pink); }
+.curriculum-item:nth-child(4) .curriculum-number { background: #C44A9A; }
+.curriculum-item:nth-child(5) .curriculum-number { background: var(--color-purple); }
+.curriculum-content h4 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+.curriculum-content p {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+
+/* =========================
+   RESPONSIVE RULES
+   Replace any existing .section-curriculum and
+   .curriculum- rules in media queries.
+   ========================= */
+/*
+@media (max-width: 900px) {
+  .section-curriculum h2 { font-size: 1.9rem; }
+  .curriculum-grid { grid-template-columns: 1fr; gap: 32px; }
+  .curriculum-left { position: static; }
+}
+@media (max-width: 600px) {
+  .curriculum-timeline { padding-left: 40px; }
+  .curriculum-number { left: -40px; width: 34px; height: 34px; }
+  .curriculum-timeline::before { left: 15px; }
+}
+*/
+
+
+/* =========================
+   HTML TO PASTE
+   ========================= */
+<!--
+<section class="section-curriculum">
+  <div class="container">
+    <div class="curriculum-grid">
+      <div class="curriculum-left">
+        <span class="section-label">Your learning path</span>
+        <h2>Curriculum at a glance</h2>
+        <p class="curriculum-intro">Five focused modules over 21 days. Each builds on the last — from recognising emotional patterns to applying new tools in real work situations.</p>
+      </div>
+      <div class="curriculum-timeline">
+        <div class="curriculum-item">
+          <div class="curriculum-number">1</div>
+          <div class="curriculum-content">
+            <h4>Module 1 — Awareness</h4>
+            <p>Spot emotional signals early, in yourself and others.</p>
+          </div>
+        </div>
+        <div class="curriculum-item">
+          <div class="curriculum-number">2</div>
+          <div class="curriculum-content">
+            <h4>Module 2 — Regulation</h4>
+            <p>Learn how to stabilise yourself under stress before reacting.</p>
+          </div>
+        </div>
+        <div class="curriculum-item">
+          <div class="curriculum-number">3</div>
+          <div class="curriculum-content">
+            <h4>Module 3 — Communication</h4>
+            <p>Name emotions and boundaries clearly without escalation.</p>
+          </div>
+        </div>
+        <div class="curriculum-item">
+          <div class="curriculum-number">4</div>
+          <div class="curriculum-content">
+            <h4>Module 4 — Boundaries</h4>
+            <p>Protect your energy while staying present and professional.</p>
+          </div>
+        </div>
+        <div class="curriculum-item">
+          <div class="curriculum-number">5</div>
+          <div class="curriculum-content">
+            <h4>Module 5 — Integration</h4>
+            <p>Transfer what you've learned into everyday leadership and work contexts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+-->
