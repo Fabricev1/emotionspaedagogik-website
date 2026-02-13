@@ -33,6 +33,7 @@
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+@keyframes pageFadeIn { from { opacity: 0; } to { opacity: 1; } }
 body {
   font-family: var(--font-body);
   color: var(--color-text-muted);
@@ -40,6 +41,7 @@ body {
   font-size: 0.92rem;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  animation: pageFadeIn 0.3s ease;
 }
 img { max-width: 100%; display: block; }
 a { color: var(--color-pink); text-decoration: none; transition: all 0.25s ease; }
@@ -255,6 +257,40 @@ p { margin-bottom: 1rem; }
   height: 2px;
   background: var(--color-text);
   border-radius: 2px;
+}
+
+/* Language switcher */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  background: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 2px 3px;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+}
+.lang-switch a {
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 16px;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+.lang-switch a.lang-active {
+  background: var(--color-white);
+  color: var(--color-text) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.lang-switch a.lang-inactive {
+  color: var(--color-text-muted) !important;
+  opacity: 0.6;
+}
+.lang-switch a.lang-inactive:hover {
+  opacity: 1;
+  color: var(--color-text) !important;
 }
 
 /* ===== HERO SECTION ===== */
@@ -1369,6 +1405,7 @@ p { margin-bottom: 1rem; }
   .hero-intro-portrait { order: -1; margin-bottom: 20px; }
   .hero-intro-portrait-wrap .portrait-img { width: 312px; height: 312px; }
   .nav-links { display: none; }
+  .lang-switch { display: none; }
   .hamburger { display: flex; }
   .section-why,
   .section-path,
@@ -1457,6 +1494,7 @@ p { margin-bottom: 1rem; }
       <li><a href="#training-path">Ausbildungsweg</a></li>
       <li><a href="emotionspaedagogik-about-de.html">Über uns</a></li>
       <li><a href="emotionspaedagogik-entry-course-de.html">Einstiegskurs</a></li>
+      <li><div class="lang-switch"><a href="emotionspaedagogik-home-de.html" class="lang-active">DE</a><a href="emotionspaedagogik-home-en.html" class="lang-inactive">EN</a></div></li>
       <li><a href="emotionspaedagogik-free-info-session-de.html" class="nav-cta">Kostenlose Info-Session</a></li>
     </ul>
     <button class="hamburger" aria-label="Menu">

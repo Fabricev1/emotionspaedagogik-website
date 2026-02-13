@@ -30,6 +30,7 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    @keyframes pageFadeIn { from { opacity: 0; } to { opacity: 1; } }
     body {
       font-family: var(--font-body);
       background: var(--color-cream);
@@ -37,6 +38,7 @@
       font-size: 0.92rem;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      animation: pageFadeIn 0.3s ease;
     }
 
     h1, h2, h3, h4 {
@@ -213,6 +215,7 @@
       font-size: 0.85rem;
       font-weight: 500;
       color: var(--color-text-muted);
+      text-decoration: none;
       transition: color var(--transition);
     }
     .nav-links a:hover { color: var(--color-pink); }
@@ -245,6 +248,40 @@
       height: 2px;
       background: var(--color-text);
       border-radius: 2px;
+    }
+
+    /* Language switcher */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      background: var(--color-cream);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 2px 3px;
+      font-family: var(--font-body);
+      font-size: 0.74rem;
+      letter-spacing: 0.04em;
+    }
+    .lang-switch a {
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 16px;
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+    .lang-switch a.lang-active {
+      background: var(--color-white);
+      color: var(--color-text) !important;
+      font-weight: 600 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .lang-switch a.lang-inactive {
+      color: var(--color-text-muted) !important;
+      opacity: 0.6;
+    }
+    .lang-switch a.lang-inactive:hover {
+      opacity: 1;
+      color: var(--color-text) !important;
     }
 
     /* ===== HERO ===== */
@@ -1249,6 +1286,7 @@
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .lang-switch { display: none; }
       .hamburger { display: flex; }
 
       h2 { font-size: 2rem !important; }
@@ -1349,6 +1387,7 @@
         <li><a href="emotionspaedagogik-entry-course-en.html">Training path</a></li>
         <li><a href="emotionspaedagogik-about-en.html">About</a></li>
         <li><a href="emotionspaedagogik-entry-course-en.html">Entry course</a></li>
+        <li><div class="lang-switch"><a href="emotionspaedagogik-free-info-session-de.html" class="lang-inactive">DE</a><a href="emotionspaedagogik-free-info-session-en.html" class="lang-active">EN</a></div></li>
         <li><a href="#" class="nav-cta" style="font-weight: 600;">Free info session</a></li>
       </ul>
       <button class="hamburger" aria-label="Menu">
