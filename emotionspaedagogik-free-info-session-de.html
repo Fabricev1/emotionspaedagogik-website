@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kostenlose Info-Session — Emotionspädagogik Institut</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-coral: #FF8A65;
+      --color-pink: #E83E8C;
+      --color-purple: #A86BBE;
+      --color-cream: #F7F3EE;
+      --color-white: #FFFFFF;
+      --color-text: #3A3A3A;
+      --color-text-muted: #6B6B6B;
+      --color-border: #E6E0DA;
+      --font-heading: 'Libre Baskerville', Georgia, serif;
+      --font-body: 'Source Sans 3', -apple-system, sans-serif;
+      --section-padding: 100px;
+      --section-padding-large: 130px;
+      --container-max: 1100px;
+      --card-radius: 8px;
+      --button-radius: 24px;
+      --shadow-soft: 0 1px 2px rgba(58, 58, 58, 0.02);
+      --gradient-warm: linear-gradient(135deg, #FF8A65 0%, #E83E8C 100%);
+      --gradient-authority: linear-gradient(135deg, #A86BBE 0%, #8B5CA0 100%);
+      --transition: 0.25s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--color-cream);
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--color-text);
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* SECTION LABEL */
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-pink);
+      margin-bottom: 16px;
+    }
+    .section-label--white {
+      color: rgba(255,255,255,0.85);
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: var(--button-radius);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .btn .btn-arrow {
+      transition: transform 0.2s ease;
+    }
+    .btn:hover .btn-arrow {
+      transform: translateX(3px);
+    }
+    .btn-primary {
+      background: var(--color-pink);
+      color: #fff;
+      padding: 14px 28px;
+    }
+    .btn-primary-lg {
+      background: var(--color-pink);
+      color: #fff;
+      padding: 18px 40px;
+      font-size: 1.05rem;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-pink);
+      border: 1.5px solid rgba(232, 62, 140, 0.45);
+      padding: 14px 28px;
+      font-weight: 500;
+    }
+    .btn-white {
+      background: #fff;
+      color: var(--color-pink);
+      padding: 18px 40px;
+      font-size: 1.05rem;
+    }
+    .btn-dark {
+      background: var(--color-text);
+      color: #fff;
+      padding: 14px 28px;
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--color-white);
+      border-radius: var(--card-radius);
+      padding: 32px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(230, 224, 218, 0.6);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .card--clickable:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(58, 58, 58, 0.06);
+      border-color: rgba(232, 62, 140, 0.3);
+    }
+
+    /* ICON CONTAINER */
+    .icon-wrap {
+      width: 42px;
+      height: 42px;
+      background: rgba(232, 62, 140, 0.07);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .icon-wrap svg {
+      width: 19px;
+      height: 19px;
+      stroke: var(--color-pink);
+      stroke-width: 1.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .icon-wrap--purple svg {
+      stroke: var(--color-purple);
+    }
+    .icon-wrap--purple {
+      background: rgba(168, 107, 190, 0.07);
+    }
+
+    /* IMAGE PLACEHOLDER */
+    .img-placeholder {
+      background: #E0DACE;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      font-size: 0.82rem;
+      text-align: center;
+      padding: 24px;
+    }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--color-white);
+      border-bottom: 1px solid rgba(230, 224, 218, 0.5);
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo img {
+      height: 50px;
+      width: auto;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--color-pink); }
+    .nav-cta {
+      background: var(--color-pink);
+      color: var(--color-white) !important;
+      padding: 10px 22px;
+      border-radius: var(--button-radius);
+      font-weight: 600 !important;
+      font-size: 0.82rem !important;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(232, 62, 140, 0.25);
+      color: var(--color-white) !important;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-text);
+      border-radius: 2px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--color-cream);
+      padding: 120px 0 100px;
+      position: relative;
+      overflow: hidden;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-symbol {
+      position: absolute;
+      z-index: 1;
+    }
+    .hero-symbol-tr {
+      width: 300px;
+      height: 264px;
+      top: -30px;
+      right: -40px;
+      opacity: 0.08;
+    }
+    .hero-symbol-bl {
+      width: 220px;
+      height: 193px;
+      bottom: -30px;
+      left: -40px;
+      opacity: 0.06;
+      transform: rotate(-15deg);
+    }
+    .hero .container {
+      position: relative;
+      z-index: 5;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-content {
+      max-width: 520px;
+    }
+    .hero-label {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--color-pink);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      line-height: 1.15;
+      margin-bottom: 28px;
+      color: var(--color-text);
+    }
+    .hero-intro {
+      font-size: 0.93rem;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 460px;
+    }
+    .hero-cta-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .hero-trust {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-bottom: 20px;
+    }
+    .hero-logos {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    .hero-logo-badge img {
+      height: 25px;
+      width: auto;
+      filter: grayscale(100%);
+      opacity: 0.7;
+    }
+    .hero-image-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .hero-laptop {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 12px 12px 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+      z-index: 3;
+    }
+    .hero-laptop-screen {
+      width: 100%;
+      border-radius: 6px 6px 0 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-laptop-screen img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px 6px 0 0;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+    .hero-laptop-bar {
+      height: 28px;
+      background: #FFFFFF;
+      border-radius: 0 0 12px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-laptop-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-border);
+    }
+    .hero-live-tag {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(232,62,140,0.9);
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      z-index: 10;
+    }
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      z-index: 5;
+    }
+    .hero-meta svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--color-text-muted);
+      stroke-width: 1.5;
+      fill: none;
+    }
+
+    /* ===== WHAT YOU'LL LEARN ===== */
+    .section-learn {
+      background: var(--color-cream);
+      padding: 0;
+    }
+    .section-learn h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .section-learn .section-intro {
+      font-size: 0.93rem;
+      color: var(--color-text-muted);
+      margin-bottom: 56px;
+      max-width: 600px;
+    }
+    .learn-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .learn-card {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .learn-card h4 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+    .learn-card p {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+    .learn-card--span { grid-column: 1; }
+
+    /* ===== WHO IT'S FOR ===== */
+    .section-who {
+      background: var(--color-cream);
+      padding: 80px 0 88px;
+      position: relative;
+    }
+    .section-who h2 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 36px;
+    }
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .who-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 32px 28px;
+    }
+    .who-card--yes {
+      border-top: 4px solid var(--color-pink);
+    }
+    .who-card--no {
+      border-top: 4px solid var(--color-border);
+    }
+    .who-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .who-card-title svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+      fill: none;
+      flex-shrink: 0;
+    }
+    .who-card--yes .who-card-title svg {
+      stroke: var(--color-pink);
+    }
+    .who-card--no .who-card-title svg {
+      stroke: var(--color-text-muted);
+    }
+    .who-item {
+      padding: 12px 0;
+      border-top: 1px solid rgba(230,224,218,0.5);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .who-item:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    .who-check {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .who-check--yes {
+      background: rgba(232,62,140,0.1);
+      color: var(--color-pink);
+    }
+    .who-check--no {
+      background: rgba(107,107,107,0.08);
+      color: var(--color-text-muted);
+    }
+    .who-item p {
+      font-size: 0.86rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .section-how {
+      background: var(--color-pink);
+      padding: 32px 0;
+    }
+    .how-inline {
+      display: flex;
+      align-items: center;
+    }
+    .section-how h2 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #FFFFFF;
+      white-space: nowrap;
+      margin-right: 36px;
+      flex-shrink: 0;
+    }
+    .how-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.2);
+      flex-shrink: 0;
+    }
+    .how-items {
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+    .how-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 28px;
+      white-space: nowrap;
+    }
+    .how-item svg {
+      width: 16px;
+      height: 16px;
+      stroke: rgba(255,255,255,0.6);
+      stroke-width: 1.5;
+      fill: none;
+      flex-shrink: 0;
+    }
+    .how-item-label {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+    .how-item-sep {
+      width: 1px;
+      height: 24px;
+      background: rgba(255,255,255,0.15);
+      flex-shrink: 0;
+    }
+
+    /* ===== PICK A DATE ===== */
+    .section-date {
+      background: var(--color-cream);
+      padding: 80px 0 88px;
+    }
+    .section-date h2 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 24px;
+    }
+    .date-card {
+      background: var(--color-white);
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      border-left: 5px solid var(--color-pink);
+      padding: 36px 40px;
+    }
+    .date-label {
+      font-family: var(--font-body);
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .date-layout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: start;
+    }
+    .date-tiles {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .date-tile {
+      border: 1.5px solid var(--color-border);
+      border-radius: 10px;
+      padding: 16px 22px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      min-width: 100px;
+    }
+    .date-tile:hover {
+      border-color: var(--color-pink);
+      box-shadow: 0 2px 12px rgba(232,62,140,0.1);
+    }
+    .date-tile-month {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-coral);
+      margin-bottom: 4px;
+    }
+    .date-tile-day {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--color-text);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .date-tile-detail {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      line-height: 1.3;
+    }
+    .date-info {
+      max-width: 240px;
+    }
+    .date-info p {
+      font-family: var(--font-body);
+      font-size: 0.86rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .date-info strong {
+      color: var(--color-text);
+    }
+    .date-zoom-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--color-pink);
+      background: rgba(232,62,140,0.06);
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+    .date-zoom-tag svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--color-pink);
+      stroke-width: 1.5;
+      fill: none;
+    }
+    .date-bottom {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .date-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-pink);
+      color: #FFFFFF;
+      padding: 16px 36px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .date-cta:hover {
+      background: #d1357d;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(232,62,140,0.25);
+    }
+    .date-email {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+    }
+    .date-email svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--color-text-muted);
+      stroke-width: 1.5;
+      fill: none;
+    }
+
+    /* ===== TRAINING PATH ===== */
+    .section-path {
+      background: var(--color-cream);
+      padding: 0 0 var(--section-padding);
+    }
+    .path-grid {
+      display: grid;
+      grid-template-columns: 0.38fr 0.62fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .path-left {
+      position: sticky;
+      top: 100px;
+    }
+    .section-path h2 {
+      font-size: 2.35rem;
+      margin-bottom: 12px;
+    }
+    .path-intro {
+      font-family: var(--font-body);
+      font-size: 0.86rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+    .path-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .path-card {
+      background: var(--color-white);
+      border-radius: 10px;
+      border: 1px solid var(--color-border);
+      border-left: 4px solid;
+      padding: 28px 28px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .path-card:nth-child(1) {
+      border-left-color: var(--color-coral);
+      border-left-width: 5px;
+      box-shadow: 0 2px 12px rgba(255,138,101,0.08);
+    }
+    .path-card:nth-child(2) {
+      border-left-color: var(--color-pink);
+    }
+    .path-card:nth-child(3) {
+      border-left-color: var(--color-purple);
+    }
+    .path-number {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .path-card:nth-child(1) .path-number { background: var(--color-coral); }
+    .path-card:nth-child(2) .path-number { background: var(--color-pink); }
+    .path-card:nth-child(3) .path-number { background: var(--color-purple); }
+    .path-recommend {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-coral);
+      background: rgba(255,138,101,0.08);
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .path-card h4 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .path-card p {
+      font-family: var(--font-body);
+      font-size: 0.86rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .path-card .btn {
+      margin-top: 14px;
+      font-size: 0.86rem;
+    }
+
+    /* ===== COLOR BAND: YOUR HOST ===== */
+    .section-host {
+      background: var(--color-pink);
+      padding: 64px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .section-host .band-symbol {
+      position: absolute;
+      opacity: 0.06;
+      z-index: 1;
+    }
+    .section-host .band-symbol-1 {
+      width: 280px;
+      height: 246px;
+      top: -40px;
+      right: -50px;
+    }
+    .section-host .container {
+      position: relative;
+      z-index: 3;
+    }
+    .host-card {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(4px);
+      border-radius: 12px;
+      padding: 44px 48px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 44px;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .host-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .host-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .host-content .section-label {
+      color: var(--color-coral);
+    }
+    .host-content h2 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 20px;
+    }
+    .host-content p {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      line-height: 1.8;
+      margin-bottom: 14px;
+      max-width: 520px;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .section-testimonials {
+      background: var(--color-cream);
+      padding: var(--section-padding) 0;
+    }
+    .section-testimonials h2 {
+      font-size: 2.35rem;
+      margin-bottom: 52px;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    .testimonial-card {
+      padding: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+    .testimonial-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+    .testimonial-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .testimonial-card blockquote {
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      color: var(--color-text);
+      font-style: normal;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+    .testimonial-author strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.82rem;
+      color: var(--color-pink);
+      margin-bottom: 2px;
+    }
+    .testimonial-author span {
+      font-size: 0.78rem;
+      color: var(--color-pink);
+    }
+
+    /* ===== FAQ ===== */
+    .section-faq {
+      background: var(--color-cream);
+      padding: 0;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 0.38fr 0.62fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .faq-left {
+      position: sticky;
+      top: 100px;
+    }
+    .section-faq h2 {
+      font-size: 2.35rem;
+      margin-bottom: 12px;
+    }
+    .faq-intro {
+      font-family: var(--font-body);
+      font-size: 0.86rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+    .faq-list {
+      /* right column */
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(230,224,218,0.6);
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      cursor: pointer;
+      gap: 12px;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .faq-question:hover {
+      color: var(--color-pink);
+    }
+    .faq-toggle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(232,62,140,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--color-pink);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 0 20px;
+      font-size: 0.87rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    /* ===== FINAL CTA ===== */
+    .section-final-cta {
+      background: var(--color-cream);
+      padding: 120px 0 140px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .section-final-cta .container { position: relative; z-index: 2; }
+    .section-final-cta h2 {
+      color: var(--color-text);
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .section-final-cta p {
+      color: var(--color-text-muted);
+      max-width: 560px;
+      margin: 0 auto 44px;
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+    .cta-blob {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .cta-blob--1 { width: 320px; height: 320px; background: rgba(255, 179, 150, 0.25); top: -80px; left: -100px; }
+    .cta-blob--2 { width: 200px; height: 200px; background: rgba(180, 140, 200, 0.2); top: -40px; right: -30px; }
+    .cta-blob--3 { width: 260px; height: 260px; background: rgba(255, 179, 150, 0.18); bottom: -80px; right: -60px; }
+    .cta-blob--4 { width: 160px; height: 160px; background: rgba(180, 140, 200, 0.12); bottom: -20px; left: 10%; }
+    .email-form {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 560px;
+      margin: 0 auto;
+      justify-content: center;
+    }
+    .email-form-input-wrap {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 50px;
+      padding: 6px 16px 6px 24px;
+      flex: 1;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .email-form input[type="email"] {
+      background: transparent;
+      border: none;
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      flex: 1;
+      outline: none;
+      padding: 12px 0;
+      min-width: 0;
+    }
+    .email-form input[type="email"]::placeholder { color: #aaa; }
+    .email-form-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(232, 62, 140, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .email-form-icon svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--color-pink);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .email-form .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-pink);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 16px 32px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.25s ease;
+      text-decoration: none;
+    }
+    .email-form .btn-cta:hover { background: #d1357d; color: white; transform: translateY(-1px); }
+    .email-form .btn-cta .btn-arrow { transition: transform 0.3s ease; display: inline-block; }
+    .email-form .btn-cta:hover .btn-arrow { transform: translateX(3px); }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--color-border);
+      padding: 56px 0 36px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 36px;
+    }
+    .footer-brand p {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      max-width: 220px;
+      margin-top: 12px;
+    }
+    .footer-col-title {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      margin-bottom: 14px;
+    }
+    .footer-col a {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      padding: 4px 0;
+      transition: color var(--transition);
+    }
+    .footer-col a:hover { color: var(--color-pink); }
+    .footer-divider {
+      border: none;
+      border-top: 1px solid var(--color-border);
+      margin-bottom: 20px;
+    }
+    .footer-badges {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .footer-badge img {
+      height: 25px;
+      width: auto;
+      filter: grayscale(100%);
+      opacity: 0.5;
+      transition: filter 0.3s ease, opacity 0.3s ease;
+    }
+    .footer-badge img:hover {
+      filter: grayscale(0%);
+      opacity: 0.85;
+    }
+    .footer-copyright {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      opacity: 0.6;
+      text-align: center;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .section-date h2 { font-size: 1.8rem; }
+      .date-layout { grid-template-columns: 1fr; gap: 28px; }
+      .date-info { max-width: 100%; }
+      .host-card { grid-template-columns: 1fr; text-align: center; padding: 36px 28px; }
+      .host-photo { margin: 0 auto; }
+      .host-content p { max-width: 100%; }
+      .section-path h2 { font-size: 1.9rem; }
+      .path-grid { grid-template-columns: 1fr; gap: 32px; }
+      .path-left { position: static; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .hero { padding: 48px 0 64px; min-height: auto; }
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero-laptop { max-width: 340px; }
+      .hero-cta-row { flex-direction: column; }
+      .hero-cta-row .btn { width: 100%; justify-content: center; text-align: center; }
+      .hero-symbol-tr { width: 200px; height: 176px; }
+      .hero-symbol-bl { display: none; }
+      .how-inline { flex-wrap: wrap; gap: 16px; }
+      .how-divider { display: none; }
+      .how-items { flex-wrap: wrap; gap: 8px; }
+      .how-item-sep { display: none; }
+      .how-item { padding: 6px 0; }
+      .who-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      h2 { font-size: 2rem !important; }
+
+      .learn-grid,
+      .testimonials-grid,
+      .faq-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .faq-left { position: static; }
+
+      .section-path, .section-testimonials, .section-faq {
+        padding: 64px 0;
+      }
+      .section-host, .section-final-cta {
+        padding: 80px 0;
+      }
+      .section-final-cta h2 { font-size: 2.2rem !important; }
+      .email-form { flex-direction: column; }
+      .email-form-input-wrap { width: 100%; }
+      .email-form .btn-cta { width: 100%; justify-content: center; }
+
+      .btn-primary-lg, .btn-white {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .hero-trust { gap: 16px; }
+      .section-how { padding: 28px 0; }
+      .section-how h2 { font-size: 1.2rem; margin-right: 0; width: 100%; }
+      .how-items { flex-direction: column; align-items: flex-start; }
+      .section-who h2 { font-size: 1.8rem; }
+      .who-card { padding: 28px 24px; }
+      .host-card { padding: 28px 24px; gap: 28px; }
+      .host-photo { width: 160px; height: 160px; }
+      .host-content h2 { font-size: 1.7rem; }
+      .path-card { padding: 22px 20px; gap: 16px; }
+      .path-number { width: 32px; height: 32px; font-size: 0.72rem; }
+      .date-card { padding: 28px 24px; }
+      .date-tiles { gap: 10px; }
+      .date-tile { min-width: 85px; padding: 14px 16px; }
+      .date-tile-day { font-size: 1.5rem; }
+      .date-cta { width: 100%; justify-content: center; }
+      .date-bottom { flex-direction: column; align-items: stretch; }
+      .date-email { justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hidden SVG symbol definitions -->
+<svg style="display:none">
+  <g id="symbol-white">
+    <path d="M76.4671 13.8598C101.377 16.1798 98.7071 41.7698 81.6871 56.1798C90.4571 35.0198 81.9371 20.0498 76.4671 13.8598Z" fill="white"/>
+    <path d="M63.8671 42.9398C62.4671 51.9998 58.3571 61.1898 51.0071 68.4898C43.3671 69.2298 35.9171 68.2798 30.0771 64.9498C41.6971 71.4398 60.3971 63.9698 63.8771 42.9398H63.8671Z" fill="white"/>
+    <path d="M76.4671 13.8598C81.9271 20.0498 90.4571 35.0198 81.6871 56.1798C74.1671 62.5198 62.3771 67.3798 51.0071 68.4798C58.3671 61.1798 62.4771 51.9898 63.8671 42.9298C67.1471 23.1398 53.0271 11.5398 44.2571 8.42978C44.0271 8.34978 43.8071 8.26978 43.5871 8.17978C54.3071 11.7098 69.1871 12.9198 76.4571 13.8498L76.4671 13.8598Z" fill="white"/>
+    <path d="M76.4671 13.8598C69.1971 12.9298 54.3171 11.7198 43.5971 8.18978C32.6271 4.06978 35.7371 -0.630222 47.1271 0.0697783C60.3271 0.879778 69.9971 5.97978 76.4671 13.8598Z" fill="white"/>
+    <path d="M25.0171 7.54977C42.6971 9.48977 56.6572 30.3298 45.0072 48.0798C49.8372 39.4198 49.4571 20.9698 31.4871 18.2598C31.3071 15.9898 29.7772 14.7198 27.4672 13.7898C20.3072 10.8898 21.8771 7.20977 25.0171 7.55977V7.54977Z" fill="white"/>
+    <path d="M5.31714 48.2098C7.90714 63.4898 15.9571 74.9698 31.1571 80.1798C8.64714 86.1798 -9.35286 68.4398 5.31714 48.2098Z" fill="white"/>
+    <path d="M35.3671 36.7998L35.3471 36.8298C34.5371 36.1698 33.3371 35.7798 31.5871 35.7998C27.1971 35.8498 23.2571 38.4998 21.2271 42.4698C17.2071 48.4898 13.0471 46.0198 11.8371 41.8198C19.0171 36.2998 29.3971 31.6798 35.3771 36.7998H35.3671Z" fill="white"/>
+    <path d="M35.3671 36.7998C29.3871 31.6798 19.0071 36.2998 11.8271 41.8198C10.8371 38.3898 11.8271 33.8198 16.4771 31.7898C23.1271 28.7398 32.4671 25.0198 31.4871 18.2498C49.4571 20.9598 49.8371 39.4198 45.0071 48.0698C44.4071 48.9798 43.7471 49.8898 43.0071 50.7798C40.6171 53.6698 32.8571 57.1698 35.3371 47.6398C36.0371 44.9498 38.2271 39.1798 35.3471 36.8198L35.3671 36.7898V36.7998Z" fill="white"/>
+    <path d="M31.4871 18.2498C32.4771 25.0198 23.1371 28.7398 16.4771 31.7898C11.8271 33.8198 10.8371 38.3898 11.8271 41.8198C9.00713 43.9898 6.67712 46.2898 5.30712 48.1998C2.69712 31.7898 14.6071 15.8898 31.4871 18.2398V18.2498Z" fill="white"/>
+    <path d="M30.0671 64.9398C35.9171 68.2698 43.3671 69.2198 50.9971 68.4798C45.9571 73.4798 39.3971 77.5898 31.1471 80.1698C15.9471 74.9698 7.89713 63.4798 5.30713 48.1998C6.67713 46.2898 9.00713 43.9798 11.8271 41.8198C13.0371 46.0198 17.1971 48.4898 21.2171 42.4698C18.5071 47.7998 19.2071 55.5098 26.8271 62.5798C27.6171 63.3198 28.4771 63.9698 29.3771 64.5298C29.3771 64.5298 29.3871 64.5298 29.3971 64.5398C29.6171 64.6798 29.8371 64.8098 30.0671 64.9398Z" fill="white"/>
+    <path d="M81.6772 56.1798C75.6872 69.0098 64.0772 78.9798 54.8172 81.5198C48.2872 83.3098 39.5672 83.3398 31.1472 80.1698C39.3972 77.5898 45.9571 73.4798 50.9971 68.4798C62.3671 67.3798 74.1572 62.5198 81.6772 56.1798Z" fill="white"/>
+  </g>
+  <g id="symbol-color">
+    <path d="M76.4671 13.8598C101.377 16.1798 98.7071 41.7698 81.6871 56.1798C90.4571 35.0198 81.9371 20.0498 76.4671 13.8598Z" fill="#9984B9"/>
+    <path d="M63.8671 42.9398C62.4671 51.9998 58.3571 61.1898 51.0071 68.4898C43.3671 69.2298 35.9171 68.2798 30.0771 64.9498C41.6971 71.4398 60.3971 63.9698 63.8771 42.9398H63.8671Z" fill="#4B3368"/>
+    <path d="M76.4671 13.8598C81.9271 20.0498 90.4571 35.0198 81.6871 56.1798C74.1671 62.5198 62.3771 67.3798 51.0071 68.4798C58.3671 61.1798 62.4771 51.9898 63.8671 42.9298C67.1471 23.1398 53.0271 11.5398 44.2571 8.42978C44.0271 8.34978 43.8071 8.26978 43.5871 8.17978C54.3071 11.7098 69.1871 12.9198 76.4571 13.8498L76.4671 13.8598Z" fill="#A25499"/>
+    <path d="M76.4671 13.8598C69.1971 12.9298 54.3171 11.7198 43.5971 8.18978C32.6271 4.06978 35.7371 -0.630222 47.1271 0.0697783C60.3271 0.879778 69.9971 5.97978 76.4671 13.8598Z" fill="#F59DB0"/>
+    <path d="M25.0171 7.54977C42.6971 9.48977 56.6572 30.3298 45.0072 48.0798C49.8372 39.4198 49.4571 20.9698 31.4871 18.2598C31.3071 15.9898 29.7772 14.7198 27.4672 13.7898C20.3072 10.8898 21.8771 7.20977 25.0171 7.55977V7.54977Z" fill="#FAB37F"/>
+    <path d="M5.31714 48.2098C7.90714 63.4898 15.9571 74.9698 31.1571 80.1798C8.64714 86.1798 -9.35286 68.4398 5.31714 48.2098Z" fill="#EF5395"/>
+    <path d="M35.3671 36.7998L35.3471 36.8298C34.5371 36.1698 33.3371 35.7798 31.5871 35.7998C27.1971 35.8498 23.2571 38.4998 21.2271 42.4698C17.2071 48.4898 13.0471 46.0198 11.8371 41.8198C19.0171 36.2998 29.3971 31.6798 35.3771 36.7998H35.3671Z" fill="#ED1765"/>
+    <path d="M35.3671 36.7998C29.3871 31.6798 19.0071 36.2998 11.8271 41.8198C10.8371 38.3898 11.8271 33.8198 16.4771 31.7898C23.1271 28.7398 32.4671 25.0198 31.4871 18.2498C49.4571 20.9598 49.8371 39.4198 45.0071 48.0698C44.4071 48.9798 43.7471 49.8898 43.0071 50.7798C40.6171 53.6698 32.8571 57.1698 35.3371 47.6398C36.0371 44.9498 38.2271 39.1798 35.3471 36.8198L35.3671 36.7898V36.7998Z" fill="#F3715A"/>
+    <path d="M31.4871 18.2498C32.4771 25.0198 23.1371 28.7398 16.4771 31.7898C11.8271 33.8198 10.8371 38.3898 11.8271 41.8198C9.00713 43.9898 6.67712 46.2898 5.30712 48.1998C2.69712 31.7898 14.6071 15.8898 31.4871 18.2398V18.2498Z" fill="#F59DB0"/>
+    <path d="M30.0671 64.9398C35.9171 68.2698 43.3671 69.2198 50.9971 68.4798C45.9571 73.4798 39.3971 77.5898 31.1471 80.1698C15.9471 74.9698 7.89713 63.4798 5.30713 48.1998C6.67713 46.2898 9.00713 43.9798 11.8271 41.8198C13.0371 46.0198 17.1971 48.4898 21.2171 42.4698C18.5071 47.7998 19.2071 55.5098 26.8271 62.5798C27.6171 63.3198 28.4771 63.9698 29.3771 64.5298C29.3771 64.5298 29.3871 64.5298 29.3971 64.5398C29.6171 64.6798 29.8371 64.8098 30.0671 64.9398Z" fill="#EE3B76"/>
+    <path d="M81.6772 56.1798C75.6872 69.0098 64.0772 78.9798 54.8172 81.5198C48.2872 83.3098 39.5672 83.3398 31.1472 80.1698C39.3972 77.5898 45.9571 73.4798 50.9971 68.4798C62.3671 67.3798 74.1572 62.5198 81.6772 56.1798Z" fill="#F59DB0"/>
+  </g>
+</svg>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="container">
+      <a href="emotionspaedagogik-home-de.html" class="nav-logo"><img src="assets/logo-horizontal-medium-clean.svg" alt="Emotionspädagogik Institut"></a>
+      <ul class="nav-links">
+        <li><a href="emotionspaedagogik-home-de.html">Unsere Methode</a></li>
+        <li><a href="emotionspaedagogik-entry-course-de.html">Ausbildungsweg</a></li>
+        <li><a href="emotionspaedagogik-about-de.html">Über uns</a></li>
+        <li><a href="emotionspaedagogik-entry-course-de.html">Einstiegskurs</a></li>
+        <li><a href="#" class="nav-cta" style="font-weight: 600;">Kostenlose Info-Session</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <svg class="hero-symbol hero-symbol-tr" viewBox="0 0 95 83"><use href="#symbol-color"/></svg>
+    <svg class="hero-symbol hero-symbol-bl" viewBox="0 0 95 83"><use href="#symbol-color"/></svg>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-label">Kostenlose Info-Session:</div>
+          <h1>Emotionspädagogik in der Führung &amp; der IHK&#8209;Weg</h1>
+          <p class="hero-intro">In etwa 15 Minuten erhalten Sie einen klaren Überblick, wie Emotionspädagogik Ihre emotionale Kompetenz in Verantwortungsrollen stärkt, wie der anerkannte IHK-Ausbildungsweg aussieht und welcher nächste Schritt zu Ihrer Situation passt.</p>
+          <div class="hero-cta-row">
+            <a href="#date" class="btn btn-primary-lg">Platz reservieren <span class="btn-arrow">&rarr;</span></a>
+          </div>
+          <p class="hero-trust">Entwickelt von Pädagogin Katrin Michl — anerkannt von:</p>
+          <div class="hero-logos">
+            <span class="hero-logo-badge"><img src="assets/SEAL-IHK.svg" alt="IHK Seal"></span>
+            <span class="hero-logo-badge"><img src="assets/SEAL-DEKRA.svg" alt="DEKRA Seal"></span>
+            <span class="hero-logo-badge"><img src="assets/SEAL-ZFU.png" alt="ZFU Seal"></span>
+          </div>
+        </div>
+        <div class="hero-image-col">
+          <div class="hero-laptop">
+            <div class="hero-laptop-screen">
+              <img src="assets/zoom-session-1.png" alt="Katrin on Zoom">
+              <span class="hero-live-tag">● Live</span>
+            </div>
+            <div class="hero-laptop-bar">
+              <div class="hero-laptop-dot"></div>
+            </div>
+          </div>
+          <div class="hero-meta">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            15 Minuten mit Katrin
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT YOU'LL LEARN ===== -->
+  <section class="section-learn">
+    <div class="container">
+      <div class="section-label">Was Sie erfahren</div>
+      <h2>Was Sie erfahren</h2>
+      <p class="section-intro">Nach der Session wissen Sie, ob diese Weiterbildung gerade für Ihre Karriere sinnvoll ist — und welcher Schritt am besten passt.</p>
+      <div class="learn-grid">
+        <!-- Item 1 -->
+        <div class="card learn-card">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div>
+            <h4>Die Methode in 5 Minuten</h4>
+            <p>Wie Emotionspädagogik Ihnen hilft, in Konflikten, schwierigen Gesprächen und emotional belasteten Situationen bei der Arbeit stabiler zu bleiben.</p>
+          </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="card learn-card">
+          <div class="icon-wrap icon-wrap--purple">
+            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <div>
+            <h4>Der professionelle Ausbildungsweg</h4>
+            <p>Vom 21-Tage-Grundlagenkurs über Companion (IHK), Specialist bis zum/zur Emotionspädagog:in (IHK) — wofür jede Stufe gedacht ist.</p>
+          </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="card learn-card">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          </div>
+          <div>
+            <h4>Ihr bester nächster Schritt</h4>
+            <p>Ob Sie Führungskraft im Bildungsbereich, Team-/HR-Leitung, Fachkraft im Sozial- oder Gesundheitswesen oder selbstständige:r Expert:in sind — welcher Einstieg zu Ihrer Rolle und Kapazität passt.</p>
+          </div>
+        </div>
+        <!-- Item 4 -->
+        <div class="card learn-card">
+          <div class="icon-wrap icon-wrap--purple">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div>
+            <h4>Zeit- &amp; Kostenüberblick</h4>
+            <p>Klarer Überblick über Aufwand, Termine, Preise, Erstattungsmöglichkeiten durch den Arbeitgeber und KOMPASS-Förderung für Solo-Selbstständige.</p>
+          </div>
+        </div>
+        <!-- Item 5 -->
+        <div class="card learn-card learn-card--span">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div>
+            <h4>Q&amp;A</h4>
+            <p>Raum für Ihre konkreten Fragen — kurz, fokussiert und bezogen auf Ihre reale Situation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHO IT'S FOR ===== -->
+  <section class="section-who">
+    <div class="container">
+      <h2>Für wen geeignet (und für wen nicht)</h2>
+      <div class="who-grid">
+        <div class="who-card who-card--yes">
+          <div class="who-card-title">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Passend, wenn…
+          </div>
+          <div class="who-item">
+            <span class="who-check who-check--yes">✓</span>
+            <p>Sie in Ihrer Arbeit emotionale Verantwortung für andere tragen — z.B. in Führungspositionen im Bildungsbereich, als Lehrkraft, im Sozial- und Gesundheitswesen, HR, als Teamleitung oder selbstständige:r Expert:in.</p>
+          </div>
+          <div class="who-item">
+            <span class="who-check who-check--yes">✓</span>
+            <p>Sie eine anerkannte, praktische Weiterbildung wollen — mit Klarheit darüber, wie der IHK-Weg zu Ihrer Rolle passt.</p>
+          </div>
+          <div class="who-item">
+            <span class="who-check who-check--yes">✓</span>
+            <p>Sie strukturierte, nicht-therapeutische Werkzeuge bevorzugen, die Sie Kolleg:innen, Vorgesetzten oder der Personalabteilung erklären können.</p>
+          </div>
+        </div>
+        <div class="who-card who-card--no">
+          <div class="who-card-title">
+            <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Nicht für Sie, wenn…
+          </div>
+          <div class="who-item">
+            <span class="who-check who-check--no">✗</span>
+            <p>Sie Therapie, klinische Behandlung oder Krisenunterstützung suchen.</p>
+          </div>
+          <div class="who-item">
+            <span class="who-check who-check--no">✗</span>
+            <p>Sie keine Live-Sessions mögen und nur Videos im Selbststudium wollen.</p>
+          </div>
+          <div class="who-item">
+            <span class="who-check who-check--no">✗</span>
+            <p>Anerkannte Qualifikationen und Zertifikate für Sie oder Ihre Organisation nicht wichtig sind.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="section-how">
+    <div class="container">
+      <div class="how-inline">
+        <h2>So funktioniert es</h2>
+        <div class="how-divider"></div>
+        <div class="how-items">
+          <div class="how-item">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="how-item-label">30–45 Min.</span>
+          </div>
+          <div class="how-item-sep"></div>
+          <div class="how-item">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <span class="how-item-label">Zoom (live)</span>
+          </div>
+          <div class="how-item-sep"></div>
+          <div class="how-item">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="how-item-label">In Ihrer Ortszeit</span>
+          </div>
+          <div class="how-item-sep"></div>
+          <div class="how-item">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span class="how-item-label">Live Q&amp;A</span>
+          </div>
+          <div class="how-item-sep"></div>
+          <div class="how-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span class="how-item-label">Deutsch</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PICK A DATE ===== -->
+  <section class="section-date" id="date">
+    <div class="container">
+      <h2>Termin wählen</h2>
+      <div class="date-card">
+        <span class="date-label">Kommende Sessions</span>
+        <div class="date-layout">
+          <div>
+            <div class="date-tiles">
+              <div class="date-tile">
+                <span class="date-tile-month">Feb</span>
+                <span class="date-tile-day">11</span>
+                <span class="date-tile-detail">Dienstag<br>18:00 MEZ</span>
+              </div>
+              <div class="date-tile">
+                <span class="date-tile-month">Feb</span>
+                <span class="date-tile-day">25</span>
+                <span class="date-tile-detail">Dienstag<br>18:00 MEZ</span>
+              </div>
+              <div class="date-tile">
+                <span class="date-tile-month">Mär</span>
+                <span class="date-tile-day">11</span>
+                <span class="date-tile-detail">Dienstag<br>18:00 MEZ</span>
+              </div>
+              <div class="date-tile">
+                <span class="date-tile-month">Mär</span>
+                <span class="date-tile-day">25</span>
+                <span class="date-tile-detail">Dienstag<br>18:00 MEZ</span>
+              </div>
+            </div>
+          </div>
+          <div class="date-info">
+            <p>Wählen Sie eine Zeit, die für Sie passt. Nach der Anmeldung erhalten Sie den <strong>Zoom-Link automatisch</strong> per E-Mail.</p>
+            <span class="date-zoom-tag">
+              <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+              Live Zoom-Session · 30–45 Min.
+            </span>
+          </div>
+        </div>
+        <div class="date-bottom">
+          <a href="#date" class="date-cta">Kostenlos anmelden <span>→</span></a>
+          <span class="date-email">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Lieber per E-Mail buchen?
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRAINING PATH ===== -->
+  <section class="section-path">
+    <div class="container">
+      <div class="path-grid">
+        <div class="path-left">
+          <div class="section-label">Ausbildungsweg</div>
+          <h2>Der professionelle Ausbildungsweg im Überblick</h2>
+          <p class="path-intro">Diese Session hilft Ihnen, den richtigen Einstiegspunkt zu wählen.</p>
+        </div>
+        <div class="path-list">
+          <div class="path-card">
+            <div class="path-number">1</div>
+            <div>
+              <span class="path-recommend">Empfohlener Start</span>
+              <h4>Emotionale Kompetenz Grundlagen — Führen unter Druck</h4>
+              <p>21-Tage-Grundlage mit praktischen Werkzeugen für Ihren Arbeitsalltag.</p>
+              <a href="#" class="btn btn-secondary">Mehr erfahren <span class="btn-arrow">→</span></a>
+            </div>
+          </div>
+          <div class="path-card">
+            <div class="path-number">2</div>
+            <div>
+              <h4>Modul 1 (IHK)</h4>
+              <p>Kernkompetenzen, um andere sicher durch emotionale Prozesse zu begleiten — die erste IHK-Stufe.</p>
+              <a href="#" class="btn btn-secondary">Den vollständigen IHK-Weg ansehen <span class="btn-arrow">→</span></a>
+            </div>
+          </div>
+          <div class="path-card">
+            <div class="path-number">3</div>
+            <div>
+              <h4>Modul 2/3</h4>
+              <p>Fortgeschrittene Anwendungen und Spezialisierung.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== YOUR HOST: KATRIN (Pink Band + White Card) ===== -->
+  <section class="section-host">
+    <svg class="band-symbol band-symbol-1" viewBox="0 0 95 83" fill="none"><use href="#symbol-white"/></svg>
+    <div class="container">
+      <div class="host-card">
+        <div class="host-photo">
+          <img src="assets/headshot.png" alt="Katrin Michl, Gründerin des Instituts für Emotionspädagogik">
+        </div>
+        <div class="host-content">
+          <div class="section-label">Ihre Gastgeberin</div>
+          <h2>Ihre Gastgeberin: Katrin</h2>
+          <p>Lehrerin, Trainerin und Gründerin des Privaten Instituts für Emotionspädagogik — Katrin arbeitet seit über 20 Jahren mit Menschen in Verantwortungsrollen, von Führungspositionen im Bildungsbereich über Lehrtätigkeit bis hin zu Kontexten im Sozial-, Gesundheits- und HR-Bereich.</p>
+          <p>Sie bringt eine klare, forschungsbasierte Methode mit, die emotionalen Druck im Arbeitsalltag in lehrbare Kompetenz verwandelt — vollständig abgestimmt auf den anerkannten IHK-Ausbildungsweg.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section-testimonials">
+    <div class="container">
+      <span class="section-label">Stimmen von Teilnehmer:innen</span>
+      <h2>Was unsere Teilnehmer:innen sagen</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-photo">
+            <img src="assets/TESTI-stephanie-P.webp" alt="M.K.">
+          </div>
+          <blockquote>Ich wusste endlich, welches Modul ich nehmen soll. Der Weg wurde glasklar.</blockquote>
+          <div class="testimonial-author">
+            <strong>/ M.K.</strong>
+            <span>Lehrerin</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-photo">
+            <img src="assets/TESTI-kurt-B.webp" alt="A.R.">
+          </div>
+          <blockquote>Kurz, fokussiert und praktisch. Hat mir geholfen, schnell zu entscheiden.</blockquote>
+          <div class="testimonial-author">
+            <strong>/ A.R.</strong>
+            <span>HR-Managerin</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-photo">
+            <img src="assets/TESTI-manuella-P.webp" alt="S.L.">
+          </div>
+          <blockquote>In 30 Minuten hatte ich einen Fahrplan und den nächsten Schritt gebucht.</blockquote>
+          <div class="testimonial-author">
+            <strong>/ S.L.</strong>
+            <span>Coach</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-photo">
+            <img src="assets/TESTI-jan-B.webp" alt="Jan B.">
+          </div>
+          <blockquote>Kurz, fokussiert und praktisch. Hat mir geholfen, schnell zu entscheiden.</blockquote>
+          <div class="testimonial-author">
+            <strong>/ Jan B.</strong>
+            <span>Dipl. Wirtschaftsingenieur, Emotionspädagoge (IHK)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQs ===== -->
+  <section class="section-faq">
+    <div class="container">
+      <div class="faq-grid">
+        <div class="faq-left">
+          <h2>FAQs</h2>
+          <p class="faq-intro">Schnelle Antworten zur kostenlosen Info-Session — Format, Zugang und was Sie erwartet.</p>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+              Wird die Session aufgezeichnet?
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">Nein, die Session wird nicht aufgezeichnet. Nehmen Sie live teil, um das Beste herauszuholen und Ihre Fragen direkt zu stellen.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+              Was kostet es?
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">Die Info-Session ist kostenlos. Keine Zahlung, keine Verpflichtung — nur ein klarer Überblick, der Ihnen bei der Entscheidung hilft.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+              Muss ich mich vorbereiten?
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">Keine Vorbereitung nötig. Wenn Sie spezifische Fragen zu Ihrer Situation oder zum Ausbildungsweg haben, schreiben Sie diese vorher auf, damit Sie nichts verpassen.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+              Welche technischen Voraussetzungen gibt es?
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">Eine stabile Internetverbindung und ein Gerät, das Zoom ausführen kann. Sie können von Computer, Tablet oder Smartphone teilnehmen.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+              In welcher Sprache findet die Session statt?
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">Die Session wird auf Deutsch gehalten. Englischsprachige Fragen sind bei Bedarf möglich.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+              Kann ich umbuchen?
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">Ja, Umbuchen ist problemlos möglich. Wählen Sie einfach einen neuen Termin, der für Sie passt.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="section-final-cta">
+    <!-- Decorative blobs -->
+    <div class="cta-blob cta-blob--1"></div>
+    <div class="cta-blob cta-blob--2"></div>
+    <div class="cta-blob cta-blob--3"></div>
+    <div class="cta-blob cta-blob--4"></div>
+
+    <div class="container">
+      <h2>Bauen Sie Ihre emotionale Kompetenz als Führungskraft auf.</h2>
+      <p>Kurze, professionelle Einblicke in emotionale Kompetenz für Menschen in Verantwortungsrollen. Kein Spam, keine Esoterik — nur das, was in der Praxis hilft.</p>
+      <div class="email-form">
+        <div class="email-form-input-wrap">
+          <input type="email" placeholder="ihre@email.de">
+          <div class="email-form-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+        </div>
+        <a href="#" class="btn-cta">Einblicke erhalten <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="emotionspaedagogik-home-de.html" class="nav-logo"><img src="assets/logo-horizontal-medium-clean.svg" alt="Emotionspädagogik Institut"></a>
+          <p>Professionelle Weiterbildung in emotionaler Kompetenz für Menschen in Verantwortungsrollen.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Lernen</div>
+          <a href="emotionspaedagogik-entry-course-de.html">Emotionale Kompetenz Grundlagen</a>
+          <a href="emotionspaedagogik-entry-course-de.html">IHK-zertifizierte Weiterbildung</a>
+          <a href="emotionspaedagogik-free-info-session-de.html">Kostenlose Info-Session</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Über uns</div>
+          <a href="emotionspaedagogik-about-de.html">Über Katrin &amp; das Institut</a>
+          <a href="emotionspaedagogik-about-de.html">Überblick</a>
+          <a href="emotionspaedagogik-about-de.html">Mission &amp; Partner</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Hilfe</div>
+          <a href="#">FAQ</a>
+          <a href="#">Kontakt</a>
+          <a href="#">E-Mail-Support</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Rechtliches</div>
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">AGB</a>
+          <a href="#">Cookie-Einstellungen</a>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-badges">
+        <span class="footer-badge"><img src="assets/SEAL-IHK.svg" alt="IHK-zertifiziert"></span>
+        <span class="footer-badge"><img src="assets/SEAL-DEKRA.svg" alt="DEKRA-zertifiziert"></span>
+        <span class="footer-badge"><img src="assets/SEAL-ZFU.png" alt="ZFU-zugelassen"></span>
+      </div>
+      <div class="footer-copyright">© 2026 Emotionspädagogik Institut · Privates Institut für Emotionspädagogik</div>
+    </div>
+  </footer>
+
+</body>
+</html>
